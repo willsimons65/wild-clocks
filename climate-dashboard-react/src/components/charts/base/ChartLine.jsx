@@ -1,21 +1,20 @@
 // src/components/charts/base/ChartLine.jsx
 
 import React, { useMemo, useEffect, useRef } from "react";
-import { line, curveCatmullRom } from "d3-shape";
+import * as d3 from "d3";
 
 export default function ChartLine({ data, xScale, yScale, seriesColor = "white" }) {
   const pathRef = useRef(null);
 
   const pathD = useMemo(() => {
-    const spline = line()
-      .x(d => xScale(d.day))
-      .y(d => yScale(d.value))
-      .curve(curveCatmullRom.alpha(0.5));
+    const spline = d3.line()
+      .x((d) => xScale(d.day))
+      .y((d) => yScale(d.value))
+      .curve(d3.curveCatmullRom.alpha(0.5));
 
     return spline(data);
   }, [data, xScale, yScale]);
 
-  // Animate on mount
   useEffect(() => {
     const path = pathRef.current;
     if (!path) return;
