@@ -8,14 +8,13 @@ export default function ChartLine({ data, xScale, yScale, seriesColor = "white" 
 
   const pathD = useMemo(() => {
     const spline = line()
-      .x(d => xScale(d.day))
-      .y(d => yScale(d.value))
+      .x((d) => xScale(d.day))
+      .y((d) => yScale(d.value))
       .curve(curveCatmullRom.alpha(0.5));
 
     return spline(data);
   }, [data, xScale, yScale]);
 
-  // Animate on mount
   useEffect(() => {
     const path = pathRef.current;
     if (!path) return;
