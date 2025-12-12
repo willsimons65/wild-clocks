@@ -1,0 +1,76 @@
+/* index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------
+   Base Layer
+---------------------------------------- */
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* ---------------------------------------
+   Components Layer
+---------------------------------------- */
+@layer components {
+  .header-btn {
+    @apply flex items-center gap-2 px-4 py-0.5 rounded-full border border-white text-white
+           bg-white/5 hover:bg-white/10 transition h-9;
+  }
+
+  .header-select {
+    @apply bg-[#1e1e1e] text-white rounded-full border border-white px-4 py-0.5 pr-10
+           hover:bg-white/10 transition h-9 appearance-none;
+  }
+
+  .ChartCard,
+  .Card,
+  .PageWrapper,
+  .PhotoGrid {
+    overflow: visible !important;
+  }
+}
+
+/* ---------------------------------------
+   Animations + Utilities
+---------------------------------------- */
+@keyframes growBar {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.25s ease-out;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
