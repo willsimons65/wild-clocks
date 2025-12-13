@@ -90,25 +90,32 @@ export default function ChartContainer({
 
   const handleLeave = () => setHoverIndex(null);
 
-  // ---------------------
+// ---------------------
 // Touch logic (mobile)
 // ---------------------
-const handleTouchStart = (e) => {
-  if (!interactive) return;
-  if (!e.touches?.length) return;
 
-  const touch = e.touches[0];
-  handleTouchMove({ clientX: touch.clientX, isTouch: true });
+const getTouchX = (e) => {
+  const touch = e.touches?.[0] || e.changedTouches?.[0];
+  return touch?.clientX ?? null;
 };
 
+// Touch start
+const handleTouchStart = (e) => {
+  if (!interactive) return;
+  const clientX = getTouchX(e);
+  if (clientX == null) return;
+  handleTouchMove(e); // immediately show cursor
+};
+
+// Touch move (drag)
 const handleTouchMove = (e) => {
   if (!interactive) return;
 
-  // Prevent the page from scrolling while dragging
-  if (e.preventDefault) e.preventDefault();
+  // Stop page from scrolling
+  e.preventDefault();
 
-  const clientX = e.clientX ?? e.touches?.[0]?.clientX;
-  if (!clientX) return;
+  const clientX = getTouchX(e);
+  if (clientX == null) return;
 
   const box = containerRef.current.getBoundingClientRect();
   const mx = clientX - box.left - PADDING_LEFT;
@@ -122,9 +129,12 @@ const handleTouchMove = (e) => {
   setHoverIndex(index);
 
   const d = data[index];
-  if (d) setHoverX(xScale(d.day));
+  if (d) {
+    setHoverX(xScale(d.day));
+  }
 };
 
+// Touch end
 const handleTouchEnd = () => {
   setHoverIndex(null);
 };
@@ -239,7 +249,10 @@ if (topY !== null && bottomY !== null) {
         onMouseMove={interactive ? handleMove : undefined}
         onMouseLeave={interactive ? handleLeave : undefined}
 
-              // ⭐ Touch interactions
+        // ⭐ allow touchmove preventDefault
+        touchAction="none"
+        
+        // ⭐ Touch interactions
         onTouchStart={interactive ? handleTouchStart : undefined}
         onTouchMove={interactive ? handleTouchMove : undefined}
         onTouchEnd={interactive ? handleTouchEnd : undefined}
