@@ -90,6 +90,45 @@ export default function ChartContainer({
 
   const handleLeave = () => setHoverIndex(null);
 
+  // ---------------------
+// Touch logic (mobile)
+// ---------------------
+const handleTouchStart = (e) => {
+  if (!interactive) return;
+  if (!e.touches?.length) return;
+
+  const touch = e.touches[0];
+  handleTouchMove({ clientX: touch.clientX, isTouch: true });
+};
+
+const handleTouchMove = (e) => {
+  if (!interactive) return;
+
+  // Prevent the page from scrolling while dragging
+  if (e.preventDefault) e.preventDefault();
+
+  const clientX = e.clientX ?? e.touches?.[0]?.clientX;
+  if (!clientX) return;
+
+  const box = containerRef.current.getBoundingClientRect();
+  const mx = clientX - box.left - PADDING_LEFT;
+
+  if (mx < 0 || mx > chartWidth) {
+    setHoverIndex(null);
+    return;
+  }
+
+  const index = Math.round((mx / chartWidth) * (data.length - 1));
+  setHoverIndex(index);
+
+  const d = data[index];
+  if (d) setHoverX(xScale(d.day));
+};
+
+const handleTouchEnd = () => {
+  setHoverIndex(null);
+};
+
   const cursorX =
     hoverIndex !== null &&
     hoverIndex >= 0 &&
@@ -199,7 +238,13 @@ if (topY !== null && bottomY !== null) {
         height={CHART_HEIGHT + PADDING_TOP + BOTTOM_PADDING}
         onMouseMove={interactive ? handleMove : undefined}
         onMouseLeave={interactive ? handleLeave : undefined}
+
+              // ⭐ Touch interactions
+        onTouchStart={interactive ? handleTouchStart : undefined}
+        onTouchMove={interactive ? handleTouchMove : undefined}
+        onTouchEnd={interactive ? handleTouchEnd : undefined}
       >
+
         <g transform={`translate(${PADDING_LEFT}, ${PADDING_TOP})`}>
           {enhanced}
         </g>
@@ -294,3 +339,5 @@ if (topY !== null && bottomY !== null) {
     </div>
   );
 }
+
+
