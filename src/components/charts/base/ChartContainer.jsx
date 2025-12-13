@@ -101,6 +101,7 @@ const getTouchX = (e) => {
 
 // Touch start
 const handleTouchStart = (e) => {
+  console.log("TOUCH START", e.touches?.[0]?.clientX);
   if (!interactive) return;
   const clientX = getTouchX(e);
   if (clientX == null) return;
@@ -109,6 +110,7 @@ const handleTouchStart = (e) => {
 
 // Touch move (drag)
 const handleTouchMove = (e) => {
+  console.log("TOUCH MOVE", e.touches?.[0]?.clientX);
   if (!interactive) return;
 
   // Stop page from scrolling
@@ -136,6 +138,7 @@ const handleTouchMove = (e) => {
 
 // Touch end
 const handleTouchEnd = () => {
+  console.log("TOUCH END");
   setHoverIndex(null);
 };
 
@@ -249,8 +252,9 @@ if (topY !== null && bottomY !== null) {
         onMouseMove={interactive ? handleMove : undefined}
         onMouseLeave={interactive ? handleLeave : undefined}
 
-        // ⭐ allow touchmove preventDefault
+        // ⭐ REQUIRED ON MOBILE
         touchAction="none"
+        pointerEvents="auto"
         
         // ⭐ Touch interactions
         onTouchStart={interactive ? handleTouchStart : undefined}
