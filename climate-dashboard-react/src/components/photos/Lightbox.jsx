@@ -121,9 +121,16 @@ export default function Lightbox({
         >
           {/* Title */}
           {monthName && (
-            <div className="text-white text-3xl font-light mb-4 tracking-wide">
-              {monthName}
-            </div>
+          <div className="
+              text-white 
+              text-xl md:text-3xl   /* mobile → xl, desktop → 3xl */
+              font-light 
+              mb-4 
+              tracking-wide
+            "
+          >
+          {monthName}
+          </div>
           )}
 
           <div
@@ -132,23 +139,36 @@ export default function Lightbox({
           >
             {/* CLOSE BUTTON */}
             <button
-              aria-label="Close"
-              onClick={onClose}
-              className="absolute -top-12 right-0 text-white text-3xl 
-                       hover:text-white/70 select-none"
+            aria-label="Close"
+            onClick={onClose}
+            className="
+                absolute 
+                -top-10 md:-top-12   /* move closer on mobile */
+                right-0 
+                text-white 
+                text-2xl md:text-3xl  /* smaller icon on mobile */
+                hover:text-white/70 
+                select-none
+              "
             >
-              ✕
+            ×
             </button>
 
             {/* MAIN IMAGE */}
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center w-full">
+
               <img
                 key={safeImage}
                 src={safeImage}
                 alt=""
                 className={`
-                  max-w-[70vw] max-h-[70vh] object-contain rounded-xl shadow-2xl
-                  transition-all duration-300 
+                  w-[90vw]            /* ⭐ much larger image on mobile */
+                  h-[90vw]            /* ⭐ keeps it square */
+                  max-w-[600px]       /* desktop constraint */
+                  max-h-[600px]       /* desktop constraint */
+                  object-contain 
+                  rounded-xl shadow-2xl
+                  transition-all duration-300
                   ${animClass}
                 `}
                 onLoad={() => {
@@ -164,9 +184,14 @@ export default function Lightbox({
                 aria-label="Previous image"
                 onClick={doPrev}
                 disabled={isAnimating || index === 0}
-                className="absolute left-[-60px] top-1/2 -translate-y-1/2
-                           text-white text-5xl hover:text-white/70 
-                           disabled:opacity-30"
+                className="
+                  absolute 
+                  left-3 md:left-6          /* ⭐ reduced by 50% */
+                  top-1/2 -translate-y-1/2
+                  text-white text-4xl md:text-5xl  /* slightly smaller on mobile */
+                  hover:text-white/70 
+                  disabled:opacity-30
+                "
               >
                 ‹
               </button>
@@ -176,9 +201,14 @@ export default function Lightbox({
                 aria-label="Next image"
                 onClick={doNext}
                 disabled={isAnimating || index === images.length - 1}
-                className="absolute right-[-60px] top-1/2 -translate-y-1/2
-                           text-white text-5xl hover:text-white/70
-                           disabled:opacity-30"
+                className="
+                  absolute 
+                  right-3 md:right-6         /* ⭐ reduced by 50% */
+                  top-1/2 -translate-y-1/2
+                  text-white text-4xl md:text-5xl
+                  hover:text-white/70
+                  disabled:opacity-30
+                "
               >
                 ›
               </button>

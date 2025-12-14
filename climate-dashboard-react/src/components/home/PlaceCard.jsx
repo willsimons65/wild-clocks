@@ -24,26 +24,45 @@ export default function PlaceCard({
         border border-white/5
       "
     >
-      {/* Thumbnail */}
-      <div className="md:w-1/2 w-full">
+      {/* IMAGE */}
+      <div className="w-full md:w-1/2">
         <img
           src={image}
           alt={title}
           loading="lazy"
-          className="w-full h-full object-cover md:h-auto"
+          className="
+            w-full 
+            h-40 md:h-full    /* ⭐ shorter landscape image on mobile */
+            object-cover
+          "
         />
       </div>
 
-      {/* Text */}
-      <div className="md:w-1/2 w-full p-8 flex flex-col justify-top">
-        <h2 className="text-2xl font-normal mb-3">{title}</h2>
-        <p className="text-lg text-white/80">{location}</p>
-        <p className="text-white/60 mb-6">{country}</p>
+      {/* TEXT */}
+      <div
+        className="
+          w-full md:w-1/2
+          p-4 md:p-8       /* ⭐ smaller padding on mobile */
+          flex flex-col justify-center
+          text-center md:text-left  /* ⭐ center text on mobile, left on desktop */
+        "
+      >
+        <h2 className="text-xl md:text-2xl font-normal mb-2 md:mb-3">
+          {title}
+        </h2>
 
-        <p className="text-white/70 text-base">Latitude: {latitude}</p>
-        <p className="text-white/70 text-base mt-1">Altitude: {altitude}</p>
+        <p className="text-base md:text-lg text-white/80">{location}</p>
+        <p className="text-white/60 mb-4 md:mb-6">{country}</p>
+
+        <p className="text-white/70 text-sm md:text-base">
+          Latitude: {latitude}
+        </p>
+        <p className="text-white/70 text-sm md:text-base mt-1">
+          Altitude: {altitude}
+        </p>
       </div>
     </Link>
   );
 }
+
 
