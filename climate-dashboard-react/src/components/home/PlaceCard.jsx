@@ -44,7 +44,7 @@ export default function PlaceCard({
           w-full md:w-1/2
           p-4 md:p-8       /* ⭐ smaller padding on mobile */
           flex flex-col justify-center
-          text-center md:text-left  /* ⭐ center text on mobile, left on desktop */
+          text-left md:text-left  /* ⭐ center text on mobile, left on desktop */
         "
       >
         <h2 className="text-xl md:text-2xl font-normal mb-2 md:mb-3">

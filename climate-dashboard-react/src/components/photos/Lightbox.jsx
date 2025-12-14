@@ -146,7 +146,7 @@ export default function Lightbox({
                 -top-10 md:-top-12   /* move closer on mobile */
                 right-0 
                 text-white 
-                text-2xl md:text-3xl  /* smaller icon on mobile */
+                text-2.5xl md:text-3xl  /* smaller icon on mobile */
                 hover:text-white/70 
                 select-none
               "
