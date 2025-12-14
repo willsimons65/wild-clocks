@@ -53,7 +53,7 @@ export default function Hero() {
           <p>
         
             Together, they reveal not only how the seasons are shifting, but how
-            much beauty remains... and how much is still worth protecting.
+            much beauty remains - and how much is still worth protecting.
           </p>
         </div>
       </div>
