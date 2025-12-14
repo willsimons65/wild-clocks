@@ -49,7 +49,7 @@ export default function Header({ placeName, year, setYear, metric, setMetric }) 
 
           {/* MOBILE DROPDOWN */}
           {mobileOpen && (
-            <div className="absolute top-13 left-10 w-32 bg-[#2A2A2A] border border-white/10 rounded-xl shadow-xl md:hidden">
+            <div className="absolute top-12 left-10 w-32 bg-[#2A2A2A] border border-white/10 rounded-xl shadow-xl md:hidden">
               {years.map((y) => (
                 <button
                   key={y}
