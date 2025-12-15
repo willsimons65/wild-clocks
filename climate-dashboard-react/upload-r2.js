@@ -17,16 +17,26 @@ const {
   R2_BUCKET_NAME
 } = process.env;
 
-if (!LOCAL_PHOTO_ROOT) throw new Error("LOCAL_PHOTO_ROOT missing in .env");
+if (!LOCAL_PHOTO_ROOT) {
+  throw new Error("❌ LOCAL_PHOTO_ROOT missing in .env");
+}
 
+// -------------------------------
+// CONFIGURE PLACE / YEAR / MONTH
+// -------------------------------
 const PLACE = "littleknepp";
 const YEAR = "2025";
 const MONTH = "december";
 
 const DRY_RUN = process.argv.includes("--dry-run");
+
 const LOCAL_FOLDER = path.join(LOCAL_PHOTO_ROOT, PLACE, YEAR, MONTH);
 
-// --- R2 client ---
+console.log("📁 Local folder:", LOCAL_FOLDER);
+
+// -------------------------------
+// R2 CLIENT
+// -------------------------------
 const s3 = new S3Client({
   region: "auto",
   endpoint: R2_S3_ENDPOINT,
@@ -36,8 +46,18 @@ const s3 = new S3Client({
   },
 });
 
-// --- Upload process ---
+// -------------------------------
+// UPLOAD PROCESS
+// -------------------------------
 async function upload() {
+  try {
+    // verify directory exists
+    await fs.access(LOCAL_FOLDER);
+  } catch (err) {
+    console.error("❌ Photo folder does not exist:", LOCAL_FOLDER);
+    return;
+  }
+
   const entries = await fs.readdir(LOCAL_FOLDER);
   const files = entries.filter((f) => /\.(png|jpg|jpeg|webp)$/i.test(f));
 
@@ -72,9 +92,8 @@ async function upload() {
   }
 
   bar.stop();
-  console.log("✅ Upload complete");
+  console.log("✅ Upload complete!");
 }
 
 upload().catch(console.error);
-
 
