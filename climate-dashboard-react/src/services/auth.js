@@ -1,10 +1,10 @@
 // src/services/auth.js
 
-export async function loginWithCode(password) {
+export async function loginWithCode(code) {
   const res = await fetch("/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ password }),
+    body: JSON.stringify({ password: code }),
   });
 
   if (!res.ok) {
@@ -12,16 +12,19 @@ export async function loginWithCode(password) {
     throw new Error(data.error || "Invalid access code");
   }
 
+  // ✅ CLIENT FLAG (routing only)
+  localStorage.setItem("wc_auth", "1");
+
   return true;
 }
 
 export function isAuthenticated() {
-  if (typeof document === "undefined") return false;
-  return document.cookie.split("; ").some((c) => c.startsWith("wc_auth="));
+  // ✅ DEV MODE: always allow
+  if (import.meta.env.DEV) return true;
+
+  return localStorage.getItem("wc_auth") === "1";
 }
 
-export function logoutLocal() {
-  // Client-side helper (you can add a /logout function later if you want)
-  document.cookie =
-    "wc_auth=; Path=/; Max-Age=0; SameSite=Lax; Secure";
+export function logout() {
+  localStorage.removeItem("wc_auth");
 }
