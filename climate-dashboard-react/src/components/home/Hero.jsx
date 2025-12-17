@@ -47,7 +47,7 @@ export default function Hero() {
           </p>
 
           <p>
-            Wild Clocks follows these changes through two landscapes: a garden in Oxfordshire and a nearby wood. Their seasonal stories unfold through a series of photographs, which are arranged into quadrants - or 'clocks'. These are then paired with the climate and seasonal data that shape them.
+            Wild Clocks follows these changes through two landscapes: a garden in Oxfordshire and a nearby wood. Their seasonal stories unfold through a series of photographs - or 'clocks'. These are then paired with the climate and seasonal data that shape them.
           </p>
 
           <p>
