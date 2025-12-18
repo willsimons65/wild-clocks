@@ -37,22 +37,18 @@ export default function Hero() {
           <p>
             For centuries, plants have followed the same unchanging patterns of
             leaf-out, flowering, fruiting, and decay. Gardeners and ecologists
-            know these rhythms well.
+            know these rhythms well.</p>
+            
+          <p>But things are changing.</p>
+
+          <p>The world is warming up. And with it, the old certainties are giving way to something new and less certain: a world in which the 'slow violence' of climate change is destabilising the seasons.
           </p>
 
-          <p>
-            But the world is changing. Warming temperatures are unsettling the
-            timing of the seasons, and with them the life cycles of plants,
-            insects and animals.
-          </p>
-
-          <p>
-            Wild Clocks follows these changes through two landscapes: a garden in Oxfordshire and a nearby wood. Their seasonal stories unfold through a series of photographs - or 'clocks' -, which are arranged in quadrants. These are then paired with the climate and seasonal data that shape them.
-          </p>
-
-          <p>
-        
-            Together, they reveal not only how the seasons are shifting, but how
+          <p>Wild Clocks follows these changes through two landscapes: a garden in Oxfordshire and a nearby wood.</p> 
+            
+          <p>Their seasonal stories unfold through a series of photographs - or 'clocks' - one for each month. These are then paired with the climate and seasonal data that shape them.</p>
+          
+          <p> Together, they reveal not only how the seasons are shifting, but how
             much beauty remains - and how much is still worth protecting.
           </p>
         </div>
