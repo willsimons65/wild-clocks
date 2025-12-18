@@ -35,7 +35,7 @@ export default function Hero() {
           "
         >
           <p>
-            For centuries, plants have followed the same unchanging patterns of
+            For millennia, plant communities have followed the same unchanging patterns of
             leaf-out, flowering, fruiting, and decay. Gardeners and ecologists
             know these rhythms well.</p>
             
