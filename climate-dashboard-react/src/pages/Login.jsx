@@ -89,7 +89,7 @@ export default function Login() {
               onChange={(e) => setCode(e.target.value)}
               autoComplete="off"
               inputMode="text"
-              placeholder="w1ldth1ng1234"
+              placeholder="Enter password"
               className="
                 w-full rounded-2xl
                 bg-[#111111]
