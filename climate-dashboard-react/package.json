@@ -1,3 +1,4 @@
+
 {
   "name": "climate-dashboard-react",
   "private": true,
@@ -7,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:aggregates": "node scripts/build-climate-aggregates.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.952.0",
@@ -39,3 +41,5 @@
     "wrangler": "^4.51.0"
   }
 }
+
+
