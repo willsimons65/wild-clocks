@@ -1,6 +1,6 @@
 // src/components/layout/MonthBlock.jsx
 
-import React from "react";
+import { useState } from "react";
 import PhotoGrid from "@/components/photos/PhotoGrid";
 import ChartCard from "@/components/layout/ChartCard";
 
@@ -9,7 +9,13 @@ import RainfallChart from "@/components/charts/RainfallChart";
 import HumidityChart from "@/components/charts/HumidityChart";
 import PhotoperiodChart from "@/components/charts/PhotoperiodChart";
 
+
+import TemperatureModal from "@/components/modals/TemperatureModal";
+import ModalControlIcon from "@/components/icons/ModalControlIcon";
+
+
 export default function MonthBlock({ month, year, place, metric, data }) {
+  const [isTemperatureModalOpen, setIsTemperatureModalOpen] = useState(false);
 
   if (!data || data.length === 0) {
     console.warn("MonthBlock: empty data for", month);
@@ -74,7 +80,8 @@ export default function MonthBlock({ month, year, place, metric, data }) {
     }
   };
 
-  return (
+return (
+  <>
     <div className="flex flex-col gap-4 relative overflow-visible">
       
       {/* Photo block */}
@@ -82,17 +89,46 @@ export default function MonthBlock({ month, year, place, metric, data }) {
         <PhotoGrid month={monthIndex} year={year} place={place} />
       </div>
 
-      {/* Month label */}
-      <h2 className="text-center text-lg font-medium tracking-tight opacity-90">
-        {month}
-      </h2>
-
       {/* Chart block */}
       <ChartCard>
-        <div className="relative overflow-visible">{renderChart()}</div>
+        <div className="relative overflow-visible">
+
+          {/* Chart header */}
+          <div className="relative px-4 pt-0 pb-4 h-14">
+  {/* Centered month label */}
+  <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                 text-lg font-medium tracking-tight opacity-90">
+    {month}
+  </h2>
+
+  {/* Modal control */}
+  <div className="absolute right-0 top-1/2 -translate-x-2/2 -translate-y-1/2">
+    <button
+      aria-label="Open averages"
+      className="w-12 h-12 flex items-center justify-center
+                 opacity-70 hover:opacity-100 transition"
+      onClick={() => setIsTemperatureModalOpen(true)}
+    >
+      <ModalControlIcon className="w-6 h-6 text-white" />
+    </button>
+  </div>
+</div>
+
+
+          {renderChart()}
+        </div>
       </ChartCard>
     </div>
-  );
+
+    {isTemperatureModalOpen && metric === "temperature" && (
+      <TemperatureModal
+        month={month}
+        year={year}
+        onClose={() => setIsTemperatureModalOpen(false)}
+      />
+    )}
+  </>
+);  
 }
 
 
