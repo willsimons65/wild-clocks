@@ -84,7 +84,7 @@ export default function TemperatureModal({ month, year, onClose }) {
 
 <div className="px-6 mt-4">
   <p className="mt-6 text-sm text-white/40">
-  Compare this month’s average to previous years.
+  Compare the historical average for [month].
 </p>
 </div>
 
