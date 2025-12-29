@@ -1,5 +1,5 @@
 export type TemperatureMonthData = {
-  month: number; // 1–12
+  month: string; // 1–12
   year: number;  // selected year
 
   summary: {

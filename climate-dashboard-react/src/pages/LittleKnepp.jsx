@@ -8,11 +8,21 @@ import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 
+import temperatureData from "@/data/aggregates/little-knepp.json";
+
 export default function LittleKnepp() {
   const [metric, setMetric] = useState("temperature");
   const [year, setYear] = useState(2025);
 
   const [allYearsData, setAllYearsData] = useState(null);
+
+  const allDailyRows = useMemo(() => {
+  if (!allYearsData) return [];
+  return Object.values(allYearsData).flatMap((byMonth) =>
+    Object.values(byMonth).flat()
+  );
+  }, [allYearsData]);
+
   const [weather, setWeather] = useState(null);
 
   const [fade, setFade] = useState(false);
@@ -105,9 +115,11 @@ export default function LittleKnepp() {
               key={month}
               month={month}
               year={year}
-              place="littleknepp"       // USE THIS CONSISTENTLY IN PhotoGrid paths
+              place="littleknepp"        // ✅ fixed
               metric={metric}
-              data={weather[month] || []}
+              data={weather[month]}
+              fullData={allDailyRows}
+              temperatureData={temperatureData}
             />
           ))}
         </div>

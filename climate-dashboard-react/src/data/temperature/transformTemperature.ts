@@ -1,36 +1,26 @@
 import type { TemperatureMonthData } from "./types";
 
-type RawAggregates = {
-  years: {
-    [year: string]: {
-      [month: string]: {
-        avgMaxTemp: number;
-        avgMinTemp: number;
-        avgMeanTemp: number;
-        days: number;
-      };
-    };
-  };
-};
-
 function round1(n: number): number {
   return Math.round(n * 10) / 10;
 }
 
-/**
- * Transform raw aggregate data into UI-ready temperature data
- * for a specific month and selected year.
- */
 export function transformTemperatureMonth(
-  raw: RawAggregates,
+  raw: { years: Record<string, any> } | null | undefined,
   selectedYear: number,
-  selectedMonth: number
-): TemperatureMonthData {
+  monthIndex: number
+): TemperatureMonthData | null {
+
+  if (!raw || !raw.years) {
+    console.warn("transformTemperatureMonth: invalid raw data", raw);
+    return null;
+  }
+
+  const selectedMonth = String(monthIndex + 1); // ✅ FIX
+
   const byYear: TemperatureMonthData["byYear"] = [];
 
-  // 1️⃣ Collect absolute values for this month across years
   for (const year of Object.keys(raw.years)) {
-    const monthData = raw.years[year][selectedMonth];
+    const monthData = raw.years[year]?.[selectedMonth];
     if (!monthData) continue;
 
     byYear.push({
@@ -40,28 +30,16 @@ export function transformTemperatureMonth(
     });
   }
 
-  // 2️⃣ Sort descending by year
   byYear.sort((a, b) => b.year - a.year);
 
-  // 3️⃣ Find baseline (selected year)
-  const baseline = byYear.find(
-    (row) => row.year === selectedYear
-  );
+  const baseline =
+    byYear.find((row) => row.year === selectedYear) ?? byYear[0];
 
   if (!baseline) {
-    throw new Error(
-      `No temperature data for ${selectedYear}-${selectedMonth}`
-    );
+    console.warn("transformTemperatureMonth: no temperature data at all");
+    return null;
   }
 
-  // 4️⃣ Build meanDifference
-  const meanDifference = byYear.map((row) => ({
-    year: row.year,
-    diffMax: round1(row.avgMax - baseline.avgMax),
-    diffMin: round1(row.avgMin - baseline.avgMin),
-  }));
-
-  // 5️⃣ Summary (explicit, no recomputation)
   const summary = {
     avgMax: baseline.avgMax,
     avgMin: baseline.avgMin,
@@ -72,6 +50,7 @@ export function transformTemperatureMonth(
     year: selectedYear,
     summary,
     byYear,
-    meanDifference,
+    meanDifference: [],
   };
 }
+

@@ -59,16 +59,19 @@ export default function AppletonWoodsPage() {
       />
 
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 p-6">
-        {months.map((month) => (
+          {months.map((month) => (
           <MonthBlock
             key={month}
             month={month}
             year={year}
             place="appletonwoods"
             metric={metric}
-            data={weather[month] || []}
+            data={weather[month] || []}   // charts: current year only
+            fullData={Object.values(allYearsData).flatMap(byMonth =>
+              Object.values(byMonth).flat()
+            )}                             // modals: ALL YEARS
           />
-        ))}
+          ))}
       </div>
     </div>
   );
