@@ -17,8 +17,11 @@ export default function Header({ placeName, year, setYear, metric, setMetric }) 
   }
 
   // Year list
-  const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: 5 }, (_, i) => currentYear - 1 + i);
+  const years = [
+  { year: 2024 },
+  { year: 2025 },
+  { year: 2026, disabled: true },
+];
 
   return (
     <header className="sticky top-0 z-50 bg-[#1E1E1E]/80 backdrop-blur-xl border-b border-white/10">
@@ -50,27 +53,40 @@ export default function Header({ placeName, year, setYear, metric, setMetric }) 
           {/* MOBILE DROPDOWN */}
           {mobileOpen && (
             <div className="absolute top-12 left-10 w-32 bg-[#2A2A2A] border border-white/10 rounded-xl shadow-xl md:hidden">
-              {years.map((y) => (
+              {years.map(({ year: y, disabled }) => (
                 <button
                   key={y}
-                  className={`w-full text-left px-4 py-2 text-white hover:bg-white/10 ${
-                    y === year ? "bg-white/10" : ""
-                  }`}
+                  disabled={disabled}
+                  className={`w-full text-left px-4 py-2 text-white
+                    ${disabled ? "opacity-40 cursor-not-allowed" : "hover:bg-white/10"}
+                    ${y === year ? "bg-white/10" : ""}
+                  `}
                   onClick={() => {
+                    if (disabled) return;
                     setYear(y);
                     setMobileOpen(false);
                   }}
                 >
                   {y}
+                  {disabled && (
+                    <span className="ml-2 text-xs text-white/60">
+                      (no data yet)
+                    </span>
+                  )}
                 </button>
               ))}
+
             </div>
           )}
         </div>
 
         {/* RIGHT SIDE — desktop only */}
         <div className="hidden md:flex items-center gap-3">
-          <YearSelector selectedYear={year} onYearChange={setYear} />
+          <YearSelector
+            years={years}
+            selectedYear={year}
+            onYearChange={setYear}
+          />
           <MetricSelector selected={metric} onChange={setMetric} />
         </div>
 

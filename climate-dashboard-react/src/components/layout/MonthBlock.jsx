@@ -20,6 +20,26 @@ const MONTHS = [
   "July","August","September","October","November","December"
 ];
 
+function normalizeRainfallRows(rows) {
+  if (!Array.isArray(rows)) return [];
+
+  return rows.map((r) => {
+    // If month is already a string, leave it alone
+    if (typeof r.month === "string") return r;
+
+    // If month is a number (1–12), convert to name
+    if (typeof r.month === "number") {
+      return {
+        ...r,
+        month: MONTHS[r.month - 1],
+      };
+    }
+
+    // Fallback: return row unchanged
+    return r;
+  });
+}
+
 export default function MonthBlock({
   month,
   year,
@@ -40,12 +60,27 @@ export default function MonthBlock({
   const monthIndex = monthIndex0 + 1;
 
   // ✅ Rainfall modal data (derived here, not in modal)
-  const rainfallModalData = useMemo(() => {
-    if (metric !== "rainfall") return null;
-    if (!Array.isArray(fullData)) return null;
+// ✅ Rainfall modal data (derived here, not in modal)
+const rainfallModalData = useMemo(() => {
+  if (metric !== "rainfall") return null;
+  if (!Array.isArray(fullData)) return null;
 
-    return transformRainfallMonth(fullData, year, month);
-  }, [metric, fullData, year, month]);
+  const placeFilteredRows = fullData.filter(
+    (r) =>
+      typeof r.place === "string" &&
+      r.place.toLowerCase().replace(/\s/g, "") === place
+  );
+
+  if (placeFilteredRows.length === 0) return null;
+
+  const normalizedRows = normalizeRainfallRows(placeFilteredRows);
+
+  return transformRainfallMonth(
+    normalizedRows,
+    year,
+    month
+  );
+}, [metric, fullData, year, month, place]);
 
   const monthRows = data.filter(
     (d) => Number(d.year) === Number(year) && d.month === month
@@ -139,15 +174,15 @@ export default function MonthBlock({
       )}
 
 
-      {openModal === "rainfall" && (
-        <RainfallModal
-          month={month}
-          year={year}
-          monthLabel={month}
-          data={rainfallModalData}
-          onClose={() => setOpenModal(null)}
-        />
-      )}
+      {openModal === "rainfall" && rainfallModalData && (
+  <RainfallModal
+    year={year}
+    monthLabel={month}
+    data={rainfallModalData}
+    onClose={() => setOpenModal(null)}
+  />
+)}
+
     </>
   );
 }

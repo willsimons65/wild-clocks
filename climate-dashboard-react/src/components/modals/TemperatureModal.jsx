@@ -42,7 +42,7 @@ export default function TemperatureModal({
           <div className="text-sm text-white/60">
             Average max for the month
           </div>
-          <div className="mt-2 text-3xl font-semibold text-pink-400">
+          <div className="mt-2 text-4xl font-semibold text-pink-400">
             {summary.avgMax.toFixed(1)}°C
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function TemperatureModal({
           <div className="text-sm text-white/60">
             Average min for the month
           </div>
-          <div className="mt-2 text-3xl font-semibold text-blue-400">
+          <div className="mt-2 text-4xl font-semibold text-blue-400">
             {summary.avgMin.toFixed(1)}°C
           </div>
         </div>

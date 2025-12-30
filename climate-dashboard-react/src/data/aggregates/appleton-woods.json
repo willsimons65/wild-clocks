@@ -1,0 +1,2247 @@
+{
+  "location": "Little Knepp",
+  "source": "Google Sheets",
+  "generatedAt": "2025-12-20T07:04:15.262Z",
+  "units": {
+    "temp": "C",
+    "rainfall": "mm"
+  },
+  "years": {
+    "2000": {
+      "1": {
+        "avgMaxTemp": 8.2,
+        "avgMinTemp": 2,
+        "avgMeanTemp": 5.1,
+        "totalRainfall": 20,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 10.2,
+        "avgMinTemp": 3.8,
+        "avgMeanTemp": 7,
+        "totalRainfall": 80,
+        "days": 29
+      },
+      "3": {
+        "avgMaxTemp": 11.7,
+        "avgMinTemp": 4.3,
+        "avgMeanTemp": 8,
+        "totalRainfall": 10,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 12.4,
+        "avgMinTemp": 4.8,
+        "avgMeanTemp": 8.6,
+        "totalRainfall": 138,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.2,
+        "avgMinTemp": 8.6,
+        "avgMeanTemp": 12.9,
+        "totalRainfall": 69,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.5,
+        "avgMinTemp": 12.2,
+        "avgMeanTemp": 16.4,
+        "totalRainfall": 18,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 20.7,
+        "avgMinTemp": 12.3,
+        "avgMeanTemp": 16.5,
+        "totalRainfall": 30,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 22.7,
+        "avgMinTemp": 13.4,
+        "avgMeanTemp": 18,
+        "totalRainfall": 57,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 19.3,
+        "avgMinTemp": 12.2,
+        "avgMeanTemp": 15.8,
+        "totalRainfall": 87,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.4,
+        "avgMinTemp": 8.4,
+        "avgMeanTemp": 11.4,
+        "totalRainfall": 117,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10.6,
+        "avgMinTemp": 4.8,
+        "avgMeanTemp": 7.7,
+        "totalRainfall": 100,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.7,
+        "avgMinTemp": 4.3,
+        "avgMeanTemp": 6.5,
+        "totalRainfall": 99,
+        "days": 31
+      }
+    },
+    "2001": {
+      "1": {
+        "avgMaxTemp": 6.5,
+        "avgMinTemp": 1.2,
+        "avgMeanTemp": 3.9,
+        "totalRainfall": 58,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 8.8,
+        "avgMinTemp": 2.1,
+        "avgMeanTemp": 5.4,
+        "totalRainfall": 69,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 9.1,
+        "avgMinTemp": 3.2,
+        "avgMeanTemp": 6.1,
+        "totalRainfall": 73,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 12.8,
+        "avgMinTemp": 4.9,
+        "avgMeanTemp": 8.9,
+        "totalRainfall": 73,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 18.5,
+        "avgMinTemp": 8,
+        "avgMeanTemp": 13.3,
+        "totalRainfall": 35,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.7,
+        "avgMinTemp": 10.7,
+        "avgMeanTemp": 15.7,
+        "totalRainfall": 24,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 23.4,
+        "avgMinTemp": 13.5,
+        "avgMeanTemp": 18.4,
+        "totalRainfall": 58,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 22.7,
+        "avgMinTemp": 12.8,
+        "avgMeanTemp": 17.8,
+        "totalRainfall": 93,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18,
+        "avgMinTemp": 10.7,
+        "avgMeanTemp": 14.4,
+        "totalRainfall": 36,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 17,
+        "avgMinTemp": 11.3,
+        "avgMeanTemp": 14.1,
+        "totalRainfall": 93,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.2,
+        "avgMinTemp": 3.9,
+        "avgMeanTemp": 7.6,
+        "totalRainfall": 39,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 6.8,
+        "avgMinTemp": 0.2,
+        "avgMeanTemp": 3.5,
+        "totalRainfall": 22,
+        "days": 31
+      }
+    },
+    "2002": {
+      "1": {
+        "avgMaxTemp": 9.2,
+        "avgMinTemp": 3.3,
+        "avgMeanTemp": 6.2,
+        "totalRainfall": 56,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 11.2,
+        "avgMinTemp": 4.5,
+        "avgMeanTemp": 7.8,
+        "totalRainfall": 72,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.5,
+        "avgMinTemp": 4.5,
+        "avgMeanTemp": 8.5,
+        "totalRainfall": 32,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.2,
+        "avgMinTemp": 5.3,
+        "avgMeanTemp": 10.2,
+        "totalRainfall": 41,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 16.8,
+        "avgMinTemp": 8.5,
+        "avgMeanTemp": 12.6,
+        "totalRainfall": 60,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.1,
+        "avgMinTemp": 10.4,
+        "avgMeanTemp": 15.3,
+        "totalRainfall": 42,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22.2,
+        "avgMinTemp": 12,
+        "avgMeanTemp": 17.1,
+        "totalRainfall": 91,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 22.8,
+        "avgMinTemp": 13,
+        "avgMeanTemp": 17.9,
+        "totalRainfall": 53,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 19.8,
+        "avgMinTemp": 10,
+        "avgMeanTemp": 14.9,
+        "totalRainfall": 25,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.7,
+        "avgMinTemp": 7.2,
+        "avgMeanTemp": 11,
+        "totalRainfall": 110,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.9,
+        "avgMinTemp": 6.4,
+        "avgMeanTemp": 9.2,
+        "totalRainfall": 134,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.7,
+        "avgMinTemp": 4.1,
+        "avgMeanTemp": 6.4,
+        "totalRainfall": 98,
+        "days": 31
+      }
+    },
+    "2003": {
+      "1": {
+        "avgMaxTemp": 7.6,
+        "avgMinTemp": 1.9,
+        "avgMeanTemp": 4.8,
+        "totalRainfall": 82,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 8.5,
+        "avgMinTemp": 0.6,
+        "avgMeanTemp": 4.5,
+        "totalRainfall": 18,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 13.4,
+        "avgMinTemp": 2.7,
+        "avgMeanTemp": 8,
+        "totalRainfall": 25,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.3,
+        "avgMinTemp": 4.6,
+        "avgMeanTemp": 10,
+        "totalRainfall": 38,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.6,
+        "avgMinTemp": 8.1,
+        "avgMeanTemp": 12.8,
+        "totalRainfall": 48,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 22.5,
+        "avgMinTemp": 11.9,
+        "avgMeanTemp": 17.2,
+        "totalRainfall": 58,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 23.8,
+        "avgMinTemp": 13.5,
+        "avgMeanTemp": 18.6,
+        "totalRainfall": 52,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 25.5,
+        "avgMinTemp": 13.6,
+        "avgMeanTemp": 19.6,
+        "totalRainfall": 3,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 21.4,
+        "avgMinTemp": 8.2,
+        "avgMeanTemp": 14.8,
+        "totalRainfall": 18,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 13.9,
+        "avgMinTemp": 4,
+        "avgMeanTemp": 9,
+        "totalRainfall": 31,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 12,
+        "avgMinTemp": 5.8,
+        "avgMeanTemp": 8.9,
+        "totalRainfall": 90,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.7,
+        "avgMinTemp": 1.8,
+        "avgMeanTemp": 5.3,
+        "totalRainfall": 72,
+        "days": 31
+      }
+    },
+    "2004": {
+      "1": {
+        "avgMaxTemp": 8.8,
+        "avgMinTemp": 2.7,
+        "avgMeanTemp": 5.8,
+        "totalRainfall": 67,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 8.7,
+        "avgMinTemp": 2.9,
+        "avgMeanTemp": 5.8,
+        "totalRainfall": 26,
+        "days": 29
+      },
+      "3": {
+        "avgMaxTemp": 11,
+        "avgMinTemp": 3.5,
+        "avgMeanTemp": 7.2,
+        "totalRainfall": 54,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 14.6,
+        "avgMinTemp": 6.3,
+        "avgMeanTemp": 10.5,
+        "totalRainfall": 69,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 18,
+        "avgMinTemp": 8.7,
+        "avgMeanTemp": 13.3,
+        "totalRainfall": 42,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 21.8,
+        "avgMinTemp": 12.1,
+        "avgMeanTemp": 17,
+        "totalRainfall": 25,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22,
+        "avgMinTemp": 12.2,
+        "avgMeanTemp": 17.1,
+        "totalRainfall": 84,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.5,
+        "avgMinTemp": 14.2,
+        "avgMeanTemp": 18.8,
+        "totalRainfall": 135,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20.2,
+        "avgMinTemp": 11.7,
+        "avgMeanTemp": 16,
+        "totalRainfall": 30,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.8,
+        "avgMinTemp": 8.8,
+        "avgMeanTemp": 11.8,
+        "totalRainfall": 132,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10.9,
+        "avgMinTemp": 5.9,
+        "avgMeanTemp": 8.4,
+        "totalRainfall": 35,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.5,
+        "avgMinTemp": 2.9,
+        "avgMeanTemp": 5.7,
+        "totalRainfall": 38,
+        "days": 31
+      }
+    },
+    "2005": {
+      "1": {
+        "avgMaxTemp": 9.4,
+        "avgMinTemp": 3.8,
+        "avgMeanTemp": 6.6,
+        "totalRainfall": 19,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 7.3,
+        "avgMinTemp": 2.1,
+        "avgMeanTemp": 4.7,
+        "totalRainfall": 23,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 11.1,
+        "avgMinTemp": 4.7,
+        "avgMeanTemp": 7.9,
+        "totalRainfall": 46,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 14.4,
+        "avgMinTemp": 5.7,
+        "avgMeanTemp": 10.1,
+        "totalRainfall": 50,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.2,
+        "avgMinTemp": 7.6,
+        "avgMeanTemp": 12.4,
+        "totalRainfall": 33,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 21.6,
+        "avgMinTemp": 12,
+        "avgMeanTemp": 16.8,
+        "totalRainfall": 92,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22.3,
+        "avgMinTemp": 13.5,
+        "avgMeanTemp": 17.9,
+        "totalRainfall": 34,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.1,
+        "avgMinTemp": 12.3,
+        "avgMeanTemp": 17.7,
+        "totalRainfall": 32,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 21,
+        "avgMinTemp": 12,
+        "avgMeanTemp": 16.5,
+        "totalRainfall": 39,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 17.2,
+        "avgMinTemp": 11,
+        "avgMeanTemp": 14.1,
+        "totalRainfall": 55,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10,
+        "avgMinTemp": 3.1,
+        "avgMeanTemp": 6.6,
+        "totalRainfall": 40,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 7.8,
+        "avgMinTemp": 1.9,
+        "avgMeanTemp": 4.8,
+        "totalRainfall": 50,
+        "days": 31
+      }
+    },
+    "2006": {
+      "1": {
+        "avgMaxTemp": 7.2,
+        "avgMinTemp": 2.1,
+        "avgMeanTemp": 4.7,
+        "totalRainfall": 16,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 6.8,
+        "avgMinTemp": 0.8,
+        "avgMeanTemp": 3.8,
+        "totalRainfall": 35,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 9.3,
+        "avgMinTemp": 2,
+        "avgMeanTemp": 5.6,
+        "totalRainfall": 61,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 14,
+        "avgMinTemp": 5.5,
+        "avgMeanTemp": 9.7,
+        "totalRainfall": 36,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.7,
+        "avgMinTemp": 9.1,
+        "avgMeanTemp": 13.4,
+        "totalRainfall": 105,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 23.2,
+        "avgMinTemp": 11.8,
+        "avgMeanTemp": 17.5,
+        "totalRainfall": 5,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 27.2,
+        "avgMinTemp": 15,
+        "avgMeanTemp": 21.1,
+        "totalRainfall": 85,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 21.8,
+        "avgMinTemp": 13.2,
+        "avgMeanTemp": 17.5,
+        "totalRainfall": 58,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 22.1,
+        "avgMinTemp": 13.6,
+        "avgMeanTemp": 17.8,
+        "totalRainfall": 90,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 17.3,
+        "avgMinTemp": 10.6,
+        "avgMeanTemp": 14,
+        "totalRainfall": 117,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 12.3,
+        "avgMinTemp": 5.2,
+        "avgMeanTemp": 8.8,
+        "totalRainfall": 88,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 9.5,
+        "avgMinTemp": 4.4,
+        "avgMeanTemp": 6.9,
+        "totalRainfall": 69,
+        "days": 31
+      }
+    },
+    "2007": {
+      "1": {
+        "avgMaxTemp": 10.5,
+        "avgMinTemp": 4.8,
+        "avgMeanTemp": 7.6,
+        "totalRainfall": 73,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 9.6,
+        "avgMinTemp": 3.7,
+        "avgMeanTemp": 6.7,
+        "totalRainfall": 82,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.2,
+        "avgMinTemp": 3.8,
+        "avgMeanTemp": 8,
+        "totalRainfall": 38,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 17.8,
+        "avgMinTemp": 5.7,
+        "avgMeanTemp": 11.7,
+        "totalRainfall": 2,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.6,
+        "avgMinTemp": 7.1,
+        "avgMeanTemp": 12.4,
+        "totalRainfall": 134,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.5,
+        "avgMinTemp": 11.3,
+        "avgMeanTemp": 15.9,
+        "totalRainfall": 81,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 20.7,
+        "avgMinTemp": 12.3,
+        "avgMeanTemp": 16.5,
+        "totalRainfall": 109,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 21.7,
+        "avgMinTemp": 12.2,
+        "avgMeanTemp": 17,
+        "totalRainfall": 39,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 19.3,
+        "avgMinTemp": 10.4,
+        "avgMeanTemp": 14.9,
+        "totalRainfall": 18,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 15.1,
+        "avgMinTemp": 7.9,
+        "avgMeanTemp": 11.5,
+        "totalRainfall": 70,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.3,
+        "avgMinTemp": 4.3,
+        "avgMeanTemp": 7.8,
+        "totalRainfall": 61,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.4,
+        "avgMinTemp": 2.3,
+        "avgMeanTemp": 5.4,
+        "totalRainfall": 63,
+        "days": 31
+      }
+    },
+    "2008": {
+      "1": {
+        "avgMaxTemp": 10.4,
+        "avgMinTemp": 4.8,
+        "avgMeanTemp": 7.6,
+        "totalRainfall": 80,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 10.5,
+        "avgMinTemp": 1.6,
+        "avgMeanTemp": 6.1,
+        "totalRainfall": 17,
+        "days": 29
+      },
+      "3": {
+        "avgMaxTemp": 10.6,
+        "avgMinTemp": 3.6,
+        "avgMeanTemp": 7.1,
+        "totalRainfall": 90,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 13.6,
+        "avgMinTemp": 4.7,
+        "avgMeanTemp": 9.1,
+        "totalRainfall": 50,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.5,
+        "avgMinTemp": 9.5,
+        "avgMeanTemp": 13.5,
+        "totalRainfall": 106,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.1,
+        "avgMinTemp": 11.2,
+        "avgMeanTemp": 15.7,
+        "totalRainfall": 68,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22.1,
+        "avgMinTemp": 12.8,
+        "avgMeanTemp": 17.5,
+        "totalRainfall": 91,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 20.8,
+        "avgMinTemp": 13.9,
+        "avgMeanTemp": 17.4,
+        "totalRainfall": 77,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 17.8,
+        "avgMinTemp": 10.3,
+        "avgMeanTemp": 14,
+        "totalRainfall": 73,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.6,
+        "avgMinTemp": 5.7,
+        "avgMeanTemp": 10.2,
+        "totalRainfall": 39,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10.3,
+        "avgMinTemp": 4.9,
+        "avgMeanTemp": 7.6,
+        "totalRainfall": 94,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 7,
+        "avgMinTemp": 1.3,
+        "avgMeanTemp": 4.1,
+        "totalRainfall": 36,
+        "days": 31
+      }
+    },
+    "2009": {
+      "1": {
+        "avgMaxTemp": 6.3,
+        "avgMinTemp": 0.2,
+        "avgMeanTemp": 3.3,
+        "totalRainfall": 46,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 8,
+        "avgMinTemp": 2,
+        "avgMeanTemp": 5,
+        "totalRainfall": 53,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.4,
+        "avgMinTemp": 3.3,
+        "avgMeanTemp": 7.9,
+        "totalRainfall": 19,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.7,
+        "avgMinTemp": 6.1,
+        "avgMeanTemp": 10.9,
+        "totalRainfall": 32,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 18.2,
+        "avgMinTemp": 8.4,
+        "avgMeanTemp": 13.3,
+        "totalRainfall": 45,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 22,
+        "avgMinTemp": 10.6,
+        "avgMeanTemp": 16.3,
+        "totalRainfall": 63,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22.3,
+        "avgMinTemp": 13.1,
+        "avgMeanTemp": 17.7,
+        "totalRainfall": 74,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 22.8,
+        "avgMinTemp": 13.4,
+        "avgMeanTemp": 18.1,
+        "totalRainfall": 48,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20.1,
+        "avgMinTemp": 10.6,
+        "avgMeanTemp": 15.4,
+        "totalRainfall": 8,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 16.2,
+        "avgMinTemp": 8.4,
+        "avgMeanTemp": 12.3,
+        "totalRainfall": 51,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 12.7,
+        "avgMinTemp": 7.1,
+        "avgMeanTemp": 9.9,
+        "totalRainfall": 108,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 6.9,
+        "avgMinTemp": 0.9,
+        "avgMeanTemp": 3.9,
+        "totalRainfall": 96,
+        "days": 31
+      }
+    },
+    "2010": {
+      "1": {
+        "avgMaxTemp": 4.6,
+        "avgMinTemp": -1,
+        "avgMeanTemp": 1.8,
+        "totalRainfall": 66,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 7.1,
+        "avgMinTemp": 1.3,
+        "avgMeanTemp": 4.2,
+        "totalRainfall": 81,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 11.3,
+        "avgMinTemp": 3.2,
+        "avgMeanTemp": 7.3,
+        "totalRainfall": 47,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.9,
+        "avgMinTemp": 5,
+        "avgMeanTemp": 10.5,
+        "totalRainfall": 26,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.6,
+        "avgMinTemp": 7.4,
+        "avgMeanTemp": 12.5,
+        "totalRainfall": 29,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 23.1,
+        "avgMinTemp": 11.1,
+        "avgMeanTemp": 17.1,
+        "totalRainfall": 43,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 24,
+        "avgMinTemp": 14.2,
+        "avgMeanTemp": 19.1,
+        "totalRainfall": 17,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 21.5,
+        "avgMinTemp": 12.2,
+        "avgMeanTemp": 16.9,
+        "totalRainfall": 146,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18.7,
+        "avgMinTemp": 10.2,
+        "avgMeanTemp": 14.5,
+        "totalRainfall": 52,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.7,
+        "avgMinTemp": 7.5,
+        "avgMeanTemp": 11.1,
+        "totalRainfall": 45,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 8.1,
+        "avgMinTemp": 3,
+        "avgMeanTemp": 5.6,
+        "totalRainfall": 39,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 2.8,
+        "avgMinTemp": -2.3,
+        "avgMeanTemp": 0.3,
+        "totalRainfall": 31,
+        "days": 31
+      }
+    },
+    "2011": {
+      "1": {
+        "avgMaxTemp": 7.1,
+        "avgMinTemp": 1.9,
+        "avgMeanTemp": 4.5,
+        "totalRainfall": 56,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 10.4,
+        "avgMinTemp": 4.5,
+        "avgMeanTemp": 7.4,
+        "totalRainfall": 50,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.5,
+        "avgMinTemp": 5,
+        "avgMeanTemp": 8.8,
+        "totalRainfall": 9,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 19.5,
+        "avgMinTemp": 7.3,
+        "avgMeanTemp": 13.4,
+        "totalRainfall": 0,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 19,
+        "avgMinTemp": 8.4,
+        "avgMeanTemp": 13.7,
+        "totalRainfall": 42,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 19.4,
+        "avgMinTemp": 10.3,
+        "avgMeanTemp": 14.8,
+        "totalRainfall": 53,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 21.5,
+        "avgMinTemp": 10.2,
+        "avgMeanTemp": 15.8,
+        "totalRainfall": 45,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 20.7,
+        "avgMinTemp": 11.4,
+        "avgMeanTemp": 16,
+        "totalRainfall": 69,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20.7,
+        "avgMinTemp": 10.7,
+        "avgMeanTemp": 15.7,
+        "totalRainfall": 33,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 17.7,
+        "avgMinTemp": 7.9,
+        "avgMeanTemp": 12.8,
+        "totalRainfall": 26,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 13.4,
+        "avgMinTemp": 6.3,
+        "avgMeanTemp": 9.9,
+        "totalRainfall": 29,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 9.4,
+        "avgMinTemp": 3.1,
+        "avgMeanTemp": 6.2,
+        "totalRainfall": 70,
+        "days": 31
+      }
+    },
+    "2012": {
+      "1": {
+        "avgMaxTemp": 9.8,
+        "avgMinTemp": 3.5,
+        "avgMeanTemp": 6.7,
+        "totalRainfall": 36,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 7.3,
+        "avgMinTemp": 1.1,
+        "avgMeanTemp": 4.2,
+        "totalRainfall": 22,
+        "days": 29
+      },
+      "3": {
+        "avgMaxTemp": 14,
+        "avgMinTemp": 3.7,
+        "avgMeanTemp": 8.8,
+        "totalRainfall": 24,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 12.7,
+        "avgMinTemp": 4.5,
+        "avgMeanTemp": 8.6,
+        "totalRainfall": 141,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.7,
+        "avgMinTemp": 9.7,
+        "avgMeanTemp": 13.7,
+        "totalRainfall": 55,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 18.9,
+        "avgMinTemp": 11.6,
+        "avgMeanTemp": 15.3,
+        "totalRainfall": 150,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 21.4,
+        "avgMinTemp": 13.4,
+        "avgMeanTemp": 17.4,
+        "totalRainfall": 102,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 22.5,
+        "avgMinTemp": 14.6,
+        "avgMeanTemp": 18.5,
+        "totalRainfall": 80,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18.3,
+        "avgMinTemp": 9.3,
+        "avgMeanTemp": 13.8,
+        "totalRainfall": 56,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 13.5,
+        "avgMinTemp": 7.2,
+        "avgMeanTemp": 10.3,
+        "totalRainfall": 124,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10.2,
+        "avgMinTemp": 4.2,
+        "avgMeanTemp": 7.2,
+        "totalRainfall": 84,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.6,
+        "avgMinTemp": 2.6,
+        "avgMeanTemp": 5.6,
+        "totalRainfall": 102,
+        "days": 31
+      }
+    },
+    "2013": {
+      "1": {
+        "avgMaxTemp": 6.5,
+        "avgMinTemp": 1.9,
+        "avgMeanTemp": 4.2,
+        "totalRainfall": 65,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 6.3,
+        "avgMinTemp": 0.8,
+        "avgMeanTemp": 3.5,
+        "totalRainfall": 48,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 6.4,
+        "avgMinTemp": 0.3,
+        "avgMeanTemp": 3.3,
+        "totalRainfall": 79,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 13,
+        "avgMinTemp": 3.9,
+        "avgMeanTemp": 8.5,
+        "totalRainfall": 24,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 15.9,
+        "avgMinTemp": 6.8,
+        "avgMeanTemp": 11.4,
+        "totalRainfall": 66,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 19.3,
+        "avgMinTemp": 10.2,
+        "avgMeanTemp": 14.8,
+        "totalRainfall": 18,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 25.6,
+        "avgMinTemp": 13.9,
+        "avgMeanTemp": 19.8,
+        "totalRainfall": 47,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.2,
+        "avgMinTemp": 13.2,
+        "avgMeanTemp": 18.2,
+        "totalRainfall": 19,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 19.1,
+        "avgMinTemp": 9.9,
+        "avgMeanTemp": 14.5,
+        "totalRainfall": 40,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 16.3,
+        "avgMinTemp": 10,
+        "avgMeanTemp": 13.1,
+        "totalRainfall": 88,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 9.9,
+        "avgMinTemp": 3.8,
+        "avgMeanTemp": 6.9,
+        "totalRainfall": 114,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 10,
+        "avgMinTemp": 3.7,
+        "avgMeanTemp": 6.9,
+        "totalRainfall": 97,
+        "days": 31
+      }
+    },
+    "2014": {
+      "1": {
+        "avgMaxTemp": 9.4,
+        "avgMinTemp": 3.5,
+        "avgMeanTemp": 6.5,
+        "totalRainfall": 148,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 9.9,
+        "avgMinTemp": 4.2,
+        "avgMeanTemp": 7,
+        "totalRainfall": 92,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.9,
+        "avgMinTemp": 3.5,
+        "avgMeanTemp": 8.2,
+        "totalRainfall": 39,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.3,
+        "avgMinTemp": 6.5,
+        "avgMeanTemp": 10.9,
+        "totalRainfall": 51,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.1,
+        "avgMinTemp": 9,
+        "avgMeanTemp": 13,
+        "totalRainfall": 92,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 21.5,
+        "avgMinTemp": 11.9,
+        "avgMeanTemp": 16.7,
+        "totalRainfall": 37,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 24.9,
+        "avgMinTemp": 13.6,
+        "avgMeanTemp": 19.3,
+        "totalRainfall": 47,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 20.9,
+        "avgMinTemp": 11.8,
+        "avgMeanTemp": 16.4,
+        "totalRainfall": 87,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 21.2,
+        "avgMinTemp": 11.6,
+        "avgMeanTemp": 16.4,
+        "totalRainfall": 4,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 16.8,
+        "avgMinTemp": 10,
+        "avgMeanTemp": 13.4,
+        "totalRainfall": 65,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.6,
+        "avgMinTemp": 5.7,
+        "avgMeanTemp": 8.7,
+        "totalRainfall": 101,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.8,
+        "avgMinTemp": 2.4,
+        "avgMeanTemp": 5.6,
+        "totalRainfall": 43,
+        "days": 31
+      }
+    },
+    "2015": {
+      "1": {
+        "avgMaxTemp": 8.5,
+        "avgMinTemp": 1.6,
+        "avgMeanTemp": 5.1,
+        "totalRainfall": 58,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 7.6,
+        "avgMinTemp": 1,
+        "avgMeanTemp": 4.3,
+        "totalRainfall": 46,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 11.4,
+        "avgMinTemp": 3.3,
+        "avgMeanTemp": 7.3,
+        "totalRainfall": 28,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.9,
+        "avgMinTemp": 4.6,
+        "avgMeanTemp": 10.3,
+        "totalRainfall": 22,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 16.8,
+        "avgMinTemp": 7.7,
+        "avgMeanTemp": 12.3,
+        "totalRainfall": 57,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 21.1,
+        "avgMinTemp": 10.3,
+        "avgMeanTemp": 15.7,
+        "totalRainfall": 29,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22.7,
+        "avgMinTemp": 12.6,
+        "avgMeanTemp": 17.6,
+        "totalRainfall": 48,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 21.3,
+        "avgMinTemp": 13.1,
+        "avgMeanTemp": 17.2,
+        "totalRainfall": 59,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18.4,
+        "avgMinTemp": 8.9,
+        "avgMeanTemp": 13.7,
+        "totalRainfall": 35,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 15.2,
+        "avgMinTemp": 7.9,
+        "avgMeanTemp": 11.5,
+        "totalRainfall": 43,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 13.2,
+        "avgMinTemp": 7.3,
+        "avgMeanTemp": 10.3,
+        "totalRainfall": 66,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 13.5,
+        "avgMinTemp": 8.3,
+        "avgMeanTemp": 10.9,
+        "totalRainfall": 64,
+        "days": 31
+      }
+    },
+    "2016": {
+      "1": {
+        "avgMaxTemp": 9.4,
+        "avgMinTemp": 3.1,
+        "avgMeanTemp": 6.2,
+        "totalRainfall": 83,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 9.1,
+        "avgMinTemp": 2.7,
+        "avgMeanTemp": 5.9,
+        "totalRainfall": 48,
+        "days": 29
+      },
+      "3": {
+        "avgMaxTemp": 10.3,
+        "avgMinTemp": 2.3,
+        "avgMeanTemp": 6.3,
+        "totalRainfall": 74,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 13.1,
+        "avgMinTemp": 4.1,
+        "avgMeanTemp": 8.6,
+        "totalRainfall": 53,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 18.5,
+        "avgMinTemp": 8.8,
+        "avgMeanTemp": 13.6,
+        "totalRainfall": 81,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.2,
+        "avgMinTemp": 11.9,
+        "avgMeanTemp": 16.1,
+        "totalRainfall": 96,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 23.3,
+        "avgMinTemp": 13.7,
+        "avgMeanTemp": 18.5,
+        "totalRainfall": 2,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.5,
+        "avgMinTemp": 13.6,
+        "avgMeanTemp": 18.6,
+        "totalRainfall": 40,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20.9,
+        "avgMinTemp": 13.1,
+        "avgMeanTemp": 17,
+        "totalRainfall": 42,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 15.2,
+        "avgMinTemp": 7.4,
+        "avgMeanTemp": 11.3,
+        "totalRainfall": 26,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 9.4,
+        "avgMinTemp": 3.3,
+        "avgMeanTemp": 6.4,
+        "totalRainfall": 78,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 9.6,
+        "avgMinTemp": 3,
+        "avgMeanTemp": 6.3,
+        "totalRainfall": 29,
+        "days": 31
+      }
+    },
+    "2017": {
+      "1": {
+        "avgMaxTemp": 7.3,
+        "avgMinTemp": 0.7,
+        "avgMeanTemp": 4,
+        "totalRainfall": 63,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 9.5,
+        "avgMinTemp": 4,
+        "avgMeanTemp": 6.8,
+        "totalRainfall": 45,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 13.6,
+        "avgMinTemp": 5.8,
+        "avgMeanTemp": 9.7,
+        "totalRainfall": 44,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.2,
+        "avgMinTemp": 4.7,
+        "avgMeanTemp": 9.9,
+        "totalRainfall": 7,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 19.3,
+        "avgMinTemp": 9.4,
+        "avgMeanTemp": 14.4,
+        "totalRainfall": 63,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 22.7,
+        "avgMinTemp": 13,
+        "avgMeanTemp": 17.8,
+        "totalRainfall": 32,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 23.4,
+        "avgMinTemp": 13.9,
+        "avgMeanTemp": 18.7,
+        "totalRainfall": 63,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 21.5,
+        "avgMinTemp": 12.6,
+        "avgMeanTemp": 17,
+        "totalRainfall": 62,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18.6,
+        "avgMinTemp": 10.6,
+        "avgMeanTemp": 14.6,
+        "totalRainfall": 59,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 16.3,
+        "avgMinTemp": 9.9,
+        "avgMeanTemp": 13.1,
+        "totalRainfall": 15,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10.8,
+        "avgMinTemp": 3.6,
+        "avgMeanTemp": 7.2,
+        "totalRainfall": 47,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8.3,
+        "avgMinTemp": 2.5,
+        "avgMeanTemp": 5.4,
+        "totalRainfall": 76,
+        "days": 31
+      }
+    },
+    "2018": {
+      "1": {
+        "avgMaxTemp": 9,
+        "avgMinTemp": 3.1,
+        "avgMeanTemp": 6.1,
+        "totalRainfall": 58,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 6.4,
+        "avgMinTemp": 0.3,
+        "avgMeanTemp": 3.4,
+        "totalRainfall": 25,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 9.2,
+        "avgMinTemp": 2.5,
+        "avgMeanTemp": 5.8,
+        "totalRainfall": 82,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 14.3,
+        "avgMinTemp": 7.5,
+        "avgMeanTemp": 10.9,
+        "totalRainfall": 54,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 19.9,
+        "avgMinTemp": 8.7,
+        "avgMeanTemp": 14.3,
+        "totalRainfall": 85,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 22.8,
+        "avgMinTemp": 11.6,
+        "avgMeanTemp": 17.2,
+        "totalRainfall": 2,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 27.4,
+        "avgMinTemp": 14.8,
+        "avgMeanTemp": 21.1,
+        "totalRainfall": 22,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.5,
+        "avgMinTemp": 13.4,
+        "avgMeanTemp": 18.4,
+        "totalRainfall": 44,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20.4,
+        "avgMinTemp": 10.2,
+        "avgMeanTemp": 15.3,
+        "totalRainfall": 29,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 15.7,
+        "avgMinTemp": 7.3,
+        "avgMeanTemp": 11.5,
+        "totalRainfall": 52,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.7,
+        "avgMinTemp": 5.5,
+        "avgMeanTemp": 8.6,
+        "totalRainfall": 61,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 10.3,
+        "avgMinTemp": 4.7,
+        "avgMeanTemp": 7.5,
+        "totalRainfall": 68,
+        "days": 31
+      }
+    },
+    "2019": {
+      "1": {
+        "avgMaxTemp": 7.2,
+        "avgMinTemp": 1,
+        "avgMeanTemp": 4.1,
+        "totalRainfall": 30,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 11.9,
+        "avgMinTemp": 2.3,
+        "avgMeanTemp": 7.1,
+        "totalRainfall": 41,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.7,
+        "avgMinTemp": 5.2,
+        "avgMeanTemp": 9,
+        "totalRainfall": 35,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15,
+        "avgMinTemp": 4.3,
+        "avgMeanTemp": 9.6,
+        "totalRainfall": 30,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 18.2,
+        "avgMinTemp": 7.3,
+        "avgMeanTemp": 12.7,
+        "totalRainfall": 21,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.6,
+        "avgMinTemp": 10.9,
+        "avgMeanTemp": 15.7,
+        "totalRainfall": 100,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 24.6,
+        "avgMinTemp": 13.8,
+        "avgMeanTemp": 19.2,
+        "totalRainfall": 43,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.9,
+        "avgMinTemp": 13.3,
+        "avgMeanTemp": 18.6,
+        "totalRainfall": 46,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20.6,
+        "avgMinTemp": 10.5,
+        "avgMeanTemp": 15.6,
+        "totalRainfall": 79,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.7,
+        "avgMinTemp": 7.4,
+        "avgMeanTemp": 11.1,
+        "totalRainfall": 120,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 9.5,
+        "avgMinTemp": 4.1,
+        "avgMeanTemp": 6.8,
+        "totalRainfall": 109,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 9.3,
+        "avgMinTemp": 3.7,
+        "avgMeanTemp": 6.5,
+        "totalRainfall": 89,
+        "days": 31
+      }
+    },
+    "2020": {
+      "1": {
+        "avgMaxTemp": 9.6,
+        "avgMinTemp": 4.6,
+        "avgMeanTemp": 7.1,
+        "totalRainfall": 53,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 10.6,
+        "avgMinTemp": 3.6,
+        "avgMeanTemp": 7.1,
+        "totalRainfall": 98,
+        "days": 29
+      },
+      "3": {
+        "avgMaxTemp": 11.5,
+        "avgMinTemp": 3.1,
+        "avgMeanTemp": 7.3,
+        "totalRainfall": 39,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 17.6,
+        "avgMinTemp": 5.6,
+        "avgMeanTemp": 11.6,
+        "totalRainfall": 43,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 20.1,
+        "avgMinTemp": 7.8,
+        "avgMeanTemp": 13.9,
+        "totalRainfall": 4,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 21.4,
+        "avgMinTemp": 11.7,
+        "avgMeanTemp": 16.5,
+        "totalRainfall": 67,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22.1,
+        "avgMinTemp": 12.8,
+        "avgMeanTemp": 17.5,
+        "totalRainfall": 65,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.5,
+        "avgMinTemp": 14.5,
+        "avgMeanTemp": 19,
+        "totalRainfall": 115,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20,
+        "avgMinTemp": 10.3,
+        "avgMeanTemp": 15.2,
+        "totalRainfall": 27,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.2,
+        "avgMinTemp": 8.6,
+        "avgMeanTemp": 11.4,
+        "totalRainfall": 184,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.9,
+        "avgMinTemp": 5.8,
+        "avgMeanTemp": 8.9,
+        "totalRainfall": 35,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 8,
+        "avgMinTemp": 3.3,
+        "avgMeanTemp": 5.6,
+        "totalRainfall": 99,
+        "days": 31
+      }
+    },
+    "2021": {
+      "1": {
+        "avgMaxTemp": 6.8,
+        "avgMinTemp": 1.3,
+        "avgMeanTemp": 4,
+        "totalRainfall": 118,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 9.1,
+        "avgMinTemp": 2.6,
+        "avgMeanTemp": 5.8,
+        "totalRainfall": 56,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 11.9,
+        "avgMinTemp": 4.1,
+        "avgMeanTemp": 8,
+        "totalRainfall": 29,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 12.5,
+        "avgMinTemp": 1.6,
+        "avgMeanTemp": 7.1,
+        "totalRainfall": 26,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 15.8,
+        "avgMinTemp": 6.7,
+        "avgMeanTemp": 11.2,
+        "totalRainfall": 95,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 21.5,
+        "avgMinTemp": 12.2,
+        "avgMeanTemp": 16.9,
+        "totalRainfall": 70,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 23.7,
+        "avgMinTemp": 14.4,
+        "avgMeanTemp": 19.1,
+        "totalRainfall": 69,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 21,
+        "avgMinTemp": 13.1,
+        "avgMeanTemp": 17,
+        "totalRainfall": 34,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 21.7,
+        "avgMinTemp": 12.1,
+        "avgMeanTemp": 16.9,
+        "totalRainfall": 44,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 16.3,
+        "avgMinTemp": 9.7,
+        "avgMeanTemp": 13,
+        "totalRainfall": 93,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10.5,
+        "avgMinTemp": 3.9,
+        "avgMeanTemp": 7.2,
+        "totalRainfall": 18,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 9.9,
+        "avgMinTemp": 4.9,
+        "avgMeanTemp": 7.4,
+        "totalRainfall": 70,
+        "days": 31
+      }
+    },
+    "2022": {
+      "1": {
+        "avgMaxTemp": 8.4,
+        "avgMinTemp": 1.4,
+        "avgMeanTemp": 4.9,
+        "totalRainfall": 19,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 11,
+        "avgMinTemp": 4.2,
+        "avgMeanTemp": 7.6,
+        "totalRainfall": 61,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.8,
+        "avgMinTemp": 4,
+        "avgMeanTemp": 8.4,
+        "totalRainfall": 41,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 15.3,
+        "avgMinTemp": 4.8,
+        "avgMeanTemp": 10,
+        "totalRainfall": 13,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 19.1,
+        "avgMinTemp": 9.6,
+        "avgMeanTemp": 14.3,
+        "totalRainfall": 41,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 21.8,
+        "avgMinTemp": 11.2,
+        "avgMeanTemp": 16.5,
+        "totalRainfall": 52,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 25.9,
+        "avgMinTemp": 13.8,
+        "avgMeanTemp": 19.9,
+        "totalRainfall": 7,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 26.6,
+        "avgMinTemp": 14.4,
+        "avgMeanTemp": 20.5,
+        "totalRainfall": 4,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 20,
+        "avgMinTemp": 11.2,
+        "avgMeanTemp": 15.6,
+        "totalRainfall": 56,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 17.9,
+        "avgMinTemp": 9.8,
+        "avgMeanTemp": 13.9,
+        "totalRainfall": 79,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 12.8,
+        "avgMinTemp": 7.7,
+        "avgMeanTemp": 10.3,
+        "totalRainfall": 110,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 7.1,
+        "avgMinTemp": 0.7,
+        "avgMeanTemp": 3.9,
+        "totalRainfall": 66,
+        "days": 31
+      }
+    },
+    "2023": {
+      "1": {
+        "avgMaxTemp": 8.5,
+        "avgMinTemp": 2.6,
+        "avgMeanTemp": 5.5,
+        "totalRainfall": 56,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 10.4,
+        "avgMinTemp": 2.8,
+        "avgMeanTemp": 6.6,
+        "totalRainfall": 7,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 10.8,
+        "avgMinTemp": 4.9,
+        "avgMeanTemp": 7.8,
+        "totalRainfall": 133,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 13.7,
+        "avgMinTemp": 5.1,
+        "avgMeanTemp": 9.4,
+        "totalRainfall": 67,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 17.7,
+        "avgMinTemp": 8.6,
+        "avgMeanTemp": 13.1,
+        "totalRainfall": 50,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 23.7,
+        "avgMinTemp": 12.2,
+        "avgMeanTemp": 18,
+        "totalRainfall": 40,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 21.2,
+        "avgMinTemp": 13,
+        "avgMeanTemp": 17.1,
+        "totalRainfall": 101,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 22.1,
+        "avgMinTemp": 13.1,
+        "avgMeanTemp": 17.6,
+        "totalRainfall": 66,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 22.6,
+        "avgMinTemp": 13.2,
+        "avgMeanTemp": 17.9,
+        "totalRainfall": 74,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 17,
+        "avgMinTemp": 9.7,
+        "avgMeanTemp": 13.3,
+        "totalRainfall": 137,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.2,
+        "avgMinTemp": 4.8,
+        "avgMeanTemp": 8,
+        "totalRainfall": 80,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 10,
+        "avgMinTemp": 5.3,
+        "avgMeanTemp": 7.6,
+        "totalRainfall": 114,
+        "days": 31
+      }
+    },
+    "2024": {
+      "1": {
+        "avgMaxTemp": 8,
+        "avgMinTemp": 2.7,
+        "avgMeanTemp": 5.4,
+        "totalRainfall": 82,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 11.6,
+        "avgMinTemp": 5.7,
+        "avgMeanTemp": 8.6,
+        "totalRainfall": 125,
+        "days": 29
+      },
+      "3": {
+        "avgMaxTemp": 12.7,
+        "avgMinTemp": 5.5,
+        "avgMeanTemp": 9.1,
+        "totalRainfall": 83,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 14.2,
+        "avgMinTemp": 6.5,
+        "avgMeanTemp": 10.3,
+        "totalRainfall": 60,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 18.9,
+        "avgMinTemp": 9.9,
+        "avgMeanTemp": 14.4,
+        "totalRainfall": 66,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 20.8,
+        "avgMinTemp": 10.3,
+        "avgMeanTemp": 15.6,
+        "totalRainfall": 15,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 22.3,
+        "avgMinTemp": 12.9,
+        "avgMeanTemp": 17.6,
+        "totalRainfall": 65,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 22.9,
+        "avgMinTemp": 13.5,
+        "avgMeanTemp": 18.2,
+        "totalRainfall": 36,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18.7,
+        "avgMinTemp": 11,
+        "avgMeanTemp": 14.8,
+        "totalRainfall": 194,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 15.4,
+        "avgMinTemp": 8.5,
+        "avgMeanTemp": 12,
+        "totalRainfall": 73,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 10.6,
+        "avgMinTemp": 5.1,
+        "avgMeanTemp": 7.9,
+        "totalRainfall": 73,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 9.4,
+        "avgMinTemp": 5,
+        "avgMeanTemp": 7.2,
+        "totalRainfall": 46,
+        "days": 31
+      }
+    },
+    "2025": {
+      "1": {
+        "avgMaxTemp": 6.3,
+        "avgMinTemp": 0.2,
+        "avgMeanTemp": 3.2,
+        "totalRainfall": 49,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 7.9,
+        "avgMinTemp": 2.3,
+        "avgMeanTemp": 5.1,
+        "totalRainfall": 30,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.4,
+        "avgMinTemp": 2.1,
+        "avgMeanTemp": 7.3,
+        "totalRainfall": 3,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 16.8,
+        "avgMinTemp": 4.9,
+        "avgMeanTemp": 10.9,
+        "totalRainfall": 9,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 19.1,
+        "avgMinTemp": 8.3,
+        "avgMeanTemp": 13.7,
+        "totalRainfall": 13,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 22.8,
+        "avgMinTemp": 13,
+        "avgMeanTemp": 17.9,
+        "totalRainfall": 22,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 24,
+        "avgMinTemp": 14,
+        "avgMeanTemp": 19,
+        "totalRainfall": 19,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.3,
+        "avgMinTemp": 12.8,
+        "avgMeanTemp": 18,
+        "totalRainfall": 22,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18.4,
+        "avgMinTemp": 10,
+        "avgMeanTemp": 14.2,
+        "totalRainfall": 142,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.2,
+        "avgMinTemp": 8.5,
+        "avgMeanTemp": 11.3,
+        "totalRainfall": 98,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.3,
+        "avgMinTemp": 6,
+        "avgMeanTemp": 8.7,
+        "totalRainfall": 175,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 6.7,
+        "avgMinTemp": 3.2,
+        "avgMeanTemp": 4.9,
+        "totalRainfall": 148,
+        "days": 31
+      }
+    }
+  }
+}

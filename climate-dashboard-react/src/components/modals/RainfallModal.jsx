@@ -44,7 +44,7 @@ export default function RainfallModal({
           <div className="text-sm text-white/60">
             Total for the month
           </div>
-          <div className="mt-2 text-3xl font-semibold text-blue-400">
+          <div className="mt-2 text-4xl font-semibold text-blue-400">
             {formatRainfall(summary.monthTotalMm)}
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function RainfallModal({
           <div className="text-sm text-white/60">
             Year total to {monthLabel}
           </div>
-          <div className="mt-2 text-3xl font-semibold text-teal-400">
+          <div className="mt-2 text-4xl font-semibold text-teal-400">
             {formatRainfall(summary.yearToDateMm)}
           </div>
         </div>
@@ -70,13 +70,13 @@ export default function RainfallModal({
         <table className="w-full text-sm">
           <thead className="sticky top-0 bg-zinc-800 border-b border-white/10">
             <tr>
-              <th className="px-7 py-3 text-left font-medium text-white">
+              <th className="px-3 py-3 text-left font-medium text-white">
                 Year
               </th>
-              <th className="px-9 py-3 text-center font-medium text-blue-400">
+              <th className="px-6 py-3 text-left font-medium text-blue-400">
                 mm
               </th>
-              <th className="px-9 py-3 text-center font-medium text-teal-400">
+              <th className="px-6 py-3 text-left font-medium text-teal-400">
                 m
               </th>
             </tr>
@@ -86,32 +86,40 @@ export default function RainfallModal({
         {/* Scroll body (≈ 8 rows) */}
         <div className="max-h-[360px] overflow-y-auto">
           <table className="w-full text-sm">
-            <tbody>
-              {previousYears.map((row) => (
-                <tr
-                  key={row.year}
-                  className="border-t border-white/5"
-                >
-                  <td className="px-4 py-3 text-white">
-                    {row.year}
-                  </td>
-                  <td className="px-4 py-3 text-center text-blue-300">
-                    {formatRainfall(row.monthTotalMm, { forceUnit: "mm" })}
-                  </td>
-                  <td className="px-4 py-3 text-center text-teal-300">
-                    {formatRainfall(row.yearTotalMm, { forceUnit: "m" })}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+<tbody>
+  {previousYears.length === 0 ? (
+    <tr>
+      <td
+        colSpan={3}
+        className="px-4 py-6 text-center text-sm text-white/50"
+      >
+        No historical rainfall data available yet.
+      </td>
+    </tr>
+  ) : (
+    previousYears.map((row) => (
+      <tr
+        key={row.year}
+        className="border-t border-white/5"
+      >
+        <td className="px-3 py-3 text-white">
+          {row.year}
+        </td>
+        <td className="px-4 py-4 text-blue-300">
+          {formatRainfall(row.monthTotalMm, { forceUnit: "mm" })}
+        </td>
+        <td className="px-4 py-4 text-teal-300">
+          {formatRainfall(row.yearTotalMm, { forceUnit: "m" })}
+        </td>
+      </tr>
+    ))
+  )}
+</tbody>
+
           </table>
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <p className="mt-4 text-xs text-white/40">
-        Scroll down to view earlier years.
-      </p>
     </ModalFrame>
   );
 }
