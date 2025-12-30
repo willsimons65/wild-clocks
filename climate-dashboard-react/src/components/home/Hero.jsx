@@ -39,9 +39,9 @@ export default function Hero() {
             leaf-out, flowering, fruiting, and decay. Gardeners and ecologists
             know these rhythms well.</p>
             
-          <p>But things are changing.</p>
+          <p>But the world is changing.</p>
 
-          <p>The world is warming up. And with it, the old certainties are giving way to something new and less certain: a world in which the 'slow violence' of climate change is destabilising the seasons.
+          <p>The environment is warming up. And with it, the old certainties are giving way to something new and less certain: a world in which the 'slow violence' of climate change is destabilising the seasons.
           </p>
 
           <p>Wild Clocks follows these changes through two landscapes: a garden in Oxfordshire and a nearby wood.</p> 

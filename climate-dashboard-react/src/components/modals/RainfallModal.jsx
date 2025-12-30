@@ -120,6 +120,10 @@ export default function RainfallModal({
         </div>
       </div>
 
+      <p className="mt-4 text-xs text-white/40">
+        Scroll down to view earlier years.
+      </p>
+
     </ModalFrame>
   );
 }
