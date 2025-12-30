@@ -70,7 +70,7 @@ export default function Header({ placeName, year, setYear, metric, setMetric }) 
                   {y}
                   {disabled && (
                     <span className="ml-2 text-xs text-white/60">
-                      (no data yet)
+                      No data
                     </span>
                   )}
                 </button>
