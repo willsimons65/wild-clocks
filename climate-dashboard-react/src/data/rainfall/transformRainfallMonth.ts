@@ -1,3 +1,5 @@
+// src/data/rainfall/transformRainfallMonth.ts
+
 import {
   RawRainfallRow,
   RainfallMonthResult,
@@ -13,26 +15,50 @@ export function transformRainfallMonth(
   raw: RawRainfallRow[],
   year: number,
   monthLabel: string
-): RainfallMonthResult {
+): RainfallMonthResult & { hasData: boolean } {
 
   if (!Array.isArray(raw)) {
     console.warn("transformRainfallMonth: raw data missing or invalid", raw);
     return {
-      summary: { monthTotalMm: 0, yearToDateMm: 0 },
+      summary: null,
       byYear: [],
+      hasData: false,
     };
   }
 
   const cutoffIndex = MONTHS.indexOf(monthLabel);
 
+  // -----------------------------
+  // Rows for selected year/month
+  // -----------------------------
+  const rowsForMonth = raw.filter(
+    (r) => r.year === year && r.month === monthLabel
+  );
+
+  const hasData = rowsForMonth.length > 0;
+
+  // -----------------------------
+  // If no data, return early
+  // -----------------------------
+  if (!hasData) {
+    return {
+      summary: null,
+      byYear: [],
+      hasData: false,
+    };
+  }
+
+  // -----------------------------
+  // Summary (selected year)
+  // -----------------------------
   let monthTotalMm = 0;
   let yearToDateMm = 0;
 
-  // ---- Summary (selected year only) ----
   for (const r of raw) {
     if (r.year !== year) continue;
 
     const rMonthIndex = MONTHS.indexOf(r.month);
+    if (rMonthIndex === -1) continue;
 
     // Selected month total
     if (r.month === monthLabel) {
@@ -40,14 +66,17 @@ export function transformRainfallMonth(
     }
 
     // Year-to-date (Jan → selected month)
-    if (rMonthIndex !== -1 && rMonthIndex <= cutoffIndex) {
+    if (rMonthIndex <= cutoffIndex) {
       yearToDateMm += r.precipitation;
     }
   }
 
-  // ---- Table (all years) ----
-  const years = Array.from(new Set(raw.map(r => r.year)))
-    .sort((a, b) => b - a);
+  // -----------------------------
+  // Table (all years with data)
+  // -----------------------------
+  const years = Array.from(
+    new Set(raw.map((r) => r.year))
+  ).sort((a, b) => b - a);
 
   const byYear: RainfallYearRow[] = years.map((y) => {
     let monthTotalMm = 0;
@@ -57,14 +86,13 @@ export function transformRainfallMonth(
       if (r.year !== y) continue;
 
       const rMonthIndex = MONTHS.indexOf(r.month);
+      if (rMonthIndex === -1) continue;
 
-      // Month total for this year
       if (r.month === monthLabel) {
         monthTotalMm += r.precipitation;
       }
 
-      // Year-to-date for this year
-      if (rMonthIndex !== -1 && rMonthIndex <= cutoffIndex) {
+      if (rMonthIndex <= cutoffIndex) {
         yearTotalMm += r.precipitation;
       }
     }
@@ -75,6 +103,8 @@ export function transformRainfallMonth(
   return {
     summary: { monthTotalMm, yearToDateMm },
     byYear,
+    hasData: true,
   };
 }
+
 

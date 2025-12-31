@@ -8,15 +8,15 @@ import ChartAxes from "./base/ChartAxes";
 import ChartBars from "./base/ChartBars";
 import ChartMetricHeader from "./base/ChartMetricHeader";
 import ChartDateBubble from "./base/ChartDateBubble";
-
+import EmptyChartState from "./base/EmptyChartState";
 import { CHART_HEIGHT } from "@/constants/chartLayout";
 
 export default function RainfallChart({ data, monthIndex, year }) {
-  if (!data || data.length === 0) return <div style={{ height: 300 }} />;
-
-  //
-  // 🔍 Clean rainfall data
-  //
+  if (!data || data.length === 0) {
+    return (
+      <EmptyChartState message="No rainfall data recorded yet" />
+    );
+  }
   const clean = data
     .map((d) => ({
       day: Number(d.day),
@@ -24,7 +24,7 @@ export default function RainfallChart({ data, monthIndex, year }) {
     }))
     .filter((d) => Number.isFinite(d.day) && Number.isFinite(d.rainfall));
 
-  if (clean.length === 0) return <div style={{ height: 300 }} />;
+  {/*if (clean.length === 0) return <div style={{ height: 300 }} />;*/}
 
   //
   // 📏 Dynamic max — follows your January/February dataset patterns

@@ -7,10 +7,15 @@ import ChartAxes from "./base/ChartAxes";
 import ChartLine from "./base/ChartLine";
 import ChartMetricHeader from "./base/ChartMetricHeader";
 import ChartDateBubble from "./base/ChartDateBubble";
+import EmptyChartState from "./base/EmptyChartState";
 import { CHART_HEIGHT } from "@/constants/chartLayout";
 
 export default function TemperatureChart({ data, year, monthIndex }) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) {
+    return (
+      <EmptyChartState message="No temperature data recorded yet" />
+    );
+  }
 
   const clean = data.map((d) => ({
     day: Number(d.day),

@@ -51,10 +51,7 @@ export default function MonthBlock({
 }) {
   const [openModal, setOpenModal] = useState(null);
 
-  if (!Array.isArray(data) || data.length === 0) {
-    console.warn("MonthBlock: empty data for", month);
-    return <div style={{ height: 300 }} />;
-  }
+  const hasData = Array.isArray(data) && data.length > 0;
 
   const monthIndex0 = MONTHS.indexOf(month);
   const monthIndex = monthIndex0 + 1;
@@ -82,9 +79,13 @@ const rainfallModalData = useMemo(() => {
   );
 }, [metric, fullData, year, month, place]);
 
-  const monthRows = data.filter(
-    (d) => Number(d.year) === Number(year) && d.month === month
-  );
+  const monthRows = hasData
+  ? data.filter(
+      (d) =>
+        Number(d.year) === Number(year) &&
+        d.month === month
+    )
+  : [];
 
   const renderChart = () => {
     switch (metric) {
@@ -151,7 +152,10 @@ const rainfallModalData = useMemo(() => {
                 <button
                   aria-label="Open details"
                   className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition"
-                  onClick={() => setOpenModal(metric)}
+                  onClick={() => {
+                    if (metric === "rainfall" && !rainfallModalData?.hasData) return;
+                    setOpenModal(metric);
+                  }}
                 >
                   <ModalControlIcon className="w-6 h-6 text-white" />
                 </button>

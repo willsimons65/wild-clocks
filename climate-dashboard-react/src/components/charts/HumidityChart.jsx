@@ -1,7 +1,5 @@
 // src/components/charts/HumidityChart.jsx
 
-// src/components/charts/HumidityChart.jsx
-
 import React from "react";
 
 import ChartContainer from "./base/ChartContainer";
@@ -10,15 +8,17 @@ import ChartAxes from "./base/ChartAxes";
 import ChartLine from "./base/ChartLine";
 import ChartMetricHeader from "./base/ChartMetricHeader";
 import ChartDateBubble from "./base/ChartDateBubble";
-
+import EmptyChartState from "./base/EmptyChartState";
 import { CHART_HEIGHT } from "@/constants/chartLayout";
 
 export default function HumidityChart({ data, year, monthIndex }) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) {
+  return (
+    <EmptyChartState message="No humidity data recorded yet" />
+  );
+  }
 
-  //
   // 🔍 Clean humidity data
-  //
   const clean = data
     .map((d) => ({
       day: Number(d.day),
@@ -26,11 +26,13 @@ export default function HumidityChart({ data, year, monthIndex }) {
     }))
     .filter((d) => Number.isFinite(d.day) && Number.isFinite(d.humidity));
 
-  if (clean.length === 0) return null;
+  if (clean.length === 0) {
+  return (
+    <EmptyChartState message="No humidity data recorded yet" />
+  );
+  }
 
-  //
   // 📏 Y scale only — x scale comes from ChartContainer
-  //
   const yScale = (v) =>
     CHART_HEIGHT - (v / 100) * CHART_HEIGHT;
 

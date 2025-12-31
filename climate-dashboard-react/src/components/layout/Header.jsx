@@ -20,7 +20,7 @@ export default function Header({ placeName, year, setYear, metric, setMetric }) 
   const years = [
   { year: 2024 },
   { year: 2025 },
-  { year: 2026, disabled: true },
+  { year: 2026 },
 ];
 
   return (
@@ -49,6 +49,12 @@ export default function Header({ placeName, year, setYear, metric, setMetric }) 
               />
             </button>
           </h1>
+
+          {year === 2026 && (
+            <p className="mt-1 text-xs text-white/50">
+              Data collection in progress for this year
+            </p>
+          )}
 
           {/* MOBILE DROPDOWN */}
           {mobileOpen && (
