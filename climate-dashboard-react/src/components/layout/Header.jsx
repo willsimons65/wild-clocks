@@ -52,7 +52,7 @@ export default function Header({ placeName, year, setYear, metric, setMetric }) 
 
           {year === 2026 && (
             <p className="mt-1 text-xs text-white/50">
-              Data collection in progress for this year
+              Data collection in progress
             </p>
           )}
 

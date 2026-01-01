@@ -1,3 +1,5 @@
+// src/data/temperature/transformTemperature.ts
+
 import type { TemperatureMonthData } from "./types";
 
 function round1(n: number): number {
@@ -8,15 +10,32 @@ export function transformTemperatureMonth(
   raw: { years: Record<string, any> } | null | undefined,
   selectedYear: number,
   monthIndex: number
-): TemperatureMonthData | null {
+): TemperatureMonthData & {
+  hasData: boolean;
+  hasSelectedYearData: boolean;
+} {
+  const selectedMonth = String(monthIndex + 1);
 
+  // -------------------------------------------------
+  // Invalid or missing source data
+  // -------------------------------------------------
   if (!raw || !raw.years) {
     console.warn("transformTemperatureMonth: invalid raw data", raw);
-    return null;
+
+    return {
+      month: selectedMonth,
+      year: selectedYear,
+      summary: null,
+      byYear: [],
+      meanDifference: [],
+      hasData: false,
+      hasSelectedYearData: false,
+    };
   }
 
-  const selectedMonth = String(monthIndex + 1); // ✅ FIX
-
+  // -------------------------------------------------
+  // Collect data for this month across all years
+  // -------------------------------------------------
   const byYear: TemperatureMonthData["byYear"] = [];
 
   for (const year of Object.keys(raw.years)) {
@@ -32,18 +51,39 @@ export function transformTemperatureMonth(
 
   byYear.sort((a, b) => b.year - a.year);
 
-  const baseline =
-    byYear.find((row) => row.year === selectedYear) ?? byYear[0];
+  const hasData = byYear.length > 0;
+  const hasSelectedYearData = byYear.some(
+    (row) => row.year === selectedYear
+  );
 
-  if (!baseline) {
-    console.warn("transformTemperatureMonth: no temperature data at all");
-    return null;
+  // -------------------------------------------------
+  // No data at all for this month (any year)
+  // -------------------------------------------------
+  if (!hasData) {
+    return {
+      month: selectedMonth,
+      year: selectedYear,
+      summary: null,
+      byYear: [],
+      meanDifference: [],
+      hasData: false,
+      hasSelectedYearData: false,
+    };
   }
 
-  const summary = {
-    avgMax: baseline.avgMax,
-    avgMin: baseline.avgMin,
-  };
+  // -------------------------------------------------
+  // Summary — ONLY if selected year has data
+  // -------------------------------------------------
+  const baseline = byYear.find(
+    (row) => row.year === selectedYear
+  );
+
+  const summary = baseline
+    ? {
+        avgMax: round1(baseline.avgMax),
+        avgMin: round1(baseline.avgMin),
+      }
+    : null;
 
   return {
     month: selectedMonth,
@@ -51,6 +91,11 @@ export function transformTemperatureMonth(
     summary,
     byYear,
     meanDifference: [],
+    hasData: true,
+    hasSelectedYearData,
   };
 }
+
+
+
 

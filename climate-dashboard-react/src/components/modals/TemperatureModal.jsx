@@ -20,11 +20,15 @@ export default function TemperatureModal({
     return null;
   }
 
-  const data = transformTemperatureMonth(raw, year, monthIndex);
+const data = transformTemperatureMonth(raw, year, monthIndex);
 
-  if (!data) return null;
+if (!data.hasSelectedYearData || !data.summary) {
+  // Modal should not render without selected-year data
+  return null;
+}
 
-  const { summary, byYear } = data;
+const { summary, byYear } = data;
+
 
   const previousYears = useMemo(
     () => byYear.filter((row) => row.year !== year),

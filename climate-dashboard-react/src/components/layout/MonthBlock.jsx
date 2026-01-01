@@ -3,17 +3,16 @@
 import { useState, useMemo } from "react";
 import PhotoGrid from "@/components/photos/PhotoGrid";
 import ChartCard from "@/components/layout/ChartCard";
-
 import TemperatureChart from "@/components/charts/TemperatureChart";
 import RainfallChart from "@/components/charts/RainfallChart";
 import HumidityChart from "@/components/charts/HumidityChart";
 import PhotoperiodChart from "@/components/charts/PhotoperiodChart";
-
 import TemperatureModal from "@/components/modals/TemperatureModal";
 import RainfallModal from "@/components/modals/RainfallModal";
-
 import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
 import ModalControlIcon from "@/components/icons/ModalControlIcon";
+import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
+
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -79,6 +78,17 @@ const rainfallModalData = useMemo(() => {
   );
 }, [metric, fullData, year, month, place]);
 
+const temperatureModalData = useMemo(() => {
+  if (metric !== "temperature") return null;
+  if (!temperatureData) return null;
+
+  return transformTemperatureMonth(
+    temperatureData,
+    year,
+    monthIndex0
+  );
+}, [metric, temperatureData, year, monthIndex0]);
+
   const monthRows = hasData
   ? data.filter(
       (d) =>
@@ -136,14 +146,14 @@ const rainfallModalData = useMemo(() => {
 
   return (
     <>
-      <div className="flex flex-col gap-4 relative overflow-visible">
+      <div className="flex flex-col gap-2 relative overflow-visible">
         <div className="rounded-2xl bg-[#1E1E1E] relative">
           <PhotoGrid month={monthIndex} year={year} place={place} />
         </div>
 
         <ChartCard>
           <div className="relative overflow-visible">
-            <div className="relative px-4 pt-0 pb-4 h-14">
+            <div className="relative px-4 py-6 h-10">
               <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-lg font-medium tracking-tight opacity-90">
                 {month}
               </h2>
@@ -154,6 +164,10 @@ const rainfallModalData = useMemo(() => {
                   className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition"
                   onClick={() => {
                     if (metric === "rainfall" && !rainfallModalData?.hasData) return;
+                    if (
+                      metric === "temperature" &&
+                      !temperatureModalData?.hasSelectedYearData
+                    ) return;
                     setOpenModal(metric);
                   }}
                 >
