@@ -1,3 +1,5 @@
+// src/components/modals/ModalFrame.jsx
+
 import { X } from "lucide-react";
 
 export default function ModalFrame({

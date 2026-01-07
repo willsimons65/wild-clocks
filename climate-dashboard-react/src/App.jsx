@@ -8,6 +8,7 @@ import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import Home from "@/pages/Home";
 import LittleKnepp from "@/pages/LittleKnepp";
 import AppletonWoods from "@/pages/AppletonWoods";
+import About from "@/pages/About";
 
 export default function App() {
   return (
@@ -29,6 +30,15 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <Home />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/about"
+              element={
+                <ProtectedRoute>
+                  <About />
                 </ProtectedRoute>
               }
             />

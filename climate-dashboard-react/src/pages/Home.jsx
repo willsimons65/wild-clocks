@@ -10,19 +10,12 @@ function Home() {
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       <Navbar />
 
-      <main className="max-w-[1200px] mx-auto px-6 py-16">
-        <div className="w-full lg:w-1/2 ml-auto space-y-10">
-          <Hero />
-          <PlacesGrid />
-        </div>
+      <main className="max-w-[1200px] mx-auto px-6 py-16 space-y-10">
+        <Hero />
+        <PlacesGrid />
       </main>
     </div>
   );
 }
 
 export default React.memo(Home);
-
-
-
-
-

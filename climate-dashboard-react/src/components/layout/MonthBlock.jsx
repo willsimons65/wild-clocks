@@ -1,6 +1,7 @@
 // src/components/layout/MonthBlock.jsx
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+
 import PhotoGrid from "@/components/photos/PhotoGrid";
 import ChartCard from "@/components/layout/ChartCard";
 import TemperatureChart from "@/components/charts/TemperatureChart";
@@ -10,9 +11,8 @@ import PhotoperiodChart from "@/components/charts/PhotoperiodChart";
 import TemperatureModal from "@/components/modals/TemperatureModal";
 import RainfallModal from "@/components/modals/RainfallModal";
 import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
-import ModalControlIcon from "@/components/icons/ModalControlIcon";
 import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
-
+import ModalControlIcon from "@/components/icons/ModalControlIcon";
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -23,10 +23,8 @@ function normalizeRainfallRows(rows) {
   if (!Array.isArray(rows)) return [];
 
   return rows.map((r) => {
-    // If month is already a string, leave it alone
     if (typeof r.month === "string") return r;
 
-    // If month is a number (1–12), convert to name
     if (typeof r.month === "number") {
       return {
         ...r,
@@ -34,7 +32,6 @@ function normalizeRainfallRows(rows) {
       };
     }
 
-    // Fallback: return row unchanged
     return r;
   });
 }
@@ -44,9 +41,9 @@ export default function MonthBlock({
   year,
   place,
   metric,
-  data,            // current year rows (charts)
-  fullData,        // ALL years daily rows (rainfall modal only)
-  temperatureData, // ✅ aggregated temperature data (temperature modal)
+  data,
+  fullData,
+  temperatureData,
 }) {
   const [openModal, setOpenModal] = useState(null);
 
@@ -55,47 +52,65 @@ export default function MonthBlock({
   const monthIndex0 = MONTHS.indexOf(month);
   const monthIndex = monthIndex0 + 1;
 
-  // ✅ Rainfall modal data (derived here, not in modal)
-// ✅ Rainfall modal data (derived here, not in modal)
-const rainfallModalData = useMemo(() => {
-  if (metric !== "rainfall") return null;
-  if (!Array.isArray(fullData)) return null;
+  // 🔍 DEBUG: inspect rainfall years per place
+  useEffect(() => {
+    if (!Array.isArray(fullData)) return;
 
-  const placeFilteredRows = fullData.filter(
-    (r) =>
-      typeof r.place === "string" &&
-      r.place.toLowerCase().replace(/\s/g, "") === place
+      console.log(
+    "All rainfall places:",
+    [...new Set(fullData.map(r => r.place))].sort()
   );
 
-  if (placeFilteredRows.length === 0) return null;
+    const years = fullData
+      .filter(
+        (r) =>
+          typeof r.place === "string" &&
+          r.place.toLowerCase().replace(/\s/g, "") === place
+      )
+      .map((r) => r.year);
 
-  const normalizedRows = normalizeRainfallRows(placeFilteredRows);
+    console.log(
+      `[Rainfall years for ${place}]`,
+      [...new Set(years)].sort()
+    );
+  }, [fullData, place]);
 
-  return transformRainfallMonth(
-    normalizedRows,
-    year,
-    month
-  );
-}, [metric, fullData, year, month, place]);
+  // ✅ Rainfall modal data
+  const rainfallModalData = useMemo(() => {
+    if (metric !== "rainfall") return null;
+    if (!Array.isArray(fullData)) return null;
 
-const temperatureModalData = useMemo(() => {
-  if (metric !== "temperature") return null;
-  if (!temperatureData) return null;
+    const placeFilteredRows = fullData;
 
-  return transformTemperatureMonth(
-    temperatureData,
-    year,
-    monthIndex0
-  );
-}, [metric, temperatureData, year, monthIndex0]);
+    if (placeFilteredRows.length === 0) return null;
+
+    const normalizedRows = normalizeRainfallRows(placeFilteredRows);
+
+    return transformRainfallMonth(
+      normalizedRows,
+      year,
+      month
+    );
+  }, [metric, fullData, year, month, place]);
+
+  const temperatureModalData = useMemo(() => {
+    if (metric !== "temperature") return null;
+    if (!temperatureData) return null;
+
+    return transformTemperatureMonth(
+      temperatureData,
+      year,
+      monthIndex0
+    );
+  }, [metric, temperatureData, year, monthIndex0]);
 
   const monthRows = hasData
-  ? data.filter(
-      (d) =>
-        Number(d.year) === Number(year) &&
-        d.month === month
-    )
-  : [];
+    ? data.filter(
+        (d) =>
+          Number(d.year) === Number(year) &&
+          d.month === month
+      )
+    : [];
 
   const renderChart = () => {
     switch (metric) {
@@ -163,11 +178,21 @@ const temperatureModalData = useMemo(() => {
                   aria-label="Open details"
                   className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition"
                   onClick={() => {
-                    if (metric === "rainfall" && !rainfallModalData?.hasData) return;
+                    if (
+                      metric === "rainfall" &&
+                      (!rainfallModalData ||
+                        !rainfallModalData.hasSelectedYearData)
+                    ) {
+                      return;
+                    }
+
                     if (
                       metric === "temperature" &&
                       !temperatureModalData?.hasSelectedYearData
-                    ) return;
+                    ) {
+                      return;
+                    }
+
                     setOpenModal(metric);
                   }}
                 >
@@ -185,25 +210,24 @@ const temperatureModalData = useMemo(() => {
         <TemperatureModal
           month={month}
           year={year}
-          monthIndex={monthIndex0}   // ✅ 0-based
-          raw={temperatureData}      // ✅ NOT fullData
+          monthIndex={monthIndex0}
+          raw={temperatureData}
           onClose={() => setOpenModal(null)}
         />
       )}
 
-
       {openModal === "rainfall" && rainfallModalData && (
-  <RainfallModal
-    year={year}
-    monthLabel={month}
-    data={rainfallModalData}
-    onClose={() => setOpenModal(null)}
-  />
-)}
-
+        <RainfallModal
+          year={year}
+          monthLabel={month}
+          data={rainfallModalData}
+          onClose={() => setOpenModal(null)}
+        />
+      )}
     </>
   );
 }
+
 
 
 

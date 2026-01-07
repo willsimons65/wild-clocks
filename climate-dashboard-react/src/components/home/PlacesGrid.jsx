@@ -29,12 +29,12 @@ export default function PlacesGrid() {
   ];
 
   return (
-    <section className="w-full flex flex-col gap-10 mt-10">
-      {places.map((place) => (
-        <PlaceCard key={place.title} {...place} />
-      ))}
+    <section className="w-full mt-12 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {places.map((place) => (
+          <PlaceCard key={place.title} {...place} />
+        ))}
+      </div>
     </section>
   );
 }
-
-

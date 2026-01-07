@@ -19,9 +19,11 @@ export default function PlaceCard({
         flex flex-col md:flex-row
         bg-[#2A2A2A]
         rounded-3xl overflow-hidden
-        shadow-lg hover:shadow-xl
-        transition-all duration-300
         border border-white/5
+        shadow-lg
+        transition-all duration-300
+        hover:shadow-xl
+        hover:-translate-y-0.5
       "
     >
       {/* IMAGE */}
@@ -32,7 +34,7 @@ export default function PlaceCard({
           loading="lazy"
           className="
             w-full 
-            h-40 md:h-full    /* ⭐ shorter landscape image on mobile */
+            h-40 md:h-full
             object-cover
           "
         />
@@ -42,9 +44,9 @@ export default function PlaceCard({
       <div
         className="
           w-full md:w-1/2
-          p-4 md:p-8       /* ⭐ smaller padding on mobile */
+          p-4 md:p-8
           flex flex-col justify-center
-          text-left md:text-left  /* ⭐ center text on mobile, left on desktop */
+          text-left
         "
       >
         <h2 className="text-xl md:text-2xl font-normal mb-2 md:mb-3">
@@ -54,15 +56,13 @@ export default function PlaceCard({
         <p className="text-base md:text-lg text-white/80">{location}</p>
         <p className="text-white/60 mb-4 md:mb-6">{country}</p>
 
-        <p className="text-white/70 text-sm md:text-base">
+        <p className="text-white/60 text-sm">
           Latitude: {latitude}
         </p>
-        <p className="text-white/70 text-sm md:text-base mt-1">
+        <p className="text-white/60 text-sm mt-1">
           Altitude: {altitude}
         </p>
       </div>
     </Link>
   );
 }
-
-

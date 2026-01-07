@@ -13,7 +13,8 @@ export default function Navbar() {
       transition={{ duration: 0.4 }}
       className="w-full border-b border-white/10 bg-[#1E1E1E]/80 backdrop-blur sticky top-0 z-50"
     >
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center gap-3">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
             src={Logo}
@@ -22,7 +23,24 @@ export default function Navbar() {
             loading="eager"
           />
         </Link>
+
+        {/* Nav links */}
+        <div className="flex items-center gap-6">
+          <Link
+            to="/about"
+            className="
+              text-sm md:text-base
+              font-light
+              text-white/70
+              hover:text-white
+              transition-colors
+            "
+          >
+            ABOUT
+          </Link>
+        </div>
       </div>
     </motion.nav>
   );
 }
+

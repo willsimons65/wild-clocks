@@ -15,38 +15,33 @@ export function transformRainfallMonth(
   raw: RawRainfallRow[],
   year: number,
   monthLabel: string
-): RainfallMonthResult & { hasData: boolean } {
-
+): RainfallMonthResult & {
+  hasSelectedYearData: boolean;
+  hasHistoricalData: boolean;
+} {
   if (!Array.isArray(raw)) {
     console.warn("transformRainfallMonth: raw data missing or invalid", raw);
     return {
       summary: null,
       byYear: [],
-      hasData: false,
+      hasSelectedYearData: false,
+      hasHistoricalData: false,
     };
   }
 
   const cutoffIndex = MONTHS.indexOf(monthLabel);
+  if (cutoffIndex === -1) {
+    console.warn("transformRainfallMonth: invalid monthLabel", monthLabel);
+  }
 
   // -----------------------------
-  // Rows for selected year/month
+  // Selected-year data check
   // -----------------------------
   const rowsForMonth = raw.filter(
     (r) => r.year === year && r.month === monthLabel
   );
 
-  const hasData = rowsForMonth.length > 0;
-
-  // -----------------------------
-  // If no data, return early
-  // -----------------------------
-  if (!hasData) {
-    return {
-      summary: null,
-      byYear: [],
-      hasData: false,
-    };
-  }
+  const hasSelectedYearData = rowsForMonth.length > 0;
 
   // -----------------------------
   // Summary (selected year)
@@ -54,31 +49,32 @@ export function transformRainfallMonth(
   let monthTotalMm = 0;
   let yearToDateMm = 0;
 
-  for (const r of raw) {
-    if (r.year !== year) continue;
+  if (hasSelectedYearData) {
+    for (const r of raw) {
+      if (r.year !== year) continue;
 
-    const rMonthIndex = MONTHS.indexOf(r.month);
-    if (rMonthIndex === -1) continue;
+      const rMonthIndex = MONTHS.indexOf(r.month);
+      if (rMonthIndex === -1) continue;
 
-    // Selected month total
-    if (r.month === monthLabel) {
-      monthTotalMm += r.precipitation;
-    }
+      if (r.month === monthLabel) {
+        monthTotalMm += r.precipitation;
+      }
 
-    // Year-to-date (Jan → selected month)
-    if (rMonthIndex <= cutoffIndex) {
-      yearToDateMm += r.precipitation;
+      if (rMonthIndex <= cutoffIndex) {
+        yearToDateMm += r.precipitation;
+      }
     }
   }
 
   // -----------------------------
-  // Table (all years with data)
-  // -----------------------------
-  const years = Array.from(
-    new Set(raw.map((r) => r.year))
-  ).sort((a, b) => b - a);
-
-  const byYear: RainfallYearRow[] = years.map((y) => {
+// Table (ALL years except selected)
+// -----------------------------
+const byYear: RainfallYearRow[] = Array.from(
+  new Set(raw.map(r => r.year))
+)
+  .filter(y => y !== year) // ✅ remove selected year
+  .sort((a, b) => b - a)
+  .map((y) => {
     let monthTotalMm = 0;
     let yearTotalMm = 0;
 
@@ -100,11 +96,26 @@ export function transformRainfallMonth(
     return { year: y, monthTotalMm, yearTotalMm };
   });
 
+  const yearsWithMonthData = Array.from(
+    new Set(
+      raw
+        .filter((r) => r.month === monthLabel)
+        .map((r) => r.year)
+    )
+  );
+
+  const hasHistoricalData = yearsWithMonthData.length > 1;
+
   return {
-    summary: { monthTotalMm, yearToDateMm },
+    summary: hasSelectedYearData
+      ? { monthTotalMm, yearToDateMm }
+      : null,
     byYear,
-    hasData: true,
+    hasSelectedYearData,
+    hasHistoricalData,
   };
 }
+
+
 
 

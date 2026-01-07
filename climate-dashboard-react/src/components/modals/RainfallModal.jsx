@@ -1,3 +1,5 @@
+// src/components/modals/RainfallModal.jsx
+
 import { useMemo } from "react";
 
 import useModalShell from "@/hooks/useModalShell";
