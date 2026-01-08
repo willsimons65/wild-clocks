@@ -110,11 +110,11 @@ export default function About() {
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-0"></div>
+          
 
 {/* CONTRIBUTORS */}
             <div id="contributors">
-              <h2 className="text-xl md:text-3xl font-light mb-6">
+              <h2 className="text-xl md:text-3xl font-light mb-8">
                 Contributor’s guide
               </h2>
 

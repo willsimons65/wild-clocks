@@ -20,7 +20,7 @@ export default function FootnoteToggle({ title, children }) {
           }`}
         />
 
-        <span className="text-white text-base md:text-text-base font-light">
+        <span className="text-teal-400 text-base md:text-text-base font-light">
           {title}
         </span>
       </button>
