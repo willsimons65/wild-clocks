@@ -30,7 +30,7 @@ export default function Navbar() {
           {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center gap-6 text-sm text-white/70">
             <Link to="/about" className="hover:text-white transition-colors">
-              About
+              ABOUT
             </Link>
           </div>
 

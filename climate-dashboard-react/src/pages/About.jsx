@@ -14,28 +14,28 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
           {/* LEFT COLUMN — Navigation (1/3) */}
-          <aside className="md:col-span-1">
-             <nav className="pl-4 space-y-6 text-white/70 text-xl md:text-base">
-              <a
-                href="#about"
-                className="block hover:text-white transition-colors"
-              >
-                About Wild Clocks
-              </a>
-              <a
-                href="#contributors"
-                className="block hover:text-white transition-colors"
-              >
-                Contributor’s guide
-              </a>
-              <a
-                href="#contributors"
-                className="block hover:text-white transition-colors"
-              >
-                Index of hygrothermy
-              </a>
-            </nav>
-          </aside>
+<aside className="hidden md:block md:col-span-1">
+  <nav className="pl-4 space-y-6 text-white/70 text-xl md:text-base">
+    <a
+      href="#about"
+      className="block hover:text-white transition-colors"
+    >
+      About Wild Clocks
+    </a>
+    <a
+      href="#contributors"
+      className="block hover:text-white transition-colors"
+    >
+      Contributor’s guide
+    </a>
+    <a
+      href="#contributors"
+      className="block hover:text-white transition-colors"
+    >
+      Index of hygrothermy
+    </a>
+  </nav>
+</aside>
 
           {/* RIGHT COLUMN — Content (2/3) */}
           <section className="md:col-span-2 space-y-10">
@@ -110,7 +110,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-5"></div>
+          <div className="border-t border-white/10 pt-0"></div>
 
 {/* CONTRIBUTORS */}
             <div id="contributors">
