@@ -29,8 +29,8 @@ export default function PlacesGrid() {
   ];
 
   return (
-    <section className="w-full mt-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <section className="w-full mt-12 px-0 lg:px-6">
+      <div className="w-full lg:max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
         {places.map((place) => (
           <PlaceCard key={place.title} {...place} />
         ))}
@@ -38,3 +38,4 @@ export default function PlacesGrid() {
     </section>
   );
 }
+
