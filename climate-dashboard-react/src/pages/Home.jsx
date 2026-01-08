@@ -10,7 +10,7 @@ function Home() {
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       <Navbar />
 
-      <main className="max-w-[1200px] mx-auto px-6 py-16 space-y-10">
+      <main className="w-full lg:max-w-[1200px] mx-auto px-4 lg:px-6 py-12 lg:py-16 space-y-10">
         <Hero />
         <PlacesGrid />
       </main>

@@ -24,17 +24,11 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Nav links */}
-        <div className="flex items-center gap-6">
+      {/* NAV LINKS — hidden on mobile */}
+        <div className="hidden md:flex items-center gap-6 text-sm text-white/70">
           <Link
             to="/about"
-            className="
-              text-sm md:text-base
-              font-light
-              text-white/70
-              hover:text-white
-              transition-colors
-            "
+            className="hover:text-white transition-colors"
           >
             ABOUT
           </Link>
