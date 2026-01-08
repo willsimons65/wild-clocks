@@ -35,63 +35,106 @@ export default function Navbar() {
           </div>
 
           {/* MOBILE HAMBURGER */}
-          <button
-            onClick={() => setOpen(true)}
-            className="md:hidden text-white/70 hover:text-white transition-colors"
-            aria-label="Open menu"
-          >
-            ☰
-          </button>
+ <button
+  onClick={() => setOpen(!open)}
+  className="md:hidden p-3 text-white/70 hover:text-white transition-colors"
+  aria-label={open ? "Close menu" : "Open menu"}
+>
+  <svg
+    width="28"
+    height="28"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    className="overflow-visible"
+  >
+    {/* TOP LINE */}
+    <line
+      x1="3"
+      y1="6"
+      x2="21"
+      y2="6"
+      className={`transition-all duration-300 ease-in-out ${
+        open ? "rotate-45 translate-y-[6px]" : ""
+      }`}
+      style={{
+        transformOrigin: "center",
+        transformBox: "fill-box",
+      }}
+    />
+
+    {/* MIDDLE LINE */}
+    <line
+      x1="3"
+      y1="12"
+      x2="21"
+      y2="12"
+      className={`transition-opacity duration-200 ${
+        open ? "opacity-0" : "opacity-100"
+      }`}
+    />
+
+    {/* BOTTOM LINE */}
+    <line
+      x1="3"
+      y1="18"
+      x2="21"
+      y2="18"
+      className={`transition-all duration-300 ease-in-out ${
+        open ? "-rotate-45 -translate-y-[6px]" : ""
+      }`}
+      style={{
+        transformOrigin: "center",
+        transformBox: "fill-box",
+      }}
+    />
+  </svg>
+</button>
+
+
         </div>
       </motion.nav>
 
-      {/* MOBILE OVERLAY MENU */}
-      {open && (
-        <div className="fixed top-0 left-0 h-full w-2/3 z-50 bg-black/85 backdrop-blur-none">
-          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col h-full">
+        {/* MOBILE OVERLAY MENU */}
+        {open && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{
+              duration: 0.4,
+              ease: [0.4, 0.0, 0.2, 1],
+            }}
+            className="fixed top-0 left-0 h-full w-2/3 bg-black/85 backdrop-blur-none z-50"
+          >
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 12 }}
+      transition={{
+        delay: 0.25,   // ← panel arrives first
+        duration: 0.3,
+        ease: "easeOut",
+      }}
+      className="pt-16 px-6 space-y-6"
+    >
+      <a href="/about" className="block text-white text-sm">
+        ABOUT WILD CLOCKS
+      </a>
 
-            {/* TOP BAR */}
-            <div className="flex items-center justify-between mb-12">
-              <span className="text-white text-sm tracking-wide">
-                
-              </span>
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="Close menu"
-              >
-                ×
-              </button>
-            </div>
+      <a href="/contributors" className="block text-white text-sm">
+        CONTRIBUTOR’S GUIDE
+      </a>
 
-            {/* NAV LINKS */}
-            <nav className="flex flex-col gap-6 text-white text-sm font-light">
-              <Link
-                to="/about"
-                onClick={() => setOpen(false)}
-                className="hover:text-white/80 transition-colors"
-              >
-                ABOUT WILD CLOCKS
-              </Link>
+      <a href="/hygrothermy" className="block text-white text-sm">
+        INDEX OF HYGROTHERMY
+      </a>
+    </motion.div>
+  </motion.div>
+)}
 
-              <Link
-                to="/about#contributors"
-                onClick={() => setOpen(false)}
-                className="hover:text-white/80 transition-colors"
-              >
-                CONTRIBUTOR'S GUIDE
-              </Link>
-
-              <Link
-                to="/about#index"
-                onClick={() => setOpen(false)}
-                className="hover:text-white/80 transition-colors"
-              >
-                INDEX OF HYGROTHERMY
-              </Link>
-            </nav>
-          </div>
-        </div>
-      )}
     </>
   );
 }
