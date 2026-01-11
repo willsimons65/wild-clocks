@@ -3,6 +3,8 @@
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import FootnoteToggle from "@/components/ui/FootnoteToggle";
+import ExternalLink from "@/components/ui/ExternalLink";
+import CameraMountAnimation from "@/components/illustrations/CameraMountAnimation";
 
 
 export default function About() {
@@ -88,11 +90,13 @@ export default function About() {
                 <li>comparable across places</li>
                 <li>comparable against a shared baseline</li>
                 </ul>
+
                 <p>
                 Only then can we begin to see not just how the seasons are
                 changing, but how much beauty remains — and how much is still
                 worth protecting.
               </p>
+
             <FootnoteToggle title="What do we mean by a “shared baseline”?">
                 <p>
                     In climate and ecological science, baselines are a point of reference drawn
@@ -114,7 +118,7 @@ export default function About() {
 
 {/* CONTRIBUTORS */}
             <div id="contributors">
-              <h2 className="text-xl md:text-3xl font-light mb-8">
+              <h2 className="text-xl md:text-3xl font-light mb-7">
                 Contributor’s guide
               </h2>
 
@@ -148,13 +152,13 @@ export default function About() {
 
                 <p>
                  For example:
-                <br /><br />
+                </p>
+            
                 <ul className="list-disc list-inside space-y-1 text-white/80">
                 <li>if your first photo is taken in week 2 of January, it should be labelled “week 2”</li>
                 <li>if you miss week 3 and take your next photo in week 4, that photo should be labelled “week 4”</li>
                 <li>when the next month begins, numbering resets to week 1</li>
                 </ul>
-                </p>
 
                 <p>
                   This allows the site to place each image accurately in time, even when weeks are missed.
@@ -163,14 +167,14 @@ export default function About() {
                 <p>
                   <strong>Where does the climate data come from?</strong><br />
                   No clock would be complete without the mechanisms that drive it. Wild Clocks uses four main climate measures:
-                <br /><br />
+                </p>
+
                 <ul className="list-disc list-inside space-y-1 text-white/80">
                 <li>temperature</li>
                 <li>rainfall</li>
                 <li>humidity</li>
                 <li>daylight</li>
                 </ul>
-                </p>
 
                 <p>
                 Temperature, humidity, and daylight can usually be derived from national data sources or APIs. <strong>Rainfall is different</strong>. It is often highly local and can vary significantly, even over short distances. For this reason, contributors are encouraged — where possible — to collect rainfall data from their own location. Even simple measurements are valuable.
@@ -178,19 +182,72 @@ export default function About() {
                 
                 <p>
                   <strong>What is the best way to measure rainfall?</strong><br />
-                  A basic <strong>rain gauge</strong> is sufficient. It does not need to be expensive or digital.<br />
+                  A basic <strong>rain gauge</strong> is sufficient. It does not need to be expensive or digital.
                   What matters most is:
-                <br /><br />
+                </p>
+
                 <ul className="list-disc list-inside space-y-1 text-white/80">
                 <li>using the same gauge consistently</li>
-                <li>placing it in a fixed, open position</li>
                 <li>recording rainfall in millimetres</li>
                 </ul>
+
+                <p>For accurate readings, place the gauge in an open spot, well away from overhanging branches or walls that could deflect rainfall. To keep it upright in strong wind, set it inside a bucket or an empty flowerpot.</p>
+
+                <FootnoteToggle title="Where can I find a rain gauge?">                   
+                <p>
+                    You’ll find plenty of options online — including on Amazon — but you don’t need anything elaborate. 
+                    A simple, clearly marked gauge is all that’s required. One reliable example can be found{" "}
+                    <ExternalLink href="https://www.amazon.co.uk/STOWBERRY-Outdoor-Rain-Gauge-Garden/dp/B0F9LKDBRY/ref=sr_1_1_sspa?adgrpid=185740323345&dib=eyJ2IjoiMSJ9.xHa5zE-hTVEVZOWx8cmF72Y3Mu79tQfRZA0-a-C4injYiXU5uObQY83VhjifSnllDjgx-729nHLhic5ooDv1tp3KoYEoxJpqhG8atH-pHHUn7qwQAhje8caZj-N8u_vW6PaLGguM6NcnES6hIbDasFQxkXJ3Q5pk-IOzIeeckKio0DNTIqYbcmsGLScEHdlZ8Nbx7iDdGUFSFvALHykMFvLXxn8kMf3uJdkDucRzrbPnPcj7WuXSaOBZwyrqx-1LMFXJk4S0hcoa5ZHahlmi6QlteavcuXg1rXG19CN1qyU.6kQTfGayloVF6Hja1pmoXCIsL7a89USXHDAgp_a7uKM&dib_tag=se&gad_source=1&hvadid=779283453034&hvdev=c&hvexpln=0&hvlocphy=9189606&hvnetw=g&hvocijid=8315224018449169743--&hvqmt=e&hvrand=8315224018449169743&hvtargid=kwd-491901796313&hydadcr=22610_2214464_376947&keywords=rain+gauges+amazon&mcid=2dbda22179713333ba0ee941f890b3e4&qid=1767944433&sr=8-1-spons&aref=kZxrfar8o6&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">
+                    here
+                    </ExternalLink>.
+                </p>
+                </FootnoteToggle>
+
+                <p>
+                    <strong>Photos: how to take them</strong><br />
+                    After choosing a location, the ideal approach is to photograph it from exactly <strong>the same position</strong> each time. This consistency makes long-term changes visible.
                 </p>
 
                 <p>
-                Missing days or weeks are fine — partial data is expected.
+                    You can achieve this by:
                 </p>
+
+                <ul className="list-disc list-inside space-y-1 text-white/80">
+                <li>using a tripod and carefully positioning it each time, or</li>
+                <li>building a simple fixed marker or mount that stays in place</li>
+                </ul>
+
+                <p>
+                    A fixed solution often produces the most consistent results, as there’s no risk of gradual movements.
+                </p>
+
+                <p className="pb-6 mb-10">
+                    <strong>Building your own fixed camera position</strong><br />
+                    If you decide to create a permanent mount, it doesn’t need to be complicated.
+                    A simple post set into the ground, with brackets to hold your mobile phone,
+                    is often enough. What matters is consistency — not precision engineering.
+                </p>
+
+                <CameraMountAnimation />
+
+                <p className="pt-2 mt-5">
+                    <strong>What if my photos aren’t perfect?</strong><br />
+                    That’s expected. Light levels will change. Weather will interfere. Vegetation will grow unpredictably. Some weeks will look quieter than others.
+                </p>
+
+                <p>
+                    Wild Clocks isn’t about perfect images — it’s about honest ones.
+                </p>
+
+                <p>
+                    <strong>What happens after I upload my photos or data?</strong><br />
+                    Once you’ve shared your photos or rainfall data:
+                </p>
+
+                <ul className="list-disc list-inside space-y-1 text-white/80">
+                <li>they’re reviewed for alignment and consistency</li>
+                <li>and shared to the site...</li>
+                </ul>
 
                 {/* More contributor guidance here */}
               </div>

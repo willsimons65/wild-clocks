@@ -1,7 +1,9 @@
+// src/components/ui/FootnoteToggle.jsx
+
 import React, { useState } from "react";
 import ChevronDown from "@/images/assets/chevron-down.svg";
 
-export default function FootnoteToggle({ title, children }) {
+export default function FootnoteToggle({ title, children, noBorder = false }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -27,8 +29,14 @@ export default function FootnoteToggle({ title, children }) {
 
       {/* EXPANDABLE CONTENT */}
       {open && (
-        <div className="mt-6 pl-6 border-l-[6px] border-white/30">
-          <div className="text-white/70 leading-relaxed space-y-4">
+        <div className="mt-6 flex">
+          {/* LEFT RULE (aligned with chevron) */}
+          {!noBorder && (
+            <div className="w-[6px] bg-white/30 shrink-0" />
+          )}
+
+          {/* CONTENT */}
+          <div className="pl-6 text-white/70 leading-relaxed space-y-4 w-full">
             {children}
           </div>
         </div>
@@ -36,3 +44,5 @@ export default function FootnoteToggle({ title, children }) {
     </div>
   );
 }
+
+

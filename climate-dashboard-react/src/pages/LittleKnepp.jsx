@@ -12,7 +12,7 @@ import temperatureData from "@/data/aggregates/little-knepp.json";
 
 export default function LittleKnepp() {
   const [metric, setMetric] = useState("temperature");
-  const [year, setYear] = useState(2025);
+  const [year, setYear] = useState(2026);
 
   const [allYearsData, setAllYearsData] = useState(null);
 
