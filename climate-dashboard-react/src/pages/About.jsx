@@ -114,7 +114,7 @@ export default function About() {
             </div>
           </div>
 
-          
+          <div className="my-12 border-t border-white/20" />
 
 {/* CONTRIBUTORS */}
             <div id="contributors">
@@ -134,12 +134,16 @@ export default function About() {
                   sustainable and low-pressure.
                 </p>
 
+                <div className="my-12 border-t border-white/20" />
+
                 <p>
                   <strong>How often should I take photos?</strong><br />
                   Aim for around four photographs per month — roughly one every
                   7–8 days. This doesn’t need to be exact. Regularity is more
                   important than precision.
                 </p>
+
+                <div className="my-12 border-t border-white/20" />
 
                 <p>
                   <strong>What happens if I miss a week?</strong><br />
@@ -164,6 +168,8 @@ export default function About() {
                   This allows the site to place each image accurately in time, even when weeks are missed.
                 </p>
 
+                <div className="my-12 border-t border-white/20" />
+
                 <p>
                   <strong>Where does the climate data come from?</strong><br />
                   No clock would be complete without the mechanisms that drive it. Wild Clocks uses four main climate measures:
@@ -179,6 +185,8 @@ export default function About() {
                 <p>
                 Temperature, humidity, and daylight can usually be derived from national data sources or APIs. <strong>Rainfall is different</strong>. It is often highly local and can vary significantly, even over short distances. For this reason, contributors are encouraged — where possible — to collect rainfall data from their own location. Even simple measurements are valuable.
                 </p>
+
+                <div className="my-12 border-t border-white/20" />
                 
                 <p>
                   <strong>What is the best way to measure rainfall?</strong><br />
@@ -203,6 +211,8 @@ export default function About() {
                 </p>
                 </FootnoteToggle>
 
+                <div className="my-12 border-t border-white/20" />
+
                 <p>
                     <strong>Photos: how to take them</strong><br />
                     After choosing a location, the ideal approach is to photograph it from exactly <strong>the same position</strong> each time. This consistency makes long-term changes visible.
@@ -221,14 +231,18 @@ export default function About() {
                     A fixed solution often produces the most consistent results, as there’s no risk of gradual movements.
                 </p>
 
+                <div className="my-12 border-t border-white/20" />
+
                 <p className="pb-6 mb-10">
                     <strong>Building your own fixed camera position</strong><br />
                     If you decide to create a permanent mount, it doesn’t need to be complicated.
-                    A simple post set into the ground, with brackets to hold your mobile phone,
+                    A simple post set into the ground, with two blocks to hold your mobile/camera in place,
                     is often enough. What matters is consistency — not precision engineering.
                 </p>
 
                 <CameraMountAnimation />
+
+                <div className="my-12 border-t border-white/20" />
 
                 <p className="pt-2 mt-5">
                     <strong>What if my photos aren’t perfect?</strong><br />
@@ -238,16 +252,6 @@ export default function About() {
                 <p>
                     Wild Clocks isn’t about perfect images — it’s about honest ones.
                 </p>
-
-                <p>
-                    <strong>What happens after I upload my photos or data?</strong><br />
-                    Once you’ve shared your photos or rainfall data:
-                </p>
-
-                <ul className="list-disc list-inside space-y-1 text-white/80">
-                <li>they’re reviewed for alignment and consistency</li>
-                <li>and shared to the site...</li>
-                </ul>
 
                 {/* More contributor guidance here */}
               </div>
