@@ -130,8 +130,7 @@ export default function About() {
                 </p>
 
                 <p>
-                  This guide explains how to contribute in a way that’s
-                  sustainable and low-pressure.
+                  This guide explains how to contribute in a way that is sustainable, low-pressure, and consistent over time.
                 </p>
 
                 <div className="my-12 border-t border-white/20" />
@@ -188,16 +187,16 @@ export default function About() {
 
                 <FootnoteToggle title="Other ways of measuring climate">
                 <p>
-                    <strong>Wild Clocks</strong> does not treat temperature, rainfall, humidity and daylight as isolated variables. In living systems, these forces are felt together. Growth, flowering, decay and dormancy are shaped by the climate as a whole, and how it works over time, not by how many warm or wet days we’ve had.  
+                    <strong>Wild Clocks</strong> does not treat temperature, rainfall, humidity and daylight as isolated variables. In living systems, these forces are felt together. Growth, flowering, decay, and dormancy are shaped by the climate as a whole — by how conditions combine and unfold over time, not simply by how many warm or wet days occur.  
                 </p>
 
                 <p>
-                    This leads to another question: 
+                    This leads to a broader question: 
                  </p>
                     
                 <ul className="list-disc list-inside space-y-1 text-white/80">
                 <li>what is the combined effect of these values?</li>
-                <li>and, what does it mean for the habitats that move through them?</li>
+                <li>and what does it mean for the habitats that move through them?</li>
                 </ul>   
 
                 <p>
