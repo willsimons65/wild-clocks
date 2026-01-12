@@ -114,7 +114,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="my-12 border-t border-white/20" />
+          <div className="my-16 border-t border-white/40" />
 
 {/* CONTRIBUTORS */}
             <div id="contributors">
@@ -186,6 +186,26 @@ export default function About() {
                 Temperature, humidity, and daylight can usually be derived from national data sources or APIs. <strong>Rainfall is different</strong>. It is often highly local and can vary significantly, even over short distances. For this reason, contributors are encouraged — where possible — to collect rainfall data from their own location. Even simple measurements are valuable.
                 </p>
 
+                <FootnoteToggle title="Other ways of measuring climate">
+                <p>
+                    <strong>Wild Clocks</strong> does not treat temperature, rainfall, humidity and daylight as isolated variables. In living systems, these forces are felt together. Growth, flowering, decay and dormancy are shaped by the climate as a whole, and how it works over time, not by how many warm or wet days we’ve had.  
+                </p>
+
+                <p>
+                    This leads to another question: 
+                 </p>
+                    
+                <ul className="list-disc list-inside space-y-1 text-white/80">
+                <li>what is the combined effect of these values?</li>
+                <li>and, what does it mean for the habitats that move through them?</li>
+                </ul>   
+
+                <p>
+                    The <strong>Index of Hygrothermy</strong> is one way of approaching that question. It looks at the data as a whole and brings multiple climatic factors into a single, comparative view of growing conditions. Each value is interpreted against a shared historical baseline, allowing seasons to be compared across years and across locations.
+                </p>
+
+                </FootnoteToggle>
+
                 <div className="my-12 border-t border-white/20" />
                 
                 <p>
@@ -236,7 +256,7 @@ export default function About() {
                 <p className="pb-6 mb-10">
                     <strong>Building your own fixed camera position</strong><br />
                     If you decide to create a permanent mount, it doesn’t need to be complicated.
-                    A simple post set into the ground, with two blocks to hold your mobile/camera in place,
+                    A simple post set into the ground, with two blocks to hold your mobile phone/camera in place,
                     is often enough. What matters is consistency — not precision engineering.
                 </p>
 
@@ -253,7 +273,6 @@ export default function About() {
                     Wild Clocks isn’t about perfect images — it’s about honest ones.
                 </p>
 
-                {/* More contributor guidance here */}
               </div>
             </div>
 
