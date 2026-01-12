@@ -30,12 +30,6 @@ export default function About() {
     >
       Contributor’s guide
     </a>
-    <a
-      href="#contributors"
-      className="block hover:text-white transition-colors"
-    >
-      Index of hygrothermy
-    </a>
   </nav>
 </aside>
 
