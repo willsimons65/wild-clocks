@@ -128,9 +128,6 @@ export default function Navbar() {
         CONTRIBUTOR’S GUIDE
       </a>
 
-      <a href="/hygrothermy" className="block text-white text-sm">
-        INDEX OF HYGROTHERMY
-      </a>
     </motion.div>
   </motion.div>
 )}
