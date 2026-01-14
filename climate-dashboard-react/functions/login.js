@@ -1,17 +1,4 @@
-const VALID_CODES = new Set([
-  "w1ldth1ng1084",
-  "w1ldth1ng1394",
-  "w1ldth1ng1459",
-  "w1ldth1ng1481",
-  "w1ldth1ng1509",
-  "w1ldth1ng1560",
-  "w1ldth1ng1751",
-  "w1ldth1ng1777",
-  "w1ldth1ng1866",
-  "w1ldth1ng1967",
-]);
-
-export async function onRequestPost({ request }) {
+export async function onRequestPost({ request, env }) {
   let body;
   try {
     body = await request.json();
@@ -21,13 +8,41 @@ export async function onRequestPost({ request }) {
 
   const password = String(body.password || "").trim();
 
-  if (!VALID_CODES.has(password)) {
+  if (!password) {
+    return new Response(JSON.stringify({ ok: false, error: "Missing code" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // 1️⃣ Look up the code in KV
+  const codeKey = `code:${password}`;
+  const record = await env.WC_USERS.get(codeKey, { type: "json" });
+
+  if (!record) {
     return new Response(JSON.stringify({ ok: false, error: "Invalid code" }), {
       status: 401,
       headers: { "Content-Type": "application/json" },
     });
   }
 
+  // 2️⃣ Log this successful login
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  const userAgent = request.headers.get("User-Agent") || "unknown";
+  const now = new Date().toISOString();
+
+  const logKey = `${codeKey}:visits`;
+  const visits = (await env.WC_USERS.get(logKey, { type: "json" })) || [];
+
+  visits.push({
+    ip,
+    userAgent,
+    at: now,
+  });
+
+  await env.WC_USERS.put(logKey, JSON.stringify(visits));
+
+  // 3️⃣ Set auth cookie (same as before)
   const maxAgeSeconds = 60 * 60 * 24;
 
   return new Response(JSON.stringify({ ok: true }), {
@@ -44,4 +59,3 @@ export async function onRequestPost({ request }) {
     },
   });
 }
-
