@@ -13,6 +13,7 @@ import RainfallModal from "@/components/modals/RainfallModal";
 import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
 import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
 import ModalControlIcon from "@/components/icons/ModalControlIcon";
+import { buildInsightsAvailability } from "@/data/insights/buildInsightsAvailability";
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -112,6 +113,18 @@ export default function MonthBlock({
       )
     : [];
 
+  const yearRows = hasData
+  ? data.filter((d) => Number(d.year) === Number(year))
+  : [];
+
+
+const availability = useMemo(() => {
+  return buildInsightsAvailability({
+    monthRows,
+    yearRows,
+  });
+}, [monthRows, yearRows]);
+
   const renderChart = () => {
     switch (metric) {
       case "temperature":
@@ -174,30 +187,23 @@ export default function MonthBlock({
               </h2>
 
               <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                <button
-                  aria-label="Open details"
-                  className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition"
-                  onClick={() => {
-                    if (
-                      metric === "rainfall" &&
-                      (!rainfallModalData ||
-                        !rainfallModalData.hasSelectedYearData)
-                    ) {
-                      return;
-                    }
+<button
+  aria-label="Open details"
+  onClick={() => {
+    if (availability.monthStatus !== "complete") return;
+    setOpenModal(metric);
+  }}
+  disabled={availability.monthStatus !== "complete"}
+  className={`w-12 h-12 flex items-center justify-center transition ${
+    availability.monthStatus !== "complete"
+      ? "opacity-30 cursor-not-allowed"
+      : "opacity-70 hover:opacity-100"
+  }`}
+>
+  <ModalControlIcon className="w-6 h-6 text-white" />
+</button>
 
-                    if (
-                      metric === "temperature" &&
-                      !temperatureModalData?.hasSelectedYearData
-                    ) {
-                      return;
-                    }
 
-                    setOpenModal(metric);
-                  }}
-                >
-                  <ModalControlIcon className="w-6 h-6 text-white" />
-                </button>
               </div>
             </div>
 
