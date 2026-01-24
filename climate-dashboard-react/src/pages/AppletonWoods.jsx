@@ -5,13 +5,19 @@ import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
+import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
 
-import appletonTemperatureData from "@/data/aggregates/appleton-woods.json";
+export default function AppletonWoods({
+  year,
+  setYear,
+  setPlace,
+}) {
 
-export default function AppletonWoodsPage() {
+  useEffect(() => {
+  setPlace("appleton-woods");
+}, [setPlace]);
+
   const [metric, setMetric] = useState("temperature");
-  const [year, setYear] = useState(new Date().getFullYear());
-
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -48,7 +54,7 @@ export default function AppletonWoodsPage() {
       });
 
       setAllYearsData(byYear);
-      setWeather(byYear[year] || {});
+      setWeather(byYear[year] ?? null);
       setLoading(false);
     }
 
@@ -61,13 +67,13 @@ export default function AppletonWoodsPage() {
     setWeather(allYearsData[year] || {});
   }, [year, allYearsData]);
 
-  if (loading || !weather) {
-    return (
-      <div className="min-h-screen bg-[#1E1E1E] text-white flex items-center justify-center">
-        Loading Appleton Woods data…
-      </div>
-    );
-  }
+if (loading) {
+  return (
+    <div className="min-h-screen bg-[#1E1E1E] text-white flex items-center justify-center">
+      Loading Appleton Woods data…
+    </div>
+  );
+}
 
   // Flatten ALL years for modals
   const allDailyRows = Object.values(allYearsData)
@@ -91,9 +97,9 @@ export default function AppletonWoodsPage() {
             year={year}
             place="appletonwoods"
             metric={metric}
-            data={weather[month] || []}      // charts
-            fullData={allDailyRows}          // rainfall modal
-            temperatureData={appletonTemperatureData}       // temperature modal
+            data={weather?.[month] || []}
+            fullData={allDailyRows}
+            temperatureData={appletonWoodsClimate}
           />
         ))}
 

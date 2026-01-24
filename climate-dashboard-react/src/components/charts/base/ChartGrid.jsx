@@ -1,36 +1,33 @@
 // src/components/charts/base/ChartGrid.jsx
 
-// src/components/charts/base/ChartGrid.jsx
 import React from "react";
-import { CHART_HEIGHT, GRID_STROKE, GRID_DASH } from "@/constants/chartLayout";
+import { CHART_HEIGHT } from "@/constants/chartLayout";
 
-export default function ChartGrid({ xTicks = [], yTicks = [], xScale, yScale, chartWidth }) {
+export default function ChartGrid({
+  xTicks = [],
+  yTicks = [],
+  xScale,
+  yScale,
+  chartWidth,
+  showZeroLine = true,
+}) {
   return (
-    <g stroke={GRID_STROKE} strokeWidth={1} strokeDasharray={GRID_DASH}>
-      {/* Horizontal grid lines */}
-      {yTicks.map((t) => (
+    <g>
+      {/* Zero baseline */}
+      {showZeroLine && yScale && (
         <line
-          key={`h-${t}`}
           x1={0}
           x2={chartWidth}
-          y1={yScale(t)}
-          y2={yScale(t)}
+          y1={yScale(0)}
+          y2={yScale(0)}
+          stroke="rgba(106, 106, 106, 0.6)"
+          strokeWidth={1}
         />
-      ))}
-
-      {/* Vertical grid lines (optional) */}
-      {xTicks.map((t) => (
-        <line
-          key={`v-${t}`}
-          x1={xScale(t)}
-          x2={xScale(t)}
-          y1={0}
-          y2={CHART_HEIGHT}
-        />
-      ))}
+      )}
     </g>
   );
 }
+
 
 
 

@@ -1,7 +1,5 @@
 // src/constants/chartLayout.js
 
-// src/constants/chartLayout.js
-
 // --- Chart drawing area height (used everywhere) ---
 export const CHART_HEIGHT = 240;
 
@@ -13,7 +11,7 @@ export const PADDING_TOP = 20;
 export const AXIS_FONT_SIZE = 12;
 export const AXIS_COLOR = "#e5e5e5";
 
-export const GRID_STROKE = "#666";
+export const GRID_STROKE = "transparent";
 export const GRID_DASH = "4 4";
 
 // --- Dynamic rainfall tick helper (still in use) ---

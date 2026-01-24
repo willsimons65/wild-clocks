@@ -8,11 +8,8 @@ import TemperatureChart from "@/components/charts/TemperatureChart";
 import RainfallChart from "@/components/charts/RainfallChart";
 import HumidityChart from "@/components/charts/HumidityChart";
 import PhotoperiodChart from "@/components/charts/PhotoperiodChart";
-import TemperatureModal from "@/components/modals/TemperatureModal";
-import RainfallModal from "@/components/modals/RainfallModal";
 import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
 import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
-import ModalControlIcon from "@/components/icons/ModalControlIcon";
 import { buildInsightsAvailability } from "@/data/insights/buildInsightsAvailability";
 
 const MONTHS = [
@@ -46,7 +43,6 @@ export default function MonthBlock({
   fullData,
   temperatureData,
 }) {
-  const [openModal, setOpenModal] = useState(null);
 
   const hasData = Array.isArray(data) && data.length > 0;
 
@@ -57,11 +53,6 @@ export default function MonthBlock({
   useEffect(() => {
     if (!Array.isArray(fullData)) return;
 
-      console.log(
-    "All rainfall places:",
-    [...new Set(fullData.map(r => r.place))].sort()
-  );
-
     const years = fullData
       .filter(
         (r) =>
@@ -70,10 +61,7 @@ export default function MonthBlock({
       )
       .map((r) => r.year);
 
-    console.log(
-      `[Rainfall years for ${place}]`,
-      [...new Set(years)].sort()
-    );
+  
   }, [fullData, place]);
 
   // ✅ Rainfall modal data
@@ -181,55 +169,16 @@ const availability = useMemo(() => {
 
         <ChartCard>
           <div className="relative overflow-visible">
-            <div className="relative px-4 py-6 h-10">
-              <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-lg font-medium tracking-tight opacity-90">
-                {month}
-              </h2>
-
-              <div className="absolute right-0 top-1/2 -translate-y-1/2">
-<button
-  aria-label="Open details"
-  onClick={() => {
-    if (availability.monthStatus !== "complete") return;
-    setOpenModal(metric);
-  }}
-  disabled={availability.monthStatus !== "complete"}
-  className={`w-12 h-12 flex items-center justify-center transition ${
-    availability.monthStatus !== "complete"
-      ? "opacity-30 cursor-not-allowed"
-      : "opacity-70 hover:opacity-100"
-  }`}
->
-  <ModalControlIcon className="w-6 h-6 text-white" />
-</button>
-
-
-              </div>
-            </div>
+            <div className="px-4 pt-2 pb-5 flex items-center justify-center">
+  <h2 className="text-lg font-medium tracking-tight opacity-90">
+    {month}
+  </h2>
+</div>
 
             {renderChart()}
           </div>
         </ChartCard>
       </div>
-
-      {openModal === "temperature" && (
-        <TemperatureModal
-          month={month}
-          year={year}
-          monthIndex={monthIndex0}
-          raw={temperatureData}
-          onClose={() => setOpenModal(null)}
-        />
-      )}
-
-      {openModal === "rainfall" && rainfallModalData && (
-        <RainfallModal
-          year={year}
-          monthLabel={month}
-          data={rainfallModalData}
-          onClose={() => setOpenModal(null)}
-        />
-      )}
     </>
   );
 }

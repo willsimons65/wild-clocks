@@ -1,6 +1,7 @@
 // src/components/charts/base/ChartContainer.jsx
 
 import React, { useState, useRef, useEffect } from "react";
+import { useChartScale } from "@/components/charts/base/useChartScale";
 
 import {
   PADDING_LEFT,
@@ -20,13 +21,19 @@ export default function ChartContainer({
   monthIndex,
   yScale,
   yTicks,
+  xTicksOverride,
+  xDomainOverride,
   TooltipComponent,
   metricHeader = null,
   rightPadding = 48,
+  leftPaddingOverride,
   interactive = false,
 }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
+
+  // Always work with safe data
+  const safeData = Array.isArray(data) ? data : [];
 
   // ---------------------------
   // Responsive width
@@ -44,19 +51,34 @@ export default function ChartContainer({
     return () => obs.disconnect();
   }, []);
 
-  const chartWidth = Math.max(
-    180,
-    containerWidth - PADDING_LEFT - rightPadding
-  );
-
-  const totalWidth = chartWidth + PADDING_LEFT + rightPadding;
+  const leftPadding = leftPaddingOverride ?? PADDING_LEFT;
+  const chartWidth = Math.max(180, containerWidth - leftPadding - rightPadding);
+  const totalWidth = chartWidth + leftPadding + rightPadding;
 
   // ---------------------------
-  // X-axis
+  // X axis
   // ---------------------------
-  const lastDay = new Date(year, monthIndex, 0).getDate();
-  const xScale = makeXScale(lastDay, chartWidth);
-  const xTicks = makeXTicks(lastDay);
+  const lastDay =
+    Array.isArray(xDomainOverride) && xDomainOverride.length === 2
+      ? xDomainOverride[1]
+      : new Date(year, monthIndex, 0).getDate();
+
+  // ✅ IMPORTANT: inset for discrete domains (months)
+  const xScale = xDomainOverride
+    ? useChartScale(
+        [xDomainOverride[0] - 0.5, xDomainOverride[1] + 0.5],
+        [0, chartWidth]
+      )
+    : makeXScale(lastDay, chartWidth);
+
+  const xTicks = xTicksOverride ?? makeXTicks(lastDay);
+
+  // Treat charts with xDomainOverride as "discrete" (e.g. months 1..12)
+  const isDiscreteX =
+    Array.isArray(xDomainOverride) &&
+    xDomainOverride.length === 2 &&
+    Number.isFinite(xDomainOverride[0]) &&
+    Number.isFinite(xDomainOverride[1]);
 
   // ---------------------------
   // Hover state
@@ -65,27 +87,69 @@ export default function ChartContainer({
   const [hoverX, setHoverX] = useState(null);
 
   // ---------------------------
-  // Pointer → index mapping
+  // Pointer -> index mapping
   // ---------------------------
   const updateFromClientX = (clientX) => {
-    const box = containerRef.current.getBoundingClientRect();
-    const mx = clientX - box.left - PADDING_LEFT;
-
-    if (mx < 0 || mx > chartWidth) {
+    if (!containerRef.current || safeData.length === 0) {
       setHoverIndex(null);
+      setHoverX(null);
       return;
     }
 
-    const index = Math.round((mx / chartWidth) * (data.length - 1));
-    const d = data[index];
+    const box = containerRef.current.getBoundingClientRect();
+    const mx = clientX - box.left - leftPadding;
+
+    if (!Number.isFinite(mx) || mx < 0 || mx > chartWidth) {
+      setHoverIndex(null);
+      setHoverX(null);
+      return;
+    }
+
+    // ✅ Discrete x (months): choose nearest datum by xScale(d.x)
+    if (isDiscreteX) {
+      let nearestIndex = null;
+      let minDist = Infinity;
+
+      for (let i = 0; i < safeData.length; i++) {
+        const d = safeData[i];
+        const xv = d?.x;
+        if (!Number.isFinite(xv)) continue;
+
+        const px = xScale(xv);
+        if (!Number.isFinite(px)) continue;
+
+        const dist = Math.abs(px - mx);
+        if (dist < minDist) {
+          minDist = dist;
+          nearestIndex = i;
+        }
+      }
+
+      if (nearestIndex === null) {
+        setHoverIndex(null);
+        setHoverX(null);
+        return;
+      }
+
+      setHoverIndex(nearestIndex);
+      setHoverX(xScale(safeData[nearestIndex].x));
+      return;
+    }
+
+    // ✅ Continuous x (daily): ratio mapping
+    const index = Math.round((mx / chartWidth) * (safeData.length - 1));
+    const clamped = Math.max(0, Math.min(safeData.length - 1, index));
+    const d = safeData[clamped];
     if (!d) return;
 
-    setHoverIndex(index);
-    setHoverX(xScale(d.day));
+    setHoverIndex(clamped);
+
+    const xv = Number.isFinite(d.day) ? d.day : d.x;
+    setHoverX(Number.isFinite(xv) ? xScale(xv) : null);
   };
 
   // ---------------------------
-  // Mouse handlers
+  // Mouse / touch handlers
   // ---------------------------
   const handleMove = (e) => {
     if (!interactive) return;
@@ -94,11 +158,9 @@ export default function ChartContainer({
 
   const handleLeave = () => {
     setHoverIndex(null);
+    setHoverX(null);
   };
 
-  // ---------------------------
-  // Touch handlers (iOS + Android)
-  // ---------------------------
   const handleTouchStart = (e) => {
     if (!interactive || !e.touches.length) return;
     updateFromClientX(e.touches[0].clientX);
@@ -106,35 +168,44 @@ export default function ChartContainer({
 
   const handleTouchMove = (e) => {
     if (!interactive || !e.touches.length) return;
-    e.preventDefault(); // stop scroll
+    e.preventDefault();
     updateFromClientX(e.touches[0].clientX);
   };
 
   const handleTouchEnd = () => {
     setHoverIndex(null);
+    setHoverX(null);
   };
 
   // ---------------------------
-  // Cursor X position
+  // Cursor X (derived from xScale)
   // ---------------------------
-  const cursorX =
-    hoverIndex !== null &&
-    hoverIndex >= 0 &&
-    hoverIndex < data.length
-      ? xScale(data[hoverIndex].day)
-      : null;
+  let cursorX = null;
+
+  if (hoverIndex !== null && safeData[hoverIndex]) {
+    const d = safeData[hoverIndex];
+    const xv = isDiscreteX
+      ? d.x
+      : Number.isFinite(d.day)
+        ? d.day
+        : d.x;
+
+    if (Number.isFinite(xv)) {
+      cursorX = xScale(xv);
+    }
+  }
 
   // ---------------------------
-  // Tooltip Y position logic
+  // Tooltip Y logic
   // ---------------------------
   let yValues = [];
   let isRainfall = false;
 
-  if (hoverIndex !== null && data[hoverIndex]) {
-    const d = data[hoverIndex];
+  if (hoverIndex !== null && safeData[hoverIndex]) {
+    const d = safeData[hoverIndex];
 
     if (d.max !== undefined && d.min !== undefined) {
-      yValues = [d.max, d.min]; // temperature
+      yValues = [d.max, d.min];
     } else if (d.humidity !== undefined) {
       yValues = [d.humidity];
     } else if (d.hours !== undefined) {
@@ -151,16 +222,12 @@ export default function ChartContainer({
   const topY = yPixels.length ? Math.min(...yPixels) : null;
   const bottomY = yPixels.length ? Math.max(...yPixels) : null;
 
-  const bubblePosition = computeBubblePosition(
-    topY,
-    CHART_HEIGHT,
-    PADDING_TOP
-  );
+  const bubblePosition = computeBubblePosition(topY, CHART_HEIGHT, PADDING_TOP);
 
   let finalBubbleY = null;
   if (topY !== null && bottomY !== null) {
-    let OFFSET_ABOVE = 5;
-    let OFFSET_BELOW = isRainfall ? 40 : 50;
+    const OFFSET_ABOVE = 5;
+    const OFFSET_BELOW = isRainfall ? 40 : 50;
 
     finalBubbleY =
       bubblePosition === "above"
@@ -196,7 +263,6 @@ export default function ChartContainer({
       "
       style={{ touchAction: "none", WebkitUserSelect: "none" }}
     >
-      {/* Metric header (max/min labels) */}
       {metricHeader && hoverIndex !== null && (
         <div className="absolute top-2.5 left-0 right-0 flex justify-center z-10 pointer-events-none">
           {metricHeader({ index: hoverIndex })}
@@ -216,81 +282,24 @@ export default function ChartContainer({
         onTouchEnd={interactive ? handleTouchEnd : undefined}
       >
         {/* Chart content */}
-        <g transform={`translate(${PADDING_LEFT}, ${PADDING_TOP})`}>
+        <g transform={`translate(${leftPadding}, ${PADDING_TOP})`}>
           {enhanced}
         </g>
 
-        {/* Cursor line (middle layer) */}
+        {/* Cursor line (not clipped) */}
         {interactive && cursorX !== null && (
           <line
-            x1={cursorX + PADDING_LEFT}
-            x2={cursorX + PADDING_LEFT}
+            x1={cursorX + leftPadding}
+            x2={cursorX + leftPadding}
             y1={PADDING_TOP}
             y2={PADDING_TOP + CHART_HEIGHT}
             stroke="white"
             strokeWidth={1}
           />
         )}
-
-        {/* Hover circles (TOP layer — after cursor line) */}
-        {interactive &&
-          cursorX !== null &&
-          hoverIndex !== null &&
-          (() => {
-            const d = data[hoverIndex];
-            if (!d || d.rainfall !== undefined) return null; // no circles on rainfall
-
-            // Temperature
-            if (d.max !== undefined && d.min !== undefined) {
-              return (
-                <g pointerEvents="none">
-                  <circle
-                    cx={cursorX + PADDING_LEFT}
-                    cy={yScale(d.max) + PADDING_TOP}
-                    r={5}
-                    fill="#FF2E94"
-                    stroke="white"
-                    strokeWidth={1.5}
-                  />
-                  <circle
-                    cx={cursorX + PADDING_LEFT}
-                    cy={yScale(d.min) + PADDING_TOP}
-                    r={5}
-                    fill="#7bbaff"
-                    stroke="white"
-                    strokeWidth={1.5}
-                  />
-                </g>
-              );
-            }
-
-            // Single-value charts
-            const value = d.humidity ?? d.hours ?? d.y;
-            if (value !== undefined) {
-              const color =
-                d.humidity !== undefined
-                  ? "#5F67FF"
-                  : "#FFE08A";
-
-              return (
-                <g pointerEvents="none">
-                  <circle
-                    cx={cursorX + PADDING_LEFT}
-                    cy={yScale(value) + PADDING_TOP}
-                    r={5}
-                    fill={color}
-                    stroke="white"
-                    strokeWidth={1.5}
-                  />
-                </g>
-              );
-            }
-
-            return null;
-          })()}
       </svg>
 
-      {/* Tooltip (absolute HTML overlay) */}
+      {/* Tooltip */}
       {interactive &&
         TooltipComponent &&
         hoverIndex !== null &&
@@ -298,9 +307,9 @@ export default function ChartContainer({
         finalBubbleY !== null && (
           <TooltipComponent
             index={hoverIndex}
-            x={hoverX + PADDING_LEFT}
+            x={hoverX + leftPadding}
             y={finalBubbleY}
-            data={data}
+            data={safeData}
             position={bubblePosition}
           />
         )}

@@ -3,20 +3,36 @@
 import { useChartScale } from "@/components/charts/base/useChartScale";
 
 /**
- * Create a responsive x-scale for days 1..lastDay
- * @param {number} lastDay
- * @param {number} width - dynamic pixel width from useChartWidth
+ * Create a responsive x-scale for discrete steps (days or months).
+ * Bars and labels are inset by half a step so they sit inside the frame,
+ * preventing edge overlap.
+ *
+ * @param {number} lastDay - number of steps (e.g. 12 for months, 31 for days)
+ * @param {number} width - drawable chart width in pixels
  */
-export function makeXScale(lastDay, width) {
-  return useChartScale([1, lastDay], [0, width]);
+export function makeXScale(count, width) {
+  if (!Number.isFinite(count) || count <= 0) {
+    return () => width / 2;
+  }
+
+  const slot = width / count;
+
+  return (value) => {
+    // value is 1..count
+    return (value - 0.5) * slot;
+  };
 }
 
+
 /**
- * Returns evenly spaced ticks:
- * Always 1, then roughly every 1/5 of month,
- * ending exactly at lastDay (28/29/30/31).
+ * Returns evenly spaced ticks.
+ * Tick values remain unchanged — only their *positions* are inset by the scale.
  */
 export function makeXTicks(lastDay) {
+  if (!Number.isFinite(lastDay) || lastDay <= 1) {
+    return [];
+  }
+
   const ticks = [1];
   const step = Math.floor(lastDay / 5);
 
@@ -38,3 +54,4 @@ export function makeXTicks(lastDay) {
 export function getLastDay(year, monthIndex) {
   return new Date(year, monthIndex, 0).getDate();
 }
+

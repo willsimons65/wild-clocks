@@ -9,10 +9,24 @@ export default function ChartAxes({
   xScale,
   yScale,
   yFormatter = (v) => v,
-  chartWidth,        // from ChartContainer
+  xFormatter = (v) => v,
+  chartWidth,
+  yPosition = "right",
 }) {
+
+
+  if (!Number.isFinite(chartWidth)) {
+  return null;
+  }
+
+  ChartAxes.displayName = "ChartAxes";
+
   const X_LABEL_Y = CHART_HEIGHT + 22;
-  const Y_LABEL_X = chartWidth + 4;
+  const Y_LABEL_X =
+  yPosition === "left"
+    ? -6
+    : chartWidth + 4;
+
 
   const formatX = (t) => {
     if (typeof t === "number") return t;
@@ -29,7 +43,7 @@ export default function ChartAxes({
           y={X_LABEL_Y}
           textAnchor="middle"
         >
-          {formatX(t)}
+          {xFormatter(t)}
         </text>
       ))}
 
@@ -38,11 +52,12 @@ export default function ChartAxes({
           key={`yt-${t}`}
           x={Y_LABEL_X}
           y={yScale(t) + 4}
-          textAnchor="start"
+          textAnchor={yPosition === "left" ? "end" : "start"}
         >
-          {yFormatter(t)}
+          {Number.isFinite(t) ? yFormatter(t) : ""}
         </text>
       ))}
+
     </g>
   );
 }

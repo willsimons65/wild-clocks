@@ -8,11 +8,23 @@ import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 
-import temperatureData from "@/data/aggregates/little-knepp.json";
+import littleKneppClimate from "@/data/aggregates/little-knepp.json";
 
-export default function LittleKnepp() {
+export default function LittleKnepp({
+  year,
+  setYear,
+  setPlace,
+}) {
+
+  useEffect(() => {
+    setPlace("little-knepp");
+  }, [setPlace]);
+
+  const [weather, setWeather] = useState(null);
+
+  // rest of your logic
+
   const [metric, setMetric] = useState("temperature");
-  const [year, setYear] = useState(2026);
 
   const [allYearsData, setAllYearsData] = useState(null);
 
@@ -22,8 +34,6 @@ export default function LittleKnepp() {
     Object.values(byMonth).flat()
   );
   }, [allYearsData]);
-
-  const [weather, setWeather] = useState(null);
 
   const [fade, setFade] = useState(false);
 
@@ -106,6 +116,7 @@ export default function LittleKnepp() {
         setYear={setYear}
         metric={metric}
         setMetric={setMetric}
+        viewMode="feed"
       />
 
       <div className={`transition-opacity duration-300 ${fade ? "opacity-0" : "opacity-100"}`}>
@@ -119,7 +130,7 @@ export default function LittleKnepp() {
               metric={metric}
               data={weather[month]}
               fullData={allDailyRows}
-              temperatureData={temperatureData}
+              temperatureData={littleKneppClimate}
             />
           ))}
         </div>

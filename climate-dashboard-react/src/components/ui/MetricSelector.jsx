@@ -7,7 +7,12 @@ import RainIcon from "@/images/assets/rainfall.svg";
 import HumidIcon from "@/images/assets/humidity.svg";
 import PhotoIcon from "@/images/assets/photoperiod.svg";
 
-export default function MetricSelector({ selected, onChange }) {
+export default function MetricSelector({
+  selected,
+  onChange,
+  disabled = false,
+  subtle = false,
+}) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -39,9 +44,16 @@ export default function MetricSelector({ selected, onChange }) {
     <div className="relative ml-auto" ref={ref}>
       {/* BUTTON */}
       <button
-        onClick={() => setOpen(!open)}
-        className="header-btn flex items-center gap-1"
-      >
+  onClick={() => {
+    if (disabled) return;
+    setOpen((v) => !v);
+  }}
+  className={`
+    header-btn flex items-center gap-1
+    ${subtle ? "opacity-50" : ""}
+    ${disabled ? "cursor-default" : ""}
+  `}
+>
         <img src={selectedMetric.icon} alt="" className="w-4 h-4" />
 
         <svg
@@ -60,34 +72,49 @@ export default function MetricSelector({ selected, onChange }) {
         </svg>
       </button>
 
-      {/* DROPDOWN */}
-      {open && (
-        <div
-          className="
-            absolute right-0 mt-2 w-40 rounded-xl
-            bg-[#2A2A2A] border border-white/20 shadow-lg z-50
-            animate-fadeIn
-          "
+{/* DROPDOWN */}
+{open && (
+  <div
+    className="
+      absolute right-0 mt-2 w-44
+      rounded-xl
+      bg-[#2A2A2A]
+      border border-white/20
+      shadow-lg
+      overflow-hidden
+      z-50
+    "
+  >
+    {metrics.map((m) => {
+      const isSelected = m.key === selected;
+
+      return (
+        <button
+          key={m.key}
+          onClick={() => {
+            onChange(m.key);
+            setOpen(false);
+          }}
+          className={`
+            w-full flex items-center gap-3
+            px-4 py-3 text-left
+            text-sm
+            transition-colors
+            ${isSelected ? "bg-white/10" : "hover:bg-white/5"}
+          `}
         >
-          {metrics.map((m) => (
-            <button
-              key={m.key}
-              onClick={() => {
-                onChange(m.key);
-                setOpen(false);
-              }}
-              className={`
-                w-full flex items-center gap-2 px-4 py-3 text-left
-                hover:bg-white/10 transition
-                ${m.key === selected ? "bg-white/10" : ""}
-              `}
-            >
-              <img src={m.icon} alt="" className="w-4 h-4" />
-              <span>{m.label}</span>
-            </button>
-          ))}
-        </div>
-      )}
+          <img
+            src={m.icon}
+            alt=""
+            className="w-4 h-4 opacity-80"
+          />
+          <span className="text-white">{m.label}</span>
+        </button>
+      );
+    })}
+  </div>
+)}
+
     </div>
   );
 }

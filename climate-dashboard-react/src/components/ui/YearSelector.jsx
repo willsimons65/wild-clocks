@@ -1,4 +1,4 @@
-// src/components/selectors/YearSelector.jsx
+// src/components/ui/YearSelector.jsx
 
 import React, { useState, useRef, useEffect } from "react";
 
@@ -7,6 +7,7 @@ export default function YearSelector({
   selectedYear,
   onYearChange,
 }) {
+
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 

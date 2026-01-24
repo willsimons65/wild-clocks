@@ -1,51 +1,67 @@
 // src/components/charts/base/ChartBars.jsx
 
 import React from "react";
-import { CHART_HEIGHT } from "@/constants/chartLayout";
 
-export default function ChartBars(props) {
-  if (!props?.data || props.data.length === 0) return null;
+export default function ChartBars({
+  data,
+  xScale, // still passed in, but we won't use it for discrete monthly bars
+  yScale,
+  chartWidth,
+  fill = "#7bbaff",
+  positiveFill,
+  negativeFill,
+}) {
+  if (!data || !yScale || !chartWidth) return null;
 
-  const { data, xScale, yScale, chartWidth, fill = "#7bbaff" } = props;
+  const barCount = data.length;
+  if (barCount === 0) return null;
 
-  // ❌ Prevent NaN
-  if (!xScale || !yScale || !chartWidth) return null;
+  // Each month gets a fixed horizontal slot
+  const slotWidth = chartWidth / barCount;
 
-  const days = data.length;
+  // Bars occupy only part of that slot
+  const barWidth = Math.min(slotWidth * 0.55, 26);
 
-  const barWidth = chartWidth / days - 2;
+  const baselineY = yScale(0);
 
   return (
     <g>
       {data.map((d, i) => {
-        const x = xScale(d.x);
-        const y = yScale(d.y);
+        if (!Number.isFinite(d?.y)) return null;
 
-        const height = CHART_HEIGHT - y;
+        // ✅ Use slot geometry, not xScale
+        const x = (i + 0.5) * slotWidth;
 
-        if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+        const valueY = yScale(d.y);
+        if (!Number.isFinite(valueY)) return null;
 
-return (
-  <rect
-  key={d.x}
-  x={x - barWidth / 2}
-  y={y}
-  width={barWidth}
-  height={height}
-  rx={2}
-  fill={fill}
-  style={{
-    transformBox: "fill-box",      // ★ Important
-    transformOrigin: "center bottom",
-    transform: "scaleY(0)",
-    animation: "growBar 0.8s ease-out forwards",
-    animationDelay: `${i * 0.02}s`,
-  }}
-/>
+        const y = Math.min(valueY, baselineY);
+        const height = Math.abs(baselineY - valueY);
+        if (height === 0) return null;
 
-);
+        const barFill =
+          d.y >= 0 ? positiveFill ?? fill : negativeFill ?? fill;
 
+        return (
+          <rect
+            key={d.x ?? i}
+            x={x - barWidth / 2}
+            y={y}
+            width={barWidth}
+            height={height}
+            rx={3}
+            fill={barFill}
+            style={{
+              transformBox: "fill-box",
+              transformOrigin: d.y >= 0 ? "center bottom" : "center top",
+              transform: "scaleY(0)",
+              animation: "growBar 0.8s ease-out forwards",
+              animationDelay: `${i * 0.02}s`,
+            }}
+          />
+        );
       })}
     </g>
   );
 }
+
