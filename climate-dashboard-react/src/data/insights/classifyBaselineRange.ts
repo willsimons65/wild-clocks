@@ -2,7 +2,8 @@
 
 import { classifyBaselineValue } from "./classifyBaselineValue";
 
-export function classifyBaselineRange(min, max) {
+export function classifyBaselineRange(min: number, max: number) {
+ 
   const from = classifyBaselineValue(min);
   const to = classifyBaselineValue(max);
 

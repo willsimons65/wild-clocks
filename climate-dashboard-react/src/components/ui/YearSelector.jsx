@@ -3,17 +3,16 @@
 import React, { useState, useRef, useEffect } from "react";
 
 export default function YearSelector({
-  years = [],            // [{ year: number, disabled?: boolean }]
+  years = [],
   selectedYear,
   onYearChange,
+  compact = false,
 }) {
-
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
   const selected = years.find((y) => y.year === selectedYear);
 
-  // Close when clicking outside
   useEffect(() => {
     function handleClick(e) {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -25,11 +24,14 @@ export default function YearSelector({
   }, []);
 
   return (
-    <div className="relative ml-auto" ref={ref}>
-      {/* BUTTON */}
+    <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen(!open)}
-        className="header-btn flex items-center gap-1"
+        className={`
+          header-btn flex items-center gap-1
+          whitespace-nowrap shrink-0
+          ${compact ? "px-3 py-2 text-sm" : ""}
+        `}
       >
         <span>{selected?.year}</span>
 
@@ -49,15 +51,8 @@ export default function YearSelector({
         </svg>
       </button>
 
-      {/* DROPDOWN */}
       {open && (
-        <div
-          className="
-            absolute right-0 mt-2 w-40 rounded-xl
-            bg-[#2A2A2A] border border-white/20 shadow-lg z-50
-            animate-fadeIn
-          "
-        >
+        <div className="absolute right-0 mt-2 w-40 rounded-xl bg-[#2A2A2A] border border-white/20 shadow-lg z-50">
           {years.map(({ year, disabled }) => (
             <button
               key={year}
@@ -81,9 +76,7 @@ export default function YearSelector({
               <div className="flex items-center justify-between">
                 <span>{year}</span>
                 {disabled && (
-                  <span className="text-sm text-white/40">
-                    No data
-                  </span>
+                  <span className="text-sm text-white/40">No data</span>
                 )}
               </div>
             </button>

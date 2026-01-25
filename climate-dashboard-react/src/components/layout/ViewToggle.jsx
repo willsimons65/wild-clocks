@@ -1,3 +1,5 @@
+// src/components/layout/ViewToggle.jsx
+
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function ViewToggle() {
@@ -11,7 +13,7 @@ export default function ViewToggle() {
       className="
         relative flex items-center
         rounded-full border border-white/40
-        h-10 w-[260px]
+        h-10 w-[200px] md:w-[220px]
         overflow-hidden
       "
     >

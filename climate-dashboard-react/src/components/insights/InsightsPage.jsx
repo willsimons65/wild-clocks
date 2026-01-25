@@ -110,7 +110,7 @@ const ytdRainfall = Object.values(
         setMetric={setMetric}
       />
 
-<main className="max-w-[1200px] mx-auto px-4 py-6 space-y-10">
+<main className="max-w-[1200px] mx-auto px-4 py-6">
   {/* Grouped month-comparison section */}
   <section className="space-y-6">
     <MonthComparisonHeader
@@ -173,16 +173,29 @@ const ytdRainfall = Object.values(
 
     {/* Comparison tables */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <TemperatureComparisonTable monthLabel={selectedMonthLabel} rows={tempRows} />
+      <TemperatureComparisonTable
+        monthLabel={selectedMonthLabel}
+        rows={tempRows}
+      />
 
-      <RainfallComparisonTable monthLabel={selectedMonthLabel} rows={rainRows} />
+      <RainfallComparisonTable
+        monthLabel={selectedMonthLabel}
+        rows={rainRows}
+      />
     </div>
   </section>
 
-  <InsightsDivider />
+  {/* Divider spacing (tight + adjustable) */}
+  <div className="my-6">
+    <InsightsDivider />
+  </div>
 
-  <IndexesSection climateData={climateData} year={year} />
+  {/* Climate indexes */}
+  <div className="space-y-4">
+    <IndexesSection climateData={climateData} year={year} />
+  </div>
 </main>
+
 
     </>
   );

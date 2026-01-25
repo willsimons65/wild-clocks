@@ -12,6 +12,7 @@ export default function MetricSelector({
   onChange,
   disabled = false,
   subtle = false,
+  compact = false,
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -41,7 +42,7 @@ export default function MetricSelector({
   }, []);
 
   return (
-    <div className="relative ml-auto" ref={ref}>
+    <div className="relative" ref={ref}>
       {/* BUTTON */}
       <button
   onClick={() => {
@@ -49,7 +50,8 @@ export default function MetricSelector({
     setOpen((v) => !v);
   }}
   className={`
-    header-btn flex items-center gap-1
+    header-btn flex items-center gap-1 whitespace-nowrap shrink-0
+    ${compact ? "px-3" : ""}
     ${subtle ? "opacity-50" : ""}
     ${disabled ? "cursor-default" : ""}
   `}

@@ -9,19 +9,20 @@ export default function MonthComparisonHeader({
   onMonthChange,
 }) {
   return (
-    <section className="relative space-y-1">
-      {/* Month selector */}
-      <div className="absolute top-0 right-0">
-        <MonthSelector
-          monthIndex={monthIndex}
-          onChange={onMonthChange}
-        />
+    <section className="space-y-3">
+      {/* Heading + selector */}
+      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+        <h2 className="text-text-base font-medium text-white md:pr-6">
+          This month’s temperature and rainfall compared to the historical pattern for{" "}
+          {monthLabel}
+        </h2>
+
+        {/* Month selector drops below on mobile */}
+        <div className="w-full flex justify-end md:w-auto md:shrink-0">
+          <MonthSelector monthIndex={monthIndex} onChange={onMonthChange} />
+        </div>
       </div>
-
-      <h2 className="text-lg font-semibold text-white">
-        This month’s temperature and rainfall compared to the historical pattern for {monthLabel}
-      </h2>
-
     </section>
   );
 }
+

@@ -13,7 +13,7 @@ type ClimateData = {
   };
 };
 
-const K = 5; // same constant used elsewhere
+const K = 6; // same constant used elsewhere
 
 export function buildMonthlyWaterBalanceLite(
   climateData: ClimateData | null,
