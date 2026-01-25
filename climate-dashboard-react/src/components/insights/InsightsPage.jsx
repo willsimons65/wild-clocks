@@ -121,67 +121,76 @@ const ytdRainfall = Object.values(
     />
 
     {/* Top 2 summary cards */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Temperature summary */}
-      <div className="rounded-2xl bg-[#161616] border border-white/10 p-4 space-y-3">
-        <h4 className="text-sm font-medium text-white/80">
-          Average temperature for {selectedMonthLabel}
-        </h4>
+    <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-6">
+      {/* =====================
+          TEMPERATURE COLUMN
+        ===================== */}
+      <div className="space-y-6">
+        {/* Temperature summary */}
+        <div className="rounded-2xl bg-[#161616] border border-white/10 p-4 space-y-3">
+          <h4 className="text-sm font-medium text-white/80">
+            Average temperature for {selectedMonthLabel}
+          </h4>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="rounded-xl bg-white/5 p-3">
-            <div className="text-xs text-white/50">Average max</div>
-            <div className="text-3xl font-semibold text-pink-400">
-              {avgMaxTemp != null ? `${avgMaxTemp.toFixed(1)}°C` : "—"}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="rounded-xl bg-white/5 p-3">
+              <div className="text-xs text-white/50">Average max</div>
+              <div className="text-3xl font-semibold text-pink-400">
+                {avgMaxTemp != null ? `${avgMaxTemp.toFixed(1)}°C` : "—"}
+              </div>
             </div>
-          </div>
 
-          <div className="rounded-xl bg-white/5 p-3">
-            <div className="text-xs text-white/50">Average min</div>
-            <div className="text-3xl font-semibold text-blue-400">
-              {avgMinTemp != null ? `${avgMinTemp.toFixed(1)}°C` : "—"}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Rainfall summary */}
-      <div className="rounded-2xl bg-[#161616] border border-white/10 p-4 space-y-3">
-        <h4 className="text-sm font-medium text-white/80">
-          Total rainfall for {selectedMonthLabel}
-        </h4>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="rounded-xl bg-white/5 p-3">
-            <div className="text-xs text-white/50">For the month</div>
-            <div className="text-3xl font-semibold text-blue-400">
-              {monthRainfall != null ? `${monthRainfall}mm` : "—"}
-            </div>
-          </div>
-
-          <div className="rounded-xl bg-white/5 p-3">
-            <div className="text-xs text-white/50">
-              Year to {selectedMonthLabel}
-            </div>
-            <div className="text-3xl font-semibold text-teal-400">
-              {Number.isFinite(ytdRainfall) ? `${ytdRainfall}mm` : "—"}
+            <div className="rounded-xl bg-white/5 p-3">
+              <div className="text-xs text-white/50">Average min</div>
+              <div className="text-3xl font-semibold text-blue-400">
+                {avgMinTemp != null ? `${avgMinTemp.toFixed(1)}°C` : "—"}
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Temperature comparison */}
+        <TemperatureComparisonTable
+          monthLabel={selectedMonthLabel}
+          rows={tempRows}
+        />
       </div>
-    </div>
 
-    {/* Comparison tables */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <TemperatureComparisonTable
-        monthLabel={selectedMonthLabel}
-        rows={tempRows}
-      />
+      {/* =====================
+          RAINFALL COLUMN
+        ===================== */}
+      <div className="space-y-6">
+        {/* Rainfall summary */}
+        <div className="rounded-2xl bg-[#161616] border border-white/10 p-4 space-y-3">
+          <h4 className="text-sm font-medium text-white/80">
+            Total rainfall for {selectedMonthLabel}
+          </h4>
 
-      <RainfallComparisonTable
-        monthLabel={selectedMonthLabel}
-        rows={rainRows}
-      />
+          <div className="grid grid-cols-2 gap-4">
+            <div className="rounded-xl bg-white/5 p-3">
+              <div className="text-xs text-white/50">For the month</div>
+              <div className="text-3xl font-semibold text-blue-400">
+                {monthRainfall != null ? `${monthRainfall}mm` : "—"}
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-white/5 p-3">
+              <div className="text-xs text-white/50">
+                Year to {selectedMonthLabel}
+              </div>
+              <div className="text-3xl font-semibold text-teal-400">
+                {Number.isFinite(ytdRainfall) ? `${ytdRainfall}mm` : "—"}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Rainfall comparison */}
+        <RainfallComparisonTable
+          monthLabel={selectedMonthLabel}
+          rows={rainRows}
+        />
+      </div>
     </div>
   </section>
 

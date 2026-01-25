@@ -6,16 +6,32 @@ import ChartAxes from "@/components/charts/base/ChartAxes";
 import ChartBars from "@/components/charts/base/ChartBars";
 import ChartMetricHeader from "@/components/charts/base/ChartMetricHeader";
 import EmptyChartState from "@/components/charts/base/EmptyChartState";
-
+import { useEffect, useState } from "react";
 import { CHART_HEIGHT } from "@/constants/chartLayout";
 
 export default function WaterBalanceLiteChart({ data, year, monthIndex }) {
   if (!data || data.length === 0) return null;
 
-  const MONTH_LABELS = [
-  "Jan","Feb","Mar","Apr","May","Jun",
-  "Jul","Aug","Sep","Oct","Nov","Dec",
-  ]; 
+  const MONTH_LABELS_DESKTOP = [
+    "Jan","Feb","Mar","Apr","May","Jun",
+    "Jul","Aug","Sep","Oct","Nov","Dec",
+  ];
+
+  const MONTH_LABELS_MOBILE = ["J","F","M","A","M","J","J","A","S","O","N","D"];
+
+ const [isMobile, setIsMobile] = useState(() => {
+  if (typeof window === "undefined") return false;
+  return window.innerWidth < 768;
+});
+
+useEffect(() => {
+  function onResize() {
+    setIsMobile(window.innerWidth < 768);
+  }
+  window.addEventListener("resize", onResize);
+  return () => window.removeEventListener("resize", onResize);
+}, []);
+  const MONTH_LABELS = isMobile ? MONTH_LABELS_MOBILE : MONTH_LABELS_DESKTOP;
 
   const MONTH_DOMAIN = [1, 12];
   const MONTH_TICKS = [1,2,3,4,5,6,7,8,9,10,11,12];

@@ -51,13 +51,21 @@ export default function AnnualBaselineCard({ rainfallData }) {
     <div className="rounded-2xl bg-[#161616] p-6 space-y-4 relative">
       {Header}
 
-      <div className="flex flex-col items-center text-center space-y-3">
+      <div className="flex flex-col items-center text-center space-y-1">
         {/* Classification label */}
-        <p className="text-sm opacity-70">
-          {result.hasData
-            ? classification?.label
-            : getBaselineEmptyMessage(result.reason)}
-        </p>
+        {/* Lead-in copy */}
+  {result.hasData && (
+    <p className="text-sm opacity-70">
+      The baseline index for this location is:
+    </p>
+  )}
+
+  {/* Classification label (semi-bold) */}
+  <p className={result.hasData ? "text-sm font-semibold" : "text-sm opacity-70"}>
+    {result.hasData
+      ? classification?.label
+      : getBaselineEmptyMessage(result.reason)}
+  </p>
 
         {/* Median index value */}
         <div className="text-4xl md:text-6xl font-medium tracking-tight">
@@ -66,7 +74,7 @@ export default function AnnualBaselineCard({ rainfallData }) {
 
         {/* Range across years */}
         {result.hasData && (
-          <p className="text-xs opacity-80">
+          <p className="text-xs opacity-70">
             Range across years: {result.min.toFixed(2)}–{result.max.toFixed(2)}
           </p>
         )}
