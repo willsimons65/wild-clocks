@@ -13,7 +13,7 @@ import littleKneppClimate from "@/data/aggregates/little-knepp.json";
 import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
 import About from "@/pages/About";
 import InsightsPage from "@/components/insights/InsightsPage";
-
+import PhotoViewer from "@/pages/PhotoViewer";
 
 export default function App() {
   const DEFAULT_YEAR = 2026;
@@ -86,6 +86,15 @@ export default function App() {
                   setYear={setYear}
                   setPlace={() => setPlace("appleton-woods")}
                 />
+              }
+            />
+
+            <Route
+              path="/viewer/:place/:year/:month"
+              element={
+                <ProtectedRoute>
+                  <PhotoViewer />
+                </ProtectedRoute>
               }
             />
 

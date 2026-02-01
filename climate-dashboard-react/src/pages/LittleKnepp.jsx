@@ -1,6 +1,7 @@
 // src/pages/LittleKnepp.jsx
 
 import React, { useState, useEffect, useMemo } from "react";
+import { loadPhotoIndexForPlace, getLeadPhotoForSlot } from "@/services/photoService";
 
 import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
@@ -116,7 +117,6 @@ export default function LittleKnepp({
         setYear={setYear}
         metric={metric}
         setMetric={setMetric}
-        viewMode="feed"
       />
 
       <div className={`transition-opacity duration-300 ${fade ? "opacity-0" : "opacity-100"}`}>

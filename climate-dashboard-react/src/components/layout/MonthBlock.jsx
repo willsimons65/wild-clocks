@@ -1,7 +1,5 @@
 // src/components/layout/MonthBlock.jsx
 
-import { useState, useMemo, useEffect } from "react";
-
 import PhotoGrid from "@/components/photos/PhotoGrid";
 import ChartCard from "@/components/layout/ChartCard";
 import TemperatureChart from "@/components/charts/TemperatureChart";
@@ -11,6 +9,10 @@ import PhotoperiodChart from "@/components/charts/PhotoperiodChart";
 import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
 import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
 import { buildInsightsAvailability } from "@/data/insights/buildInsightsAvailability";
+
+import { useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { MONTH_NAMES } from "@/constants/months";
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -47,7 +49,21 @@ export default function MonthBlock({
   const hasData = Array.isArray(data) && data.length > 0;
 
   const monthIndex0 = MONTHS.indexOf(month);
+    useEffect(() => {
+    if (monthIndex0 < 0) {
+      console.warn("MonthBlock: month not found in MONTHS:", month);
+    }
+  }, [month, monthIndex0]);
+
   const monthIndex = monthIndex0 + 1;
+
+  const navigate = useNavigate();
+
+  const monthSlug = useMemo(() => {
+    // monthIndex0 is 0..11, MONTH_NAMES matches that.
+    return (MONTH_NAMES[monthIndex0] || month).toLowerCase();
+  }, [monthIndex0, month]);
+
 
   // 🔍 DEBUG: inspect rainfall years per place
   useEffect(() => {
@@ -164,7 +180,25 @@ const availability = useMemo(() => {
     <>
       <div className="flex flex-col gap-2 relative overflow-visible">
         <div className="rounded-2xl bg-[#1E1E1E] relative">
-          <PhotoGrid month={monthIndex} year={year} place={place} />
+          <PhotoGrid
+            month={monthIndex}
+            year={year}
+            place={place}
+            onPhotoClick={(i) => {
+              if (monthIndex0 < 0) {
+                console.warn("MonthBlock: invalid monthIndex0 for month:", month);
+                return;
+              }
+
+              // i is 0..3, URL photo should be 1..4
+              const photo = i + 1;
+
+              navigate(
+                `/viewer/${place}/${year}/${monthSlug}?mode=photos&photo=${photo}`,
+                { state: { from: "feed" } }
+              );
+            }}
+          />
         </div>
 
         <ChartCard>
