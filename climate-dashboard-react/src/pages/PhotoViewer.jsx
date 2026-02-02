@@ -7,7 +7,7 @@ import ViewerNavBar from "@/components/photos/viewer/ViewerNavBar";
 import CompareActionsRow from "@/components/photos/viewer/CompareActionsRow";
 import PhotosView from "@/components/photos/viewer/PhotosView";
 
-import { MONTH_NAMES } from "@/constants/months";
+import { MONTH_ABBREV, MONTH_NAMES } from "@/constants/months";
 import CompareView from "@/components/photos/viewer/CompareView";
 import Toast from "@/components/ui/Toast";
 
@@ -23,7 +23,7 @@ function normalizePlaceSlug(raw) {
 }
 
 function monthSlugToIndex(slug) {
-  const lower = String(slug || "").toLowerCase();
+  const lower = String(slug || "").trim().toLowerCase();
   return MONTH_NAMES.findIndex((m) => m.toLowerCase() === lower);
 }
 
@@ -64,10 +64,12 @@ export default function PhotoViewer() {
     return Math.max(0, Math.min(3, urlPhoto - 1));
     });
 
-    // ✅ Reset selected photo whenever the "album context" changes
-  useEffect(() => {
+  // ✅ Reset selected photo only when entering a new album,
+    // BUT do not override explicit ?photo=...
+    useEffect(() => {
+    if (urlPhoto != null) return;
     setActivePhotoIndex(0);
-  }, [place, year, monthIndex]);
+    }, [place, year, monthIndex, urlPhoto]);
 
     // reset swap when selection changes
   useEffect(() => {
@@ -77,7 +79,7 @@ export default function PhotoViewer() {
   // Toast
   const [toastOpen, setToastOpen] = useState(false);
 
-  const monthLabel = MONTH_NAMES[monthIndex] || params.month;
+  const monthLabel = MONTH_ABBREV[monthIndex] || MONTH_NAMES[monthIndex] || params.month;
 
   // ---------------------------------------
   // Keep local state in sync if URL changes
@@ -187,7 +189,7 @@ export default function PhotoViewer() {
         
 
 
-        <div className="mt-6">
+        <div className="mt-">
 {mode === "photos" ? (
   <PhotosView
     place={place}

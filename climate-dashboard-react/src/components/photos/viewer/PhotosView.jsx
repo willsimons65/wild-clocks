@@ -106,18 +106,20 @@ export default function PhotosView({
   const nextIndex = safeIndex != null ? findNextIndex(safeIndex) : null;
 
   function prev() {
-    if (safeIndex == null) return;
-    const p = findPrevIndex(safeIndex);
-    if (p == null) return;
-    setActiveIndex(p);
-  }
+  if (safeIndex == null) return;
+  const p = findPrevIndex(safeIndex);
+  if (p == null) return;
 
-  function next() {
-    if (safeIndex == null) return;
-    const n = findNextIndex(safeIndex);
-    if (n == null) return;
-    setActiveIndex(n);
-  }
+  animate("slide-right", () => setActiveIndex(p));
+}
+
+function next() {
+  if (safeIndex == null) return;
+  const n = findNextIndex(safeIndex);
+  if (n == null) return;
+
+  animate("slide-left", () => setActiveIndex(n));
+}
 
   // Keyboard controls
   useEffect(() => {
@@ -131,6 +133,42 @@ export default function PhotosView({
   }, [safeIndex, urls]);
 
   const stripRef = useRef(null);
+
+  // -----------------------------------
+// Animation state (legacy lightbox feel)
+// -----------------------------------
+const [anim, setAnim] = useState("idle");
+const [isAnimating, setIsAnimating] = useState(false);
+
+function animate(type, callback) {
+  if (isAnimating) return;
+
+  setIsAnimating(true);
+
+  // OUT phase: fast
+  setAnim(type);
+
+  setTimeout(() => {
+    callback();
+
+    // IN phase: slightly longer / softer
+    setAnim("fade");
+
+    setTimeout(() => {
+      setAnim("idle");
+      setIsAnimating(false);
+    }, 220); // ✅ longer "in"
+  }, 120); // ✅ faster "out"
+}
+
+const animClass =
+  anim === "fade"
+    ? "opacity-0 scale-[0.992]"
+    : anim === "slide-left"
+    ? "-translate-x-[20px] translate-x-[4px] -translate-y-[1px] opacity-0"
+    : anim === "slide-right"
+    ? "translate-x-[20px] -translate-x-[4px] -translate-y-[1px] opacity-0"
+    : "opacity-100 scale-100 translate-x-0 translate-y-0";
 
   // keep active thumb in view
   useEffect(() => {
@@ -165,26 +203,57 @@ export default function PhotosView({
       {/* Main image */}
       <div className="relative flex items-center justify-center">
         <div className="w-full max-w-[620px]">
-          <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/30">
-            {currentSrc ? (
-              <img
-                src={currentSrc}
-                alt=""
-                className="block w-full h-auto object-contain"
-                draggable={false}
-              />
-            ) : (
-              <div className="aspect-square flex items-center justify-center text-white/50">
-                Image not available
-              </div>
-            )}
-          </div>
+<div className="rounded-2xl overflow-hidden border border-white/10 bg-black/30 relative">
+  {/* Backplate */}
+  {currentSrc ? (
+    <img
+      src={currentSrc}
+      alt=""
+      aria-hidden="true"
+      draggable={false}
+      className={[
+        "absolute inset-0 w-full h-full object-cover",
+        "opacity-[0.01] scale-[1.05] blur-[1.5px]",
+        "will-change-transform will-change-opacity",
+        "transition-[transform,opacity] ease-out",
+        anim === "fade" ? "duration-150" : "duration-90",
+        anim === "slide-left"
+          ? "-translate-x-[12px] opacity-0"
+          : anim === "slide-right"
+          ? "translate-x-[12px] opacity-0"
+          : anim === "fade"
+          ? "opacity-0 scale-[1.02]"
+          : "opacity-[0.10] translate-x-0",
+      ].join(" ")}
+    />
+  ) : null}
+
+  {/* Foreground */}
+  {currentSrc ? (
+    <img
+      src={currentSrc}
+      alt=""
+      draggable={false}
+      className={[
+        "relative block w-full h-auto object-contain",
+        "will-change-transform will-change-opacity",
+        "transition-[transform,opacity] ease-out",
+        anim === "fade" ? "duration-170" : "duration-110",
+        animClass,
+      ].join(" ")}
+    />
+  ) : (
+    <div className="aspect-square flex items-center justify-center text-white/50">
+      Image not available
+    </div>
+  )}
+</div>
 
           {/* arrows */}
           <button
             aria-label="Previous image"
             onClick={prev}
-            disabled={prevIndex == null}
+            disabled={isAnimating || prevIndex == null}
             className="
               absolute left-3 md:left-6 top-1/2 -translate-y-1/2
               text-white text-4xl md:text-5xl
@@ -197,11 +266,11 @@ export default function PhotosView({
           <button
             aria-label="Next image"
             onClick={next}
-            disabled={nextIndex == null}
+            disabled={isAnimating || nextIndex == null}
             className="
               absolute right-3 md:right-6 top-1/2 -translate-y-1/2
               text-white text-4xl md:text-5xl
-              hover:text-white/70 disabled:opacity-30
+              hover:text-white/70 disabled:opacity-30 disabled:pointer-events-none
             "
           >
             ›
@@ -223,8 +292,15 @@ export default function PhotosView({
                   key={i}
                   data-thumb={i}
                   disabled={!valid}
-                  onClick={() => valid && setActiveIndex(i)}
-                  className={[
+                  onClick={() => {
+                    if (!valid) return;
+                    if (i === safeIndex) return;
+
+                    animate(i > safeIndex ? "slide-left" : "slide-right", () =>
+                        setActiveIndex(i)
+                    );
+                    }}
+                    className={[
                     "flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition",
                     i === safeIndex
                       ? "border-white shadow-lg"

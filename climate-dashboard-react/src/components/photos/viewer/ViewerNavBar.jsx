@@ -1,25 +1,32 @@
 // src/components/photos/viewer/ViewerNavBar.jsx
 
+import { ArrowLeft } from "lucide-react";
 import ViewerSegmentedControl from "@/components/photos/viewer/ViewerSegmentedControl";
+import PillButton from "@/components/ui/PillButton";
 
-function NavPillButton({ children, onClick, disabled, title }) {
+
+function ShortMonth(label) {
+  if (!label) return "Month";
+  const s = String(label);
+  return s.length > 3 ? s.slice(0, 3) : s;
+}
+
+function HeaderBtn({ children, onClick, disabled, title }) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       title={title}
       className={[
-        "h-12 px-4 rounded-full border text-sm font-medium transition",
-        "flex items-center justify-center gap-2",
-        disabled
-          ? "border-white/10 bg-white/5 text-white/35 cursor-not-allowed"
-          : "border-white/15 bg-white/5 hover:bg-white/10 text-white/85",
+        "header-btn flex items-center gap-1 whitespace-nowrap shrink-0",
+        disabled ? "opacity-40 cursor-not-allowed" : "",
       ].join(" ")}
     >
       {children}
     </button>
   );
 }
+
 
 export default function ViewerNavBar({
   title = "Photo Viewer",
@@ -35,43 +42,66 @@ export default function ViewerNavBar({
 
   onBack,
 }) {
-  return (
-    <div className="border-b border-white/10 bg-[#1E1E1E]/60 backdrop-blur-xl">
-      <div className="max-w-[1200px] mx-auto px-4 py-4">
-        {/* 3-column grid: matches Feed/Insights header */}
-        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3">
-          {/* LEFT */}
-          <div className="flex items-center gap-3 min-w-0">
-            <NavPillButton onClick={onBack} title="Back">
-              <span className="text-lg leading-none">←</span>
-            </NavPillButton>
+  const monthShort = ShortMonth(monthLabel);
 
-            <div className="text-white/90 font-semibold truncate">
-              {title}
-            </div>
+  return (
+    <header className="sticky top-0 z-50 bg-[#1E1E1E]/80 backdrop-blur-xl border-b border-white/10">
+      {/* Outer wrapper */}
+      <div className="max-w-[1200px] mx-auto px-4">
+        {/* =========================
+            ROW A — Context Bar
+           ========================= */}
+        <div className="py-4 flex items-center justify-between relative">
+          {/* Desktop: centered segmented control */}
+          <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
+            <ViewerSegmentedControl mode={mode} setMode={setMode} />
           </div>
 
-          {/* CENTER */}
+          {/* LEFT: back + title */}
+          <div className="flex items-center gap-3 min-w-0">
+            <button onClick={onBack} className="header-btn" aria-label="Back">
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+
+            <h1 className="text-xl font-semibold tracking-tight truncate">
+              {title}
+            </h1>
+          </div>
+
+          {/* RIGHT: month + slot */}
+          <div className="flex items-center gap-3">
+            <HeaderBtn onClick={onMonthClick} title="Choose month">
+              {monthLabel} <span className="text-white/60">▾</span>
+            </HeaderBtn>
+
+            <HeaderBtn
+              onClick={onSlotClick}
+              disabled={!slotEnabled}
+              title={
+                slotEnabled ? "Choose slot" : "Slot only available in Compare"
+              }
+            >
+              {slotLabel} <span className="text-white/60">▾</span>
+            </HeaderBtn>
+          </div>
+        </div>
+
+        {/* =========================
+            ROW B — Mobile Controls
+          ========================= */}
+        <div className="pb-4 md:hidden grid grid-cols-[72px_auto_72px] items-center">
+          {/* LEFT spacer */}
+          <div />
+
+          {/* CENTER: segmented control */}
           <div className="flex justify-center">
             <ViewerSegmentedControl mode={mode} setMode={setMode} />
           </div>
 
-          {/* RIGHT */}
-          <div className="flex items-center justify-end gap-3">
-            <NavPillButton onClick={onMonthClick} title="Choose month">
-              {monthLabel} <span className="text-white/60">▾</span>
-            </NavPillButton>
-
-            <NavPillButton
-              onClick={onSlotClick}
-              disabled={!slotEnabled}
-              title={slotEnabled ? "Choose slot" : "Slot only available in Compare"}
-            >
-              {slotLabel} <span className="text-white/60">▾</span>
-            </NavPillButton>
-          </div>
+          {/* RIGHT spacer */}
+          <div />
         </div>
       </div>
-    </div>
+    </header>
   );
 }
