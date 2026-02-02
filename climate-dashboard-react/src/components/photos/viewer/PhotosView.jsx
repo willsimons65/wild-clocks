@@ -165,9 +165,9 @@ const animClass =
   anim === "fade"
     ? "opacity-0 scale-[0.992]"
     : anim === "slide-left"
-    ? "-translate-x-[20px] translate-x-[4px] -translate-y-[1px] opacity-0"
+    ? "-translate-x-[14px] -translate-y-[1px] opacity-0"
     : anim === "slide-right"
-    ? "translate-x-[20px] -translate-x-[4px] -translate-y-[1px] opacity-0"
+    ? "translate-x-[14px] -translate-y-[1px] opacity-0"
     : "opacity-100 scale-100 translate-x-0 translate-y-0";
 
   // keep active thumb in view
@@ -203,51 +203,52 @@ const animClass =
       {/* Main image */}
       <div className="relative flex items-center justify-center">
         <div className="w-full max-w-[620px]">
-<div className="rounded-2xl overflow-hidden border border-white/10 bg-black/30 relative">
-  {/* Backplate */}
-  {currentSrc ? (
-    <img
-      src={currentSrc}
-      alt=""
-      aria-hidden="true"
-      draggable={false}
-      className={[
-        "absolute inset-0 w-full h-full object-cover",
-        "opacity-[0.01] scale-[1.05] blur-[1.5px]",
-        "will-change-transform will-change-opacity",
-        "transition-[transform,opacity] ease-out",
-        anim === "fade" ? "duration-150" : "duration-90",
-        anim === "slide-left"
-          ? "-translate-x-[12px] opacity-0"
-          : anim === "slide-right"
-          ? "translate-x-[12px] opacity-0"
-          : anim === "fade"
-          ? "opacity-0 scale-[1.02]"
-          : "opacity-[0.10] translate-x-0",
-      ].join(" ")}
-    />
-  ) : null}
+            <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/30 relative">
+            {/* ✅ Parallax backplate (moves LESS than foreground) */}
+            {currentSrc ? (
+                <img
+                src={currentSrc}
+                alt=""
+                aria-hidden="true"
+                draggable={false}
+                className={[
+                    "absolute inset-0 w-full h-full object-cover",
+                    "opacity-[0.01] scale-[1.05] blur-[1.5px]",
+                    "will-change-transform will-change-opacity",
+                    "transition-[transform,opacity] ease-out",
+                    anim === "fade" ? "duration-150" : "duration-90",
 
-  {/* Foreground */}
-  {currentSrc ? (
-    <img
-      src={currentSrc}
-      alt=""
-      draggable={false}
-      className={[
-        "relative block w-full h-auto object-contain",
-        "will-change-transform will-change-opacity",
-        "transition-[transform,opacity] ease-out",
-        anim === "fade" ? "duration-170" : "duration-110",
-        animClass,
-      ].join(" ")}
-    />
-  ) : (
-    <div className="aspect-square flex items-center justify-center text-white/50">
-      Image not available
-    </div>
-  )}
-</div>
+                    anim === "slide-left"
+                    ? "-translate-x-[8px] opacity-0"
+                    : anim === "slide-right"
+                    ? "translate-x-[8px] opacity-0"
+                    : anim === "fade"
+                    ? "opacity-0 scale-[1.02]"
+                    : "opacity-[0.10] translate-x-0",
+                ].join(" ")}
+                />
+            ) : null}
+
+            {/* ✅ Foreground main image */}
+            {currentSrc ? (
+                <img
+                src={currentSrc}
+                alt=""
+                draggable={false}
+                className={[
+                    "relative block w-full h-auto object-contain",
+                    "will-change-transform will-change-opacity",
+                    "transition-[transform,opacity] ease-out",
+                    anim === "fade" ? "duration-170" : "duration-110",
+                    animClass,
+                ].join(" ")}
+                />
+            ) : (
+                <div className="aspect-square flex items-center justify-center text-white/50">
+                Image not available
+                </div>
+            )}
+            </div>
 
           {/* arrows */}
           <button
