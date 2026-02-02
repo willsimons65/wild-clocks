@@ -68,7 +68,7 @@ export default function MetricSelector({
           <path
             d="M1 1L6.16129 6L11 1"
             stroke="white"
-            strokeWidth="2"
+            strokeWidth="1"
             strokeLinecap="round"
           />
         </svg>

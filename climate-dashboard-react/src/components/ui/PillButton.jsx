@@ -16,7 +16,7 @@ export default function PillButton({
       className={[
         // ✅ This should be EXACTLY what your YearSelector "pill" uses
         "h-11 px-5 rounded-full border",
-        "bg-white/5 border-white/15",
+        "bg-white/5 border-white/20",
         "text-white/85 text-sm font-medium",
         "hover:bg-white/10 transition",
         "flex items-center justify-center gap-2",

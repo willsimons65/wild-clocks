@@ -15,7 +15,7 @@ export default function SegmentedControl({
     <div
       className={[
         "relative flex items-center",
-        "rounded-full border border-white/10 bg-white/5",
+        "rounded-full border border-white/20 bg-white/1",
         "p-1 overflow-hidden",
         "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]",
         "h-9",
