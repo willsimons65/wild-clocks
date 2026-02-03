@@ -1,3 +1,5 @@
+// src/components/ui/PillButton.jsx
+
 export default function PillButton({
   children,
   onClick,
@@ -15,8 +17,8 @@ export default function PillButton({
       aria-label={ariaLabel}
       className={[
         // ✅ This should be EXACTLY what your YearSelector "pill" uses
-        "h-11 px-5 rounded-full border",
-        "bg-white/5 border-white/20",
+        "h-9 px-5 rounded-full border",
+        "bg-white/5 border-white/10",
         "text-white/85 text-sm font-medium",
         "hover:bg-white/10 transition",
         "flex items-center justify-center gap-2",

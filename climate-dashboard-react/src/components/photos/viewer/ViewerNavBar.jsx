@@ -2,31 +2,16 @@
 
 import { ArrowLeft } from "lucide-react";
 import ViewerSegmentedControl from "@/components/photos/viewer/ViewerSegmentedControl";
-import PillButton from "@/components/ui/PillButton";
+import NavPill from "@/components/ui/NavPill";
+import chevronDown from "@/images/assets/chevron-down.svg";
 
-
-function ShortMonth(label) {
+function shortMonth(label) {
   if (!label) return "Month";
-  const s = String(label);
-  return s.length > 3 ? s.slice(0, 3) : s;
+  const s = String(label).trim();
+  const abbrev = s.length > 3 ? s.slice(0, 3) : s;
+  // Make sure it's "Jan" not "JAN"/"jan"
+  return abbrev.charAt(0).toUpperCase() + abbrev.slice(1).toLowerCase();
 }
-
-function HeaderBtn({ children, onClick, disabled, title }) {
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      title={title}
-      className={[
-        "header-btn flex items-center gap-1 whitespace-nowrap shrink-0",
-        disabled ? "opacity-40 cursor-not-allowed" : "",
-      ].join(" ")}
-    >
-      {children}
-    </button>
-  );
-}
-
 
 export default function ViewerNavBar({
   title = "Photo Viewer",
@@ -36,17 +21,19 @@ export default function ViewerNavBar({
   monthLabel,
   onMonthClick,
 
-  slotLabel,
+  slotLabel,        // e.g. "Slot 2"
+  slotShortLabel,   // e.g. "2"
   onSlotClick,
   slotEnabled = true,
 
   onBack,
 }) {
-  const monthShort = ShortMonth(monthLabel);
+  const monthShort = shortMonth(monthLabel);
+
+  const showSlotPill = mode === "compare";
 
   return (
     <header className="sticky top-0 z-50 bg-[#1E1E1E]/80 backdrop-blur-xl border-b border-white/10">
-      {/* Outer wrapper */}
       <div className="max-w-[1200px] mx-auto px-4">
         {/* =========================
             ROW A — Context Bar
@@ -59,9 +46,9 @@ export default function ViewerNavBar({
 
           {/* LEFT: back + title */}
           <div className="flex items-center gap-3 min-w-0">
-            <button onClick={onBack} className="header-btn" aria-label="Back">
+            <NavPill onClick={onBack} ariaLabel="Back" variant="icon">
               <ArrowLeft className="w-5 h-5" />
-            </button>
+            </NavPill>
 
             <h1 className="text-xl font-semibold tracking-tight truncate">
               {title}
@@ -70,19 +57,46 @@ export default function ViewerNavBar({
 
           {/* RIGHT: month + slot */}
           <div className="flex items-center gap-3">
-            <HeaderBtn onClick={onMonthClick} title="Choose month">
-              {monthLabel} <span className="text-white/60">▾</span>
-            </HeaderBtn>
+            {/* Month pill (always shown) */}
+            <NavPill onClick={onMonthClick} title="Choose month">
+              {/* desktop = full, mobile = abbrev */}
+              <span className="hidden md:inline">{monthLabel || "Month"}</span>
+              <span className="md:hidden">{monthShort}</span>
 
-            <HeaderBtn
-              onClick={onSlotClick}
-              disabled={!slotEnabled}
-              title={
-                slotEnabled ? "Choose slot" : "Slot only available in Compare"
-              }
-            >
-              {slotLabel} <span className="text-white/60">▾</span>
-            </HeaderBtn>
+              <img
+                src={chevronDown}
+                alt=""
+                aria-hidden="true"
+                className="w-3 h-3 opacity-70"
+              />
+            </NavPill>
+
+            {/* Slot pill (Compare only on mobile, but always present on desktop if you want) */}
+            {showSlotPill ? (
+              <NavPill
+                onClick={onSlotClick}
+                disabled={!slotEnabled}
+                title={
+                  slotEnabled ? "Choose slot" : "Slot only available in Compare"
+                }
+                className="w-[52px] md:w-auto justify-center px-0"
+              >
+                {/* desktop = Slot 2, mobile = 2 */}
+                <span className="hidden md:inline">
+                  {slotLabel || "Slot"}
+                </span>
+                <span className="md:hidden">
+                  {slotShortLabel || ""}
+                </span>
+
+                <img
+                  src={chevronDown}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-3 h-3 opacity-70"
+                />
+              </NavPill>
+            ) : null}
           </div>
         </div>
 
@@ -90,15 +104,10 @@ export default function ViewerNavBar({
             ROW B — Mobile Controls
           ========================= */}
         <div className="pb-4 md:hidden grid grid-cols-[72px_auto_72px] items-center">
-          {/* LEFT spacer */}
           <div />
-
-          {/* CENTER: segmented control */}
           <div className="flex justify-center">
             <ViewerSegmentedControl mode={mode} setMode={setMode} />
           </div>
-
-          {/* RIGHT spacer */}
           <div />
         </div>
       </div>

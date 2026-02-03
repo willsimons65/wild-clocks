@@ -1,6 +1,7 @@
 // src/components/photos/viewer/CompareSlider.jsx
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import dragIcon from "@/images/assets/drag.svg";
 
 function clamp01(v) {
   return Math.max(0, Math.min(1, v));
@@ -264,12 +265,12 @@ export default function CompareSlider({
 
         {/* Handle */}
         {hasBoth ? (
-          <div
+        <div
             className="absolute top-0 bottom-0 flex items-center"
             style={{ left: `calc(${split * 100}% - 18px)` }}
-          >
+        >
             <div
-              className={[
+            className={[
                 "w-9 h-9 rounded-full",
                 "border border-white/20",
                 "bg-white/10 backdrop-blur-md",
@@ -278,12 +279,17 @@ export default function CompareSlider({
                 "transition-transform",
                 isDragging ? "scale-105" : "scale-100",
                 isEnabled ? "" : "opacity-60",
-              ].join(" ")}
-              title={isEnabled ? "Drag to compare" : "Disabled"}
+            ].join(" ")}
+            title={isEnabled ? "Drag to compare" : "Disabled"}
             >
-              <div className="text-white/80 text-sm leading-none">↔</div>
+            <img
+                src={dragIcon}
+                alt=""
+                aria-hidden="true"
+                className="w-5 h-5 opacity-90"
+            />
             </div>
-          </div>
+        </div>
         ) : null}
 
         {/* Percentage hint (optional but helpful for dev) */}

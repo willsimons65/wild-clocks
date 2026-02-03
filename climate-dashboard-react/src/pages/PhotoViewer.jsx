@@ -6,10 +6,11 @@ import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import ViewerNavBar from "@/components/photos/viewer/ViewerNavBar";
 import CompareActionsRow from "@/components/photos/viewer/CompareActionsRow";
 import PhotosView from "@/components/photos/viewer/PhotosView";
-
+import PillButton from "@/components/ui/PillButton";
 import { MONTH_ABBREV, MONTH_NAMES } from "@/constants/months";
 import CompareView from "@/components/photos/viewer/CompareView";
 import Toast from "@/components/ui/Toast";
+
 
 import {
   getQueryEnum,
@@ -157,23 +158,22 @@ export default function PhotoViewer() {
       />
 
       {/* ✅ New nav header (3-column grid like Feed/Insights) */}
-      <ViewerNavBar
+        <ViewerNavBar
         title={place === "littleknepp" ? "Little Knepp" : "Photo Viewer"}
         mode={mode}
         setMode={setMode}
         monthLabel={monthLabel || "Month"}
         onMonthClick={() => {
-          // Placeholder until we implement Month dropdown
-          console.log("open month menu");
+            console.log("open month menu");
         }}
         slotLabel={`Slot ${slotIndex + 1}`}
+        slotShortLabel={`${slotIndex + 1}`}
         onSlotClick={() => {
-          // Placeholder until we implement Slot dropdown
-          console.log("open slot menu");
+            console.log("open slot menu");
         }}
         slotEnabled={mode === "compare"}
         onBack={() => navigate(-1)}
-      />
+        />
 
       {/* ✅ Compare-only action row (swap + share above photos) */}
       {mode === "compare" ? (
@@ -189,7 +189,7 @@ export default function PhotoViewer() {
         
 
 
-        <div className="mt-">
+        <div className="">
 {mode === "photos" ? (
   <PhotosView
     place={place}
