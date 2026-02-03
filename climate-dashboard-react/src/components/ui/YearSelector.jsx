@@ -1,6 +1,7 @@
 // src/components/ui/YearSelector.jsx
 
 import React, { useState, useRef, useEffect } from "react";
+import NavPill from "@/components/ui/NavPill";
 
 export default function YearSelector({
   years = [],
@@ -25,31 +26,15 @@ export default function YearSelector({
 
   return (
     <div className="relative" ref={ref}>
-      <button
-        onClick={() => setOpen(!open)}
-        className={`
-          header-btn flex items-center gap-1
-          whitespace-nowrap shrink-0
-          ${compact ? "px-3 py-2 text-sm" : ""}
-        `}
-      >
-        <span>{selected?.year}</span>
 
-        <svg
-          width="12"
-          height="8"
-          viewBox="0 0 12 8"
-          fill="none"
-          className={`transition-transform ${open ? "rotate-180" : ""}`}
-        >
-          <path
-            d="M1 1L6.16129 6L11 1"
-            stroke="white"
-            strokeWidth="1"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
+      <NavPill
+        onClick={() => setOpen(!open)}
+        withChevron
+        className={compact ? "h-11 px-4 text-sm" : ""}
+        title="Choose year"
+      >
+        <span>{selected?.year ?? "Year"}</span>
+      </NavPill>
 
       {open && (
         <div className="absolute right-0 mt-2 w-40 rounded-xl bg-[#2A2A2A] border border-white/20 shadow-lg z-50">

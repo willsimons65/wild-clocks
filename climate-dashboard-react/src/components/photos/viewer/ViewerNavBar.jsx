@@ -58,17 +58,10 @@ export default function ViewerNavBar({
           {/* RIGHT: month + slot */}
           <div className="flex items-center gap-3">
             {/* Month pill (always shown) */}
-            <NavPill onClick={onMonthClick} title="Choose month">
+            <NavPill onClick={onMonthClick} title="Choose month" withChevron>
               {/* desktop = full, mobile = abbrev */}
               <span className="hidden md:inline">{monthLabel || "Month"}</span>
               <span className="md:hidden">{monthShort}</span>
-
-              <img
-                src={chevronDown}
-                alt=""
-                aria-hidden="true"
-                className="w-3 h-3 opacity-70"
-              />
             </NavPill>
 
             {/* Slot pill (Compare only on mobile, but always present on desktop if you want) */}
@@ -80,6 +73,7 @@ export default function ViewerNavBar({
                   slotEnabled ? "Choose slot" : "Slot only available in Compare"
                 }
                 className="w-[52px] md:w-auto justify-center px-0"
+                withChevron
               >
                 {/* desktop = Slot 2, mobile = 2 */}
                 <span className="hidden md:inline">
@@ -88,13 +82,6 @@ export default function ViewerNavBar({
                 <span className="md:hidden">
                   {slotShortLabel || ""}
                 </span>
-
-                <img
-                  src={chevronDown}
-                  alt=""
-                  aria-hidden="true"
-                  className="w-3 h-3 opacity-70"
-                />
               </NavPill>
             ) : null}
           </div>

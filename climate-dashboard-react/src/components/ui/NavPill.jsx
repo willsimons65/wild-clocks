@@ -1,38 +1,17 @@
 // src/components/ui/NavPill.jsx
 
+import chevronDown from "@/images/assets/chevron-down.svg";
+
 export default function NavPill({
   children,
   onClick,
-  disabled = false,
+  disabled,
   className = "",
   title,
   ariaLabel,
-
-  // visual options
-  variant = "default", // default | icon
-  size = "md", // md | sm
+  variant = "default", // "default" | "icon"
+  withChevron = false,
 }) {
-  const base =
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap select-none " +
-    "rounded-full border transition " +
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 " +
-    "active:scale-[0.99]";
-
-  // ✅ This is the canonical look (matches Jan / 1)
-  const defaultStyle =
-    "bg-white/5 border-white/20 text-white/85 hover:bg-white/10";
-
-  const disabledStyle =
-    "border-white/10 bg-white/5 text-white/35 cursor-not-allowed hover:bg-white/5";
-
-  const sizes = {
-    md: "h-9 px-5 text-sm font-medium",
-    sm: "h-9 px-4 text-sm font-medium",
-  };
-
-  // icon-only pill
-  const iconSizing = size === "md" ? "h-9 w-9 p-0" : "h-9 w-9 p-0";
-
   return (
     <button
       type="button"
@@ -41,13 +20,31 @@ export default function NavPill({
       title={title}
       aria-label={ariaLabel}
       className={[
-        base,
-        variant === "icon" ? iconSizing : sizes[size],
-        disabled ? disabledStyle : defaultStyle,
+        "bg-white/5 border-white/20 border",
+        "text-white/85 text-sm font-medium",
+        "hover:bg-white/10 transition",
+        "flex items-center justify-center gap-2",
+        variant === "icon"
+          ? "header-btn"
+          : "h-9 px-5 rounded-full whitespace-nowrap shrink-0",
+
+        disabled
+          ? "border-white/10 bg-white/5 text-white/35 cursor-not-allowed hover:bg-white/5"
+          : "",
+
         className,
       ].join(" ")}
     >
       {children}
+
+      {withChevron ? (
+        <img
+          src={chevronDown}
+          alt=""
+          aria-hidden="true"
+          className="w-3 h-3 opacity-70"
+        />
+      ) : null}
     </button>
   );
 }

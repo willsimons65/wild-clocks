@@ -1,3 +1,6 @@
+// src/components/insights/MonthSelector.jsx
+
+import NavPill from "@/components/ui/NavPill";
 import { useState, useRef, useEffect } from "react";
 
 const MONTHS = [
@@ -26,28 +29,14 @@ export default function MonthSelector({
   return (
     <div ref={ref} className="relative">
       {/* Button */}
-      <button
-        onClick={() => setOpen(v => !v)}
-        className="
-          header-btn flex items-center gap-1
-          px-4 py-2 rounded-full
-        "
-      >
-        {MONTHS[monthIndex].slice(0, 3)}
-        <svg
-          width="12"
-          height="8"
-          viewBox="0 0 12 8"
-          className={`transition-transform ${open ? "rotate-180" : ""}`}
+        <NavPill
+            onClick={() => setOpen((v) => !v)}
+            withChevron
+            title="Choose month"
+            className="h-11 px-4 text-sm"
         >
-          <path
-            d="M1 1L6 6L11 1"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
+        {MONTHS[monthIndex]?.slice(0, 3) || "Mon"}
+        </NavPill>
 
       {/* Dropdown */}
       {open && (

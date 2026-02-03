@@ -7,6 +7,7 @@ import YearSelector from "@/components/ui/YearSelector";
 import MetricSelector from "@/components/ui/MetricSelector";
 import InfoTooltip from "@/components/ui/tooltip/InfoTooltip";
 import ViewToggle from "@/components/layout/ViewToggle";
+import NavPill from "@/components/ui/NavPill";
 
 export default function Header({
   placeName,
@@ -51,9 +52,9 @@ export default function Header({
 
           {/* LEFT: back + place */}
           <div className="flex items-center gap-3 min-w-0">
-            <button onClick={handleBack} className="header-btn">
+            <NavPill onClick={handleBack} ariaLabel="Back" variant="icon">
               <ArrowLeft className="w-5 h-5" />
-            </button>
+            </NavPill>
 
             {/* Place title: NOT interactive */}
             <h1 className="text-xl font-semibold tracking-tight truncate">
