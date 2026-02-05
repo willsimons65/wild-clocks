@@ -17,14 +17,14 @@ export default function CompareToggle({
         aria-expanded={open}
       >
         <img
-          src={ChevronDown}
-          alt=""
-          className={`w-4 h-4 transition-transform duration-200 ${
+        src={ChevronDown}
+        alt=""
+        className={`w-3.5 h-3.5 opacity-80 transition-transform duration-200 ${
             open ? "rotate-180" : ""
-          }`}
+        }`}
         />
 
-        <span className="text-teal-400 text-base font-light">
+        <span className="text-teal-400 text-sm font-light">
           {title}
         </span>
       </button>

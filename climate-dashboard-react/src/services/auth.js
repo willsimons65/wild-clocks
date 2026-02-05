@@ -19,11 +19,10 @@ export async function loginWithCode(code) {
 }
 
 export function isAuthenticated() {
-  // ✅ DEV MODE: always allow
-  if (import.meta.env.DEV) return true;
-
-  return localStorage.getItem("wc_auth") === "1";
+  // 🔓 Public launch — authentication disabled
+  return true;
 }
+
 
 export function logout() {
   localStorage.removeItem("wc_auth");
