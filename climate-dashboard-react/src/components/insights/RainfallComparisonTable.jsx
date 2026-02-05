@@ -6,10 +6,7 @@ export default function RainfallComparisonTable({
 }) {
   return (
     <section className="space-y-4">
-      <h3 className="text-sm font-medium text-white/80">
-        Compare the historical total for {monthLabel}
-      </h3>
-
+      
       <div className="rounded-2xl bg-[#161616] border border-white/10 overflow-hidden">
         {/* Header */}
         <div className="grid grid-cols-3 px-4 py-3 text-xs font-medium text-white/60 border-b border-white/10">

@@ -2,10 +2,11 @@
 
 export default function InsightsIntro() {
   return (
-    <header className="space-y-2">
-      <p className="text-sm opacity-80 max-w-3xl">
-        See how temperature and rainfall combine to reveal longer-term patterns.
-      </p>
-    </header>
+    <div className="rounded-2xl border border-white/10 bg-[#222222] px-5 py-4 text-white/70">
+      Insights is a set of at-a-glance tools that help you understand your
+      location over time. Unlike the Feed, which shows day-to-day weather,
+      Insights focuses on the bigger picture — the patterns and trends that
+      shape the climate.
+    </div>
   );
 }

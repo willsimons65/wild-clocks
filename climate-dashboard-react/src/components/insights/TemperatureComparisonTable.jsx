@@ -7,9 +7,6 @@ export default function TemperatureComparisonTable({
   return (
     <section className="space-y-4">
       {/* Section title */}
-      <h3 className="text-sm font-medium text-white/80">
-        Compare the historical average for {monthLabel}
-      </h3>
 
       <div className="rounded-2xl bg-[#161616] border border-white/10 overflow-hidden">
         {/* Table header */}

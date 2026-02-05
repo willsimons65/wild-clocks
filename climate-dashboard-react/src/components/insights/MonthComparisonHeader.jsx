@@ -12,10 +12,10 @@ export default function MonthComparisonHeader({
     <section className="space-y-3">
       {/* Heading + selector */}
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-        <h2 className="text-text-base font-medium text-white md:pr-6">
+        <h3 className="text-text-base font-sm text-white md:pr-6">
           This month’s temperature and rainfall compared to the historical pattern for{" "}
           {monthLabel}
-        </h2>
+        </h3>
 
         {/* Month selector drops below on mobile */}
         <div className="w-full flex justify-end md:w-auto md:shrink-0">
