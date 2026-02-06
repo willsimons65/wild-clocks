@@ -11,7 +11,7 @@ export default function MonthComparisonHeader({
   return (
     <section className="space-y-3">
       {/* Heading + selector */}
-      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+      <div className="flex items-center justify-between gap-4">
         <h2 className="text-lg font-semibold text-white">
             About{" "}
             {monthLabel}
