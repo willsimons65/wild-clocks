@@ -3,8 +3,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+// Login still exists but no longer used
 import Login from "@/pages/Login";
-import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 import Home from "@/pages/Home";
 import LittleKnepp from "@/pages/LittleKnepp";
@@ -18,7 +18,6 @@ import PhotoViewer from "@/pages/PhotoViewer";
 export default function App() {
   const DEFAULT_YEAR = 2026;
 
-  // ✅ useState at top level (initializer function is OK)
   const [year, setYear] = useState(() => {
     const stored = localStorage.getItem("wildclocks:year");
     return stored ? Number(stored) : DEFAULT_YEAR;
@@ -28,18 +27,18 @@ export default function App() {
     return localStorage.getItem("wildclocks:place") || "little-knepp";
   });
 
-  const climateData = place === "appleton-woods"
-  ? appletonWoodsClimate
-  : littleKneppClimate;
+  const climateData =
+    place === "appleton-woods"
+      ? appletonWoodsClimate
+      : littleKneppClimate;
 
-  // ✅ useEffect at top level
   useEffect(() => {
     localStorage.setItem("wildclocks:year", String(year));
   }, [year]);
 
   useEffect(() => {
     localStorage.setItem("wildclocks:place", place);
-  }, [place]); 
+  }, [place]);
 
   return (
     <Router>
@@ -47,25 +46,12 @@ export default function App() {
         <div className="flex-1">
           <Routes>
 
+            {/* Login route kept but unused */}
             <Route path="/login" element={<Login />} />
 
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/" element={<Home />} />
 
-            <Route
-              path="/about"
-              element={
-                <ProtectedRoute>
-                  <About />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/about" element={<About />} />
 
             <Route
               path="/little-knepp"
@@ -91,27 +77,20 @@ export default function App() {
 
             <Route
               path="/viewer/:place/:year/:month"
-              element={
-                <ProtectedRoute>
-                  <PhotoViewer />
-                </ProtectedRoute>
-              }
+              element={<PhotoViewer />}
             />
 
             <Route
               path="/insights"
               element={
-                <ProtectedRoute>
-                  <InsightsPage
-                    year={year}
-                    setYear={setYear}
-                    place={place}
-                    climateData={climateData}
-                  />
-                </ProtectedRoute>
+                <InsightsPage
+                  year={year}
+                  setYear={setYear}
+                  place={place}
+                  climateData={climateData}
+                />
               }
             />
-
 
             <Route path="/parklands" element={<Navigate to="/little-knepp" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />
