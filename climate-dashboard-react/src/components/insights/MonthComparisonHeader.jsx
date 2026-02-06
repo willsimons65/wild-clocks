@@ -10,18 +10,21 @@ export default function MonthComparisonHeader({
 }) {
   return (
     <section className="space-y-3">
-      {/* Heading + selector */}
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-lg font-semibold text-white">
-            About{" "}
-            {monthLabel}
-        </h2>
+        {/* Heading + selector */}
+        <div className="flex items-center justify-between gap-3">
+            
+            <h2 className="text-lg font-semibold text-white whitespace-nowrap">
+            About {monthLabel}
+            </h2>
 
-        {/* Month selector drops below on mobile */}
-        <div className="w-full flex justify-end md:w-auto md:shrink-0">
-          <MonthSelector monthIndex={monthIndex} onChange={onMonthChange} />
+            <div className="shrink-0">
+            <MonthSelector
+                monthIndex={monthIndex}
+                onChange={onMonthChange}
+            />
+            </div>
+
         </div>
-      </div>
     </section>
   );
 }
