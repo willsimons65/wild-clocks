@@ -4,18 +4,22 @@ import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
 import PlacesGrid from "@/components/home/PlacesGrid";
+import HomeFooter from "@/components/layout/HomeFooter";
 
 function Home() {
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       <Navbar />
 
-      <main className="w-full lg:max-w-[1200px] mx-auto px-4 lg:px-6 py-12 lg:py-16 space-y-10">
+      <main className="w-full lg:max-w-[1200px] mx-auto px-4 lg:px-6 py-12 lg:py-16 space-y-14">
         <Hero />
         <PlacesGrid />
+        <HomeFooter />
       </main>
     </div>
   );
 }
 
 export default React.memo(Home);
+
+

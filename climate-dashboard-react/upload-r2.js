@@ -25,8 +25,8 @@ if (!LOCAL_PHOTO_ROOT) {
 // CONFIGURE PLACE / YEAR / MONTH
 // -------------------------------
 const PLACE = "littleknepp";
-const YEAR = "2025";
-const MONTH = "january";
+const YEAR = "2026";
+const MONTH = "february";
 
 const DRY_RUN = process.argv.includes("--dry-run");
 
