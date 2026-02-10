@@ -15,7 +15,7 @@ export default function HomeFooter() {
 
         {/* CONTACT */}
         <a
-          href="mailto:youremail@example.com?subject=Wild%20Clocks"
+          href="mailto:will.simons@icloud.com?subject=Wild%20Clocks"
           className="flex items-center gap-3 text-sm font-thin text-white/50 hover:text-white transition"
         >
           <ContactIcon className="w-6 h-6 opacity-80" />
