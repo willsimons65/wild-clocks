@@ -55,36 +55,36 @@ export default function ViewerNavBar({
             </h1>
           </div>
 
-          {/* RIGHT: month + slot */}
-          <div className="flex items-center gap-3">
-            {/* Month pill (always shown) */}
+            {/* RIGHT: month + week */}
+            <div className="flex items-center gap-3">
+            {/* Month pill */}
             <NavPill onClick={onMonthClick} title="Choose month" withChevron>
-              {/* desktop = full, mobile = abbrev */}
-              <span className="hidden md:inline">{monthLabel || "Month"}</span>
-              <span className="md:hidden">{monthShort}</span>
+                <span className="hidden md:inline">{monthLabel || "Month"}</span>
+                <span className="md:hidden">{monthShort}</span>
             </NavPill>
 
-            {/* Slot pill (Compare only on mobile, but always present on desktop if you want) */}
+            {/* Week pill */}
             {showSlotPill ? (
-              <NavPill
+                <NavPill
                 onClick={onSlotClick}
                 disabled={!slotEnabled}
                 title={
-                  slotEnabled ? "Choose slot" : "Slot only available in Compare"
+                    slotEnabled ? "Choose week" : "Week only available in Compare"
                 }
                 className="w-[52px] md:w-auto justify-center px-0"
                 withChevron
-              >
-                {/* desktop = Slot 2, mobile = 2 */}
+                >
+                {/* desktop = Week 3, mobile = 3 */}
                 <span className="hidden md:inline">
-                  {slotLabel || "Slot"}
+                    {slotLabel?.replace("Slot", "Week") || "Week"}
                 </span>
                 <span className="md:hidden">
-                  {slotShortLabel || ""}
+                    {slotShortLabel || ""}
                 </span>
-              </NavPill>
+                </NavPill>
             ) : null}
-          </div>
+            </div>
+
         </div>
 
         {/* =========================

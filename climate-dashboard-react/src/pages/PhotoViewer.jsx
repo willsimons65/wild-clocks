@@ -159,7 +159,7 @@ export default function PhotoViewer() {
 
       {/* ✅ New nav header (3-column grid like Feed/Insights) */}
         <ViewerNavBar
-        title={place === "littleknepp" ? "Little Knepp" : "Photo Viewer"}
+        title={place === "littleknepp" ? "Little Knepp" : "Appleton Woods"}
         mode={mode}
         setMode={setMode}
         monthLabel={monthLabel || "Month"}
