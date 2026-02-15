@@ -20,12 +20,13 @@ export function getPhotoUrls(place, year, month, count = 4) {
 
 import lk2026 from "@/data/photos/manifests/littleknepp/2026.json";
 import lk2025 from "@/data/photos/manifests/littleknepp/2025.json";
+import aw2025 from "@/data/photos/manifests/appletonwoods/2025.json";
+import aw2026 from "@/data/photos/manifests/appletonwoods/2026.json";
 
 // add more over time
 const MANIFESTS_BY_PLACE = {
   littleknepp: [lk2025, lk2026],
-  appletonwoods: [],
-
+  appletonwoods: [aw2025, aw2026],
 };
 
 import { buildPhotoIndex, getLeadPhoto } from "@/data/photos/photoIndex";
