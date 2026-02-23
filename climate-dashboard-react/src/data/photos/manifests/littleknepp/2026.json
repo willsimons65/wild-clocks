@@ -1,14 +1,29 @@
 {
-  "version": 1,
-  "place": "littleknepp",
-  "year": 2026,
-  "photos": [
+    "version": 1,
+    "place": "littleknepp",
+    "year": 2026,
+    "photos": [
     {
-      "id": "littleknepp-2026-01-s1-p1",
-      "month": 1,
+      "id": "littleknepp-2026-02-s1-p1",
+      "month": 2,
       "slot": 1,
       "shot": 1,
-      "url": "/photos/littleknepp/2026/january/slot-1-shot-1.png"
+      "url": "/photos/littleknepp/2026/february/1.png"
+    },
+    {
+      "id": "littleknepp-2026-02-s2-p1",
+      "month": 2,
+      "slot": 2,
+      "shot": 1,
+      "url": "/photos/littleknepp/2026/february/2.png"
+    },
+    {
+      "id": "littleknepp-2026-02-s3-p1",
+      "month": 2,
+      "slot": 3,
+      "shot": 1,
+      "url": "/photos/littleknepp/2026/february/3.png"
     }
   ]
 }
+

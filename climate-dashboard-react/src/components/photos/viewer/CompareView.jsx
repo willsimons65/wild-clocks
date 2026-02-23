@@ -43,49 +43,74 @@ export default function CompareView({
     setSplit(0.5);
   }, [place, monthIndex, slotIndex, primaryYear, compareYear, swapSides]);
 
-  useEffect(() => {
-    let cancelled = false;
+useEffect(() => {
+  let cancelled = false;
 
-    async function run() {
-      if (!place || monthIndex < 0 || slotIndex < 0) return;
-      if (!Number.isFinite(primaryYear) || !Number.isFinite(compareYear)) return;
+  async function run() {
+    const ok =
+      typeof place === "string" &&
+      place.length > 0 &&
+      Number.isInteger(monthIndex) &&
+      monthIndex >= 0 &&
+      Number.isInteger(slotIndex) &&
+      slotIndex >= 0 &&
+      Number.isFinite(primaryYear) &&
+      Number.isFinite(compareYear);
 
-      setStatus("loading");
+    if (!ok) return;
 
-      try {
-        const { index } = await loadPhotoIndexForPlace(place);
+    setStatus("loading");
 
-        const left = getLeadPhotoForSlot(index, {
-          place,
-          year: primaryYear,
-          monthIndex,
-          slotIndex,
-        });
+    try {
+      const res = await loadPhotoIndexForPlace(place);
 
-        const right = getLeadPhotoForSlot(index, {
-          place,
-          year: compareYear,
-          monthIndex,
-          slotIndex,
-        });
-
-        if (cancelled) return;
-
-        setPrimaryPhoto(left || null);
-        setComparePhoto(right || null);
-        setStatus("ready");
-      } catch (err) {
-        console.error("CompareView: failed to load photo index", err);
-        if (cancelled) return;
-        setStatus("error");
+      if (!res || !res.index) {
+        throw new Error(
+          `loadPhotoIndexForPlace("${place}") returned no { index }. Got: ${JSON.stringify(res)}`
+        );
       }
-    }
 
-    run();
-    return () => {
-      cancelled = true;
-    };
-  }, [place, monthIndex, slotIndex, primaryYear, compareYear]);
+      const { index } = res;
+
+      const left = getLeadPhotoForSlot(index, {
+        place,
+        year: primaryYear,
+        monthIndex,
+        slotIndex,
+      });
+
+      const right = getLeadPhotoForSlot(index, {
+        place,
+        year: compareYear,
+        monthIndex,
+        slotIndex,
+      });
+
+      if (cancelled) return;
+
+      setPrimaryPhoto(left || null);
+      setComparePhoto(right || null);
+      setStatus("ready");
+    } catch (err) {
+      console.error("[CompareView] failed:", {
+        place,
+        monthIndex,
+        slotIndex,
+        primaryYear,
+        compareYear,
+        err,
+      });
+      if (cancelled) return;
+      setStatus("error");
+    }
+  }
+
+  run();
+  return () => {
+    cancelled = true;
+  };
+}, [place, monthIndex, slotIndex, primaryYear, compareYear]);
+
 
   const bothExist = !!primaryPhoto && !!comparePhoto;
   const neitherExist = !primaryPhoto && !comparePhoto;

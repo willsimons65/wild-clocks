@@ -1,15 +1,14 @@
 {
-  "version": 1,
+"version": 1,
   "place": "littleknepp",
   "year": 2025,
   "photos": [
- 
-    {
-    "id": "littleknepp-2025-01-s1-p1",    
-    "month": 1,
-    "slot": 1,
-    "shot": 1,
-    "url": "/photos/littleknepp/2025/january/slot-1-shot-1.png"
-    }
-  ]
+{
+  "id": "littleknepp-2025-02-s3-p1",
+  "month": 2,
+  "slot": 3,
+  "shot": 1,
+  "url": "/photos/littleknepp/2025/february/3.png"
+}
+]
 }

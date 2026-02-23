@@ -16,6 +16,33 @@ export function sortPhotosDeterministically(a, b) {
   return String(a.id).localeCompare(String(b.id));
 }
 
+function normalizePhotoUrl(url) {
+  if (!url) return url;
+
+  // If already absolute, leave it alone
+  if (/^https?:\/\//i.test(url)) return url;
+
+  const base = import.meta.env.VITE_R2_PUBLIC_BASE_URL;
+  if (!base) return url;
+
+  // base might be like "https://<r2-domain>" OR ".../photos"
+  const baseNoSlash = String(base).replace(/\/+$/, "");
+
+  // Your manifests currently store "/photos/<place>/<year>/<month>/<file>"
+  // If base is the bucket root, drop "/photos" prefix.
+  if (url.startsWith("/photos/")) {
+    return `${baseNoSlash}${url.replace(/^\/photos/, "")}`;
+  }
+
+  // Any other leading-slash path
+  if (url.startsWith("/")) {
+    return `${baseNoSlash}${url}`;
+  }
+
+  // Plain relative path
+  return `${baseNoSlash}/${url}`;
+}
+
 export function buildPhotoIndex(manifests) {
   const photosBySlot = new Map();
 
@@ -41,9 +68,12 @@ export function buildPhotoIndex(manifests) {
       }
 
       const key = makeSlotKey(place, year, monthIndex, slotIndex);
-      const arr = photosBySlot.get(key) || [];
-      arr.push(p);
-      photosBySlot.set(key, arr);
+        const arr = photosBySlot.get(key) || [];
+        arr.push({
+        ...p,
+        url: normalizePhotoUrl(p.url),
+        });
+       photosBySlot.set(key, arr);
     }
   }
 
