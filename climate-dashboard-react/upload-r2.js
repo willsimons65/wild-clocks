@@ -24,7 +24,7 @@ if (!LOCAL_PHOTO_ROOT) {
 // -------------------------------
 // CONFIGURE PLACE / YEAR / MONTH
 // -------------------------------
-const PLACE = "appletonwoods";
+const PLACE = "littleknepp";
 const YEAR = "2026";
 const MONTH = "february";
 
