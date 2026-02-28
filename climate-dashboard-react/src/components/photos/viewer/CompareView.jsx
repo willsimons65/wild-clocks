@@ -170,56 +170,72 @@ useEffect(() => {
     );
   }
 
-  // state 2/3: one missing → show 2-up layout with placeholders
-  return (
-    <div className="space-y-4">
+// state 2/3: one missing → show single panel with masked side
+const existingPhoto = leftPhoto || rightPhoto;
+const missingIsRight = !!leftPhoto && !rightPhoto;
+const missingYear = missingIsRight ? rightYear : leftYear;
 
-      <div className="grid grid-cols-2 gap-4">
-        <YearLabel year={leftYear} />
-        <YearLabel year={rightYear} />
+return (
+  <div className="space-y-4">
+    <div className="relative rounded-2xl border border-white/10 bg-black/30 overflow-hidden mx-auto w-full md:max-w-[600px]">
+      {/* Existing image */}
+      {existingPhoto ? (
+        <img
+          src={existingPhoto.url}
+          alt={`${monthLabel} slot ${slotIndex + 1}`}
+          className="block w-full h-auto object-contain"
+          draggable={false}
+        />
+      ) : null}
+
+      {/* Masked “missing” side */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          // mask right half if right missing, else left half
+          clipPath: missingIsRight
+            ? "inset(0 0 0 50%)"
+            : "inset(0 50% 0 0)",
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.75))",
+        }}
+      />
+
+<div
+  className="absolute inset-0 pointer-events-none"
+>
+  <div
+    className="absolute top-0 bottom-0 flex items-center justify-center px-6 text-center"
+    style={{
+      width: "50%",
+      left: missingIsRight ? "50%" : "0%",
+    }}
+  >
+    <div className="max-w-[260px] text-white/80">
+      <div className="font-medium">
+        No photo for {missingYear}
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="rounded-2xl border border-white/10 bg-black/30 p-3">
-          {leftPhoto ? (
-            <img
-              src={leftPhoto.url}
-              alt={`${monthLabel} slot ${slotIndex + 1} ${leftYear}`}
-              className="w-full rounded-2xl object-contain"
-              draggable={false}
-            />
-          ) : (
-            <div className="aspect-[4/3]">
-              <PlaceholderPanel
-                title={`No photo for ${leftYear} yet`}
-                subtitle="This comparison becomes richer as the archive grows."
-              />
-            </div>
-          )}
-        </div>
-
-        <div className="rounded-2xl border border-white/10 bg-black/30 p-3">
-          {rightPhoto ? (
-            <img
-              src={rightPhoto.url}
-              alt={`${monthLabel} slot ${slotIndex + 1} ${rightYear}`}
-              className="w-full rounded-2xl object-contain"
-              draggable={false}
-            />
-          ) : (
-            <div className="aspect-[4/3]">
-              <PlaceholderPanel
-                title={`No photo for ${rightYear} yet`}
-                subtitle="Try another slot, or another year."
-              />
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="text-xs text-white/40">
-        Slider: disabled (needs both photos)
+      <div className="mt-1 text-sm text-white/50">
+        Try another slot, or another year.
       </div>
     </div>
-  );
+  </div>
+</div>
+
+      {/* Top year labels (optional) */}
+      <div className="absolute top-3 left-0 right-0 z-20 pointer-events-none">
+        <div className="absolute left-1/4 -translate-x-1/2">
+          <div className="px-3 py-1 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-xs font-medium text-white/80">
+            {leftYear}
+          </div>
+        </div>
+        <div className="absolute left-3/4 -translate-x-1/2">
+          <div className="px-3 py-1 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-xs font-medium text-white/80">
+            {rightYear}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 }

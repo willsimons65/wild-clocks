@@ -65,6 +65,11 @@ export default function PhotoViewer() {
     return Math.max(0, Math.min(3, urlPhoto - 1));
     });
 
+    useEffect(() => {
+    // whenever month changes, reset slot to first slot
+    setSlotIndex(0);
+    }, [monthIndex]);
+
   // ✅ Reset selected photo only when entering a new album,
     // BUT do not override explicit ?photo=...
     useEffect(() => {
@@ -130,8 +135,9 @@ export default function PhotoViewer() {
     if (compareYear === year) setCompareYear(year - 1);
   }, [year, compareYear]);
 
-  useEffect(() => {
-    if (mode !== "compare") return;
+  // Sync slot with selected photo ONLY in Photos mode
+    useEffect(() => {
+    if (mode !== "photos") return;
     setSlotIndex(activePhotoIndex);
     }, [mode, activePhotoIndex]);
 
@@ -162,15 +168,25 @@ export default function PhotoViewer() {
         title={place === "littleknepp" ? "Little Knepp" : "Appleton Woods"}
         mode={mode}
         setMode={setMode}
-        monthLabel={monthLabel || "Month"}
-        onMonthClick={() => {
-            console.log("open month menu");
+
+        // Month dropdown
+        months={MONTH_NAMES}
+        monthIndex={monthIndex}
+        onMonthChange={(nextMonthIndex) => {
+            const monthSlug = MONTH_NAMES[nextMonthIndex]?.toLowerCase();
+            if (!monthSlug) return;
+
+            navigate(
+            `/viewer/${params.place}/${year}/${monthSlug}?${searchParams.toString()}`,
+            { replace: false }
+            );
         }}
-        slotLabel={`Slot ${slotIndex + 1}`}
-        slotShortLabel={`${slotIndex + 1}`}
-        onSlotClick={() => {
-            console.log("open slot menu");
-        }}
+
+        // Week dropdown
+        maxSlots={4}
+        slotIndex={slotIndex}
+        onSlotChange={(i) => setSlotIndex(i)}
+
         slotEnabled={mode === "compare"}
         onBack={() => navigate(-1)}
         />
