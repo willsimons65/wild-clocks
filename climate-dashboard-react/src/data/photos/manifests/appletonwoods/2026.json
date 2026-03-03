@@ -4,6 +4,34 @@
   "year": 2026,
   "photos": [
     {
+      "id": "appletonwoods-2026-01-s1-p1",
+      "month": 1,
+      "slot": 1,
+      "shot": 1,
+      "url": "/photos/appletonwoods/2026/january/1.png"
+    },
+    {
+      "id": "appletonwoods-2026-01-s2-p1",
+      "month": 1,
+      "slot": 2,
+      "shot": 1,
+      "url": "/photos/appletonwoods/2026/january/2.png"
+    },
+    {
+      "id": "appletonwoods-2026-01-s3-p1",
+      "month": 1,
+      "slot": 3,
+      "shot": 1,
+      "url": "/photos/appletonwoods/2026/january/3.png"
+    },
+    {
+      "id": "appletonwoods-2026-01-s4-p1",
+      "month": 1,
+      "slot": 4,
+      "shot": 1,
+      "url": "/photos/appletonwoods/2026/january/4.png"
+    },
+    {
       "id": "appletonwoods-2026-02-s1-p1",
       "month": 2,
       "slot": 1,
