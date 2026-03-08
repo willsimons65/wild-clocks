@@ -1,3 +1,5 @@
+// src/components/insights/MicroClock.jsx
+
 import React from "react";
 
 const MONTHS = [
@@ -41,7 +43,8 @@ export default function MicroClock({
   peakMonth = 5,
   activeLabel = "Mar–Jun: active",
   peakLabel = "Peak: May",
-  size = 360
+  size = 360,
+  showArc = true
 }) {
 
   const cx = size / 2;
@@ -88,6 +91,7 @@ export default function MicroClock({
       />
 
       {/* active season arc */}
+      {showArc && (
       <path
         d={describeArc(cx, cy, arcRadius, startAngle, endAngle)}
         fill="none"
@@ -95,17 +99,7 @@ export default function MicroClock({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
       />
-
-      {/* peak marker
-      <line
-        x1={peakInner.x}
-        y1={peakInner.y}
-        x2={peakOuter.x}
-        y2={peakOuter.y}
-        stroke="rgba(255,255,255,0.9)"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />*/}
+      )}
 
       {/* month labels */}
       {MONTHS.map((label, i) => {
@@ -129,26 +123,55 @@ export default function MicroClock({
       })}
 
       {/* centre text */}
-      <text
-        x={cx}
-        y={cy - 8}
-        fill="rgba(255,255,255,0.92)"
-        fontSize="16"
-        textAnchor="middle"
-      >
-        {activeLabel}
-      </text>
+{showArc ? (
+  <>
+    <text
+      x={cx}
+      y={cy - 8}
+      textAnchor="middle"
+      fill="white"
+      fontSize="16"
+      opacity="0.9"
+    >
+      {activeLabel}
+    </text>
 
-      <text
-        x={cx}
-        y={cy + 20}
-        fill="rgba(255,255,255,0.8)"
-        fontSize="16"
-        textAnchor="middle"
-      >
-        {peakLabel}
-      </text>
+    <text
+      x={cx}
+      y={cy + 16}
+      textAnchor="middle"
+      fill="white"
+      fontSize="16"
+      opacity="0.9"
+    >
+      {peakLabel}
+    </text>
+  </>
+) : (
+  <>
+    <text
+      x={cx}
+      y={cy - 8}
+      textAnchor="middle"
+      fill="white"
+      fontSize="15"
+      opacity="0.75"
+    >
+      This year’s flowering
+    </text>
 
+    <text
+      x={cx}
+      y={cy + 16}
+      textAnchor="middle"
+      fill="white"
+      fontSize="15"
+      opacity="0.75"
+    >
+      season is still unfolding
+    </text>
+  </>
+)}
     </svg>
   );
 }

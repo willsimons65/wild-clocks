@@ -2,9 +2,9 @@ export const MICRO_CLOCKS = {
   "little-knepp": {
     floweringSeason: {
       title: "",
-      activeStartMonth: 4, // Feb
-      activeEndMonth: 6,   // Jun
-      peakMonth: 5,        // May
+      activeStartMonth: 3,
+      activeEndMonth: 6,
+      peakMonth: 5,
       activeLabel: "Active: April–Jun",
       peakLabel: "Peak: May",
     },

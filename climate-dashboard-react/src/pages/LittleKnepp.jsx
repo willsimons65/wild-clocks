@@ -110,7 +110,14 @@ export default function LittleKnepp({
     );
   }
 
-    const floweringClock = MICRO_CLOCKS["little-knepp"]?.floweringSeason;
+    const baseFloweringClock = MICRO_CLOCKS["little-knepp"]?.floweringSeason;
+
+    const floweringClock = baseFloweringClock
+      ? {
+          ...baseFloweringClock,
+          showArc: year === 2025,
+        }
+      : null;
 
   // -------------------------------
   // Render page
@@ -130,7 +137,7 @@ export default function LittleKnepp({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-3">
               <h2 className="text-lg font-semibold text-white">Flowering season</h2>
-              <MicroClockCard {...floweringClock} />
+              <MicroClockCard year={year} {...floweringClock} />
             </div>
 
             <div className="md:col-span-2 space-y-3">
