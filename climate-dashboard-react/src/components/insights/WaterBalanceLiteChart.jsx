@@ -3,6 +3,7 @@
 import ChartContainer from "@/components/charts/base/ChartContainer";
 import ChartGrid from "@/components/charts/base/ChartGrid";
 import ChartAxes from "@/components/charts/base/ChartAxes";
+import WaterBalanceSeasonBand from "@/components/insights/WaterBalanceSeasonBand";
 import ChartBars from "@/components/charts/base/ChartBars";
 import ChartMetricHeader from "@/components/charts/base/ChartMetricHeader";
 import { useEffect, useState } from "react";
@@ -47,56 +48,57 @@ useEffect(() => {
   const yTicks = [-upper, -upper / 2, 0, upper / 2, upper];
 
   return (
-    <ChartContainer
-      data={data}
-      year={year}
-      yScale={yScale}
-      yTicks={yTicks}
-      xDomainOverride={MONTH_DOMAIN}
-      xTicksOverride={MONTH_TICKS}
-      interactive
-      leftPaddingOverride={64}
-      rightPadding={24}
-      chartHeightOverride={170}
-      bottomPaddingOverride={38}
-        metricHeader={({ index }) => {
-        const d = data[index];
-        if (!d) return null;
+<ChartContainer
+  data={data}
+  year={year}
+  yScale={yScale}
+  yTicks={yTicks}
+  xDomainOverride={MONTH_DOMAIN}
+  xTicksOverride={MONTH_TICKS}
+  interactive
+  leftPaddingOverride={64}
+  rightPadding={24}
+  chartHeightOverride={WBL_CHART_HEIGHT}
+  bottomPaddingOverride={38}
+  metricHeader={({ index }) => {
+    const d = data[index];
+    if (!d) return null;
 
-        const abs = Math.abs(Math.round(d.y));
-        const label = d.y < 0 ? "Moisture deficit" : "Moisture surplus";
-        const color = d.y < 0 ? "text-orange-400" : "text-green-400";
+    const abs = Math.abs(Math.round(d.y));
+    const label = d.y < 0 ? "Moisture deficit" : "Moisture surplus";
+    const color = d.y < 0 ? "text-orange-400" : "text-green-400";
 
-        return (
-          <ChartMetricHeader
-            items={[
-              {
-                label,
-                value: abs,
-                unit: "mm",
-                className: color,
-              },
-            ]}
-          />
-        );
-      }}
-    >
-      <ChartGrid />
-
-      <ChartAxes
-        showZeroLine
-        yPosition="left"
-        yFormatter={(v) => `${Math.round(v)}mm`}
-        xFormatter={(v) => MONTH_LABELS[v - 1]}
+    return (
+      <ChartMetricHeader
+        items={[
+          {
+            label,
+            value: abs,
+            unit: "mm",
+            className: color,
+          },
+        ]}
       />
+    );
+  }}
+>
+  <WaterBalanceSeasonBand startMonth={2} endMonth={8} />
 
-      <ChartBars
-        data={data}
-        positiveFill="#2EA44F"   // green
-        negativeFill="#F0883E"   // orange
-      />
+  <ChartGrid />
 
-    </ChartContainer>
+  <ChartAxes
+    showZeroLine
+    yPosition="left"
+    yFormatter={(v) => `${Math.round(v)}mm`}
+    xFormatter={(v) => MONTH_LABELS[v - 1]}
+  />
+
+  <ChartBars
+    data={data}
+    positiveFill="#2EA44F"
+    negativeFill="#F0883E"
+  />
+</ChartContainer>
   );
 }
 

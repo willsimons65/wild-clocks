@@ -65,20 +65,22 @@ export default function WaterBalanceLiteCard({ climateData, year }) {
           </div>
         </div>
       ) : (
-        <div className="flex items-start justify-between gap-4">
-          <div className="text-3xl font-medium text-left leading-none">—</div>
-          <div className="shrink-0 pt-0.5">
-            <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
-          </div>
+        <div className="flex justify-end">
+          <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
         </div>
       )}
 
       {monthlyData.length > 0 ? (
         <WaterBalanceLiteChart data={monthlyData} year={year} />
       ) : (
-        <p className="text-sm opacity-70">
-          Monthly water-balance data is not available yet.
-        </p>
+        <div className="flex items-center justify-center py-8">
+  <p className="text-sm text-white/70 text-center max-w-md leading-relaxed">
+    This year’s water balance is still taking shape.
+ 
+    The index is calculated month by month from rainfall and temperature,
+    so the chart fills in gradually as the year progresses.
+  </p>
+</div>
       )}
     </div>
   );
