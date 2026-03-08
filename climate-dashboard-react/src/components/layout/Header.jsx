@@ -21,6 +21,8 @@ export default function Header({
 
   const viewMode = location.pathname === "/insights" ? "insights" : "feed";
 
+  const SHOW_VIEW_TOGGLE = false;
+
   function handleBack() {
     if (window.history.length > 1) navigate(-1);
     else navigate("/");
@@ -45,10 +47,11 @@ export default function Header({
             ROW A — Context Bar
            ========================= */}
         <div className="py-4 flex items-center justify-between relative">
-          {/* Desktop centered view toggle stays */}
+          {/* Desktop centered view toggle stays*/}
+          {SHOW_VIEW_TOGGLE && (
           <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
             <ViewToggle />
-          </div>
+          </div>)}
 
           {/* LEFT: back + place */}
           <div className="flex items-center gap-3 min-w-0">
@@ -95,10 +98,11 @@ export default function Header({
           {/* LEFT: spacer (reserved lane) */}
           <div />
 
-          {/* CENTER: toggle */}
+          {/* CENTER: toggle*/}
+          {SHOW_VIEW_TOGGLE && (
           <div className="flex justify-center">
             <ViewToggle />
-          </div>
+          </div>)}
 
           {/* RIGHT: metric selector (Feed only) */}
           <div className="flex justify-end">

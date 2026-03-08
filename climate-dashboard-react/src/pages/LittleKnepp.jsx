@@ -6,6 +6,10 @@ import { loadPhotoIndexForPlace, getLeadPhotoForSlot } from "@/services/photoSer
 import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
 
+import MicroClockCard from "@/components/insights/MicroClockCard";
+import WaterBalanceLiteCard from "@/components/insights/WaterBalanceLiteCard";
+import { MICRO_CLOCKS } from "@/data/microClocks";
+
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 
@@ -106,6 +110,8 @@ export default function LittleKnepp({
     );
   }
 
+    const floweringClock = MICRO_CLOCKS["little-knepp"]?.floweringSeason;
+
   // -------------------------------
   // Render page
   // -------------------------------
@@ -120,19 +126,36 @@ export default function LittleKnepp({
       />
 
       <div className={`transition-opacity duration-300 ${fade ? "opacity-0" : "opacity-100"}`}>
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 p-6">
-          {months.map((month) => (
-            <MonthBlock
-              key={month}
-              month={month}
-              year={year}
-              place="littleknepp"        // ✅ fixed
-              metric={metric}
-              data={weather[month]}
-              fullData={allDailyRows}
-              temperatureData={littleKneppClimate}
-            />
-          ))}
+        <div className="max-w-[1200px] mx-auto p-6 space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-3">
+              <h2 className="text-lg font-semibold text-white">Flowering season</h2>
+              <MicroClockCard {...floweringClock} />
+            </div>
+
+            <div className="md:col-span-2 space-y-3">
+              <h2 className="text-lg font-semibold text-white">Water-balance-lite-index</h2>
+              <WaterBalanceLiteCard
+                climateData={littleKneppClimate}
+                year={year}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            {months.map((month) => (
+              <MonthBlock
+                key={month}
+                month={month}
+                year={year}
+                place="littleknepp"
+                metric={metric}
+                data={weather[month]}
+                fullData={allDailyRows}
+                temperatureData={littleKneppClimate}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

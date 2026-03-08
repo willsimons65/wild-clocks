@@ -12,7 +12,7 @@ import {
 import { makeXScale, makeXTicks } from "@/utils/xAxis";
 import { computeBubblePosition } from "@/utils/tooltipPosition";
 
-const BOTTOM_PADDING = 32;
+const BOTTOM_PADDING = 34;
 
 export default function ChartContainer({
   children,
@@ -28,9 +28,14 @@ export default function ChartContainer({
   rightPadding = 48,
   leftPaddingOverride,
   interactive = false,
+  chartHeightOverride,
+  bottomPaddingOverride,
 }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
+
+  const chartHeight = chartHeightOverride ?? CHART_HEIGHT;
+  const bottomPadding = bottomPaddingOverride ?? BOTTOM_PADDING;
 
   // Always work with safe data
   const safeData = Array.isArray(data) ? data : [];
@@ -177,6 +182,9 @@ export default function ChartContainer({
     setHoverX(null);
   };
 
+  const CURSOR_TOP_OFFSET = 0;
+  const CURSOR_BOTTOM_OFFSET = 0;
+
   // ---------------------------
   // Cursor X (derived from xScale)
   // ---------------------------
@@ -222,7 +230,7 @@ export default function ChartContainer({
   const topY = yPixels.length ? Math.min(...yPixels) : null;
   const bottomY = yPixels.length ? Math.max(...yPixels) : null;
 
-  const bubblePosition = computeBubblePosition(topY, CHART_HEIGHT, PADDING_TOP);
+  const bubblePosition = computeBubblePosition(topY, chartHeight, PADDING_TOP);
 
   let finalBubbleY = null;
   if (topY !== null && bottomY !== null) {
@@ -248,6 +256,7 @@ export default function ChartContainer({
       yScale,
       yTicks,
       hoverIndex,
+      chartHeight,
     });
   });
 
@@ -272,7 +281,7 @@ export default function ChartContainer({
       <svg
         ref={svgRef}
         width={totalWidth}
-        height={CHART_HEIGHT + PADDING_TOP + BOTTOM_PADDING}
+        height={chartHeight + PADDING_TOP + bottomPadding}
         style={{ touchAction: "none" }}
         pointerEvents="auto"
         onMouseMove={interactive ? handleMove : undefined}
@@ -286,17 +295,17 @@ export default function ChartContainer({
           {enhanced}
         </g>
 
-        {/* Cursor line (not clipped) */}
-        {interactive && cursorX !== null && (
-          <line
-            x1={cursorX + leftPadding}
-            x2={cursorX + leftPadding}
-            y1={PADDING_TOP}
-            y2={PADDING_TOP + CHART_HEIGHT}
-            stroke="white"
-            strokeWidth={1}
-          />
-        )}
+      {interactive && cursorX !== null && (
+      <line
+        x1={cursorX + leftPadding}
+        x2={cursorX + leftPadding}
+        y1={PADDING_TOP + CURSOR_TOP_OFFSET}
+        y2={PADDING_TOP + chartHeight - CURSOR_BOTTOM_OFFSET}
+        stroke="rgba(255,255,255,0.7)"
+        strokeWidth={1.25}
+        strokeLinecap="round"
+      />
+      )}
       </svg>
 
       {/* Tooltip */}

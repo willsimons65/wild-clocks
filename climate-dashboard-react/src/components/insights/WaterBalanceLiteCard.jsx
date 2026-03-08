@@ -46,35 +46,33 @@ export default function WaterBalanceLiteCard({ climateData, year }) {
 
   const monthlyData = buildMonthlyWaterBalanceLite(climateData, year);
 
-  const Header = (
-    <div className="flex items-start justify-between">
-      <h2 className="text-sm font-medium opacity-80">
-        Water-balance-lite index
-      </h2>
-      <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
-    </div>
-  );
-
-    return (
-    <div className="rounded-2xl bg-[#161616] p-6 space-y-6">
-      {Header}
-
-      {/* Classification (move ABOVE chart) */}
+  return (
+    <div className="rounded-2xl bg-[#161616] p-5 space-y-4">
       {result.hasData ? (
-        <div className="space-y-2">
-          <div className="text-3xl font-medium capitalize text-left">
-            {result.classification}
+        <div className="flex items-start justify-between gap-4">
+          <div className="space-y-1.5">
+            <div className="text-3xl font-medium capitalize text-left leading-none">
+              {result.classification}
+            </div>
+
+            <p className="text-sm opacity-70 text-left max-w-xl leading-snug">
+              {getWaterBalanceMessage(result.classification)}
+            </p>
           </div>
 
-          <p className="text-sm opacity-70 text-left max-w-xl">
-            {getWaterBalanceMessage(result.classification)}
-          </p>
+          <div className="shrink-0 pt-0.5">
+            <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
+          </div>
         </div>
       ) : (
-        <div className="text-3xl font-medium text-left">—</div>
+        <div className="flex items-start justify-between gap-4">
+          <div className="text-3xl font-medium text-left leading-none">—</div>
+          <div className="shrink-0 pt-0.5">
+            <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
+          </div>
+        </div>
       )}
 
-      {/* Chart */}
       {monthlyData.length > 0 ? (
         <WaterBalanceLiteChart data={monthlyData} year={year} />
       ) : (
@@ -85,5 +83,3 @@ export default function WaterBalanceLiteCard({ climateData, year }) {
     </div>
   );
 }
-
-

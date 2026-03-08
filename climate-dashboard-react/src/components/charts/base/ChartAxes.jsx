@@ -11,6 +11,7 @@ export default function ChartAxes({
   yFormatter = (v) => v,
   xFormatter = (v) => v,
   chartWidth,
+  chartHeight,
   yPosition = "right",
 }) {
 
@@ -21,7 +22,7 @@ export default function ChartAxes({
 
   ChartAxes.displayName = "ChartAxes";
 
-  const X_LABEL_Y = CHART_HEIGHT + 22;
+  const X_LABEL_Y = chartHeight + 22;
   const Y_LABEL_X =
   yPosition === "left"
     ? -6
