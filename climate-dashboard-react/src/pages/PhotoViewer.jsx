@@ -154,6 +154,9 @@ export default function PhotoViewer() {
     }
   }
 
+    const feedPath =
+    place === "littleknepp" ? "/little-knepp" : "/appleton-woods";
+
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       {/* toast */}
@@ -164,32 +167,30 @@ export default function PhotoViewer() {
       />
 
       {/* ✅ New nav header (3-column grid like Feed/Insights) */}
-        <ViewerNavBar
+      <ViewerNavBar
         title={place === "littleknepp" ? "Little Knepp" : "Appleton Woods"}
         mode={mode}
         setMode={setMode}
 
-        // Month dropdown
         months={MONTH_NAMES}
         monthIndex={monthIndex}
         onMonthChange={(nextMonthIndex) => {
-            const monthSlug = MONTH_NAMES[nextMonthIndex]?.toLowerCase();
-            if (!monthSlug) return;
+          const monthSlug = MONTH_NAMES[nextMonthIndex]?.toLowerCase();
+          if (!monthSlug) return;
 
-            navigate(
+          navigate(
             `/viewer/${params.place}/${year}/${monthSlug}?${searchParams.toString()}`,
             { replace: false }
-            );
+          );
         }}
 
-        // Week dropdown
         maxSlots={4}
         slotIndex={slotIndex}
         onSlotChange={(i) => setSlotIndex(i)}
 
         slotEnabled={mode === "compare"}
-        onBack={() => navigate(-1)}
-        />
+        onBack={() => navigate(feedPath)}
+      />
 
       {/* ✅ Compare-only action row (swap + share above photos) */}
       {mode === "compare" ? (
