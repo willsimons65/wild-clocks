@@ -120,7 +120,7 @@ export default function ViewerNavBar({
               <ArrowLeft className="w-5 h-5" />
             </NavPill>
 
-            <h1 className="text-xl font-semibold tracking-tight truncate">
+            <h1 className="text-xl font-semibold text-xl md:text-1xl">
               {title}
             </h1>
           </div>

@@ -10,6 +10,7 @@ import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
 export default function AppletonWoods({
   year,
   setYear,
+  place,
   setPlace,
 }) {
 
@@ -82,7 +83,8 @@ if (loading) {
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       <Header
-        placeName="Appleton Woods"
+        place="appleton-woods"
+        setPlace={setPlace}
         year={year}
         setYear={setYear}
         metric={metric}

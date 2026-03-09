@@ -2,15 +2,17 @@
 
 import { ArrowLeft } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import PlaceSelector from "@/components/ui/PlaceSelector";
 import YearSelector from "@/components/ui/YearSelector";
 import MetricSelector from "@/components/ui/MetricSelector";
 import InfoTooltip from "@/components/ui/tooltip/InfoTooltip";
 import ViewToggle from "@/components/layout/ViewToggle";
 import NavPill from "@/components/ui/NavPill";
+import { PLACES } from "@/constants/places";
 
 export default function Header({
-  placeName,
+  place,
+  setPlace,
   year,
   setYear,
   metric,
@@ -23,10 +25,22 @@ export default function Header({
 
   const SHOW_VIEW_TOGGLE = false;
 
-  function handleBack() {
-    if (window.history.length > 1) navigate(-1);
-    else navigate("/");
+function handleBack() {
+  const pathname = location.pathname;
+
+  const isPlacePage = PLACES.some(
+    (p) => pathname === `/${p.slug}`
+  );
+
+  const isInsights = pathname === "/insights";
+
+  if (isPlacePage || isInsights) {
+    navigate("/");
+    return;
   }
+
+  navigate(-1);
+}
 
   const years = [{ year: 2024 }, { year: 2025 }, { year: 2026 }];
 
@@ -59,10 +73,12 @@ export default function Header({
               <ArrowLeft className="w-5 h-5" />
             </NavPill>
 
-            {/* Place title: NOT interactive */}
-            <h1 className="text-xl font-semibold tracking-tight truncate">
-              {placeName}
-            </h1>
+            <div className="flex items-center justify-center">
+            <PlaceSelector 
+              place={place} 
+              setPlace={setPlace} 
+              className="mx-auto" />
+            </div>
           </div>
 
           {/* RIGHT: Year selector now available on mobile too */}

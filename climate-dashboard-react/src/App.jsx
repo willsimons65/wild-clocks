@@ -59,7 +59,8 @@ export default function App() {
                 <LittleKnepp
                   year={year}
                   setYear={setYear}
-                  setPlace={() => setPlace("little-knepp")}
+                  place="little-knepp"
+                  setPlace={setPlace}
                 />
               }
             />
@@ -70,7 +71,8 @@ export default function App() {
                 <AppletonWoods
                   year={year}
                   setYear={setYear}
-                  setPlace={() => setPlace("appleton-woods")}
+                  place="appleton-woods"
+                  setPlace={setPlace}
                 />
               }
             />

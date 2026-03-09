@@ -18,6 +18,7 @@ import littleKneppClimate from "@/data/aggregates/little-knepp.json";
 export default function LittleKnepp({
   year,
   setYear,
+  place,
   setPlace,
 }) {
 
@@ -125,7 +126,8 @@ export default function LittleKnepp({
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       <Header
-        placeName="Little Knepp"
+        place={place}
+        setPlace={setPlace}
         year={year}
         setYear={setYear}
         metric={metric}
