@@ -3,7 +3,7 @@
 import ChartContainer from "@/components/charts/base/ChartContainer";
 import ChartGrid from "@/components/charts/base/ChartGrid";
 import ChartAxes from "@/components/charts/base/ChartAxes";
-import WaterBalanceSeasonBand from "@/components/insights/WaterBalanceSeasonBand";
+{/*import WaterBalanceSeasonBand from "@/components/insights/WaterBalanceSeasonBand";*/}
 import ChartBars from "@/components/charts/base/ChartBars";
 import ChartMetricHeader from "@/components/charts/base/ChartMetricHeader";
 import { useEffect, useState } from "react";
@@ -82,7 +82,7 @@ useEffect(() => {
     );
   }}
 >
-  <WaterBalanceSeasonBand startMonth={2} endMonth={8} />
+  {/*<WaterBalanceSeasonBand startMonth={2} endMonth={8} />*/}
 
   <ChartGrid />
 
