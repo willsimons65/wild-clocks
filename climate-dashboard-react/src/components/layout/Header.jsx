@@ -110,21 +110,20 @@ function handleBack() {
         {/* =========================
             ROW B — Mobile Controls
           ========================= */}
-        <div className="pb-4 md:hidden grid grid-cols-[72px_auto_72px] items-center">
-          {/* LEFT: spacer (reserved lane) */}
-          <div />
+<div className="pb-4 md:hidden grid grid-cols-[1fr_auto_1fr] items-center">
+  {/* LEFT: spacer */}
+  <div />
 
-          {/* CENTER: toggle*/}
-          {SHOW_VIEW_TOGGLE && (
-          <div className="flex justify-center">
-            <ViewToggle />
-          </div>)}
+  {/* CENTER: toggle or empty placeholder */}
+  <div className="flex justify-center">
+    {SHOW_VIEW_TOGGLE ? <ViewToggle /> : null}
+  </div>
 
-          {/* RIGHT: metric selector (Feed only) */}
-          <div className="flex justify-end">
-            {viewMode === "feed" ? metricControl : <div />}
-          </div>
-      </div>
+  {/* RIGHT: metric selector (Feed only) */}
+  <div className="flex justify-end">
+    {viewMode === "feed" ? metricControl : <div />}
+  </div>
+</div>
       </div>
     </header>
   );

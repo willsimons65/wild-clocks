@@ -142,8 +142,8 @@ export default function LittleKnepp({
               <MicroClockCard year={year} {...floweringClock} />
             </div>
 
-            <div className="md:col-span-2 space-y-3">
-              <h2 className="text-lg font-semibold text-white">Water-balance-lite-index</h2>
+            <div className="md:col-span-2">
+              
               <WaterBalanceLiteCard
                 climateData={littleKneppClimate}
                 year={year}

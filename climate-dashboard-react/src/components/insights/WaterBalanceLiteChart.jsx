@@ -40,8 +40,6 @@ useEffect(() => {
   const maxAbs = Math.max(...data.map(d => Math.abs(d.y)), 10);
   const upper = Math.ceil(maxAbs / 5) * 5;
 
-  const LOCAL_CHART_HEIGHT = 170;
-
   const yScale = (v) =>
     WBL_CHART_HEIGHT / 2 - (v / upper) * (WBL_CHART_HEIGHT / 2);
 
@@ -59,7 +57,7 @@ useEffect(() => {
   leftPaddingOverride={64}
   rightPadding={24}
   chartHeightOverride={WBL_CHART_HEIGHT}
-  bottomPaddingOverride={38}
+  bottomPaddingOverride={30}
   metricHeader={({ index }) => {
     const d = data[index];
     if (!d) return null;

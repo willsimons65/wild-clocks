@@ -13,7 +13,7 @@ type ClimateData = {
   };
 };
 
-const K = 6; // same constant used elsewhere
+const K = 6;
 
 export function buildMonthlyWaterBalanceLite(
   climateData: ClimateData | null,
@@ -22,29 +22,44 @@ export function buildMonthlyWaterBalanceLite(
   const yearData = climateData?.years?.[year];
   if (!yearData) return [];
 
-  const result: { x: number; y: number }[] = [];
+  const result: {
+    x: number;
+    y: number;
+    rainfall: number;
+    petLite: number;
+    monthlyBalance: number;
+    cumulativeBalance: number;
+  }[] = [];
+
+  let runningTotal = 0;
 
   for (let month = 1; month <= 12; month++) {
     const m = yearData[month];
+
     if (
       !m ||
       typeof m.totalRainfall !== "number" ||
       typeof m.avgMeanTemp !== "number"
     ) {
-      continue;
+      break;
     }
 
-    const moistureLoss = m.avgMeanTemp * K;
-    const balance = m.totalRainfall - moistureLoss;
+    const petLite = m.avgMeanTemp * K;
+    const monthlyBalance = m.totalRainfall - petLite;
 
-    if (Number.isFinite(balance)) {
-      result.push({
-        x: month,   // ✅ correct key
-        y: balance,
-      });
-    }
+    if (!Number.isFinite(monthlyBalance)) break;
+
+    runningTotal += monthlyBalance;
+
+    result.push({
+      x: month,
+      y: monthlyBalance, // keep backward compatibility
+      rainfall: m.totalRainfall,
+      petLite,
+      monthlyBalance,
+      cumulativeBalance: runningTotal,
+    });
   }
 
   return result;
 }
-
