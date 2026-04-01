@@ -44,67 +44,34 @@ export default function About() {
 
               <div className="space-y-5 text-white/80 leading-relaxed">
                 <p>
-                  For millennia, plant communities have followed familiar
-                  seasonal patterns of leaf-out, flowering, fruiting and decay.
-                  Gardeners and ecologists know these rhythms well.
+                  Wild Clocks is a long-term record of seasonal change.
                 </p>
 
-                <p>But the world is changing.</p>
+                <p>It brings together repeat photography, climate data and ecological observation to document how landscapes move through the year — and how those patterns are beginning to shift.</p>
 
                 <p>
-                  As the climate warms, old certainties begin to loosen. The
-                  steady timing of the seasons is becoming less reliable, shaped
-                  by the slow, cumulative pressure of climate change.
+                  The project began with two places: a garden in Oxfordshire and a nearby wood. Both are photographed regularly from the same fixed viewpoint, creating a visual record of change across weeks, months and years.
                 </p>
 
                 <p>
-                  Wild Clocks follows these changes through two landscapes: a
-                  garden in Oxfordshire and a nearby wood.
+                  These images are paired with local environmental data such as rainfall, temperature and daylight, allowing seasonal events to be seen not in isolation, but in relation to the conditions that shape them.
                 </p>
 
                 <p>
-                  Their seasonal stories unfold through a series of photographs.
-                  Together, they form a visual index of how the seasons flow,
-                  drift, change — and sometimes fall out of step.
+                  Since then, Wild Clocks has begun to expand into other landscapes, and will continue to grow as more are added.
                 </p>
 
                 <p>
-                  The forces driving these shifts are climatic: warmth, moisture
-                  and light. These influences are well documented, and Wild
-                  Clocks draws on that record, pairing each landscape with the
-                  climate and seasonal data that shape it.
+                  At its simplest, it is a way of paying closer attention. But it is also an attempt to make change comparable: across years, across places, and against the memory of what a season once was.
                 </p>
 
                 <p>
-                But observation alone is not enough. For change to become meaningful, it needs to be:
+                As the climate warms, the familiar timing of flowering, leaf-out, canopy closure and decline becomes less certain.
                 </p>
 
-                <ul className="list-disc list-inside space-y-1 text-white/80">
-                <li>comparable across years</li>
-                <li>comparable across places</li>
-                <li>comparable against a shared baseline</li>
-                </ul>
-
                 <p>
-                Only then can we begin to see not just how the seasons are
-                changing, but how much beauty remains — and how much is still
-                worth protecting.
+                Wild Clocks exists to observe those changes carefully, and to build a shared record of what is happening — not only for science, but for memory, attachment and care.
               </p>
-
-            <FootnoteToggle title="What do we mean by a “shared baseline”?">
-                <p>
-                    In climate and ecological science, baselines are a point of reference drawn
-                    from long-term climate averages, historical ecological records, and a
-                    landscape’s own past.
-                </p>
-
-                <p>
-                    Wild Clocks draws on these forms of reference not to fix nature in an
-                    imagined past, but to make change visible - to understand how today’s
-                    seasons differ from what was once typical, both climatically and
-                    ecologically.
-                </p>
-            </FootnoteToggle>
             </div>
           </div>
 

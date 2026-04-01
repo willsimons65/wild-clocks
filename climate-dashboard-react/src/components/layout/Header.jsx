@@ -8,7 +8,7 @@ import MetricSelector from "@/components/ui/MetricSelector";
 import InfoTooltip from "@/components/ui/tooltip/InfoTooltip";
 import ViewToggle from "@/components/layout/ViewToggle";
 import NavPill from "@/components/ui/NavPill";
-import { PLACES } from "@/constants/places";
+import { places } from "@/data/places";
 
 export default function Header({
   place,
@@ -28,7 +28,7 @@ export default function Header({
 function handleBack() {
   const pathname = location.pathname;
 
-  const isPlacePage = PLACES.some(
+  const isPlacePage = places.some(
     (p) => pathname === `/${p.slug}`
   );
 

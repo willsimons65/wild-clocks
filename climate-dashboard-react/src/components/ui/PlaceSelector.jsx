@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { PLACES, getPlaceBySlug } from "@/constants/places";
+import { places, getPlaceBySlug } from "@/data/places";
 
 export default function PlaceSelector({
   place,
@@ -15,10 +15,12 @@ export default function PlaceSelector({
   const navigate = useNavigate();
   const location = useLocation();
 
-  const currentPlace = useMemo(
-    () => getPlaceBySlug(place) || PLACES[0],
-    [place]
-  );
+const slugFromPath = location.pathname.replace("/", "");
+
+const currentPlace = useMemo(
+  () => getPlaceBySlug(place) || getPlaceBySlug(slugFromPath) || places[0],
+  [place, slugFromPath]
+);
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -46,7 +48,11 @@ export default function PlaceSelector({
     const pathname = location.pathname;
 
     // Place pages
-    if (pathname === "/little-knepp" || pathname === "/appleton-woods") {
+    if (
+      pathname === "/little-knepp" ||
+      pathname === "/appleton-woods" ||
+      pathname === "/thousand-year-trust"
+    ) {
       return `/${nextSlug}`;
     }
 
@@ -97,7 +103,7 @@ export default function PlaceSelector({
           role="listbox"
           aria-label="Locations"
         >
-          {PLACES.map((item) => {
+          {places.map((item) => {
             const isActive = item.slug === currentPlace.slug;
 
             return (

@@ -9,9 +9,11 @@ import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import LittleKnepp from "@/pages/LittleKnepp";
 import AppletonWoods from "@/pages/AppletonWoods";
+import ThousandYearTrust from "@/pages/ThousandYearTrust";
 import littleKneppClimate from "@/data/aggregates/little-knepp.json";
 import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
 import About from "@/pages/About";
+import FieldNotes from "@/pages/FieldNotes";
 import InsightsPage from "@/components/insights/InsightsPage";
 import PhotoViewer from "@/pages/PhotoViewer";
 
@@ -78,6 +80,18 @@ export default function App() {
             />
 
             <Route
+              path="/thousand-year-trust"
+              element={
+                <ThousandYearTrust
+                  year={year}
+                  setYear={setYear}
+                  place={place}
+                  setPlace={setPlace}
+                />
+              }
+            />
+
+            <Route
               path="/viewer/:place/:year/:month"
               element={<PhotoViewer />}
             />
@@ -93,6 +107,8 @@ export default function App() {
                 />
               }
             />
+
+            <Route path="/field-notes" element={<FieldNotes />} />
 
             <Route path="/parklands" element={<Navigate to="/little-knepp" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />

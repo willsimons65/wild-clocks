@@ -79,6 +79,20 @@
       "slot": 3,
       "shot": 1,
       "url": "/photos/littleknepp/2026/march/3.png"
+    },
+    {
+      "id": "littleknepp-2026-03-s4-p1",
+      "month": 3,
+      "slot": 4,
+      "shot": 1,
+      "url": "/photos/littleknepp/2026/march/4.png"
+    },
+        {
+      "id": "littleknepp-2026-04-s1-p1",
+      "month": 4,
+      "slot": 1,
+      "shot": 1,
+      "url": "/photos/littleknepp/2026/april/1.png"
     }
   ]
 }

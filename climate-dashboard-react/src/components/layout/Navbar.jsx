@@ -27,15 +27,18 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center gap-6 text-sm text-white/70">
-            <Link to="/about" className="hover:text-white transition-colors">
-              ABOUT
-            </Link>
-          </div>
+{/* DESKTOP NAV */}
+<div className="hidden md:flex items-center gap-6 text-sm text-white/70">
+  <Link to="/field-notes" className="hover:text-white transition-colors">
+    NOTES & OBSERVATIONS
+  </Link>
+  <Link to="/about" className="hover:text-white transition-colors">
+    ABOUT
+  </Link>
+</div>
 
-          {/* MOBILE HAMBURGER */}
- <button
+{/* MOBILE HAMBURGER */}
+<button
   onClick={() => setOpen(!open)}
   className="md:hidden p-3 text-white/70 hover:text-white transition-colors"
   aria-label={open ? "Close menu" : "Open menu"}
@@ -93,45 +96,58 @@ export default function Navbar() {
   </svg>
 </button>
 
+</div>
+</motion.nav>
 
-        </div>
-      </motion.nav>
-
-        {/* MOBILE OVERLAY MENU */}
-        {open && (
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{
-              duration: 0.4,
-              ease: [0.4, 0.0, 0.2, 1],
-            }}
-            className="fixed top-0 left-0 h-full w-2/3 bg-black/85 backdrop-blur-none z-50"
-          >
+{/* MOBILE OVERLAY MENU */}
+{open && (
+  <motion.div
+    initial={{ x: "-100%" }}
+    animate={{ x: 0 }}
+    exit={{ x: "-100%" }}
+    transition={{
+      duration: 0.4,
+      ease: [0.4, 0.0, 0.2, 1],
+    }}
+    className="fixed top-0 left-0 h-full w-2/3 bg-black/85 backdrop-blur-none z-50"
+  >
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 12 }}
       transition={{
-        delay: 0.25,   // ← panel arrives first
+        delay: 0.25,
         duration: 0.3,
         ease: "easeOut",
       }}
       className="pt-16 px-6 space-y-6"
     >
-      <a href="/about" className="block text-white text-sm">
-        ABOUT WILD CLOCKS
-      </a>
+      <Link
+        to="/field-notes"
+        className="block text-white text-sm"
+        onClick={() => setOpen(false)}
+      >
+        NOTES & OBSERVATIONS
+      </Link>
 
-      <a href="/contributors" className="block text-white text-sm">
+      <Link
+        to="/about"
+        className="block text-white text-sm"
+        onClick={() => setOpen(false)}
+      >
+        ABOUT
+      </Link>
+
+      <Link
+        to="/about#contributors"
+        className="block text-white text-sm"
+        onClick={() => setOpen(false)}
+      >
         CONTRIBUTOR’S GUIDE
-      </a>
-
+      </Link>
     </motion.div>
   </motion.div>
 )}
-
     </>
   );
 }
