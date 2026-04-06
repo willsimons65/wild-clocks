@@ -32,7 +32,7 @@ export default function PlaceCard({
           className="
             grid grid-cols-1 md:grid-cols-[1fr_1fr]
             lg:grid-cols-[1fr_1fr]
-            h-[220px] lg:h-[220px]
+            h-[240px] lg:h-[240px]
           "
         >
         {/* IMAGE */}
@@ -94,7 +94,7 @@ export default function PlaceCard({
   <div
     className={`
       rounded-xl bg-[#3A3A3A]/95 backdrop-blur-sm
-      px-6 py-5 shadow-xl h-[205px] md:h-[180px]
+      px-6 py-5 shadow-xl h-[220px] md:h-[200px]
       ${
         isOpen
           ? "pointer-events-auto"
