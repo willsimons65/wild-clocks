@@ -1,3 +1,5 @@
+// src/components/insights/WaterBalanceLiteCard.jsx
+
 import { useEffect, useState } from "react";
 
 import { buildWaterBalanceLite } from "@/data/insights/buildWaterBalanceLite";
@@ -60,88 +62,123 @@ export default function WaterBalanceLiteCard({ climateData, year }) {
       : null
   );
 
-  const monthlySeries = buildMonthlyWaterBalanceLite(climateData, year);
+const monthlySeries = buildMonthlyWaterBalanceLite(climateData, year);
 
-  const cumulativeSeries = monthlySeries.map((d) => ({
+const cumulativeSeries = monthlySeries
+  .filter((d) => typeof d.cumulativeBalance === "number")
+  .map((d) => ({
     ...d,
     y: d.cumulativeBalance,
   }));
 
-  return (
-    <div className="rounded-2xl bg-[#161616] px-5 pt-4 pb-5">
-      <div className="flex justify-center mb-4">
-        <div className="inline-flex rounded-full border border-white/15 bg-[#1E1E1E] p-1">
-          <button
-            type="button"
-            onClick={() => setViewMode("monthly")}
-            className={`rounded-full px-5 py-1 text-sm font-medium transition ${
-              viewMode === "monthly"
-                ? "bg-white/20 text-white"
-                : "text-white/60 hover:text-white"
-            }`}
-          >
-            Monthly
-          </button>
+const hasMonthlyData = monthlySeries.length > 0;
+const hasCumulativeData = cumulativeSeries.length >= 2;
 
-          <button
-            type="button"
-            onClick={() => setViewMode("yearToDate")}
-            className={`rounded-full px-5 py-1 text-sm font-medium transition ${
-              viewMode === "yearToDate"
-                ? "bg-white/20 text-white"
-                : "text-white/60 hover:text-white"
-            }`}
-          >
-            Year-to-date
-          </button>
-        </div>
-      </div>
+const currentYear = new Date().getFullYear();
+const validMonthCount = monthlySeries.length;
+const isCurrentYear = Number(year) === currentYear;
+const usePartialYearMessaging = isCurrentYear && validMonthCount < 8;
 
-      {result.hasData ? (
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <div className="space-y-1 flex-1">
-            <div className="text-3xl font-medium capitalize text-left leading-none">
-              {result.classification}
-            </div>
-
-            <p className="text-sm opacity-70 text-left leading-snug whitespace-normal md:whitespace-nowrap">
-              {getWaterBalanceMessage(result.classification)}
-            </p>
-          </div>
-
-          <div className="shrink-0 pt-0.5">
-            <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
-          </div>
-        </div>
-      ) : (
-        <div className="flex justify-end mb-4">
-          <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
-        </div>
-      )}
-
-      {monthlySeries.length > 0 ? (
-        <div
-          className={`transition-all duration-200 ${
-            chartVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-1"
+return (
+  <div className="rounded-2xl bg-[#161616] px-5 pt-4 pb-5">
+    <div className="flex justify-center mb-4">
+      <div className="inline-flex rounded-full border border-white/15 bg-[#1E1E1E] p-1">
+        <button
+          type="button"
+          onClick={() => setViewMode("monthly")}
+          className={`rounded-full px-5 py-1 text-sm font-medium transition ${
+            viewMode === "monthly"
+              ? "bg-white/20 text-white"
+              : "text-white/60 hover:text-white"
           }`}
         >
-          {displayedViewMode === "monthly" ? (
-            <WaterBalanceLiteChart data={monthlySeries} year={year} />
-          ) : (
-            <WaterBalanceCumulativeChart data={cumulativeSeries} year={year} />
-          )}
-        </div>
-      ) : (
-        <div className="flex items-center justify-center py-8">
-          <p className="text-sm text-white/70 text-center max-w-md leading-relaxed">
-            This year’s water balance is still taking shape.
-            The index is calculated month by month from rainfall and temperature,
-            so the chart fills in gradually as the year progresses.
+          Monthly
+        </button>
+
+        <button
+          type="button"
+          onClick={() => hasCumulativeData && setViewMode("yearToDate")}
+          disabled={!hasCumulativeData}
+          className={`rounded-full px-5 py-1 text-sm font-medium transition ${
+            viewMode === "yearToDate"
+              ? "bg-white/20 text-white"
+              : hasCumulativeData
+              ? "text-white/60 hover:text-white"
+              : "text-white/30 cursor-not-allowed"
+          }`}
+        >
+          Year-to-date
+        </button>
+      </div>
+    </div>
+
+    {usePartialYearMessaging ? (
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="space-y-1 flex-1">
+          <div className="text-3xl font-medium text-left leading-none">
+            Partial year
+          </div>
+
+          <p className="text-sm opacity-70 text-left leading-snug whitespace-normal md:whitespace-nowrap">
+            This view shows the water balance so far this year. It will continue to update as more data is added.
           </p>
         </div>
-      )}
-    </div>
-  );
+
+        <div className="shrink-0 pt-0.5">
+          <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
+        </div>
+      </div>
+    ) : result.hasData ? (
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="space-y-1 flex-1">
+          <div className="text-3xl font-medium capitalize text-left leading-none">
+            {result.classification}
+          </div>
+
+          <p className="text-sm opacity-70 text-left leading-snug whitespace-normal md:whitespace-nowrap">
+            {getWaterBalanceMessage(result.classification)}
+          </p>
+        </div>
+
+        <div className="shrink-0 pt-0.5">
+          <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
+        </div>
+      </div>
+    ) : (
+      <div className="flex justify-end mb-4">
+        <InfoTooltip content={WATER_BALANCE_LITE_INFO} />
+      </div>
+    )}
+
+    {hasMonthlyData ? (
+      <div
+        className={`transition-all duration-200 ${
+          chartVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-1"
+        }`}
+      >
+        {displayedViewMode === "monthly" ? (
+          <WaterBalanceLiteChart data={monthlySeries} year={year} />
+        ) : hasCumulativeData ? (
+          <WaterBalanceCumulativeChart data={cumulativeSeries} year={year} />
+        ) : (
+          <div className="flex items-center justify-center py-8">
+            <p className="text-sm text-white/70 text-center max-w-md leading-relaxed">
+              Year-to-date becomes available once there is a continuous run of valid months from January.
+            </p>
+          </div>
+        )}
+      </div>
+    ) : (
+      <div className="flex items-center justify-center py-8">
+        <p className="text-sm text-white/70 text-center max-w-md leading-relaxed">
+          This year’s water balance is still taking shape.
+          The index is calculated month by month from rainfall and temperature,
+          so the chart fills in gradually as the year progresses.
+        </p>
+      </div>
+    )}
+  </div>
+);
 }

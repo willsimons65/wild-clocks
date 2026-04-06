@@ -4,33 +4,31 @@ import React from "react";
 
 export default function ChartBars({
   data,
-  xScale, // still passed in, but we won't use it for discrete monthly bars
+  xScale,
   yScale,
   chartWidth,
   fill = "#7bbaff",
   positiveFill,
   negativeFill,
 }) {
-  if (!data || !yScale || !chartWidth) return null;
+  if (!data || !xScale || !yScale || !chartWidth) return null;
 
   const barCount = data.length;
   if (barCount === 0) return null;
 
-  // Each month gets a fixed horizontal slot
-  const slotWidth = chartWidth / barCount;
-
-  // Bars occupy only part of that slot
-  const barWidth = Math.min(slotWidth * 0.55, 26);
-
   const baselineY = yScale(0);
+
+  // Width based on a 12-month chart, not the number of visible points
+  const slotWidth = chartWidth / 12;
+  const barWidth = Math.min(slotWidth * 0.55, 26);
 
   return (
     <g>
       {data.map((d, i) => {
-        if (!Number.isFinite(d?.y)) return null;
+        if (!Number.isFinite(d?.x) || !Number.isFinite(d?.y)) return null;
 
-        // ✅ Use slot geometry, not xScale
-        const x = (i + 0.5) * slotWidth;
+        const x = xScale(d.x);
+        if (!Number.isFinite(x)) return null;
 
         const valueY = yScale(d.y);
         if (!Number.isFinite(valueY)) return null;

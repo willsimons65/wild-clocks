@@ -1,3 +1,5 @@
+// src/components/insights/WaterBalanceCumulativeChart.jsx
+
 import ChartContainer from "@/components/charts/base/ChartContainer";
 import ChartGrid from "@/components/charts/base/ChartGrid";
 import ChartAxes from "@/components/charts/base/ChartAxes";

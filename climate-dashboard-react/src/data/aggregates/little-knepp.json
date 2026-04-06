@@ -1,7 +1,7 @@
 {
   "location": "Little Knepp",
   "source": "Google Sheets",
-  "generatedAt": "2025-12-20T07:04:15.262Z",
+  "generatedAt": "2026-04-06T15:55:14.933Z",
   "units": {
     "temp": "C",
     "rainfall": "mm"
@@ -2225,22 +2225,52 @@
         "avgMaxTemp": 14.2,
         "avgMinTemp": 8.5,
         "avgMeanTemp": 11.3,
-        "totalRainfall": 98,
+        "totalRainfall": 99,
         "days": 31
       },
       "11": {
         "avgMaxTemp": 11.3,
         "avgMinTemp": 6,
         "avgMeanTemp": 8.7,
-        "totalRainfall": 175,
+        "totalRainfall": 174,
         "days": 30
       },
       "12": {
-        "avgMaxTemp": 6.7,
-        "avgMinTemp": 3.2,
-        "avgMeanTemp": 4.9,
-        "totalRainfall": 148,
+        "avgMaxTemp": 9.3,
+        "avgMinTemp": 4.3,
+        "avgMeanTemp": 6.8,
+        "totalRainfall": 154,
         "days": 31
+      }
+    },
+    "2026": {
+      "1": {
+        "avgMaxTemp": 7.1,
+        "avgMinTemp": 2.4,
+        "avgMeanTemp": 4.7,
+        "totalRainfall": 241,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 9.6,
+        "avgMinTemp": 5.5,
+        "avgMeanTemp": 7.6,
+        "totalRainfall": 230,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.2,
+        "avgMinTemp": 4.2,
+        "avgMeanTemp": 8.2,
+        "totalRainfall": 56,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 2.5,
+        "avgMinTemp": 1,
+        "avgMeanTemp": 1.8,
+        "totalRainfall": 1,
+        "days": 30
       }
     }
   }
