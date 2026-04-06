@@ -32,7 +32,7 @@ export default function PlaceCard({
           className="
             grid grid-cols-1 md:grid-cols-[1fr_1fr]
             lg:grid-cols-[1fr_1fr]
-            h-[190px] lg:h-[190px]
+            h-[250px] lg:h-[250px]
           "
         >
         {/* IMAGE */}
@@ -42,6 +42,7 @@ export default function PlaceCard({
             alt={name}
             loading="lazy"
             className="h-full w-full object-cover"
+            style={{ objectPosition: "center 62%" }}
           />
         </div>
 
@@ -181,8 +182,8 @@ export default function PlaceCard({
   aria-label={`Go to ${name}`}
   className="
     absolute bottom-0 right-0 z-30
-    flex h-7 w-7 items-center justify-center
-    rounded-tl-[12px] bg-[#006D5B]
+    flex h-[42px] w-[42px] md:h-7 md:w-7 items-center justify-center
+    rounded-tl-[16px] md:rounded-tl-[12px] bg-[#006D5B]
     text-white transition-colors duration-200
     hover:bg-[#0A8F7D] focus:outline-none focus:ring-2 focus:ring-white/40
   "
@@ -191,7 +192,7 @@ export default function PlaceCard({
     src={ArrowRightIcon}
     alt=""
     aria-hidden="true"
-    className="w-3 h-3"
+    className="w-5 h-5 md:w-3 md:h-3"
   />
 </Link>
     </article>

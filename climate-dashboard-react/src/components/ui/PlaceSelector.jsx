@@ -1,3 +1,5 @@
+// src/components/ui/PlaceSelector.jsx
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -76,59 +78,58 @@ const currentPlace = useMemo(
   const menuAlignClass =
     align === "right" ? "right-0 origin-top-right" : "left-0 origin-top-left";
 
-  return (
-    <div className={`relative ${className}`} ref={ref}>
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex items-center gap-3 text-white font-semibold text-xl md:text-1xl"
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-label="Choose location"
+return (
+  <div className={`relative min-w-0 ${className}`} ref={ref}>
+<button
+  type="button"
+  onClick={() => setOpen((prev) => !prev)}
+  className="inline-flex min-w-0 items-start gap-2 md:gap-3 text-white font-semibold text-xl md:text-xl mt-[10px] md:mt-0"
+  aria-haspopup="listbox"
+  aria-expanded={open}
+  aria-label="Choose location"
+>
+  <span className="block min-w-0 max-w-[16ch] md:max-w-none break-words leading-tight text-left">
+    {currentPlace.name}
+  </span>
+  <ChevronDown
+    className={`w-5 h-5 md:w-6 md:h-6 shrink-0 mt-[2px] transition-transform ${open ? "rotate-0" : ""}`}
+  />
+</button>
+
+    {open && (
+      <div
+        className={`
+          absolute mt-4 min-w-[220px] overflow-hidden
+          rounded-[10px] border border-white/15
+          bg-[#2f2f2f]/95 backdrop-blur-xl shadow-2xl z-50
+          ${menuAlignClass}
+        `}
+        role="listbox"
+        aria-label="Locations"
       >
-        <span className="truncate">{currentPlace.name}</span>
-        <ChevronDown
-          className={`w-6 h-6 transition-transform ${open ? "rotate-0" : ""}`}
-        />
-      </button>
+        {places.map((item) => {
+          const isActive = item.slug === currentPlace.slug;
 
-      {open && (
-        <div
-          className={`
-            absolute mt-4 min-w-[220px] overflow-hidden
-            rounded-[10px] border border-white/15
-            bg-[#2f2f2f]/95 backdrop-blur-xl shadow-2xl z-50
-            ${menuAlignClass}
-          `}
-          role="listbox"
-          aria-label="Locations"
-        >
-          {places.map((item) => {
-            const isActive = item.slug === currentPlace.slug;
-
-            return (
-              <button
-                key={item.slug}
-                type="button"
-                onClick={() => handleSelect(item)}
-                role="option"
-                aria-selected={isActive}
-                className={`
-                  w-full flex items-center justify-between
-                  px-5 py-4 text-left text-white text-base leading-none
-                  transition
-                  ${isActive ? "bg-white/10" : "hover:bg-white/5"}
-                `}
-              >
-                <span>{item.name}</span>
-                {/*<span className="ml-4 w-6 flex justify-center">
-                  {isActive ? <Check className="w-5 h-5" /> : null}
-                </span>*/}
-              </button>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
+          return (
+            <button
+              key={item.slug}
+              type="button"
+              onClick={() => handleSelect(item)}
+              role="option"
+              aria-selected={isActive}
+              className={`
+                w-full flex items-center justify-between
+                px-5 py-4 text-left text-white text-base leading-none
+                transition
+                ${isActive ? "bg-white/10" : "hover:bg-white/5"}
+              `}
+            >
+              <span>{item.name}</span>
+            </button>
+          );
+        })}
+      </div>
+    )}
+  </div>
+);
 }

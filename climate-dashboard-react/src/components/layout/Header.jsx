@@ -67,44 +67,45 @@ function handleBack() {
             <ViewToggle />
           </div>)}
 
-          {/* LEFT: back + place */}
-          <div className="flex items-center gap-3 min-w-0">
-            <NavPill onClick={handleBack} ariaLabel="Back" variant="icon">
-              <ArrowLeft className="w-5 h-5" />
-            </NavPill>
+{/* LEFT: back + place */}
+<div className="flex items-center gap-3 min-w-0 flex-1">
+  <NavPill onClick={handleBack} ariaLabel="Back" variant="icon">
+    <ArrowLeft className="w-5 h-5" />
+  </NavPill>
 
-            <div className="flex items-center justify-center">
-            <PlaceSelector 
-              place={place} 
-              setPlace={setPlace} 
-              className="mx-auto" />
-            </div>
-          </div>
+  <div className="min-w-0 flex-1 flex items-center">
+    <PlaceSelector
+      place={place}
+      setPlace={setPlace}
+      className="min-w-0 max-w-[16ch] md:max-w-none"
+    />
+  </div>
+</div>
 
-          {/* RIGHT: Year selector now available on mobile too */}
-          <div className="flex items-center gap-3">
-            <YearSelector
-              years={years}
-              selectedYear={year}
-              onYearChange={setYear}
-              compact
-            />
+{/* RIGHT: Year selector now available on mobile too */}
+<div className="flex items-center gap-3 shrink-0">
+  <YearSelector
+    years={years}
+    selectedYear={year}
+    onYearChange={setYear}
+    compact
+  />
 
-            {/* Desktop-only metric selector stays in header row */}
-            <div className="hidden md:block">
-              {viewMode === "insights" ? (
-                <InfoTooltip
-                  content="In Insights, metrics are viewed together rather than individually."
-                  maxWidth="260px"
-                  hideIcon
-                >
-                  {metricControl}
-                </InfoTooltip>
-              ) : (
-                metricControl
-              )}
-            </div>
-          </div>
+  {/* Desktop-only metric selector stays in header row */}
+  <div className="hidden md:block">
+    {viewMode === "insights" ? (
+      <InfoTooltip
+        content="In Insights, metrics are viewed together rather than individually."
+        maxWidth="260px"
+        hideIcon
+      >
+        {metricControl}
+      </InfoTooltip>
+    ) : (
+      metricControl
+    )}
+  </div>
+</div>
         </div>
 
         {/* =========================

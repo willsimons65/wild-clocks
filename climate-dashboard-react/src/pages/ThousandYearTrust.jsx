@@ -34,7 +34,7 @@ export default function ThousandYearTrust({
       alt="Temperate woodland"
       className="block w-full h-[220px] md:h-[300px] lg:h-[355px] object-cover"
     />
-    <div className="absolute inset-0 bg-black/40" />
+    <div className="absolute inset-0 bg-black/30" />
   </div>
 </section>
 
@@ -58,7 +58,7 @@ export default function ThousandYearTrust({
                 href="https://thousandyeartrust.org"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-10 inline-flex items-center gap-3 text-[16px] md:text-[18px] text-white/85 hover:text-white transition-colors"
+                className="mt-10 inline-flex items-center gap-3 text-[16px] md:text-[18px] text-white/70 hover:text-white transition-colors"
               >
                 Learn more about the Thousand Year Trust
                 <img
