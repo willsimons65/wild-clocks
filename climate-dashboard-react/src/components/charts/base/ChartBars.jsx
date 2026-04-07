@@ -20,7 +20,7 @@ export default function ChartBars({
 
   // Width based on a 12-month chart, not the number of visible points
   const slotWidth = chartWidth / 12;
-  const barWidth = Math.min(slotWidth * 0.55, 26);
+  const barWidth = Math.min(slotWidth * 0.25, 12);
 
   return (
     <g>
