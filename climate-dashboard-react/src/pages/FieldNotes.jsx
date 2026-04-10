@@ -208,7 +208,7 @@ export default function FieldNotes() {
 
       <p>
         Rather than showing every year individually, it calculates the median
-        cumulative rainfall for each state. The result is not a forecast or a fixed ecological rule, but the <strong>Five Rain States</strong> -- a way of turning a long local rainfall record into something that can be easily considered and worked with.
+        cumulative rainfall for each state. The result is not a forecast or a fixed ecological rule, but the <strong>Five Rainfall States</strong> -- a way of turning a long local rainfall record into something that can be easily considered and worked with.
       </p>
 
       <p>
