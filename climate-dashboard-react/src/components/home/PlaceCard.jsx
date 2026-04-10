@@ -30,9 +30,8 @@ export default function PlaceCard({
       {/* CARD FACE */}
         <div
           className="
-            grid grid-cols-1 md:grid-cols-[1fr_1fr]
-            lg:grid-cols-[1fr_1fr]
-            h-[240px] lg:h-[240px]
+            grid grid-cols-[1fr_1fr]
+            h-[280px] lg:h-[250px]
           "
         >
         {/* IMAGE */}
