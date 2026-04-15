@@ -17,7 +17,7 @@ const ENDPOINT   = process.env.R2_S3_ENDPOINT;
 const BUCKET     = process.env.R2_BUCKET_NAME;
 
 // Change these per upload
-const PLACE = "appletonwoods";   // folder name in R2
+const PLACE = "appleton-woods";   // folder name in R2
 const YEAR  = "2025";
 const MONTH = "january";         // lowercase
 

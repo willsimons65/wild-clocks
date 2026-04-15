@@ -83,7 +83,7 @@ if (loading) {
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       <Header
-        place="appleton-woods"
+        place={place}
         setPlace={setPlace}
         year={year}
         setYear={setYear}
@@ -97,7 +97,7 @@ if (loading) {
             key={month}
             month={month}
             year={year}
-            place="appletonwoods"
+            place="appleton-woods"
             metric={metric}
             data={weather?.[month] || []}
             fullData={allDailyRows}

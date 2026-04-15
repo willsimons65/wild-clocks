@@ -33,7 +33,7 @@ export default function Navbar() {
     ABOUT
   </Link>
   <Link to="/field-notes" className="hover:text-white transition-colors">
-    NOTES & OBSERVATIONS
+    NOTES & INSIGHTS
   </Link>
 </div>
 
@@ -122,14 +122,7 @@ export default function Navbar() {
       }}
       className="pt-16 px-6 space-y-6"
     >
-      <Link
-        to="/field-notes"
-        className="block text-white text-sm"
-        onClick={() => setOpen(false)}
-      >
-        NOTES & OBSERVATIONS
-      </Link>
-
+      
       <Link
         to="/about"
         className="block text-white text-sm"
@@ -144,6 +137,14 @@ export default function Navbar() {
         onClick={() => setOpen(false)}
       >
         CONTRIBUTOR’S GUIDE
+      </Link>
+
+      <Link
+        to="/field-notes"
+        className="block text-white text-sm"
+        onClick={() => setOpen(false)}
+      >
+        NOTES & INSIGHTS
       </Link>
     </motion.div>
   </motion.div>

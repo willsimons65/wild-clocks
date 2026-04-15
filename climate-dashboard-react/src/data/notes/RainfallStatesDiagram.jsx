@@ -48,7 +48,7 @@ export default function RainfallStatesDiagram({
 
       <div className="border border-[rgba(255,255,255,0.20)] bg-transparent px-5 md:px-8 py-6 md:py-8">
         <div className="text-center mb-6 md:mb-8">
-          <div className="text-[#4D5BFF] text-[16px] md:text-[18px] font-medium leading-tight">
+          <div className="text-[#FFFFFF] text-[16px] md:text-[18px] font-medium leading-tight">
             {stateMeta.label}
           </div>
           <div className="mt-1 text-[#4D5BFF] text-[15px] md:text-[16px] leading-tight">

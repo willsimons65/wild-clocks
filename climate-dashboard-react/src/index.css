@@ -35,6 +35,14 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+article {
+  scroll-margin-top: 100px;
+}
+
 /* ---------------------------------------
    Animations + Utilities
 ---------------------------------------- */
@@ -52,6 +60,61 @@
   .animate-fadeIn {
     animation: fadeIn 0.25s ease-out;
   }
+}
+
+/* Sequence slider */
+
+@keyframes sequence-fade {
+  from {
+    opacity: 0.82;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-sequence-fade {
+  animation: sequence-fade 180ms ease-out;
+}
+
+.sequence-slider {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sequence-slider:focus {
+  outline: none;
+}
+
+.sequence-slider::-webkit-slider-runnable-track {
+  height: 10px;
+  background: transparent;
+}
+
+.sequence-slider::-moz-range-track {
+  height: 10px;
+  background: transparent;
+}
+
+.sequence-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #e8e6e3;
+  border: 0;
+  margin-top: -3px;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.001);
+}
+
+.sequence-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #e8e6e3;
+  border: 0;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.001);
 }
 
 

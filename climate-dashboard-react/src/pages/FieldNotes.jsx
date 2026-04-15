@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import WaveClockDiagram from "@/components/field-notes/WaveClockDiagram";
 import RainfallStatesDiagram from "@/data/notes/RainfallStatesDiagram";
 import FootnoteToggle from "@/components/ui/FootnoteToggle";
+import SequenceSlider from "@/data/notes/SequenceSlider";
+import { bluebellsAppleton2026 } from "@/data/sequences/bluebellsAppleton2026";
 
 export default function FieldNotes() {
   return (
@@ -27,6 +29,12 @@ export default function FieldNotes() {
                 className="block hover:text-white transition-colors"
               >
                 Five Rainfall States
+              </a>
+                            <a
+                href="#bluebells"
+                className="block hover:text-white transition-colors"
+              >
+                Bluebell Wave
               </a>
             </nav>
           </aside>
@@ -337,6 +345,53 @@ export default function FieldNotes() {
       </p>
       </div>
     </div>
+  </div>
+</article>
+<div className="my-16 border-t border-white/40" />
+
+<article id="bluebells">
+  <h1 className="text-2xl md:text-3xl font-light mb-3">
+    Bluebell Wave
+  </h1>
+
+  <p className="text-base md:text-lg text-white/60 italic mb-8">
+    A day-by-day record of bluebell emergence in Appleton Woods
+  </p>
+
+  <div className="space-y-5 text-white/80 leading-relaxed">
+    <p>
+      Bluebells are one of the most recognisable signals of spring in a
+      broadleaf woodland. Their emergence is gradual, but once underway,
+      it can feel as though the woodland floor changes almost from one day
+      to the next.
+    </p>
+
+    <p>
+      The sequence below records that change as it happens — a daily
+      progression through the early stages of bluebell growth, set
+      alongside the temperature conditions in which it unfolds.
+    </p>
+  </div>
+
+  {/* 👇 THIS IS YOUR COMPONENT */}
+  <SequenceSlider
+    entries={bluebellsAppleton2026}
+    aspect="square"
+    className="my-10"
+  />
+
+  <div className="space-y-5 text-white/80 leading-relaxed">
+    <p>
+      At this stage, the sequence is still in progress. What begins as
+      scattered shoots will, over the coming weeks, form a continuous
+      layer across the woodland floor before gradually fading again.
+    </p>
+
+    <p>
+      What is striking is not only the timing of emergence, but the pace
+      at which it develops — and how closely that pace appears to follow
+      short runs of warmer or cooler days.
+    </p>
   </div>
 </article>
           </section>

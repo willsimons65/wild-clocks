@@ -6,11 +6,8 @@ import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import ViewerNavBar from "@/components/photos/viewer/ViewerNavBar";
 import CompareActionsRow from "@/components/photos/viewer/CompareActionsRow";
 import PhotosView from "@/components/photos/viewer/PhotosView";
-import PillButton from "@/components/ui/PillButton";
-import { MONTH_ABBREV, MONTH_NAMES } from "@/constants/months";
 import CompareView from "@/components/photos/viewer/CompareView";
 import Toast from "@/components/ui/Toast";
-
 
 import {
   getQueryEnum,
@@ -18,15 +15,28 @@ import {
   setQueryParams,
 } from "@/utils/queryState";
 
+import { MONTH_NAMES } from "@/constants/months";
+
 function normalizePlaceSlug(raw) {
   if (!raw) return null;
-  return String(raw).replace(/-/g, "");
+  return String(raw).trim().toLowerCase();
 }
 
 function monthSlugToIndex(slug) {
   const lower = String(slug || "").trim().toLowerCase();
   return MONTH_NAMES.findIndex((m) => m.toLowerCase() === lower);
 }
+
+const PLACE_META = {
+  "little-knepp": {
+    title: "Little Knepp",
+    feedPath: "/little-knepp",
+  },
+  "appleton-woods": {
+    title: "Appleton Woods",
+    feedPath: "/appleton-woods",
+  },
+};
 
 export default function PhotoViewer() {
   const params = useParams();
@@ -35,10 +45,12 @@ export default function PhotoViewer() {
 
   const place = useMemo(() => normalizePlaceSlug(params.place), [params.place]);
   const year = useMemo(() => Number(params.year), [params.year]);
-  const monthIndex = useMemo(
-    () => monthSlugToIndex(params.month),
-    [params.month]
-  );
+  const monthIndex = useMemo(() => monthSlugToIndex(params.month), [params.month]);
+
+  const placeMeta = PLACE_META[place] || {
+    title: "Little Knepp",
+    feedPath: "/little-knepp",
+  };
 
   // -----------------------------
   // Read initial state from URL
@@ -49,6 +61,7 @@ export default function PhotoViewer() {
   const urlPhoto = getQueryNumber(searchParams, "photo"); // 1..4
 
   const [mode, setMode] = useState(urlMode || "compare");
+
   const [slotIndex, setSlotIndex] = useState(() => {
     if (!urlSlot) return 0;
     return Math.max(0, Math.min(3, urlSlot - 1));
@@ -63,29 +76,27 @@ export default function PhotoViewer() {
   const [activePhotoIndex, setActivePhotoIndex] = useState(() => {
     if (!urlPhoto) return 0;
     return Math.max(0, Math.min(3, urlPhoto - 1));
-    });
+  });
 
-    useEffect(() => {
-    // whenever month changes, reset slot to first slot
+  // whenever month changes, reset slot to first slot
+  useEffect(() => {
     setSlotIndex(0);
-    }, [monthIndex]);
+  }, [monthIndex]);
 
-  // ✅ Reset selected photo only when entering a new album,
-    // BUT do not override explicit ?photo=...
-    useEffect(() => {
+  // Reset selected photo only when entering a new album,
+  // but do not override explicit ?photo=...
+  useEffect(() => {
     if (urlPhoto != null) return;
     setActivePhotoIndex(0);
-    }, [place, year, monthIndex, urlPhoto]);
+  }, [place, year, monthIndex, urlPhoto]);
 
-    // reset swap when selection changes
+  // Reset swap when selection changes
   useEffect(() => {
     setSwapSides(false);
   }, [place, year, monthIndex, slotIndex, compareYear]);
 
   // Toast
   const [toastOpen, setToastOpen] = useState(false);
-
-  const monthLabel = MONTH_ABBREV[monthIndex] || MONTH_NAMES[monthIndex] || params.month;
 
   // ---------------------------------------
   // Keep local state in sync if URL changes
@@ -101,9 +112,12 @@ export default function PhotoViewer() {
     if (urlCompareYear != null && urlCompareYear !== compareYear) {
       setCompareYear(urlCompareYear);
     }
+
     if (urlPhoto != null) {
-     const nextPhotoIndex = Math.max(0, Math.min(3, urlPhoto - 1));
-     if (nextPhotoIndex !== activePhotoIndex) setActivePhotoIndex(nextPhotoIndex);
+      const nextPhotoIndex = Math.max(0, Math.min(3, urlPhoto - 1));
+      if (nextPhotoIndex !== activePhotoIndex) {
+        setActivePhotoIndex(nextPhotoIndex);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
@@ -135,15 +149,12 @@ export default function PhotoViewer() {
     if (compareYear === year) setCompareYear(year - 1);
   }, [year, compareYear]);
 
-  // Sync slot with selected photo ONLY in Photos mode
-    useEffect(() => {
+  // Sync slot with selected photo only in Photos mode
+  useEffect(() => {
     if (mode !== "photos") return;
     setSlotIndex(activePhotoIndex);
-    }, [mode, activePhotoIndex]);
+  }, [mode, activePhotoIndex]);
 
-  // ------------------------------------------------------------
-  // Share handler (used by CompareActionsRow)
-  // ------------------------------------------------------------
   async function handleShare() {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -154,24 +165,18 @@ export default function PhotoViewer() {
     }
   }
 
-    const feedPath =
-    place === "littleknepp" ? "/little-knepp" : "/appleton-woods";
-
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
-      {/* toast */}
       <Toast
         isOpen={toastOpen}
         message="Link copied"
         onClose={() => setToastOpen(false)}
       />
 
-      {/* ✅ New nav header (3-column grid like Feed/Insights) */}
       <ViewerNavBar
-        title={place === "littleknepp" ? "Little Knepp" : "Appleton Woods"}
+        title={placeMeta.title}
         mode={mode}
         setMode={setMode}
-
         months={MONTH_NAMES}
         monthIndex={monthIndex}
         onMonthChange={(nextMonthIndex) => {
@@ -183,16 +188,13 @@ export default function PhotoViewer() {
             { replace: false }
           );
         }}
-
         maxSlots={4}
         slotIndex={slotIndex}
         onSlotChange={(i) => setSlotIndex(i)}
-
         slotEnabled={mode === "compare"}
-        onBack={() => navigate(feedPath)}
+        onBack={() => navigate(placeMeta.feedPath)}
       />
 
-      {/* ✅ Compare-only action row (swap + share above photos) */}
       {mode === "compare" ? (
         <CompareActionsRow
           onSwap={() => setSwapSides((v) => !v)}
@@ -201,32 +203,25 @@ export default function PhotoViewer() {
         />
       ) : null}
 
-      {/* Body content */}
       <main className="max-w-[1200px] mx-auto px-4 py-6">
-        
-
-
-        <div className="">
-{mode === "photos" ? (
-  <PhotosView
-    place={place}
-    year={year}
-    monthIndex={monthIndex}
-    activeIndex={activePhotoIndex}
-    setActiveIndex={setActivePhotoIndex}
-  />
-) : (
-
-    <CompareView
-        place={place}
-        monthIndex={monthIndex}
-        slotIndex={slotIndex}
-        primaryYear={year}
-        compareYear={compareYear}
-        swapSides={swapSides}
-    />
-    )}
-        </div>
+        {mode === "photos" ? (
+          <PhotosView
+            place={place}
+            year={year}
+            monthIndex={monthIndex}
+            activeIndex={activePhotoIndex}
+            setActiveIndex={setActivePhotoIndex}
+          />
+        ) : (
+          <CompareView
+            place={place}
+            monthIndex={monthIndex}
+            slotIndex={slotIndex}
+            primaryYear={year}
+            compareYear={compareYear}
+            swapSides={swapSides}
+          />
+        )}
       </main>
     </div>
   );
