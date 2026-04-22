@@ -131,7 +131,7 @@ export default function FieldNotes() {
   <div className="space-y-6 text-white/80 leading-relaxed">
     <p>
       When we talk about a “dry spring” or a “wet year”, we usually do so
-      loosely -- as a feeling, or a memory. But if a landscape is made up of
+      loosely - as a feeling, or a memory. But if a landscape is made up of
       overlapping seasonal clocks, it helps to be a little more precise than
       that.
     </p>
@@ -139,7 +139,7 @@ export default function FieldNotes() {
     <p>
       For this piece, I wanted to see whether the weather record for
       Appleton Woods could be simplified into a small number of recurring
-      seasonal states -- not every possible variation, but the broad kinds of
+      seasonal states - not every possible variation, but the broad kinds of
       spring a landscape experiences over time.
     </p>
 
@@ -150,7 +150,7 @@ export default function FieldNotes() {
     </p>
 
     <p className="text-white text-lg md:text-lg leading-relaxed">
-      What does a spring look like when it unfolds with very little rain -- and
+      What does a spring look like when it unfolds with very little rain - and
       what does it look like when the rain keeps coming?
     </p>
 
@@ -163,7 +163,7 @@ export default function FieldNotes() {
         <p>
           The longer-term temperature and rainfall record used here is drawn
           primarily from the Radcliffe Observatory weather station in Oxford -- one of the
-          UK’s longest continuous weather records -- together with supplementary
+          UK’s longest continuous weather records - together with supplementary
           Met Office data where needed.
         </p>  
 
@@ -209,14 +209,14 @@ export default function FieldNotes() {
 
       <p>
         The diagram above groups springs into five recurring rainfall states,
-        based on the amount of rain accumulated between March and July -- the
+        based on the amount of rain accumulated between March and July - the
         part of the year when flowering, pollination and early summer growth
         are most active.
       </p>
 
       <p>
         Rather than showing every year individually, it calculates the median
-        cumulative rainfall for each state. The result is not a forecast or a fixed ecological rule, but the <strong>Five Rainfall States</strong> -- a way of turning a long local rainfall record into something that can be easily considered and worked with.
+        cumulative rainfall for each state. The result is not a forecast or a fixed ecological rule, but the <strong>Five Rainfall States</strong> - a way of turning a long local rainfall record into something that can be easily considered and worked with.
       </p>
 
       <p>
@@ -257,7 +257,7 @@ export default function FieldNotes() {
 
       <p>
         Some years sit close to the centre of a rainfall state and act as useful
-        representatives. Others sit at the outer edges of the record —- years
+        representatives. Others sit at the outer edges of the record — years
         like <span className="text-white">2025</span>, when spring rainfall all
         but collapsed, or <span className="text-white">2012</span>, when it
         accumulated almost without pause.
@@ -334,11 +334,11 @@ export default function FieldNotes() {
       <p>
         A dry spring does not just mean “less rain”. It can shorten a burst of
         flowering, compress a growing season, or leave pollinators with fewer
-        good weeks to work with. A persistently wet spring may do the opposite -- or introduce a different kind of disruption altogether.
+        good weeks to work with. A persistently wet spring may do the opposite - or introduce a different kind of disruption altogether.
       </p>
 
       <p>
-        In the next piece, I want to explore what these five rainfall states
+        In a companion piece, I want to explore what these five rainfall states
         might mean for two overlapping seasonal waves:{" "}
         <span className="text-white">flowering</span> and{" "}
         <span className="text-white">pollination</span>.
