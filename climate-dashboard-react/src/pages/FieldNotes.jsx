@@ -7,6 +7,7 @@ import RainfallStatesDiagram from "@/data/notes/RainfallStatesDiagram";
 import FootnoteToggle from "@/components/ui/FootnoteToggle";
 import SequenceSlider from "@/data/notes/SequenceSlider";
 import { bluebellsAppleton2026 } from "@/data/sequences/bluebellsAppleton2026";
+import TimeInLandscapeComparison from "@/components/insights/TimeInLandscapeComparison";
 
 export default function FieldNotes() {
   return (
@@ -30,11 +31,17 @@ export default function FieldNotes() {
               >
                 Five Rainfall States
               </a>
-                            <a
+              <a
                 href="#bluebells"
                 className="block hover:text-white transition-colors"
               >
                 Bluebell Wave
+              </a>
+              <a
+                href="#time"
+                className="block hover:text-white transition-colors"
+              >
+                Time In A Landscape
               </a>
             </nav>
           </aside>
@@ -367,7 +374,7 @@ export default function FieldNotes() {
     </p>
 
     <p>
-      The sequence below records that change as it happens — a daily
+      The sequence below records that change as it happens - a daily
       progression through the early stages of bluebell growth, set
       alongside the temperature conditions in which it unfolds.
     </p>
@@ -389,11 +396,134 @@ export default function FieldNotes() {
 
     <p>
       What is striking is not only the timing of emergence, but the pace
-      at which it develops — and how closely that pace appears to follow
+      at which it develops - and how closely that pace appears to follow
       short runs of warmer or cooler days.
     </p>
   </div>
 </article>
+
+<div className="my-16 border-t border-white/40" />
+
+<article id="time">
+  <h1 className="text-2xl md:text-3xl font-light mb-3">
+    Time in a landscape
+  </h1>
+
+  <p className="text-base md:text-lg text-white/60 italic mb-8">
+    How time is shaped in a landscape
+  </p>
+
+  <div className="space-y-5 text-white/80 leading-relaxed">
+    <p>
+      When we invented the clock, we didn’t just create a tool to measure time - we invented a particular idea of what time is. While the standard hours, minutes, and seconds emerged over centuries, it was the development of highly accurate mechanical clocks in the 17th and 18th centuries that rendered this system fixed and widely accepted. 
+    </p>
+
+    <p>
+      A central figure in this story was the English clockmaker, John Harrison. Harrison devoted his life to solving the problem of longitude at sea - a challenge that required a clock of unprecedented accuracy. His eventual success earned him the Longitude Prize, and his clocks are still regarded as some of the most remarkable machines ever made.
+    </p>
+
+    <p>
+      Central to this challenge were the constantly changing conditions of life at sea. His clocks had to be far more than simple mechanisms for keeping time; they needed to do so in environments that were continually shifting, where changes in temperature, pressure and humidity could create small but critical discrepancies.
+    </p>
+
+    <p>
+      His solution was to build mechanisms that could compensate for these shifts - where the movement of the clock could adjust itself if it was gaining or losing too much time.
+    </p>
+
+    <p>
+      In doing so, Harrison helped establish a powerful idea: that time could be made uniform, measurable, and independent of external conditions. The result is our modern belief in absolute time - or, as Iain McGilchrist puts it: “Clock time is invented time… but we have come to believe that our invention has an objective existence.”
+    </p>
+
+    <p>
+      And yet, outside the mechanism of the clock, time behaves very differently.
+    </p>
+
+    <div className="my-12 border-t border-white/20" />
+
+    <p>
+      In a small wood just outside Oxford, I have been observing the bluebells. Each spring they rise from the same ground, follow a broadly familiar pattern, and then disappear again. It is an event that belongs, in the abstract, to April and May - part of the expected rhythm of the year. But this year, they arrived early.
+    </p>
+
+    <TimeInLandscapeComparison />
+
+    <p>
+      By mid-April, the wood was already beginning to turn. The first haze of blue had spread across the floor, and within a few days it was clear that the season was ahead of itself - noticeably earlier than the year before.
+    </p>
+
+    <p>
+      Nothing in the calendar had changed. The dates were the same. But the season was not.
+    </p>
+
+    <p>
+      The difference lay in the conditions that shaped the year. The winter had been mild, but more importantly it had been wet. The soil was saturated going into spring, and as temperatures rose, the plants responded quickly. Last year, though also mild, had been much drier. The same sequence unfolded more slowly, and over a longer period.
+    </p>
+
+    <p>
+      Standing in the wood, it becomes difficult to think of time as something that passes evenly. Instead, it feels as though the season is being drawn forward - compressed and accelerated by the conditions that precede it. What we call “April” contains two very different kinds of time: one fixed and abstract, the other contingent and responsive.
+    </p>
+
+    <p>
+      The bluebells are not early. They are following a different clock - one that measures time not in hours or days, but in conditions.
+    </p>
+
+    <div className="my-12 border-t border-white/20" />
+
+    <p>
+      In this sense, time in a landscape is not something that passes independently of the world around it. It is something that emerges from it. Temperature, rainfall, soil moisture, light - these are not external influences acting on time; they are what give it shape.
+    </p>
+
+    <p>
+      In a wet spring, the season gathers momentum quickly. Growth accelerates, flowering advances, and what might normally unfold over several weeks can be compressed into a much shorter period. In a dry year, the same sequence slows, stretches, and sometimes falters altogether.
+    </p>
+
+    <p>
+      Time, in these landscapes, does not move at a constant rate. It expands and contracts in response to the conditions that sustain it. This becomes clearer when we look beyond a single species.
+    </p>
+
+    <p>
+      A woodland in spring is not just bluebells coming into flower. It is leaf buds breaking, insects emerging, birds nesting, fungi receding - multiple processes unfolding together, each responding to the same underlying conditions, but at slightly different speeds. Some advance quickly; others lag behind—some accelerate, while others stall.
+    </p>
+
+    <p>
+      The result is not a single, uniform flow of time, but a layered and uneven one - closer, perhaps, to the way we experience time ourselves.
+    </p>
+
+    <p>
+      In this sense, a landscape does not simply exist within time. It produces its own.
+    </p>
+
+    <div className="my-12 border-t border-white/20" />
+
+    <p>
+      If landscapes produce their own time, the question becomes how to observe it. This is the starting point for Wild Clocks. Rather than measuring time in hours or days, a wild clock attempts to record how a season unfolds in a particular place. It does this through repeated observation - returning to the same point, week after week, and building a visual record of change.
+    </p>
+
+    <p>
+      In Appleton Woods, that record takes two forms: a week-by-week comparison, and a “micro-clock” that follows the season more closely. Together, they trace the bluebells from their first emergence through to their decline. Each photograph captures a small shift - the first hint of colour, the spread of the flowers across the woodland floor, the gradual fading of the season, and with it, the changing pace at which the season unfolds.
+    </p>
+
+    <p>
+      Seen individually, these changes are subtle. Taken together, they form a pattern.
+    </p>
+
+    <p>
+      What emerges is not just a record of what happened, but of how it happened. The length of the season, the speed at which it develops, the moment at which it peaks - these are all expressions of time behaving in different ways.
+    </p>
+
+    <p>
+      When this visual record is set alongside simple measures of temperature and rainfall, another layer becomes visible. A wet winter followed by a mild spring produces one kind of season: early, fast-moving, and compressed. A drier year produces another: slower, more extended, and often less intense. The clock does not predict these outcomes, and it does not impose a structure on them. It simply reveals the relationship between conditions and response.
+    </p>
+
+    <p>
+      In this sense, a Wild Clock is not a device for measuring time, but for making it visible. Over time, as these records accumulate across different landscapes - woodlands, grasslands, and other climate-sensitive habitats - it becomes possible to compare how seasons behave in different places, and how they change from year to year.
+    </p>
+
+    <p>
+      What begins as a local observation becomes something broader: a way of seeing how climate is altering not just what happens in a landscape, but the pace and structure of the seasons themselves.
+    </p>
+  
+  </div>
+  </article>
           </section>
         </div>
       </main>
