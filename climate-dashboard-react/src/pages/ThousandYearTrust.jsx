@@ -39,21 +39,20 @@ export default function ThousandYearTrust({
 
             <div className="absolute inset-0 flex items-center justify-center px-6 md:px-12">
               <div className="max-w-5xl text-center">
-                <h1 className="text-[20px] md:text-[32px] leading-tight font-normal tracking-[-0.03em] text-white">
+                <h1 className="text-[18px] sm:text-[26px] md:text-[32px] lg:text-[22px]leading-tight font-normal tracking-[-0.02em] text-white">
                   The Thousand Year Trust is home to a rare Atlantic rainforest
                 </h1>
 
-                <p className="mt-8 text-[20px] md:text-[20px] font-normal leading-snug text-white/85">
+                <p className="mt-6 text-[14px] sm:text-[15px] md:text-[16px] lg:text-[20px] leading-relaxed text-white/85">
                   The Trust is working to research these ancient ecosystems and
-                  better understand how they recover and thrive. This Wild Clock
-                  will document how the landscape changes through the seasons.
+                  better understand how they recover and thrive. This Wild Clockwill document how the landscape changes through the seasons.
                 </p>
 
                 <a
                   href="https://thousandyeartrust.org"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-10 inline-flex items-center justify-center gap-3 text-[16px] md:text-[18px] font-normal text-white/80 hover:text-white transition-colors"
+                  className="mt-8 inline-flex items-center justify-center gap-3 text-[12px] md:text-[18px] font-normal text-white/80 hover:text-white transition-colors"
                 >
                   Learn more about the Thousand Year Trust
                   <img
