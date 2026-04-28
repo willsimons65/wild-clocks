@@ -26,47 +26,60 @@ export default function ThousandYearTrust({
       />
 
       <main className="w-full max-w-[1200px] mx-auto px-4 lg:px-6 py-8 lg:py-10">
-        {/* Banner */}
-<section className="mb-10">
-  <div className="relative overflow-hidden rounded-[15px] border border-white/10">
-    <img
-      src={TemWoodBanner}
-      alt="Temperate woodland"
-      className="block w-full h-[220px] md:h-[300px] lg:h-[355px] object-cover"
-    />
-    <div className="absolute inset-0 bg-black/30" />
-  </div>
-</section>
+        {/* Intro hero */}
+        <section className="mb-10">
+          <div className="relative overflow-hidden rounded-[15px] border border-white/10">
+            <img
+              src={TemWoodBanner}
+              alt="Temperate rainforest at Thousand Year Trust"
+              className="block w-full h-[300px] md:h-[360px] lg:h-[390px] object-cover"
+            />
 
-        {/* Holding card */}
+            <div className="absolute inset-0 bg-black/40" />
+
+            <div className="absolute inset-0 flex items-center justify-center px-6 md:px-12">
+              <div className="max-w-5xl text-center">
+                <h1 className="text-[20px] md:text-[32px] leading-tight font-normal tracking-[-0.03em] text-white">
+                  The Thousand Year Trust is home to a rare Atlantic rainforest
+                </h1>
+
+                <p className="mt-8 text-[20px] md:text-[20px] font-normal leading-snug text-white/85">
+                  The Trust is working to research these ancient ecosystems and
+                  better understand how they recover and thrive. This Wild Clock
+                  will document how the landscape changes through the seasons.
+                </p>
+
+                <a
+                  href="https://thousandyeartrust.org"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-10 inline-flex items-center justify-center gap-3 text-[16px] md:text-[18px] font-normal text-white/80 hover:text-white transition-colors"
+                >
+                  Learn more about the Thousand Year Trust
+                  <img
+                    src={ExternalLinkIcon}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-6 h-6 opacity-80"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Placeholder observations grid */}
         <section>
-          <div className="rounded-[15px] border border-white/10 bg-[#1E1E1E] min-h-[320px] md:min-h-[350px] flex items-center justify-center px-6 py-12 text-center">
-            <div className="w-full max-w-3xl">
-              <h1 className="text-[34px] md:text-[48px] font-normal tracking-[-0.02em] text-white">
-                Thousand Year Trust
-              </h1>
-
-              <p className="mt-6 text-[20px] md:text-[24px] font-normal text-white/95">
+          <div className="rounded-[15px] border border-white/10 bg-[#1A1A1A] min-h-[280px] flex items-center justify-center px-6 py-12 text-center">
+            <div className="max-w-2xl">
+              <p className="text-[20px] md:text-[24px] text-white/90">
                 First observations coming soon
               </p>
 
-              <p className="mt-8 text-[16px] md:text-[18px] text-white/80 leading-relaxed">
-                This clock is currently being established. The first observations will appear shortly
+              <p className="mt-4 text-[15px] md:text-[17px] text-white/65 leading-relaxed">
+                The camera is now being established. Images will begin appearing
+                here as the seasonal record develops.
               </p>
-
-              <a
-                href="https://thousandyeartrust.org"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-10 inline-flex items-center gap-3 text-[16px] md:text-[18px] text-white/70 hover:text-white transition-colors"
-              >
-                Learn more about the Thousand Year Trust
-                <img
-                  src={ExternalLinkIcon}
-                  alt=""
-                  className="w-6 h-6 opacity-80"
-                />
-              </a>
             </div>
           </div>
         </section>
@@ -82,7 +95,6 @@ export default function ThousandYearTrust({
           >
             In collaboration with the{" "}
             <span className="font-medium text-white">Thousand Year Trust</span>
-            
           </a>
         </div>
       </footer>
