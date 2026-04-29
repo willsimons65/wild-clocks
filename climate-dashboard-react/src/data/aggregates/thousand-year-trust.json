@@ -1,0 +1,97 @@
+{
+  "location": "Appleton Woods",
+  "source": "Google Sheets",
+  "generatedAt": "2025-12-20T07:04:15.262Z",
+  "units": {
+    "temp": "C",
+    "rainfall": "mm"
+  },
+  "years": {
+    "2026": {
+      "1": {
+        "avgMaxTemp": 6.3,
+        "avgMinTemp": 0.2,
+        "avgMeanTemp": 3.2,
+        "totalRainfall": 49,
+        "days": 31
+      },
+      "2": {
+        "avgMaxTemp": 7.9,
+        "avgMinTemp": 2.3,
+        "avgMeanTemp": 5.1,
+        "totalRainfall": 30,
+        "days": 28
+      },
+      "3": {
+        "avgMaxTemp": 12.4,
+        "avgMinTemp": 2.1,
+        "avgMeanTemp": 7.3,
+        "totalRainfall": 3,
+        "days": 31
+      },
+      "4": {
+        "avgMaxTemp": 16.8,
+        "avgMinTemp": 4.9,
+        "avgMeanTemp": 10.9,
+        "totalRainfall": 9,
+        "days": 30
+      },
+      "5": {
+        "avgMaxTemp": 19.1,
+        "avgMinTemp": 8.3,
+        "avgMeanTemp": 13.7,
+        "totalRainfall": 13,
+        "days": 31
+      },
+      "6": {
+        "avgMaxTemp": 22.8,
+        "avgMinTemp": 13,
+        "avgMeanTemp": 17.9,
+        "totalRainfall": 22,
+        "days": 30
+      },
+      "7": {
+        "avgMaxTemp": 24,
+        "avgMinTemp": 14,
+        "avgMeanTemp": 19,
+        "totalRainfall": 19,
+        "days": 31
+      },
+      "8": {
+        "avgMaxTemp": 23.3,
+        "avgMinTemp": 12.8,
+        "avgMeanTemp": 18,
+        "totalRainfall": 22,
+        "days": 31
+      },
+      "9": {
+        "avgMaxTemp": 18.4,
+        "avgMinTemp": 10,
+        "avgMeanTemp": 14.2,
+        "totalRainfall": 142,
+        "days": 30
+      },
+      "10": {
+        "avgMaxTemp": 14.2,
+        "avgMinTemp": 8.5,
+        "avgMeanTemp": 11.3,
+        "totalRainfall": 98,
+        "days": 31
+      },
+      "11": {
+        "avgMaxTemp": 11.3,
+        "avgMinTemp": 6,
+        "avgMeanTemp": 8.7,
+        "totalRainfall": 175,
+        "days": 30
+      },
+      "12": {
+        "avgMaxTemp": 6.7,
+        "avgMinTemp": 3.2,
+        "avgMeanTemp": 4.9,
+        "totalRainfall": 148,
+        "days": 31
+      }
+    }
+  }
+}
