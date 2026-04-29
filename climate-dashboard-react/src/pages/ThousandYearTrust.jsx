@@ -120,7 +120,7 @@ export default function ThousandYearTrust({
                   href="https://thousandyeartrust.org"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-8 inline-flex items-center justify-center gap-3 text-[13px] md:text-[18px] font-normal text-white/80 hover:text-white transition-colors"
+                  className="mt-8 inline-flex items-center justify-center gap-3 text-[12px] md:text-[18px] font-normal text-white/80 hover:text-white transition-colors"
                 >
                   Learn more about the Thousand Year Trust
                   <img
