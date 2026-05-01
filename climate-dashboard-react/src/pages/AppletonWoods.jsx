@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import Header from "@/components/layout/Header";
+import SentinelBanner from "@/components/sentinel/SentinelBanner";
+import AppletonWoodsBanner from "@/images/assets/app-wood-banner.webp";
 import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
@@ -91,21 +93,52 @@ if (loading) {
         setMetric={setMetric}
       />
 
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 p-6">
-        {months.map((month) => (
-          <MonthBlock
-            key={month}
-            month={month}
-            year={year}
-            place="appleton-woods"
-            metric={metric}
-            data={weather?.[month] || []}
-            fullData={allDailyRows}
-            temperatureData={appletonWoodsClimate}
-          />
-        ))}
+      <main className="max-w-[1200px] mx-auto p-6 space-y-8">
+        <SentinelBanner
+          title="Appleton Woods"
+          landscapeType="Broadleaf woodland"
+          sensitivity="canopy and ground-layer system"
+          image={AppletonWoodsBanner}
+          description="A broadleaf woodland where seasonal change is visible in the canopy, the ground layer and the shifting availability of light through the year. This Wild Clock documents how the wood changes from winter openness to spring flowering, summer shade and autumn leaf fall."
+          ctaLabel="Learn more about Appleton Woods"
+          ctaHref="https://earthtrust.org.uk"
+          tracking={[
+            "Leaf-out timing and canopy closure",
+            "Bluebell emergence and peak flowering",
+            "Light penetration and ground-layer response",
+            "Bramble, fern and shrub growth",
+            "Autumn leaf fall and canopy retreat",
+          ]}
+        />
 
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {months.map((month) => (
+            <MonthBlock
+              key={month}
+              month={month}
+              year={year}
+              place="appleton-woods"
+              metric={metric}
+              data={weather?.[month] || []}
+              fullData={allDailyRows}
+              temperatureData={appletonWoodsClimate}
+            />
+          ))}
+        </div>
+      </main>
+              <footer className="mt-10 border-t border-white/10">
+        <div className="w-full max-w-[1200px] mx-auto px-4 lg:px-6 py-6 text-center">
+            <a
+            href="https://earthtrust.org"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-sm text-white/70 hover:text-white/90 transition-colors"
+            >
+            {" "}
+            <span className="font-medium text-white"></span>
+            </a>
+        </div>
+        </footer>
     </div>
   );
 }
