@@ -8,6 +8,39 @@ import FootnoteToggle from "@/components/ui/FootnoteToggle";
 import SequenceSlider from "@/data/notes/SequenceSlider";
 import { bluebellsAppleton2026 } from "@/data/sequences/bluebellsAppleton2026";
 import TimeInLandscapeComparison from "@/components/insights/TimeInLandscapeComparison";
+import ImageCarousel from "@/data/notes/ImageCarousel";
+
+const cabillaImages = [
+  {
+    id: "cab1",
+    src: "/photos/thousand-year-trust/intro/cab1.webp",
+    alt: "Moss-covered oak trees at Cabilla",
+  },{
+    id: "cab3",
+    src: "/photos/thousand-year-trust/intro/cab3.webp",
+    alt: "Moss-covered oak trees at Cabilla",
+  },
+  {
+    id: "cab2",
+    src: "/photos/thousand-year-trust/intro/cab2.webp",
+    alt: "Temperate rainforest canopy at Cabilla",
+  },
+  {
+    id: "cab5",
+    src: "/photos/thousand-year-trust/intro/cab5.webp",
+    alt: "Temperate rainforest canopy at Cabilla",
+  },
+  {
+    id: "cab6",
+    src: "/photos/thousand-year-trust/intro/cab6.webp",
+    alt: "Temperate rainforest canopy at Cabilla",
+  },
+  {
+    id: "cab7",
+    src: "/photos/thousand-year-trust/intro/cab7.webp",
+    alt: "Temperate rainforest canopy at Cabilla",
+  },
+];
 
 export default function FieldNotes() {
   return (
@@ -41,7 +74,13 @@ export default function FieldNotes() {
                 href="#time"
                 className="block hover:text-white transition-colors"
               >
-                Time In A Landscape
+                Time in a Landscape
+              </a>
+              <a
+                href="#cabilla"
+                className="block hover:text-white transition-colors"
+              >
+                Cabilla and the Thousand-Year Clock
               </a>
             </nav>
           </aside>
@@ -523,7 +562,73 @@ export default function FieldNotes() {
     </p>
   
   </div>
+
   </article>
+
+  <div className="my-16 border-t border-white/40" />
+
+                <article id="cabilla">
+                <h1 className="text-2xl md:text-3xl font-light mb-3">
+                  Cabilla and the Thousand-Year Clock
+                </h1>
+
+                <p className="text-base md:text-lg text-white/60 italic mb-8">
+                  Notes from a visit to Cabilla Wood
+                </p>
+
+                <div className="space-y-5 text-white/80 leading-relaxed">
+                  <p>
+                    Some weeks ago, I had the good fortune to visit Cabilla Wood, a temperate woodland on Bodmin Moor. It's a four-hour drive from where I live, with the last stretch proving something of a challenge, the road dipping and turning in ways I am not accustomed to.
+                  </p>
+
+                  <p>
+                    On arrival, you must follow a path that takes you along the edge of several fields. The fields are enclosed by high fences—a precaution against marauding deer, and protection for the newly planted saplings, their slender shoots concealed within plastic sheaths. At first, I didn’t pay much attention - saplings are a familiar enough sight.
+                  </p>
+
+                  <p>
+                    Only later, on the drive back to Oxford, did the connection take hold. It came during a call from my youngest daughter, asking how things had gone. In that moment, I remembered the saplings: fragile, protected, just beginning—the same age as my daughter.
+                  </p>
+
+                  <p>
+                  I saw them differently.
+                  </p>
+
+                </div>
+
+                <div className="my-6 md:my-6">
+                  <ImageCarousel images={cabillaImages} aspect="landscape" />
+                </div>
+
+                <div className="space-y-5 text-white/80 leading-relaxed">
+                  <p>
+                    On entering the wood, I was struck by the twisted forms of the trees. They were unlike anything I had seen before—not towering but short and squat, many of them no bigger than a person. 
+                  </p>
+
+                  <p>  
+                    There was something familiar in their shapes. I had felt it once before, at Knepp—a sense not of seeing something new, but of recognising something already known. These are the trees of childhood stories—the ones we recognise instinctively, even if we’ve never seen them before.
+                  </p>
+
+                  <p>
+                    The path leads to the edge of an escarpment. The wood falls away, then rises again on the far side of the valley. The sense of space is immense. Most remarkable of all is the patterning of the canopy. It spreads out in every direction, the intricate shapes of the branches forming a mosaic of silver and green.
+                  </p>
+
+                  <p>
+                    If the scale of the wood is impressive, the ambition for it is greater still. The aim here is not just restoration, but something far more long-lasting. It is stewarded by the Thousand Year Trust—a name that reflects the time it takes for a sessile oak to grow, thrive, and decay.
+                  </p>
+
+                  <p>
+                    In that sense, Cabilla is more than a woodland. It is a kind of living experiment—a way of asking what these landscapes might become, and how they might respond to a changing climate.
+                  </p>
+
+                  <p>
+                    Which brings me back to the saplings.
+                  </p>
+
+                  <p>
+                  At first, they had seemed incidental—easy to pass by. Now they felt like markers in time: the earliest stages of something that, if allowed, will outlast us all. In the wood, I had seen what that might become. On the edge of the field, I had seen where it begins. The distance between the two is measured not in space, but in years, perhaps centuries.
+                  </p>
+                </div>
+              </article>
           </section>
         </div>
       </main>

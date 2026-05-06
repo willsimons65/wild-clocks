@@ -7,7 +7,7 @@ import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 import thousandYearTrustClimate from "@/data/aggregates/thousand-year-trust.json";
 import SentinelBanner from "@/components/sentinel/SentinelBanner";
-import TemWoodBanner from "@/images/assets/tem-wood-banner.png";
+import TemWoodBanner from "@/images/assets/tem-wood-banner.webp";
 
 export default function ThousandYearTrust({
   year,
