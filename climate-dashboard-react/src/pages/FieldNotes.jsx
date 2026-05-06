@@ -9,6 +9,7 @@ import SequenceSlider from "@/data/notes/SequenceSlider";
 import { bluebellsAppleton2026 } from "@/data/sequences/bluebellsAppleton2026";
 import TimeInLandscapeComparison from "@/components/insights/TimeInLandscapeComparison";
 import ImageCarousel from "@/data/notes/ImageCarousel";
+import InlineLink from "@/components/ui/InlineLink";
 
 const cabillaImages = [
   {
@@ -458,7 +459,8 @@ export default function FieldNotes() {
     </p>
 
     <p>
-      A central figure in this story was the English clockmaker, John Harrison. Harrison devoted his life to solving the problem of longitude at sea - a challenge that required a clock of unprecedented accuracy. His eventual success earned him the Longitude Prize, and his clocks are still regarded as some of the most remarkable machines ever made.
+      A central figure in this story was the English clockmaker,{" "}
+      <InlineLink to="https://en.wikipedia.org/wiki/John_Harrison">John Harrison</InlineLink>. Harrison devoted his life to solving the problem of longitude at sea - a challenge that required a clock of unprecedented accuracy. His eventual success earned him the Longitude Prize, and his clocks are still regarded as some of the most remarkable machines ever made.
     </p>
 
     <p>
@@ -470,7 +472,8 @@ export default function FieldNotes() {
     </p>
 
     <p>
-      In doing so, Harrison helped establish a powerful idea: that time could be made uniform, measurable, and independent of external conditions. The result is our modern belief in absolute time - or, as Iain McGilchrist puts it: “Clock time is invented time… but we have come to believe that our invention has an objective existence.”
+      In doing so, Harrison helped establish a powerful idea: that time could be made uniform, measurable, and independent of external conditions. The result is our modern belief in absolute time - or, as{" "}
+      <InlineLink to="https://en.wikipedia.org/wiki/Iain_McGilchrist">Iain McGilchrist</InlineLink> puts it: “Clock time is invented time… but we have come to believe that our invention has an objective existence.”
     </p>
 
     <p>
@@ -534,7 +537,7 @@ export default function FieldNotes() {
     <div className="my-12 border-t border-white/20" />
 
     <p>
-      If landscapes produce their own time, the question becomes how to observe it. This is the starting point for Wild Clocks. Rather than measuring time in hours or days, a wild clock attempts to record how a season unfolds in a particular place. It does this through repeated observation - returning to the same point, week after week, and building a visual record of change.
+      If landscapes produce their own time, the question becomes how to observe it. This is the starting point for Wild Clocks. Rather than measuring time in hours or days, a Wild Clock attempts to record how a season unfolds in a particular place. It does this through repeated observation - returning to the same point, week after week, and building a visual record of change.
     </p>
 
     <p>
@@ -578,7 +581,8 @@ export default function FieldNotes() {
 
                 <div className="space-y-5 text-white/80 leading-relaxed">
                   <p>
-                    Some weeks ago, I had the good fortune to visit Cabilla Wood, a temperate woodland on Bodmin Moor. It's a four-hour drive from where I live, with the last stretch proving something of a challenge, the road dipping and turning in ways I am not accustomed to.
+                    Some weeks ago, I had the good fortune to visit{" "}
+                    <InlineLink to="https://thousandyeartrust.org">Cabilla Wood</InlineLink>, a temperate woodland on Bodmin Moor. It's a four-hour drive from where I live, with the last stretch proving something of a challenge, the road dipping and turning in ways I am not accustomed to.
                   </p>
 
                   <p>
@@ -605,7 +609,9 @@ export default function FieldNotes() {
                   </p>
 
                   <p>  
-                    There was something familiar in their shapes. I had felt it once before, at Knepp—a sense not of seeing something new, but of recognising something already known. These are the trees of childhood stories—the ones we recognise instinctively, even if we’ve never seen them before.
+                    There was something familiar in their shapes. I had felt it once before, at{" "}
+                    <InlineLink to="https://knepp.co.uk/">Knepp</InlineLink>
+                    —a sense not of seeing something new, but of recognising something already known. These are the trees of childhood stories—the ones we recognise instinctively, even if we’ve never seen them before.
                   </p>
 
                   <p>
