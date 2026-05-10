@@ -205,4 +205,16 @@ export const bluebellsAppleton2026 = [
     maxTemp: 16,
     minTemp: 7,
   },
+  {
+    date: "2026-05-09",
+    image: "/photos/appleton-woods/2026/bluebells/2026-05-09.webp",
+    maxTemp: 20,
+    minTemp: 7,
+  },
+  {
+    date: "2026-05-10",
+    image: "/photos/appleton-woods/2026/bluebells/2026-05-10.webp",
+    maxTemp: 13,
+    minTemp: 5,
+  },
 ];
