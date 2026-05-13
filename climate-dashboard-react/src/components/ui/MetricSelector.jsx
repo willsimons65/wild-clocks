@@ -8,6 +8,7 @@ import TempIcon from "@/images/assets/temperature.svg";
 import RainIcon from "@/images/assets/rainfall.svg";
 import HumidIcon from "@/images/assets/humidity.svg";
 import PhotoIcon from "@/images/assets/photoperiod.svg";
+import MicroIcon from "@/images/assets/microclimate.svg";
 
 export default function MetricSelector({
   selected,
@@ -26,6 +27,7 @@ export default function MetricSelector({
       { key: "rainfall", label: "Rainfall", icon: RainIcon },
       { key: "humidity", label: "Humidity", icon: HumidIcon },
       { key: "photoperiod", label: "Photoperiod", icon: PhotoIcon },
+      { key: "microclimate", label: "Microclimate", icon: MicroIcon },
     ],
     []
   );

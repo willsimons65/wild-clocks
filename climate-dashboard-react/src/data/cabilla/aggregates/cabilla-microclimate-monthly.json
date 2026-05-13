@@ -1,0 +1,33 @@
+{
+  "years": {
+    "2026": {
+      "3": {
+        "days": 17,
+        "avgMeanTemp": 8.407759017199016,
+        "avgMaxTemp": 17.0421,
+        "avgMinTemp": 0.73684,
+        "avgHumidity": 79.4344330769231,
+        "avgSolarRadiation": 190.9355605426357,
+        "maxSolarRadiation": 762.6995
+      },
+      "4": {
+        "days": 20,
+        "avgMeanTemp": 10.535974303428162,
+        "avgMaxTemp": 21.65263,
+        "avgMinTemp": 0.11579,
+        "avgHumidity": 77.3231197969543,
+        "avgSolarRadiation": 221.6920861613921,
+        "maxSolarRadiation": 1087.656
+      },
+      "5": {
+        "days": 8,
+        "avgMeanTemp": 10.77581563291139,
+        "avgMaxTemp": 16.67368,
+        "avgMinTemp": 5.22105,
+        "avgHumidity": 90.58625333333336,
+        "avgSolarRadiation": 211.02777268562394,
+        "maxSolarRadiation": 1113.31
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ import PhotoperiodChart from "@/components/charts/PhotoperiodChart";
 import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
 import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
 import { buildInsightsAvailability } from "@/data/insights/buildInsightsAvailability";
+import CabillaMicroclimateChart from "@/components/charts/CabillaMicroclimateChart";
 
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -170,6 +171,23 @@ const availability = useMemo(() => {
             year={year}
           />
         );
+
+case "microclimate":
+  if (place !== "thousand-year-trust") {
+    return (
+      <div className="px-4 pb-6 text-center text-sm text-white/45">
+        Microclimate data is not available for this site yet
+      </div>
+    );
+  }
+
+  return (
+    <CabillaMicroclimateChart
+      data={temperatureData}
+      monthIndex={monthIndex}
+      year={year}
+    />
+  );
 
       default:
         return null;

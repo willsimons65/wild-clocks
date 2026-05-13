@@ -8,6 +8,7 @@ import { groupByMonth } from "@/utils/charts";
 import thousandYearTrustClimate from "@/data/aggregates/thousand-year-trust.json";
 import SentinelBanner from "@/components/sentinel/SentinelBanner";
 import TemWoodBanner from "@/images/assets/tem-wood-banner.webp";
+import cabillaMicroclimate from "@/data/cabilla/aggregates/cabilla-microclimate-monthly.json";
 
 export default function ThousandYearTrust({
   year,
@@ -19,7 +20,7 @@ export default function ThousandYearTrust({
     setPlace("thousand-year-trust");
   }, [setPlace]);
 
-  const [metric, setMetric] = useState("temperature");
+  const [metric, setMetric] = useState("temperature", "microclimate");
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -122,8 +123,8 @@ export default function ThousandYearTrust({
             metric={metric}
             data={weather?.[month] || []}
             fullData={allDailyRows}
-            temperatureData={thousandYearTrustClimate}
-          />
+            temperatureData={cabillaMicroclimate}
+            />
         ))}
         </div>
       </main>
