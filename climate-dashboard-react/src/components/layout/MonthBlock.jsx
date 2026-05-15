@@ -14,6 +14,7 @@ import CabillaDailyMicroclimateChart from "@/components/charts/CabillaDailyMicro
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MONTH_NAMES } from "@/constants/months";
+import CabillaRainfallSummary from "@/components/charts/CabillaRainfallSummary";
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -147,6 +148,28 @@ const availability = useMemo(() => {
         );
 
       case "rainfall":
+        if (place === "thousand-year-trust") {
+          return (
+            <div className="">
+              <div className="space-y-5">
+                <CabillaRainfallSummary
+                  data={monthRows}
+                  fullData={fullData}
+                  year={year}
+                  month={month}
+                />
+
+                <RainfallChart
+                  data={monthRows}
+                  month={month}
+                  monthIndex={monthIndex}
+                  year={year}
+                />
+              </div>
+            </div>
+          );
+        }
+
         return (
           <RainfallChart
             data={monthRows}
