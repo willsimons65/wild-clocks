@@ -15,19 +15,20 @@ export default function ChartLine({
   const pathRef = useRef(null);
 
   const safeData = useMemo(() => {
-    return data.filter((d) => {
-      const x = Number.isFinite(d.x) ? d.x : d.day;
-      const y = Number.isFinite(d.y) ? d.y : d.value;
-      return Number.isFinite(x) && Number.isFinite(y);
-    });
+    return Array.isArray(data) ? data : [];
   }, [data]);
 
   const pathD = useMemo(() => {
-    const spline = d3
-      .line()
-      .x((d) => xScale(Number.isFinite(d.x) ? d.x : d.day))
-      .y((d) => yScale(Number.isFinite(d.y) ? d.y : d.value))
-      .curve(d3.curveMonotoneX);
+  const spline = d3
+  .line()
+  .defined((d) => {
+    const x = Number.isFinite(d.x) ? d.x : d.day;
+    const y = Number.isFinite(d.y) ? d.y : d.value;
+    return Number.isFinite(x) && Number.isFinite(y);
+  })
+  .x((d) => xScale(Number.isFinite(d.x) ? d.x : d.day))
+  .y((d) => yScale(Number.isFinite(d.y) ? d.y : d.value))
+  .curve(d3.curveMonotoneX);
 
     return spline(safeData);
   }, [safeData, xScale, yScale]);

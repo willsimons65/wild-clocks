@@ -141,16 +141,48 @@ export default function ChartContainer({
       return;
     }
 
-    // ✅ Continuous x (daily): ratio mapping
-    const index = Math.round((mx / chartWidth) * (safeData.length - 1));
-    const clamped = Math.max(0, Math.min(safeData.length - 1, index));
-    const d = safeData[clamped];
-    if (!d) return;
+// ✅ Continuous x (daily): snap to nearest real datum
+let nearestIndex = null;
+let minDist = Infinity;
 
-    setHoverIndex(clamped);
+for (let i = 0; i < safeData.length; i++) {
+  const d = safeData[i];
 
-    const xv = Number.isFinite(d.day) ? d.day : d.x;
-    setHoverX(Number.isFinite(xv) ? xScale(xv) : null);
+  if (d?.isMissing) continue;
+
+  const xv = Number.isFinite(d?.day) ? d.day : d?.x;
+
+  const hasRealY =
+    Number.isFinite(d?.y) ||
+    Number.isFinite(d?.value) ||
+    Number.isFinite(d?.max) ||
+    Number.isFinite(d?.min) ||
+    Number.isFinite(d?.humidity) ||
+    Number.isFinite(d?.hours) ||
+    Number.isFinite(d?.rainfall);
+
+  if (!Number.isFinite(xv) || !hasRealY) continue;
+
+  const px = xScale(xv);
+  const dist = Math.abs(px - mx);
+
+  if (dist < minDist) {
+    minDist = dist;
+    nearestIndex = i;
+  }
+}
+
+if (nearestIndex === null) {
+  setHoverIndex(null);
+  setHoverX(null);
+  return;
+}
+
+const d = safeData[nearestIndex];
+const xv = Number.isFinite(d.day) ? d.day : d.x;
+
+setHoverIndex(nearestIndex);
+setHoverX(xScale(xv));
   };
 
   // ---------------------------

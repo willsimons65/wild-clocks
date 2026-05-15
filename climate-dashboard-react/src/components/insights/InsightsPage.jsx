@@ -188,7 +188,7 @@ export default function InsightsPage({
                 <div className="rounded-xl bg-white/5 p-3">
                   <div className="text-xs text-white/50">Average max</div>
                   <div className="text-3xl font-semibold text-pink-400">
-                    {avgMaxTemp != null ? `${avgMaxTemp.toFixed(1)}°C` : "—"}
+                    {ageMaxTemp != null ? `${ageMaxTemp.toFixed(1)}°C` : "—"}
                   </div>
                 </div>
 

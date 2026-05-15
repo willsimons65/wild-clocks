@@ -5,25 +5,35 @@ import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
-import thousandYearTrustClimate from "@/data/aggregates/thousand-year-trust.json";
 import SentinelBanner from "@/components/sentinel/SentinelBanner";
 import TemWoodBanner from "@/images/assets/tem-wood-banner.webp";
 import cabillaMicroclimate from "@/data/cabilla/aggregates/cabilla-microclimate-monthly.json";
+import cabillaDailyData from "@/data/cabilla/aggregates/cabilla-microclimate-daily.json";
 
 export default function ThousandYearTrust({
   year,
   setYear,
   place,
   setPlace,
+  metric,
+  setMetric,
 }) {
   useEffect(() => {
     setPlace("thousand-year-trust");
-  }, [setPlace]);
+    setMetric("microclimate");
+  }, [setPlace, setMetric]);
 
-  const [metric, setMetric] = useState("temperature", "microclimate");
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+
+    const allDailyRows = useMemo(() => {
+    if (!allYearsData) return [];
+
+    return Object.values(allYearsData).flatMap((byMonth) =>
+        Object.values(byMonth).flat()
+    );
+    }, [allYearsData]);
 
   const months = useMemo(
     () => [
@@ -78,10 +88,6 @@ export default function ThousandYearTrust({
     );
   }
 
-  const allDailyRows = Object.values(allYearsData || {}).flatMap((byMonth) =>
-    Object.values(byMonth).flat()
-  );
-
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
       <Header
@@ -124,9 +130,11 @@ export default function ThousandYearTrust({
             data={weather?.[month] || []}
             fullData={allDailyRows}
             temperatureData={cabillaMicroclimate}
+            microclimateDailyData={cabillaDailyData}
             />
         ))}
         </div>
+
       </main>
         <footer className="mt-10 border-t border-white/10">
         <div className="w-full max-w-[1200px] mx-auto px-4 lg:px-6 py-6 text-center">

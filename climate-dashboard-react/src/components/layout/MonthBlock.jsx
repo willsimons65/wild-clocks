@@ -10,7 +10,7 @@ import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
 import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
 import { buildInsightsAvailability } from "@/data/insights/buildInsightsAvailability";
 import CabillaMicroclimateChart from "@/components/charts/CabillaMicroclimateChart";
-
+import CabillaDailyMicroclimateChart from "@/components/charts/CabillaDailyMicroclimateChart";
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MONTH_NAMES } from "@/constants/months";
@@ -45,6 +45,7 @@ export default function MonthBlock({
   data,
   fullData,
   temperatureData,
+  microclimateDailyData,
 }) {
 
   const hasData = Array.isArray(data) && data.length > 0;
@@ -58,6 +59,8 @@ export default function MonthBlock({
 
   const monthIndex = monthIndex0 + 1;
 
+
+
   const navigate = useNavigate();
 
   const monthSlug = useMemo(() => {
@@ -65,6 +68,7 @@ export default function MonthBlock({
     return (MONTH_NAMES[monthIndex0] || month).toLowerCase();
   }, [monthIndex0, month]);
 
+  const [microclimateMetric, setMicroclimateMetric] = useState("temperature");
 
   // 🔍 DEBUG: inspect rainfall years per place
   useEffect(() => {
@@ -181,13 +185,26 @@ case "microclimate":
     );
   }
 
-  return (
-    <CabillaMicroclimateChart
-      data={temperatureData}
-      monthIndex={monthIndex}
-      year={year}
-    />
-  );
+return (
+  <div className="">
+    <div className="space-y-0">
+      <CabillaMicroclimateChart
+        data={temperatureData}
+        monthIndex={monthIndex}
+        year={year}
+        selectedMetric={microclimateMetric}
+        onMetricChange={setMicroclimateMetric}
+      />
+
+      <CabillaDailyMicroclimateChart
+        dailyData={microclimateDailyData}
+        year={year}
+        monthIndex={monthIndex}
+        metric={microclimateMetric}
+      />
+    </div>
+  </div>
+);
 
       default:
         return null;
@@ -219,17 +236,18 @@ case "microclimate":
           />
         </div>
 
-        <ChartCard>
-          <div className="relative overflow-visible">
-            <div className="px-4 pt-2 pb-5 flex items-center justify-center">
-  <h2 className="text-lg font-medium tracking-tight opacity-90">
-    {month}
-  </h2>
-</div>
-
-            {renderChart()}
+      <ChartCard>
+        <div className="relative overflow-visible">
+          <div className="px-4 pt-2 pb-5 flex items-center justify-center">
+            <h2 className="text-lg font-medium tracking-tight opacity-90">
+              {month}
+            </h2>
           </div>
-        </ChartCard>
+
+          {renderChart()}
+
+        </div>
+      </ChartCard>
       </div>
     </>
   );

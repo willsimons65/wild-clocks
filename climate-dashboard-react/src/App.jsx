@@ -17,6 +17,11 @@ import FieldNotes from "@/pages/FieldNotes";
 import InsightsPage from "@/components/insights/InsightsPage";
 import PhotoViewer from "@/pages/PhotoViewer";
 
+import {
+  isMetricAvailable,
+  getDefaultMetricForPlace,
+} from "@/config/metricAvailability";
+
 export default function App() {
   const DEFAULT_YEAR = 2026;
 
@@ -27,6 +32,12 @@ export default function App() {
 
   const [place, setPlace] = useState(() => {
     return localStorage.getItem("wildclocks:place") || "little-knepp";
+  });
+
+  const [metric, setMetric] = useState(() => {
+  return getDefaultMetricForPlace(
+    localStorage.getItem("wildclocks:place") || "little-knepp"
+  );
   });
 
   const climateData =
@@ -40,7 +51,20 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem("wildclocks:place", place);
+
+    const defaultMetric = getDefaultMetricForPlace(place);
+    setMetric(defaultMetric);
   }, [place]);
+
+  useEffect(() => {
+  if (!isMetricAvailable(place, metric)) {
+    setMetric(getDefaultMetricForPlace(place));
+  }
+  }, [place, metric]);
+
+  useEffect(() => {
+  localStorage.setItem("wildclocks:metric", metric);
+  }, [metric]);
 
   return (
     <Router>
@@ -63,6 +87,8 @@ export default function App() {
                   setYear={setYear}
                   place="little-knepp"
                   setPlace={setPlace}
+                  metric={metric}
+                  setMetric={setMetric}
                 />
               }
             />
@@ -75,6 +101,8 @@ export default function App() {
                   setYear={setYear}
                   place="appleton-woods"
                   setPlace={setPlace}
+                  metric={metric}
+                  setMetric={setMetric}
                 />
               }
             />
@@ -85,8 +113,10 @@ export default function App() {
                 <ThousandYearTrust
                   year={year}
                   setYear={setYear}
-                  place={place}
+                  place="thousand-year-trust"
                   setPlace={setPlace}
+                  metric={metric}
+                  setMetric={setMetric}
                 />
               }
             />

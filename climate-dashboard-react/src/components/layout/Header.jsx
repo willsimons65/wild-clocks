@@ -48,6 +48,7 @@ function handleBack() {
     <MetricSelector
       selected={metric}
       onChange={setMetric}
+      place={place}
       disabled={viewMode === "insights"}
       subtle={viewMode === "insights"}
     />

@@ -1,0 +1,497 @@
+{
+  "source": "Cabilla DataHog export",
+  "generatedAt": "2026-05-14T07:51:44.851Z",
+  "stableStart": {
+    "year": 2026,
+    "month": 3,
+    "day": 15
+  },
+  "units": {
+    "temp": "C",
+    "humidity": "%",
+    "solarRadiation": "W/m2"
+  },
+  "years": {
+    "2026": {
+      "3": {
+        "15": {
+          "date": "2026-03-15",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 6.4,
+          "maxTemp": 10,
+          "minTemp": 2.1,
+          "avgHumidity": 96.1,
+          "avgSolarRadiation": 112.5,
+          "maxSolarRadiation": 302.1
+        },
+        "16": {
+          "date": "2026-03-16",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 8.4,
+          "maxTemp": 10.5,
+          "minTemp": 6.7,
+          "avgHumidity": 96.7,
+          "avgSolarRadiation": 78.3,
+          "maxSolarRadiation": 332.8
+        },
+        "17": {
+          "date": "2026-03-17",
+          "days": 1,
+          "readings": 23,
+          "avgMeanTemp": 9.3,
+          "maxTemp": 10.3,
+          "minTemp": 8.4,
+          "avgHumidity": null,
+          "avgSolarRadiation": 91.4,
+          "maxSolarRadiation": 393.8
+        },
+        "18": {
+          "date": "2026-03-18",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 11.8,
+          "maxTemp": 17,
+          "minTemp": 7.5,
+          "avgHumidity": 64,
+          "avgSolarRadiation": 254.1,
+          "maxSolarRadiation": 640.7
+        },
+        "19": {
+          "date": "2026-03-19",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 11.1,
+          "maxTemp": 14.6,
+          "minTemp": 8.4,
+          "avgHumidity": 51.7,
+          "avgSolarRadiation": 342.5,
+          "maxSolarRadiation": 680.7
+        },
+        "20": {
+          "date": "2026-03-20",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 9.8,
+          "maxTemp": 15.5,
+          "minTemp": 2,
+          "avgHumidity": 64.2,
+          "avgSolarRadiation": 309,
+          "maxSolarRadiation": 665.6
+        },
+        "21": {
+          "date": "2026-03-21",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 7.3,
+          "maxTemp": 14.7,
+          "minTemp": 0.7,
+          "avgHumidity": 73.9,
+          "avgSolarRadiation": 297.4,
+          "maxSolarRadiation": 646
+        },
+        "22": {
+          "date": "2026-03-22",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 7.2,
+          "maxTemp": 12.8,
+          "minTemp": 1.7,
+          "avgHumidity": 79.9,
+          "avgSolarRadiation": 248.5,
+          "maxSolarRadiation": 638.8
+        },
+        "23": {
+          "date": "2026-03-23",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 8.1,
+          "maxTemp": 12.9,
+          "minTemp": 2.3,
+          "avgHumidity": 94.8,
+          "avgSolarRadiation": 196.3,
+          "maxSolarRadiation": 606
+        },
+        "24": {
+          "date": "2026-03-24",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 9.2,
+          "maxTemp": 10.6,
+          "minTemp": 7.4,
+          "avgHumidity": 95.6,
+          "avgSolarRadiation": 67.1,
+          "maxSolarRadiation": 149.1
+        },
+        "25": {
+          "date": "2026-03-25",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 6.1,
+          "maxTemp": 8.2,
+          "minTemp": 4.4,
+          "avgHumidity": 83.7,
+          "avgSolarRadiation": 274.6,
+          "maxSolarRadiation": 620.6
+        },
+        "26": {
+          "date": "2026-03-26",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 7.1,
+          "maxTemp": 10.1,
+          "minTemp": 4.8,
+          "avgHumidity": 86.8,
+          "avgSolarRadiation": 241.5,
+          "maxSolarRadiation": 648.3
+        },
+        "27": {
+          "date": "2026-03-27",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 8.4,
+          "maxTemp": 10.7,
+          "minTemp": 5.4,
+          "avgHumidity": 99.6,
+          "avgSolarRadiation": 69.9,
+          "maxSolarRadiation": 134.3
+        },
+        "28": {
+          "date": "2026-03-28",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 6.1,
+          "maxTemp": 9.2,
+          "minTemp": 3.8,
+          "avgHumidity": 84,
+          "avgSolarRadiation": 289.9,
+          "maxSolarRadiation": 762.7
+        },
+        "29": {
+          "date": "2026-03-29",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 7.1,
+          "maxTemp": 9.8,
+          "minTemp": 3.5,
+          "avgHumidity": 96.3,
+          "avgSolarRadiation": 83.8,
+          "maxSolarRadiation": 182.6
+        },
+        "30": {
+          "date": "2026-03-30",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 9.1,
+          "maxTemp": 10.9,
+          "minTemp": 7.3,
+          "avgHumidity": 94.4,
+          "avgSolarRadiation": 185.2,
+          "maxSolarRadiation": 661
+        },
+        "31": {
+          "date": "2026-03-31",
+          "days": 1,
+          "readings": 24,
+          "avgMeanTemp": 10.3,
+          "maxTemp": 15.9,
+          "minTemp": 8.3,
+          "avgHumidity": 96.4,
+          "avgSolarRadiation": 149.9,
+          "maxSolarRadiation": 682.5
+        }
+      },
+      "4": {
+        "1": {
+          "date": "2026-04-01",
+          "days": 1,
+          "readings": 70,
+          "avgMeanTemp": 9.9,
+          "maxTemp": 12.2,
+          "minTemp": 8.1,
+          "avgHumidity": 91.7,
+          "avgSolarRadiation": 153.9,
+          "maxSolarRadiation": 358.7
+        },
+        "2": {
+          "date": "2026-04-02",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 7.4,
+          "maxTemp": 11.2,
+          "minTemp": 3.1,
+          "avgHumidity": 82.3,
+          "avgSolarRadiation": 284.4,
+          "maxSolarRadiation": 784.2
+        },
+        "3": {
+          "date": "2026-04-03",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 10.2,
+          "maxTemp": 11.7,
+          "minTemp": 7.6,
+          "avgHumidity": null,
+          "avgSolarRadiation": 63.6,
+          "maxSolarRadiation": 197.4
+        },
+        "4": {
+          "date": "2026-04-04",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 9.7,
+          "maxTemp": 11.2,
+          "minTemp": 8.6,
+          "avgHumidity": 94.8,
+          "avgSolarRadiation": 82,
+          "maxSolarRadiation": 346
+        },
+        "5": {
+          "date": "2026-04-05",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 7.4,
+          "maxTemp": 10.9,
+          "minTemp": 0.6,
+          "avgHumidity": 80.8,
+          "avgSolarRadiation": 240.6,
+          "maxSolarRadiation": 815.9
+        },
+        "6": {
+          "date": "2026-04-06",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 8.4,
+          "maxTemp": 13.4,
+          "minTemp": 0.1,
+          "avgHumidity": 92.6,
+          "avgSolarRadiation": 226.3,
+          "maxSolarRadiation": 779.6
+        },
+        "7": {
+          "date": "2026-04-07",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 14,
+          "maxTemp": 18.8,
+          "minTemp": 7.6,
+          "avgHumidity": 79.6,
+          "avgSolarRadiation": 205.8,
+          "maxSolarRadiation": 771
+        },
+        "8": {
+          "date": "2026-04-08",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 14.3,
+          "maxTemp": 21.7,
+          "minTemp": 6.9,
+          "avgHumidity": 75.7,
+          "avgSolarRadiation": 214.9,
+          "maxSolarRadiation": 740.5
+        },
+        "9": {
+          "date": "2026-04-09",
+          "days": 1,
+          "readings": 64,
+          "avgMeanTemp": 9,
+          "maxTemp": 10.4,
+          "minTemp": 7.6,
+          "avgHumidity": null,
+          "avgSolarRadiation": 40.6,
+          "maxSolarRadiation": 266.7
+        },
+        "21": {
+          "date": "2026-04-21",
+          "days": 1,
+          "readings": 79,
+          "avgMeanTemp": 10.8,
+          "maxTemp": 12.3,
+          "minTemp": 8.6,
+          "avgHumidity": 73.4,
+          "avgSolarRadiation": 320.9,
+          "maxSolarRadiation": 931.2
+        },
+        "22": {
+          "date": "2026-04-22",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 10.2,
+          "maxTemp": 13.2,
+          "minTemp": 7.3,
+          "avgHumidity": 68.7,
+          "avgSolarRadiation": 169.4,
+          "maxSolarRadiation": 869.9
+        },
+        "23": {
+          "date": "2026-04-23",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 12.7,
+          "maxTemp": 17.2,
+          "minTemp": 8.5,
+          "avgHumidity": 58,
+          "avgSolarRadiation": 275,
+          "maxSolarRadiation": 846.1
+        },
+        "24": {
+          "date": "2026-04-24",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 13.4,
+          "maxTemp": 18.4,
+          "minTemp": 9.3,
+          "avgHumidity": 46.7,
+          "avgSolarRadiation": 285.4,
+          "maxSolarRadiation": 836.4
+        },
+        "25": {
+          "date": "2026-04-25",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 13.7,
+          "maxTemp": 19,
+          "minTemp": 9.7,
+          "avgHumidity": 53.5,
+          "avgSolarRadiation": 279,
+          "maxSolarRadiation": 809.8
+        },
+        "26": {
+          "date": "2026-04-26",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 13.1,
+          "maxTemp": 18,
+          "minTemp": 9.7,
+          "avgHumidity": 60.2,
+          "avgSolarRadiation": 205,
+          "maxSolarRadiation": 1075.9
+        },
+        "27": {
+          "date": "2026-04-27",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 13.8,
+          "maxTemp": 19.8,
+          "minTemp": 8.2,
+          "avgHumidity": 57.1,
+          "avgSolarRadiation": 292,
+          "maxSolarRadiation": 824.6
+        },
+        "28": {
+          "date": "2026-04-28",
+          "days": 1,
+          "readings": 143,
+          "avgMeanTemp": 10.3,
+          "maxTemp": 13.1,
+          "minTemp": 9,
+          "avgHumidity": 92.9,
+          "avgSolarRadiation": 206.4,
+          "maxSolarRadiation": 1077.5
+        },
+        "29": {
+          "date": "2026-04-29",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 12.7,
+          "maxTemp": 19.8,
+          "minTemp": 6.5,
+          "avgHumidity": 59.1,
+          "avgSolarRadiation": 264.4,
+          "maxSolarRadiation": 992
+        },
+        "30": {
+          "date": "2026-04-30",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 14.1,
+          "maxTemp": 16.2,
+          "minTemp": 12.4,
+          "avgHumidity": 60.6,
+          "avgSolarRadiation": 224.1,
+          "maxSolarRadiation": 1087.7
+        }
+      },
+      "5": {
+        "1": {
+          "date": "2026-05-01",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 12.5,
+          "maxTemp": 16.7,
+          "minTemp": 9.3,
+          "avgHumidity": 94.1,
+          "avgSolarRadiation": 278.2,
+          "maxSolarRadiation": 936.5
+        },
+        "2": {
+          "date": "2026-05-02",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 10.4,
+          "maxTemp": 12.6,
+          "minTemp": 9,
+          "avgHumidity": null,
+          "avgSolarRadiation": 80,
+          "maxSolarRadiation": 303.2
+        },
+        "3": {
+          "date": "2026-05-03",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 11,
+          "maxTemp": 14.6,
+          "minTemp": 9.6,
+          "avgHumidity": 99.3,
+          "avgSolarRadiation": 116.3,
+          "maxSolarRadiation": 754.6
+        },
+        "4": {
+          "date": "2026-05-04",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 12.3,
+          "maxTemp": 15.6,
+          "minTemp": 9.1,
+          "avgHumidity": 92.9,
+          "avgSolarRadiation": 335.6,
+          "maxSolarRadiation": 1113.3
+        },
+        "5": {
+          "date": "2026-05-05",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 10.7,
+          "maxTemp": 14.7,
+          "minTemp": 7.7,
+          "avgHumidity": 77.2,
+          "avgSolarRadiation": 264.1,
+          "maxSolarRadiation": 1079.8
+        },
+        "6": {
+          "date": "2026-05-06",
+          "days": 1,
+          "readings": 144,
+          "avgMeanTemp": 9.3,
+          "maxTemp": 11.9,
+          "minTemp": 7.5,
+          "avgHumidity": 97.3,
+          "avgSolarRadiation": 117.5,
+          "maxSolarRadiation": 395.4
+        },
+        "7": {
+          "date": "2026-05-07",
+          "days": 1,
+          "readings": 81,
+          "avgMeanTemp": 8.1,
+          "maxTemp": 13.3,
+          "minTemp": 5.2,
+          "avgHumidity": 95.4,
+          "avgSolarRadiation": 333.9,
+          "maxSolarRadiation": 1026.9
+        }
+      }
+    }
+  }
+}

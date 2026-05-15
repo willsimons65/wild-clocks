@@ -9,10 +9,12 @@ import RainIcon from "@/images/assets/rainfall.svg";
 import HumidIcon from "@/images/assets/humidity.svg";
 import PhotoIcon from "@/images/assets/photoperiod.svg";
 import MicroIcon from "@/images/assets/microclimate.svg";
+import { isMetricAvailable } from "@/config/metricAvailability";
 
 export default function MetricSelector({
   selected,
   onChange,
+  place,
   disabled = false,
   subtle = false,
   compact = false,
@@ -82,32 +84,44 @@ export default function MetricSelector({
             z-50
           "
         >
-          {metrics.map((m) => {
-            const isSelected = m.key === selected;
+{metrics.map((m) => {
+  const isSelected = m.key === selected;
+  const isDisabled = !isMetricAvailable(place, m.key);
 
-            return (
-              <button
-                key={m.key}
-                onClick={() => {
-                  onChange(m.key);
-                  setOpen(false);
-                }}
-                className={`
-                  w-full flex items-center gap-3
-                  px-4 py-3 text-left
-                  text-sm
-                  transition-colors
-                  ${isSelected ? "bg-white/10" : "hover:bg-white/5"}
-                `}
-              >
-                <img
-                  src={m.icon}
-                  alt=""
-                  aria-hidden="true"
-                  className="w-4 h-4 opacity-80"
-                />
-                <span className="text-white">{m.label}</span>
-              </button>
+  return (
+    <button
+      key={m.key}
+      disabled={isDisabled}
+      title={isDisabled ? "Not available for this site" : ""}
+      onClick={() => {
+        if (isDisabled) return;
+        onChange(m.key);
+        setOpen(false);
+      }}
+      className={`
+        w-full flex items-center gap-3
+        px-4 py-3 text-left
+        text-sm
+        transition-colors
+        ${
+          isDisabled
+            ? "opacity-35 cursor-not-allowed"
+            : isSelected
+              ? "bg-white/10"
+              : "hover:bg-white/5"
+        }
+      `}
+    >
+      <img
+        src={m.icon}
+        alt=""
+        aria-hidden="true"
+        className="w-4 h-4 opacity-80"
+      />
+      <span className={isDisabled ? "text-white/40" : "text-white"}>
+        {m.label}
+      </span>
+    </button>
             );
           })}
         </div>

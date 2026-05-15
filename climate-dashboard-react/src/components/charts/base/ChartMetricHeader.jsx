@@ -5,8 +5,12 @@ export default function ChartMetricHeader({ items }) {
 
   return (
     <div className="flex justify-center gap-6 text-center pointer-events-none select-none text-xs md:text-sm">
-      {items.map(({ label, value, unit, className }) => (
-        <span key={label} className={className}>
+      {items.map(({ label, value, unit, className, style }) => (
+        <span
+          key={label}
+          className={className}
+          style={style}
+        >
           <span className="opacity-70">{label}: </span>
           <span className="font-semibold">
             {value}
@@ -17,4 +21,3 @@ export default function ChartMetricHeader({ items }) {
     </div>
   );
 }
-
