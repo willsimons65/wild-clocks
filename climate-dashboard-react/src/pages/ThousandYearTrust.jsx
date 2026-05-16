@@ -9,6 +9,7 @@ import SentinelBanner from "@/components/sentinel/SentinelBanner";
 import TemWoodBanner from "@/images/assets/tem-wood-banner.webp";
 import cabillaMicroclimate from "@/data/cabilla/aggregates/cabilla-microclimate-monthly.json";
 import cabillaDailyData from "@/data/cabilla/aggregates/cabilla-microclimate-daily.json";
+import cabillaRainfallDaily from "@/data/cabilla/aggregates/cabilla-rainfall-daily.json";
 
 export default function ThousandYearTrust({
   year,
@@ -131,6 +132,7 @@ export default function ThousandYearTrust({
             fullData={allDailyRows}
             temperatureData={cabillaMicroclimate}
             microclimateDailyData={cabillaDailyData}
+            rainfallDailyData={cabillaRainfallDaily}
             />
         ))}
         </div>

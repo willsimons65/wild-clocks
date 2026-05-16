@@ -1,59 +1,76 @@
 import React, { useMemo } from "react";
 
+function round1(value) {
+  return Math.round(value * 10) / 10;
+}
+
+function getMonthEntries(dailyData, year, monthIndex) {
+  const monthData =
+    dailyData?.years?.[String(year)]?.[String(monthIndex)] || {};
+
+  return Object.values(monthData);
+}
+
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
 ];
 
-function getRainfallValue(row) {
-  return Number(row?.rainfall ?? row?.precipitation ?? row?.rainfallMm ?? 0);
-}
-
-function round(value) {
-  return Math.round(value);
-}
-
 export default function CabillaRainfallSummary({
-  data,
-  fullData,
+  dailyData,
   year,
-  month,
+  monthIndex,
 }) {
-  const monthIndex = MONTHS.indexOf(month);
+  const { monthlyTotal, yearToDateTotal, yearToDateMonthLabel } = useMemo(() => {
+    if (!dailyData) {
+      return {
+        monthlyTotal: null,
+        yearToDateTotal: null,
+      };
+    }
 
-  const { monthlyTotal, yearToDateTotal } = useMemo(() => {
-    const safeMonthRows = Array.isArray(data) ? data : [];
-    const safeFullRows = Array.isArray(fullData) ? fullData : [];
+const now = new Date();
+const currentYear = now.getFullYear();
+const currentMonth = now.getMonth() + 1;
 
-    const monthlyTotal = safeMonthRows.reduce(
-      (sum, row) => sum + getRainfallValue(row),
-      0
-    );
+const isFutureMonth =
+  Number(year) > currentYear ||
+  (Number(year) === currentYear && monthIndex > currentMonth);
 
-    const yearToDateRows = safeFullRows.filter((row) => {
-      const rowYear = Number(row.year);
-      const rowMonthIndex =
-        typeof row.month === "number"
-          ? row.month - 1
-          : MONTHS.indexOf(row.month);
+const monthEntries = isFutureMonth
+  ? []
+  : getMonthEntries(dailyData, year, monthIndex);
 
-      return (
-        rowYear === Number(year) &&
-        rowMonthIndex >= 0 &&
-        rowMonthIndex <= monthIndex
-      );
-    });
+const monthlyTotal = monthEntries.reduce(
+  (sum, day) => sum + Number(day.rainfall || 0),
+  0
+);
 
-    const yearToDateTotal = yearToDateRows.reduce(
-      (sum, row) => sum + getRainfallValue(row),
-      0
-    );
+let yearToDateTotal = 0;
 
-    return {
-      monthlyTotal: round(monthlyTotal),
-      yearToDateTotal: round(yearToDateTotal),
-    };
-  }, [data, fullData, year, monthIndex]);
+const maxMonth = isFutureMonth
+  ? 0
+  : Number(year) < currentYear
+    ? 12
+    : monthIndex;
+
+for (let m = 1; m <= maxMonth; m += 1) {
+  const entries = getMonthEntries(dailyData, year, m);
+
+  yearToDateTotal += entries.reduce(
+    (sum, day) => sum + Number(day.rainfall || 0),
+    0
+  );
+}
+
+return {
+  monthlyTotal: round1(monthlyTotal),
+  yearToDateTotal: round1(yearToDateTotal),
+  yearToDateMonthLabel: isFutureMonth
+    ? MONTHS[monthIndex - 1]
+    : MONTHS[maxMonth - 1],
+};
+  }, [dailyData, year, monthIndex]);
 
   return (
     <div>
@@ -63,18 +80,18 @@ export default function CabillaRainfallSummary({
             Total for the month
           </p>
 
-          <p className="mt-1 leading-none text-[22px] font-medium text-blue-300">
-            {monthlyTotal}mm
+          <p className="mt-1 leading-none text-[22px] font-medium text-[#7BB8FF]">
+            {monthlyTotal == null ? "—" : `${monthlyTotal}mm`}
           </p>
         </div>
 
         <div className="rounded-xl bg-white/[0.04] border border-white/10 px-3 py-3 text-center">
           <p className="text-[11px] uppercase tracking-wide text-white/45">
-            Year total to {month}
+            Year total to {yearToDateMonthLabel}
           </p>
 
-          <p className="mt-1 leading-none text-[22px] font-medium text-teal-300">
-            {yearToDateTotal}mm
+          <p className="mt-1 leading-none text-[22px] font-medium text-[#7BB8FF]">
+            {yearToDateTotal == null ? "—" : `${yearToDateTotal}mm`}
           </p>
         </div>
       </div>

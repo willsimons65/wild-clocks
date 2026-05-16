@@ -47,6 +47,7 @@ export default function MonthBlock({
   fullData,
   temperatureData,
   microclimateDailyData,
+  rainfallDailyData,
 }) {
 
   const hasData = Array.isArray(data) && data.length > 0;
@@ -147,28 +148,27 @@ const availability = useMemo(() => {
           />
         );
 
-      case "rainfall":
-        if (place === "thousand-year-trust") {
-          return (
-            <div className="">
-              <div className="space-y-5">
-                <CabillaRainfallSummary
-                  data={monthRows}
-                  fullData={fullData}
-                  year={year}
-                  month={month}
+        case "rainfall":
+          if (place === "thousand-year-trust") {
+            return (
+              <div>
+                <div className="space-y-5">
+                  <CabillaRainfallSummary
+                    dailyData={rainfallDailyData}
+                    year={year}
+                    monthIndex={monthIndex}
                 />
 
-                <RainfallChart
-                  data={monthRows}
-                  month={month}
-                  monthIndex={monthIndex}
-                  year={year}
-                />
+                  <RainfallChart
+                    data={monthRows}
+                    month={month}
+                    monthIndex={monthIndex}
+                    year={year}
+                  />
+                </div>
               </div>
-            </div>
-          );
-        }
+            );
+          }
 
         return (
           <RainfallChart

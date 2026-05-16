@@ -23,7 +23,7 @@ const METRIC_STYLES = {
         color: "#6066FF",
     },
     radiation: {
-        color: "#FDDE44",
+        color: "#F5D94A",
     },
 };
 

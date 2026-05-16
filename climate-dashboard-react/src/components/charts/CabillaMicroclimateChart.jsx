@@ -41,6 +41,12 @@ const cards = [
   },
 ];
 
+const METRIC_STYLES = {
+  temperature: "#FE2E95",
+  humidity: "#6066FF",
+  radiation: "#F5D94A",
+};
+
   return (
     <div className="pb-5">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -73,10 +79,16 @@ const cards = [
             </p>
 
             <p
-              className={`
-                mt-1 leading-none text-white/90
+            className={`
+                mt-1 leading-none
                 ${card.compact ? "text-[16px]" : "text-[20px]"}
-              `}
+            `}
+            style={{
+                color:
+                    selectedMetric === card.key
+                    ? METRIC_STYLES[card.key]
+                    : "rgba(255,255,255,0.9)",
+                }}
             >
               {card.value == null ? "—" : `${format(card.value)}${card.suffix}`}
             </p>
