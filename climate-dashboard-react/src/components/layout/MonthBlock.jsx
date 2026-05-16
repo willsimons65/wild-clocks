@@ -15,6 +15,7 @@ import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MONTH_NAMES } from "@/constants/months";
 import CabillaRainfallSummary from "@/components/charts/CabillaRainfallSummary";
+import CabillaRainfallChart from "@/components/charts/CabillaRainfallChart";
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -148,36 +149,35 @@ const availability = useMemo(() => {
           />
         );
 
-        case "rainfall":
-          if (place === "thousand-year-trust") {
-            return (
-              <div>
-                <div className="space-y-5">
-                  <CabillaRainfallSummary
-                    dailyData={rainfallDailyData}
-                    year={year}
-                    monthIndex={monthIndex}
-                />
-
-                  <RainfallChart
-                    data={monthRows}
-                    month={month}
-                    monthIndex={monthIndex}
-                    year={year}
-                  />
-                </div>
-              </div>
-            );
-          }
-
-        return (
-          <RainfallChart
-            data={monthRows}
-            month={month}
-            monthIndex={monthIndex}
+case "rainfall":
+  if (place === "thousand-year-trust") {
+    return (
+      <div>
+        <div className="space-y-5">
+          <CabillaRainfallSummary
+            dailyData={rainfallDailyData}
             year={year}
+            monthIndex={monthIndex}
           />
-        );
+
+          <CabillaRainfallChart
+            dailyData={rainfallDailyData}
+            year={year}
+            monthIndex={monthIndex}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <RainfallChart
+      data={monthRows}
+      month={month}
+      monthIndex={monthIndex}
+      year={year}
+    />
+  );
 
       case "humidity":
         return (
