@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MONTH_NAMES } from "@/constants/months";
 import { loadPhotoIndexForPlace, getLeadPhotoForSlot } from "@/services/photoService";
 import CompareSlider from "@/components/photos/viewer/CompareSlider";
+import { resolvePhotoUrl } from "@/utils/resolvePhotoUrl";
 
 function YearLabel({ year }) {
   return (
@@ -31,6 +32,7 @@ export default function CompareView({
   primaryYear,
   compareYear,
   swapSides = false,
+  photos = [],
 }) {
 
   const [status, setStatus] = useState("idle"); // idle | loading | ready | error
@@ -38,6 +40,9 @@ export default function CompareView({
   const [comparePhoto, setComparePhoto] = useState(null);
 
   const [split, setSplit] = useState(0.5);
+
+  const useManifestPhotos =
+  Array.isArray(photos) && photos.length > 0;
 
   useEffect(() => {
     setSplit(0.5);
@@ -47,26 +52,51 @@ useEffect(() => {
   let cancelled = false;
 
   async function run() {
-    const ok =
-      typeof place === "string" &&
-      place.length > 0 &&
-      Number.isInteger(monthIndex) &&
-      monthIndex >= 0 &&
-      Number.isInteger(slotIndex) &&
-      slotIndex >= 0 &&
-      Number.isFinite(primaryYear) &&
-      Number.isFinite(compareYear);
-
-    if (!ok) return;
+    if (
+      !Number.isInteger(monthIndex) ||
+      monthIndex < 0 ||
+      !Number.isInteger(slotIndex) ||
+      slotIndex < 0
+    ) {
+      return;
+    }
 
     setStatus("loading");
 
     try {
+      // ---------------------------------
+      // Manifest / R2 mode (Cabilla)
+      // ---------------------------------
+      if (useManifestPhotos) {
+        const slot = slotIndex + 1;
+
+        const photo = photos.find(
+          (p) => Number(p.slot) === slot
+        );
+
+        const resolved = photo?.url
+          ? {
+              ...photo,
+              url: resolvePhotoUrl(photo.url),
+            }
+          : null;
+
+        if (cancelled) return;
+
+        setPrimaryPhoto(resolved);
+        setComparePhoto(null);
+        setStatus("ready");
+        return;
+      }
+
+      // ---------------------------------
+      // Legacy mode
+      // ---------------------------------
       const res = await loadPhotoIndexForPlace(place);
 
       if (!res || !res.index) {
         throw new Error(
-          `loadPhotoIndexForPlace("${place}") returned no { index }. Got: ${JSON.stringify(res)}`
+          `loadPhotoIndexForPlace("${place}") returned no { index }`
         );
       }
 
@@ -92,24 +122,28 @@ useEffect(() => {
       setComparePhoto(right || null);
       setStatus("ready");
     } catch (err) {
-      console.error("[CompareView] failed:", {
-        place,
-        monthIndex,
-        slotIndex,
-        primaryYear,
-        compareYear,
-        err,
-      });
+      console.error("[CompareView] failed:", err);
+
       if (cancelled) return;
+
       setStatus("error");
     }
   }
 
   run();
+
   return () => {
     cancelled = true;
   };
-}, [place, monthIndex, slotIndex, primaryYear, compareYear]);
+}, [
+  place,
+  monthIndex,
+  slotIndex,
+  primaryYear,
+  compareYear,
+  photos,
+  useManifestPhotos,
+]);
 
 
   const bothExist = !!primaryPhoto && !!comparePhoto;

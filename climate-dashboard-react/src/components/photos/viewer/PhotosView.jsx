@@ -2,16 +2,21 @@
 
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { MONTH_NAMES } from "@/constants/months";
+import { resolvePhotoUrl } from "@/utils/resolvePhotoUrl";
 
-function getLegacyMonthUrls({ base, place, year, monthIndex, count = 4 }) {
+function getLegacyMonthUrlOptions({ place, year, monthIndex, count = 4 }) {
   const monthLabel = MONTH_NAMES[monthIndex] || null;
   const cleanMonth = monthLabel ? monthLabel.toLowerCase() : null;
 
-  if (!base || !place || !Number.isFinite(year) || !cleanMonth) return [];
+  if (!place || !Number.isFinite(year) || !cleanMonth) return [];
 
   return Array.from({ length: count }, (_, i) => {
     const index = i + 1;
-    return `${base}/${place}/${year}/${cleanMonth}/${index}.png`;
+
+    return [
+      `/photos/${place}/${year}/${cleanMonth}/${index}.webp`,
+      `/photos/${place}/${year}/${cleanMonth}/${index}.png`,
+    ];
   });
 }
 
@@ -21,6 +26,7 @@ export default function PhotosView({
   monthIndex,
   activeIndex,
   setActiveIndex,
+  photos = [],
 }) {
   const base = import.meta.env.VITE_R2_PUBLIC_BASE_URL;
   const monthLabel = MONTH_NAMES[monthIndex] || "Month";
@@ -28,42 +34,67 @@ export default function PhotosView({
   // Load + validate the 4 slots
   const [urls, setUrls] = useState([null, null, null, null]);
 
-  useEffect(() => {
-    const candidates = getLegacyMonthUrls({
-      base,
-      place,
-      year,
-      monthIndex,
-      count: 4,
+useEffect(() => {
+  const useManifestPhotos = Array.isArray(photos) && photos.length > 0;
+
+  const candidates = useManifestPhotos
+    ? Array.from({ length: 4 }, (_, i) => {
+        const slot = i + 1;
+        const photo = photos.find((p) => Number(p.slot) === slot);
+
+        return photo?.url ? [resolvePhotoUrl(photo.url)] : [];
+      })
+    : getLegacyMonthUrlOptions({
+        place,
+        year,
+        monthIndex,
+        count: 4,
+      });
+
+  if (!candidates.length) {
+    setUrls([null, null, null, null]);
+    return;
+  }
+
+  let cancelled = false;
+
+  function testImage(url) {
+    return new Promise((resolve) => {
+      if (!url) {
+        resolve(null);
+        return;
+      }
+
+      const img = new Image();
+      img.onload = () => resolve(url);
+      img.onerror = () => resolve(null);
+      img.src = url;
     });
+  }
 
-    if (!candidates.length) return;
-
-    let cancelled = false;
-
-    async function run() {
-      const results = await Promise.all(
-        candidates.map(
-          (url) =>
-            new Promise((resolve) => {
-              const img = new Image();
-              img.onload = () => resolve(url);
-              img.onerror = () => resolve(null);
-              img.src = url;
-            })
-        )
-      );
-
-      if (cancelled) return;
-      setUrls(results);
+  async function resolveSlot(urlOptions) {
+    for (const url of urlOptions) {
+      const result = await testImage(url);
+      if (result) return result;
     }
 
-    run();
+    return null;
+  }
 
-    return () => {
-      cancelled = true;
-    };
-  }, [base, place, year, monthIndex]);
+  async function run() {
+    const results = await Promise.all(
+      candidates.map((urlOptions) => resolveSlot(urlOptions))
+    );
+
+    if (!cancelled) setUrls(results);
+  }
+
+  run();
+
+  return () => {
+    cancelled = true;
+  };
+}, [place, year, monthIndex, photos]);
 
   // Safety: if activeIndex points to empty, shift to first available
   useEffect(() => {
@@ -315,7 +346,7 @@ const animClass =
                       src={src}
                       alt=""
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain bg-white/[0.04]"
                     />
                   ) : (
                     <div className="w-full h-full bg-white/10" />
@@ -326,6 +357,6 @@ const animClass =
           </div>
         </div>
       </div>
-    </div>
+    </div>  
   );
 }

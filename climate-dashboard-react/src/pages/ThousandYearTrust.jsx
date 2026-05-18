@@ -10,6 +10,7 @@ import TemWoodBanner from "@/images/assets/tem-wood-banner.webp";
 import cabillaMicroclimate from "@/data/cabilla/aggregates/cabilla-microclimate-monthly.json";
 import cabillaDailyData from "@/data/cabilla/aggregates/cabilla-microclimate-daily.json";
 import cabillaRainfallDaily from "@/data/cabilla/aggregates/cabilla-rainfall-daily.json";
+import { PHOTO_MANIFESTS } from "@/data/photos/manifests";
 
 export default function ThousandYearTrust({
   year,
@@ -27,6 +28,10 @@ export default function ThousandYearTrust({
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const cabillaPhotos = useMemo(() => {
+  return PHOTO_MANIFESTS["cabilla"]?.[year] || [];
+}, [year]);
 
     const allDailyRows = useMemo(() => {
     if (!allYearsData) return [];
@@ -121,20 +126,27 @@ export default function ThousandYearTrust({
 
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {months.map((month) => (
-          <MonthBlock
-            key={month}
-            month={month}
-            year={year}
-            place="thousand-year-trust"
-            metric={metric}
-            data={weather?.[month] || []}
-            fullData={allDailyRows}
-            temperatureData={cabillaMicroclimate}
-            microclimateDailyData={cabillaDailyData}
-            rainfallDailyData={cabillaRainfallDaily}
-            />
-        ))}
+{months.map((month, monthIndex) => {
+  const monthPhotos = cabillaPhotos.filter(
+    (p) => p.month === monthIndex + 1
+  );
+
+  return (
+    <MonthBlock
+      key={month}
+      month={month}
+      year={year}
+      place="thousand-year-trust"
+      metric={metric}
+      data={weather?.[month] || []}
+      fullData={allDailyRows}
+      temperatureData={cabillaMicroclimate}
+      microclimateDailyData={cabillaDailyData}
+      rainfallDailyData={cabillaRainfallDaily}
+      photos={monthPhotos}
+    />
+  );
+})}
         </div>
 
       </main>

@@ -16,6 +16,7 @@ import {
 } from "@/utils/queryState";
 
 import { MONTH_NAMES } from "@/constants/months";
+import { PHOTO_MANIFESTS } from "@/data/photos/manifests";
 
 function normalizePlaceSlug(raw) {
   if (!raw) return null;
@@ -36,6 +37,11 @@ const PLACE_META = {
     title: "Appleton Woods",
     feedPath: "/appleton-woods",
   },
+    "thousand-year-trust": {
+    title: "Thousand Year Trust",
+    feedPath: "/thousand-year-trust",
+    manifestPlace: "cabilla",
+  },
 };
 
 export default function PhotoViewer() {
@@ -51,6 +57,17 @@ export default function PhotoViewer() {
     title: "Little Knepp",
     feedPath: "/little-knepp",
   };
+
+  const manifestPlace = placeMeta.manifestPlace || place;
+
+  const manifestPhotos = useMemo(() => {
+    return PHOTO_MANIFESTS[manifestPlace]?.[year] || [];
+  }, [manifestPlace, year]);
+
+  const monthPhotos = useMemo(() => {
+    if (monthIndex < 0) return [];
+    return manifestPhotos.filter((p) => p.month === monthIndex + 1);
+  }, [manifestPhotos, monthIndex]);
 
   // -----------------------------
   // Read initial state from URL
@@ -211,6 +228,7 @@ export default function PhotoViewer() {
             monthIndex={monthIndex}
             activeIndex={activePhotoIndex}
             setActiveIndex={setActivePhotoIndex}
+            photos={monthPhotos}
           />
         ) : (
           <CompareView
@@ -220,6 +238,7 @@ export default function PhotoViewer() {
             primaryYear={year}
             compareYear={compareYear}
             swapSides={swapSides}
+            photos={monthPhotos}
           />
         )}
       </main>

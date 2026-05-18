@@ -1,43 +1,27 @@
 // src/components/layout/MonthBlock.jsx
 
+import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import PhotoGrid from "@/components/photos/PhotoGrid";
 import ChartCard from "@/components/layout/ChartCard";
+
 import TemperatureChart from "@/components/charts/TemperatureChart";
 import RainfallChart from "@/components/charts/RainfallChart";
 import HumidityChart from "@/components/charts/HumidityChart";
 import PhotoperiodChart from "@/components/charts/PhotoperiodChart";
-import { transformRainfallMonth } from "@/data/rainfall/transformRainfallMonth";
-import { transformTemperatureMonth } from "@/data/temperature/transformTemperature";
-import { buildInsightsAvailability } from "@/data/insights/buildInsightsAvailability";
+
 import CabillaMicroclimateChart from "@/components/charts/CabillaMicroclimateChart";
 import CabillaDailyMicroclimateChart from "@/components/charts/CabillaDailyMicroclimateChart";
-import { useState, useMemo, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { MONTH_NAMES } from "@/constants/months";
 import CabillaRainfallSummary from "@/components/charts/CabillaRainfallSummary";
 import CabillaRainfallChart from "@/components/charts/CabillaRainfallChart";
 
+import { MONTH_NAMES } from "@/constants/months";
+
 const MONTHS = [
-  "January","February","March","April","May","June",
-  "July","August","September","October","November","December"
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
 ];
-
-function normalizeRainfallRows(rows) {
-  if (!Array.isArray(rows)) return [];
-
-  return rows.map((r) => {
-    if (typeof r.month === "string") return r;
-
-    if (typeof r.month === "number") {
-      return {
-        ...r,
-        month: MONTHS[r.month - 1],
-      };
-    }
-
-    return r;
-  });
-}
 
 export default function MonthBlock({
   month,
@@ -49,73 +33,19 @@ export default function MonthBlock({
   temperatureData,
   microclimateDailyData,
   rainfallDailyData,
+  photos = [],
 }) {
-
-  const hasData = Array.isArray(data) && data.length > 0;
+  const navigate = useNavigate();
+  const [microclimateMetric, setMicroclimateMetric] = useState("temperature");
 
   const monthIndex0 = MONTHS.indexOf(month);
-    useEffect(() => {
-    if (monthIndex0 < 0) {
-      console.warn("MonthBlock: month not found in MONTHS:", month);
-    }
-  }, [month, monthIndex0]);
-
   const monthIndex = monthIndex0 + 1;
 
-
-
-  const navigate = useNavigate();
-
   const monthSlug = useMemo(() => {
-    // monthIndex0 is 0..11, MONTH_NAMES matches that.
     return (MONTH_NAMES[monthIndex0] || month).toLowerCase();
   }, [monthIndex0, month]);
 
-  const [microclimateMetric, setMicroclimateMetric] = useState("temperature");
-
-  // 🔍 DEBUG: inspect rainfall years per place
-  useEffect(() => {
-    if (!Array.isArray(fullData)) return;
-
-    const years = fullData
-      .filter(
-        (r) =>
-          typeof r.place === "string" &&
-          r.place.toLowerCase().replace(/\s/g, "") === place
-      )
-      .map((r) => r.year);
-
-  
-  }, [fullData, place]);
-
-  // ✅ Rainfall modal data
-  const rainfallModalData = useMemo(() => {
-    if (metric !== "rainfall") return null;
-    if (!Array.isArray(fullData)) return null;
-
-    const placeFilteredRows = fullData;
-
-    if (placeFilteredRows.length === 0) return null;
-
-    const normalizedRows = normalizeRainfallRows(placeFilteredRows);
-
-    return transformRainfallMonth(
-      normalizedRows,
-      year,
-      month
-    );
-  }, [metric, fullData, year, month, place]);
-
-  const temperatureModalData = useMemo(() => {
-    if (metric !== "temperature") return null;
-    if (!temperatureData) return null;
-
-    return transformTemperatureMonth(
-      temperatureData,
-      year,
-      monthIndex0
-    );
-  }, [metric, temperatureData, year, monthIndex0]);
+  const hasData = Array.isArray(data) && data.length > 0;
 
   const monthRows = hasData
     ? data.filter(
@@ -124,18 +54,6 @@ export default function MonthBlock({
           d.month === month
       )
     : [];
-
-  const yearRows = hasData
-  ? data.filter((d) => Number(d.year) === Number(year))
-  : [];
-
-
-const availability = useMemo(() => {
-  return buildInsightsAvailability({
-    monthRows,
-    yearRows,
-  });
-}, [monthRows, yearRows]);
 
   const renderChart = () => {
     switch (metric) {
@@ -149,35 +67,33 @@ const availability = useMemo(() => {
           />
         );
 
-case "rainfall":
-  if (place === "thousand-year-trust") {
-    return (
-      <div>
-        <div className="space-y-5">
-          <CabillaRainfallSummary
-            dailyData={rainfallDailyData}
-            year={year}
-            monthIndex={monthIndex}
-          />
+      case "rainfall":
+        if (place === "thousand-year-trust") {
+          return (
+            <div className="space-y-5">
+              <CabillaRainfallSummary
+                dailyData={rainfallDailyData}
+                year={year}
+                monthIndex={monthIndex}
+              />
 
-          <CabillaRainfallChart
-            dailyData={rainfallDailyData}
-            year={year}
-            monthIndex={monthIndex}
-          />
-        </div>
-      </div>
-    );
-  }
+              <CabillaRainfallChart
+                dailyData={rainfallDailyData}
+                year={year}
+                monthIndex={monthIndex}
+              />
+            </div>
+          );
+        }
 
-  return (
-    <RainfallChart
-      data={monthRows}
-      month={month}
-      monthIndex={monthIndex}
-      year={year}
-    />
-  );
+        return (
+          <RainfallChart
+            data={monthRows}
+            month={month}
+            monthIndex={monthIndex}
+            year={year}
+          />
+        );
 
       case "humidity":
         return (
@@ -199,35 +115,33 @@ case "rainfall":
           />
         );
 
-case "microclimate":
-  if (place !== "thousand-year-trust") {
-    return (
-      <div className="px-4 pb-6 text-center text-sm text-white/45">
-        Microclimate data is not available for this site yet
-      </div>
-    );
-  }
+      case "microclimate":
+        if (place !== "thousand-year-trust") {
+          return (
+            <div className="px-4 pb-6 text-center text-sm text-white/45">
+              Microclimate data is not available for this site yet
+            </div>
+          );
+        }
 
-return (
-  <div className="">
-    <div className="space-y-0">
-      <CabillaMicroclimateChart
-        data={temperatureData}
-        monthIndex={monthIndex}
-        year={year}
-        selectedMetric={microclimateMetric}
-        onMetricChange={setMicroclimateMetric}
-      />
+        return (
+          <div className="space-y-0">
+            <CabillaMicroclimateChart
+              data={temperatureData}
+              monthIndex={monthIndex}
+              year={year}
+              selectedMetric={microclimateMetric}
+              onMetricChange={setMicroclimateMetric}
+            />
 
-      <CabillaDailyMicroclimateChart
-        dailyData={microclimateDailyData}
-        year={year}
-        monthIndex={monthIndex}
-        metric={microclimateMetric}
-      />
-    </div>
-  </div>
-);
+            <CabillaDailyMicroclimateChart
+              dailyData={microclimateDailyData}
+              year={year}
+              monthIndex={monthIndex}
+              metric={microclimateMetric}
+            />
+          </div>
+        );
 
       default:
         return null;
@@ -235,29 +149,24 @@ return (
   };
 
   return (
-    <>
-      <div className="flex flex-col gap-2 relative overflow-visible">
-        <div className="rounded-2xl bg-[#1E1E1E] relative">
-          <PhotoGrid
-            month={monthIndex}
-            year={year}
-            place={place}
-            onPhotoClick={(i) => {
-              if (monthIndex0 < 0) {
-                console.warn("MonthBlock: invalid monthIndex0 for month:", month);
-                return;
-              }
+    <div className="flex flex-col gap-2 relative overflow-visible">
+      <div className="rounded-2xl bg-[#1E1E1E] relative">
+        <PhotoGrid
+          photos={photos}
+          manifestOnly={place === "thousand-year-trust"}
+          month={monthIndex}
+          year={year}
+          place={place}
+          onPhotoClick={(i) => {
+            const photo = i + 1;
 
-              // i is 0..3, URL photo should be 1..4
-              const photo = i + 1;
-
-              navigate(
-                `/viewer/${place}/${year}/${monthSlug}?mode=photos&photo=${photo}`,
-                { state: { from: "feed" } }
-              );
-            }}
-          />
-        </div>
+            navigate(
+              `/viewer/${place}/${year}/${monthSlug}?mode=photos&photo=${photo}`,
+              { state: { from: "feed" } }
+            );
+          }}
+        />
+      </div>
 
       <ChartCard>
         <div className="relative overflow-visible">
@@ -268,14 +177,11 @@ return (
           </div>
 
           {renderChart()}
-
         </div>
       </ChartCard>
-      </div>
-    </>
+    </div>
   );
 }
-
 
 
 
