@@ -48,11 +48,7 @@ const monthlyTotal = monthEntries.reduce(
 
 let yearToDateTotal = 0;
 
-const maxMonth = isFutureMonth
-  ? 0
-  : Number(year) < currentYear
-    ? 12
-    : monthIndex;
+const maxMonth = isFutureMonth ? 0 : monthIndex;
 
 for (let m = 1; m <= maxMonth; m += 1) {
   const entries = getMonthEntries(dailyData, year, m);
