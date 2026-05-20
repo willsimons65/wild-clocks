@@ -114,6 +114,8 @@ useEffect(() => {
 
   const currentSrc = safeIndex != null ? urls[safeIndex] : null;
 
+  const isManifestViewer = Array.isArray(photos) && photos.length > 0;
+
   // ------------------------------------------------------------
   // Correct prev/next based on actual valid photos
   // ------------------------------------------------------------
@@ -231,84 +233,91 @@ const animClass =
         </div>
       </div> */}
 
-      {/* Main image */}
-      <div className="relative flex items-center justify-center">
-        <div className="w-full max-w-[620px]">
-            <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/30 relative">
-            {/* ✅ Parallax backplate (moves LESS than foreground) */}
-            {currentSrc ? (
-                <img
-                src={currentSrc}
-                alt=""
-                aria-hidden="true"
-                draggable={false}
-                className={[
-                    "absolute inset-0 w-full h-full object-cover",
-                    "opacity-[0.01] scale-[1.05] blur-[1.5px]",
-                    "will-change-transform will-change-opacity",
-                    "transition-[transform,opacity] ease-out",
-                    anim === "fade" ? "duration-150" : "duration-90",
+{/* Main image */}
+<div className="relative flex items-center justify-center">
+  <div className="w-full max-w-[620px]">
+    <div
+      className={[
+        "rounded-2xl overflow-hidden border border-white/10 relative",
+        isManifestViewer
+          ? "aspect-square bg-white/[0.02] flex items-center justify-center"
+          : "bg-black/30",
+      ].join(" ")}
+    >
+      {/* Legacy parallax backplate only */}
+      {currentSrc && !isManifestViewer ? (
+        <img
+          src={currentSrc}
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+          className={[
+            "absolute inset-0 w-full h-full object-cover",
+            "opacity-[0.01] scale-[1.05] blur-[1.5px]",
+            "will-change-transform will-change-opacity",
+            "transition-[transform,opacity] ease-out",
+            anim === "fade" ? "duration-150" : "duration-90",
+            anim === "slide-left"
+              ? "-translate-x-[8px] opacity-0"
+              : anim === "slide-right"
+              ? "translate-x-[8px] opacity-0"
+              : anim === "fade"
+              ? "opacity-0 scale-[1.02]"
+              : "opacity-[0.10] translate-x-0",
+          ].join(" ")}
+        />
+      ) : null}
 
-                    anim === "slide-left"
-                    ? "-translate-x-[8px] opacity-0"
-                    : anim === "slide-right"
-                    ? "translate-x-[8px] opacity-0"
-                    : anim === "fade"
-                    ? "opacity-0 scale-[1.02]"
-                    : "opacity-[0.10] translate-x-0",
-                ].join(" ")}
-                />
-            ) : null}
-
-            {/* ✅ Foreground main image */}
-            {currentSrc ? (
-                <img
-                src={currentSrc}
-                alt=""
-                draggable={false}
-                className={[
-                    "relative block w-full h-auto object-contain",
-                    "will-change-transform will-change-opacity",
-                    "transition-[transform,opacity] ease-out",
-                    anim === "fade" ? "duration-170" : "duration-110",
-                    animClass,
-                ].join(" ")}
-                />
-            ) : (
-                <div className="aspect-square flex items-center justify-center text-white/50">
-                Image not available
-                </div>
-            )}
-            </div>
-
-          {/* arrows */}
-          <button
-            aria-label="Previous image"
-            onClick={prev}
-            disabled={isAnimating || prevIndex == null}
-            className="
-              absolute left-3 md:left-6 top-1/2 -translate-y-1/2
-              text-white text-4xl md:text-5xl
-              hover:text-white/70 disabled:opacity-30
-            "
-          >
-            ‹
-          </button>
-
-          <button
-            aria-label="Next image"
-            onClick={next}
-            disabled={isAnimating || nextIndex == null}
-            className="
-              absolute right-3 md:right-6 top-1/2 -translate-y-1/2
-              text-white text-4xl md:text-5xl
-              hover:text-white/70 disabled:opacity-30 disabled:pointer-events-none
-            "
-          >
-            ›
-          </button>
+      {/* Foreground main image */}
+      {currentSrc ? (
+        <img
+          src={currentSrc}
+          alt=""
+          draggable={false}
+          className={[
+            "relative block object-contain",
+            isManifestViewer ? "w-full h-auto rounded-none" : "w-full h-auto",
+            "will-change-transform will-change-opacity",
+            "transition-[transform,opacity] ease-out",
+            anim === "fade" ? "duration-170" : "duration-110",
+            animClass,
+          ].join(" ")}
+        />
+      ) : (
+        <div className="aspect-square flex items-center justify-center text-white/50">
+          Image not available
         </div>
-      </div>
+      )}
+    </div>
+
+    {/* arrows */}
+    <button
+      aria-label="Previous image"
+      onClick={prev}
+      disabled={isAnimating || prevIndex == null}
+      className="
+        absolute left-3 md:left-6 top-1/2 -translate-y-1/2
+        text-white text-4xl md:text-5xl
+        hover:text-white/70 disabled:opacity-30
+      "
+    >
+      ‹
+    </button>
+
+    <button
+      aria-label="Next image"
+      onClick={next}
+      disabled={isAnimating || nextIndex == null}
+      className="
+        absolute right-3 md:right-6 top-1/2 -translate-y-1/2
+        text-white text-4xl md:text-5xl
+        hover:text-white/70 disabled:opacity-30 disabled:pointer-events-none
+      "
+    >
+      ›
+    </button>
+  </div>
+</div>
 
       {/* Thumbnails */}
       <div className="flex justify-center w-full">
