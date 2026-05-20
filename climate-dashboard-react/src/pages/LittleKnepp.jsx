@@ -14,6 +14,7 @@ import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 
 import littleKneppClimate from "@/data/aggregates/little-knepp.json";
+import littleKneppRainfallDaily from "@/data/little-knepp/aggregates/little-knepp-rainfall-daily.json";
 
 export default function LittleKnepp({
   year,
@@ -153,16 +154,17 @@ export default function LittleKnepp({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {months.map((month) => (
-              <MonthBlock
-                key={month}
-                month={month}
-                year={year}
-                place="littleknepp"
-                metric={metric}
-                data={weather[month]}
-                fullData={allDailyRows}
-                temperatureData={littleKneppClimate}
-              />
+<MonthBlock
+  key={month}
+  month={month}
+  year={year}
+  place="littleknepp"
+  metric={metric}
+  data={weather[month]}
+  fullData={allDailyRows}
+  temperatureData={littleKneppClimate}
+  rainfallDailyData={littleKneppRainfallDaily}
+/>
             ))}
           </div>
         </div>

@@ -1,6 +1,6 @@
 {
   "source": "Google Sheets",
-  "generatedAt": "2026-05-20T05:17:05.788Z",
+  "generatedAt": "2026-05-20T05:17:08.630Z",
   "units": {
     "rainfall": "mm"
   },
@@ -9,11 +9,11 @@
       "1": {
         "1": {
           "date": "2025-01-01",
-          "rainfall": 14.3
+          "rainfall": 7
         },
         "2": {
           "date": "2025-01-02",
-          "rainfall": 0.4
+          "rainfall": 0
         },
         "3": {
           "date": "2025-01-03",
@@ -21,35 +21,35 @@
         },
         "4": {
           "date": "2025-01-04",
-          "rainfall": 38.2
+          "rainfall": 1
         },
         "5": {
           "date": "2025-01-05",
-          "rainfall": 14.3
+          "rainfall": 8
         },
         "6": {
           "date": "2025-01-06",
-          "rainfall": 13.3
+          "rainfall": 4
         },
         "7": {
           "date": "2025-01-07",
-          "rainfall": 0.9
+          "rainfall": 0
         },
         "8": {
           "date": "2025-01-08",
-          "rainfall": 7.2
+          "rainfall": 0
         },
         "9": {
           "date": "2025-01-09",
-          "rainfall": 2.5
+          "rainfall": 0
         },
         "10": {
           "date": "2025-01-10",
-          "rainfall": 4.1
+          "rainfall": 0
         },
         "11": {
           "date": "2025-01-11",
-          "rainfall": 2.4
+          "rainfall": 0
         },
         "12": {
           "date": "2025-01-12",
@@ -65,11 +65,11 @@
         },
         "15": {
           "date": "2025-01-15",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "16": {
           "date": "2025-01-16",
-          "rainfall": 0.3
+          "rainfall": 0
         },
         "17": {
           "date": "2025-01-17",
@@ -85,39 +85,39 @@
         },
         "20": {
           "date": "2025-01-20",
-          "rainfall": 0.5
+          "rainfall": 0
         },
         "21": {
           "date": "2025-01-21",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "22": {
           "date": "2025-01-22",
-          "rainfall": 1.1
+          "rainfall": 0
         },
         "23": {
           "date": "2025-01-23",
-          "rainfall": 30.4
+          "rainfall": 2
         },
         "24": {
           "date": "2025-01-24",
-          "rainfall": 2.1
+          "rainfall": 3
         },
         "25": {
           "date": "2025-01-25",
-          "rainfall": 5.8
+          "rainfall": 1
         },
         "26": {
           "date": "2025-01-26",
-          "rainfall": 31.7
+          "rainfall": 8
         },
         "27": {
           "date": "2025-01-27",
-          "rainfall": 9.6
+          "rainfall": 10
         },
         "28": {
           "date": "2025-01-28",
-          "rainfall": 3.5
+          "rainfall": 2
         },
         "29": {
           "date": "2025-01-29",
@@ -125,11 +125,11 @@
         },
         "30": {
           "date": "2025-01-30",
-          "rainfall": 4.5
+          "rainfall": 0
         },
         "31": {
           "date": "2025-01-31",
-          "rainfall": 0
+          "rainfall": 3
         }
       },
       "2": {
@@ -139,7 +139,7 @@
         },
         "2": {
           "date": "2025-02-02",
-          "rainfall": 3.3
+          "rainfall": 0
         },
         "3": {
           "date": "2025-02-03",
@@ -147,7 +147,7 @@
         },
         "4": {
           "date": "2025-02-04",
-          "rainfall": 2.4
+          "rainfall": 0
         },
         "5": {
           "date": "2025-02-05",
@@ -159,19 +159,19 @@
         },
         "7": {
           "date": "2025-02-07",
-          "rainfall": 0
+          "rainfall": 1
         },
         "8": {
           "date": "2025-02-08",
-          "rainfall": 0
+          "rainfall": 1
         },
         "9": {
           "date": "2025-02-09",
-          "rainfall": 0.1
+          "rainfall": 4
         },
         "10": {
           "date": "2025-02-10",
-          "rainfall": 0
+          "rainfall": 3
         },
         "11": {
           "date": "2025-02-11",
@@ -183,15 +183,15 @@
         },
         "13": {
           "date": "2025-02-13",
-          "rainfall": 3.7
+          "rainfall": 0
         },
         "14": {
           "date": "2025-02-14",
-          "rainfall": 5.7
+          "rainfall": 0
         },
         "15": {
           "date": "2025-02-15",
-          "rainfall": 0.9
+          "rainfall": 2
         },
         "16": {
           "date": "2025-02-16",
@@ -203,39 +203,39 @@
         },
         "18": {
           "date": "2025-02-18",
-          "rainfall": 6.8
+          "rainfall": 0
         },
         "19": {
           "date": "2025-02-19",
-          "rainfall": 12.4
+          "rainfall": 0
         },
         "20": {
           "date": "2025-02-20",
-          "rainfall": 19.1
+          "rainfall": 2
         },
         "21": {
           "date": "2025-02-21",
-          "rainfall": 6.5
+          "rainfall": 2
         },
         "22": {
           "date": "2025-02-22",
-          "rainfall": 0.3
+          "rainfall": 0
         },
         "23": {
           "date": "2025-02-23",
-          "rainfall": 32.1
+          "rainfall": 3
         },
         "24": {
           "date": "2025-02-24",
-          "rainfall": 1.2
+          "rainfall": 5
         },
         "25": {
           "date": "2025-02-25",
-          "rainfall": 12.6
+          "rainfall": 0
         },
         "26": {
           "date": "2025-02-26",
-          "rainfall": 0.7
+          "rainfall": 7
         },
         "27": {
           "date": "2025-02-27",
@@ -261,7 +261,7 @@
         },
         "4": {
           "date": "2025-03-04",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "5": {
           "date": "2025-03-05",
@@ -269,15 +269,15 @@
         },
         "6": {
           "date": "2025-03-06",
-          "rainfall": 2.5
+          "rainfall": 0
         },
         "7": {
           "date": "2025-03-07",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "8": {
           "date": "2025-03-08",
-          "rainfall": 1.9
+          "rainfall": 0
         },
         "9": {
           "date": "2025-03-09",
@@ -285,7 +285,7 @@
         },
         "10": {
           "date": "2025-03-10",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "11": {
           "date": "2025-03-11",
@@ -293,7 +293,7 @@
         },
         "12": {
           "date": "2025-03-12",
-          "rainfall": 0.3
+          "rainfall": 1
         },
         "13": {
           "date": "2025-03-13",
@@ -325,15 +325,15 @@
         },
         "20": {
           "date": "2025-03-20",
-          "rainfall": 0.4
+          "rainfall": 0
         },
         "21": {
           "date": "2025-03-21",
-          "rainfall": 6.9
+          "rainfall": 0
         },
         "22": {
           "date": "2025-03-22",
-          "rainfall": 0
+          "rainfall": 1
         },
         "23": {
           "date": "2025-03-23",
@@ -341,11 +341,11 @@
         },
         "24": {
           "date": "2025-03-24",
-          "rainfall": 0
+          "rainfall": 1
         },
         "25": {
           "date": "2025-03-25",
-          "rainfall": 0.3
+          "rainfall": 0
         },
         "26": {
           "date": "2025-03-26",
@@ -353,7 +353,7 @@
         },
         "27": {
           "date": "2025-03-27",
-          "rainfall": 3.7
+          "rainfall": 0
         },
         "28": {
           "date": "2025-03-28",
@@ -361,7 +361,7 @@
         },
         "29": {
           "date": "2025-03-29",
-          "rainfall": 0.9
+          "rainfall": 0
         },
         "30": {
           "date": "2025-03-30",
@@ -383,7 +383,7 @@
         },
         "3": {
           "date": "2025-04-03",
-          "rainfall": 4.6
+          "rainfall": 0
         },
         "4": {
           "date": "2025-04-04",
@@ -419,7 +419,7 @@
         },
         "12": {
           "date": "2025-04-12",
-          "rainfall": 3
+          "rainfall": 0
         },
         "13": {
           "date": "2025-04-13",
@@ -427,23 +427,23 @@
         },
         "14": {
           "date": "2025-04-14",
-          "rainfall": 18.1
+          "rainfall": 0
         },
         "15": {
           "date": "2025-04-15",
-          "rainfall": 37
+          "rainfall": 1
         },
         "16": {
           "date": "2025-04-16",
-          "rainfall": 0.3
+          "rainfall": 0
         },
         "17": {
           "date": "2025-04-17",
-          "rainfall": 14.7
+          "rainfall": 0
         },
         "18": {
           "date": "2025-04-18",
-          "rainfall": 34.6
+          "rainfall": 0
         },
         "19": {
           "date": "2025-04-19",
@@ -451,7 +451,7 @@
         },
         "20": {
           "date": "2025-04-20",
-          "rainfall": 0.5
+          "rainfall": 0
         },
         "21": {
           "date": "2025-04-21",
@@ -459,11 +459,11 @@
         },
         "22": {
           "date": "2025-04-22",
-          "rainfall": 19.4
+          "rainfall": 0
         },
         "23": {
           "date": "2025-04-23",
-          "rainfall": 0
+          "rainfall": 8
         },
         "24": {
           "date": "2025-04-24",
@@ -471,7 +471,7 @@
         },
         "25": {
           "date": "2025-04-25",
-          "rainfall": 4.4
+          "rainfall": 0
         },
         "26": {
           "date": "2025-04-26",
@@ -533,15 +533,15 @@
         },
         "10": {
           "date": "2025-05-10",
-          "rainfall": 2.6
+          "rainfall": 0
         },
         "11": {
           "date": "2025-05-11",
-          "rainfall": 6.7
+          "rainfall": 0
         },
         "12": {
           "date": "2025-05-12",
-          "rainfall": 0
+          "rainfall": 4
         },
         "13": {
           "date": "2025-05-13",
@@ -573,11 +573,11 @@
         },
         "20": {
           "date": "2025-05-20",
-          "rainfall": 1.3
+          "rainfall": 0
         },
         "21": {
           "date": "2025-05-21",
-          "rainfall": 0
+          "rainfall": 3
         },
         "22": {
           "date": "2025-05-22",
@@ -585,27 +585,27 @@
         },
         "23": {
           "date": "2025-05-23",
-          "rainfall": 0.9
+          "rainfall": 0
         },
         "24": {
           "date": "2025-05-24",
-          "rainfall": 4.2
+          "rainfall": 2
         },
         "25": {
           "date": "2025-05-25",
-          "rainfall": 0.9
+          "rainfall": 1
         },
         "26": {
           "date": "2025-05-26",
-          "rainfall": 9
+          "rainfall": 0
         },
         "27": {
           "date": "2025-05-27",
-          "rainfall": 11.2
+          "rainfall": 3
         },
         "28": {
           "date": "2025-05-28",
-          "rainfall": 0.4
+          "rainfall": 0
         },
         "29": {
           "date": "2025-05-29",
@@ -617,7 +617,7 @@
         },
         "31": {
           "date": "2025-05-31",
-          "rainfall": 0.4
+          "rainfall": 0
         }
       },
       "6": {
@@ -627,27 +627,27 @@
         },
         "2": {
           "date": "2025-06-02",
-          "rainfall": 9.6
+          "rainfall": 0
         },
         "3": {
           "date": "2025-06-03",
-          "rainfall": 0.2
+          "rainfall": 4
         },
         "4": {
           "date": "2025-06-04",
-          "rainfall": 4.9
+          "rainfall": 0
         },
         "5": {
           "date": "2025-06-05",
-          "rainfall": 4.4
+          "rainfall": 6
         },
         "6": {
           "date": "2025-06-06",
-          "rainfall": 5.1
+          "rainfall": 0
         },
         "7": {
           "date": "2025-06-07",
-          "rainfall": 14.6
+          "rainfall": 5
         },
         "8": {
           "date": "2025-06-08",
@@ -655,7 +655,7 @@
         },
         "9": {
           "date": "2025-06-09",
-          "rainfall": 1.4
+          "rainfall": 0
         },
         "10": {
           "date": "2025-06-10",
@@ -663,19 +663,19 @@
         },
         "11": {
           "date": "2025-06-11",
-          "rainfall": 9.4
+          "rainfall": 0
         },
         "12": {
           "date": "2025-06-12",
-          "rainfall": 6
+          "rainfall": 2
         },
         "13": {
           "date": "2025-06-13",
-          "rainfall": 21.6
+          "rainfall": 0
         },
         "14": {
           "date": "2025-06-14",
-          "rainfall": 2
+          "rainfall": 0
         },
         "15": {
           "date": "2025-06-15",
@@ -699,39 +699,39 @@
         },
         "20": {
           "date": "2025-06-20",
-          "rainfall": 0.3
+          "rainfall": 0
         },
         "21": {
           "date": "2025-06-21",
-          "rainfall": 1.4
+          "rainfall": 0
         },
         "22": {
           "date": "2025-06-22",
-          "rainfall": 0.7
+          "rainfall": 0
         },
         "23": {
           "date": "2025-06-23",
-          "rainfall": 0.9
+          "rainfall": 0
         },
         "24": {
           "date": "2025-06-24",
-          "rainfall": 0.4
+          "rainfall": 1
         },
         "25": {
           "date": "2025-06-25",
-          "rainfall": 1.9
+          "rainfall": 0
         },
         "26": {
           "date": "2025-06-26",
-          "rainfall": 0.1
+          "rainfall": 1
         },
         "27": {
           "date": "2025-06-27",
-          "rainfall": 1.4
+          "rainfall": 3
         },
         "28": {
           "date": "2025-06-28",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "29": {
           "date": "2025-06-29",
@@ -757,19 +757,19 @@
         },
         "4": {
           "date": "2025-07-04",
-          "rainfall": 1.1
+          "rainfall": 0
         },
         "5": {
           "date": "2025-07-05",
-          "rainfall": 6.7
+          "rainfall": 0
         },
         "6": {
           "date": "2025-07-06",
-          "rainfall": 2.7
+          "rainfall": 1
         },
         "7": {
           "date": "2025-07-07",
-          "rainfall": 0
+          "rainfall": 1
         },
         "8": {
           "date": "2025-07-08",
@@ -793,43 +793,43 @@
         },
         "13": {
           "date": "2025-07-13",
-          "rainfall": 2
+          "rainfall": 0
         },
         "14": {
           "date": "2025-07-14",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "15": {
           "date": "2025-07-15",
-          "rainfall": 4.3
+          "rainfall": 2
         },
         "16": {
           "date": "2025-07-16",
-          "rainfall": 4.1
+          "rainfall": 0
         },
         "17": {
           "date": "2025-07-17",
-          "rainfall": 5.8
+          "rainfall": 1
         },
         "18": {
           "date": "2025-07-18",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "19": {
           "date": "2025-07-19",
-          "rainfall": 12.9
+          "rainfall": 3
         },
         "20": {
           "date": "2025-07-20",
-          "rainfall": 6.3
+          "rainfall": 3
         },
         "21": {
           "date": "2025-07-21",
-          "rainfall": 5.7
+          "rainfall": 1
         },
         "22": {
           "date": "2025-07-22",
-          "rainfall": 2.7
+          "rainfall": 0
         },
         "23": {
           "date": "2025-07-23",
@@ -841,31 +841,31 @@
         },
         "25": {
           "date": "2025-07-25",
-          "rainfall": 2.1
+          "rainfall": 0
         },
         "26": {
           "date": "2025-07-26",
-          "rainfall": 0.3
+          "rainfall": 0
         },
         "27": {
           "date": "2025-07-27",
-          "rainfall": 0.4
+          "rainfall": 0
         },
         "28": {
           "date": "2025-07-28",
-          "rainfall": 2.8
+          "rainfall": 0
         },
         "29": {
           "date": "2025-07-29",
-          "rainfall": 0.3
+          "rainfall": 1
         },
         "30": {
           "date": "2025-07-30",
-          "rainfall": 1.2
+          "rainfall": 0
         },
         "31": {
           "date": "2025-07-31",
-          "rainfall": 1.3
+          "rainfall": 6
         }
       },
       "8": {
@@ -875,15 +875,15 @@
         },
         "2": {
           "date": "2025-08-02",
-          "rainfall": 0.5
+          "rainfall": 0
         },
         "3": {
           "date": "2025-08-03",
-          "rainfall": 0.9
+          "rainfall": 0
         },
         "4": {
           "date": "2025-08-04",
-          "rainfall": 6.9
+          "rainfall": 0
         },
         "5": {
           "date": "2025-08-05",
@@ -895,7 +895,7 @@
         },
         "7": {
           "date": "2025-08-07",
-          "rainfall": 1.8
+          "rainfall": 0
         },
         "8": {
           "date": "2025-08-08",
@@ -911,7 +911,7 @@
         },
         "11": {
           "date": "2025-08-11",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "12": {
           "date": "2025-08-12",
@@ -919,7 +919,7 @@
         },
         "13": {
           "date": "2025-08-13",
-          "rainfall": 1.3
+          "rainfall": 0
         },
         "14": {
           "date": "2025-08-14",
@@ -939,11 +939,11 @@
         },
         "18": {
           "date": "2025-08-18",
-          "rainfall": 2.3
+          "rainfall": 0
         },
         "19": {
           "date": "2025-08-19",
-          "rainfall": 0.8
+          "rainfall": 0
         },
         "20": {
           "date": "2025-08-20",
@@ -955,11 +955,11 @@
         },
         "22": {
           "date": "2025-08-22",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "23": {
           "date": "2025-08-23",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "24": {
           "date": "2025-08-24",
@@ -967,113 +967,113 @@
         },
         "25": {
           "date": "2025-08-25",
-          "rainfall": 1.7
+          "rainfall": 0
         },
         "26": {
           "date": "2025-08-26",
-          "rainfall": 4.2
+          "rainfall": 0
         },
         "27": {
           "date": "2025-08-27",
-          "rainfall": 0.4
+          "rainfall": 5
         },
         "28": {
           "date": "2025-08-28",
-          "rainfall": 21.5
+          "rainfall": 4
         },
         "29": {
           "date": "2025-08-29",
-          "rainfall": 0.3
+          "rainfall": 8
         },
         "30": {
           "date": "2025-08-30",
-          "rainfall": 7.4
+          "rainfall": 3
         },
         "31": {
           "date": "2025-08-31",
-          "rainfall": 6.1
+          "rainfall": 2
         }
       },
       "9": {
         "1": {
           "date": "2025-09-01",
-          "rainfall": 7.5
+          "rainfall": 2
         },
         "2": {
           "date": "2025-09-02",
-          "rainfall": 13.5
+          "rainfall": 1
         },
         "3": {
           "date": "2025-09-03",
-          "rainfall": 8.6
+          "rainfall": 6
         },
         "4": {
           "date": "2025-09-04",
-          "rainfall": 7.3
+          "rainfall": 6
         },
         "5": {
           "date": "2025-09-05",
-          "rainfall": 0
+          "rainfall": 10
         },
         "6": {
           "date": "2025-09-06",
-          "rainfall": 1.5
+          "rainfall": 10
         },
         "7": {
           "date": "2025-09-07",
-          "rainfall": 17.9
+          "rainfall": 0
         },
         "8": {
           "date": "2025-09-08",
-          "rainfall": 3.4
+          "rainfall": 1
         },
         "9": {
           "date": "2025-09-09",
-          "rainfall": 18
+          "rainfall": 10
         },
         "10": {
           "date": "2025-09-10",
-          "rainfall": 2.9
+          "rainfall": 36
         },
         "11": {
           "date": "2025-09-11",
-          "rainfall": 22.2
+          "rainfall": 10
         },
         "12": {
           "date": "2025-09-12",
-          "rainfall": 2.2
+          "rainfall": 7
         },
         "13": {
           "date": "2025-09-13",
-          "rainfall": 0.3
+          "rainfall": 3
         },
         "14": {
           "date": "2025-09-14",
-          "rainfall": 10.1
+          "rainfall": 12
         },
         "15": {
           "date": "2025-09-15",
-          "rainfall": 1.7
+          "rainfall": 2
         },
         "16": {
           "date": "2025-09-16",
-          "rainfall": 10
+          "rainfall": 0
         },
         "17": {
           "date": "2025-09-17",
-          "rainfall": 3.2
+          "rainfall": 2
         },
         "18": {
           "date": "2025-09-18",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "19": {
           "date": "2025-09-19",
-          "rainfall": 2.4
+          "rainfall": 1
         },
         "20": {
           "date": "2025-09-20",
-          "rainfall": 10.5
+          "rainfall": 17
         },
         "21": {
           "date": "2025-09-21",
@@ -1089,7 +1089,7 @@
         },
         "24": {
           "date": "2025-09-24",
-          "rainfall": 0
+          "rainfall": 4
         },
         "25": {
           "date": "2025-09-25",
@@ -1101,11 +1101,11 @@
         },
         "27": {
           "date": "2025-09-27",
-          "rainfall": 7.9
+          "rainfall": 0
         },
         "28": {
           "date": "2025-09-28",
-          "rainfall": 0
+          "rainfall": 2
         },
         "29": {
           "date": "2025-09-29",
@@ -1123,15 +1123,15 @@
         },
         "2": {
           "date": "2025-10-02",
-          "rainfall": 6
+          "rainfall": 0
         },
         "3": {
           "date": "2025-10-03",
-          "rainfall": 10.8
+          "rainfall": 36
         },
         "4": {
           "date": "2025-10-04",
-          "rainfall": 2.7
+          "rainfall": 5
         },
         "5": {
           "date": "2025-10-05",
@@ -1143,11 +1143,11 @@
         },
         "7": {
           "date": "2025-10-07",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "8": {
           "date": "2025-10-08",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "9": {
           "date": "2025-10-09",
@@ -1187,121 +1187,121 @@
         },
         "18": {
           "date": "2025-10-18",
-          "rainfall": 23.4
+          "rainfall": 1
         },
         "19": {
           "date": "2025-10-19",
-          "rainfall": 23.1
+          "rainfall": 18
         },
         "20": {
           "date": "2025-10-20",
-          "rainfall": 10.1
+          "rainfall": 8
         },
         "21": {
           "date": "2025-10-21",
-          "rainfall": 0.5
+          "rainfall": 1
         },
         "22": {
           "date": "2025-10-22",
-          "rainfall": 14.8
+          "rainfall": 2
         },
         "23": {
           "date": "2025-10-23",
-          "rainfall": 5.5
+          "rainfall": 15
         },
         "24": {
           "date": "2025-10-24",
-          "rainfall": 9.4
+          "rainfall": 10
         },
         "25": {
           "date": "2025-10-25",
-          "rainfall": 0.7
+          "rainfall": 0
         },
         "26": {
           "date": "2025-10-26",
-          "rainfall": 4.7
+          "rainfall": 0
         },
         "27": {
           "date": "2025-10-27",
-          "rainfall": 1.4
+          "rainfall": 0
         },
         "28": {
           "date": "2025-10-28",
-          "rainfall": 1.9
+          "rainfall": 1
         },
         "29": {
           "date": "2025-10-29",
-          "rainfall": 3.7
+          "rainfall": 1
         },
         "30": {
           "date": "2025-10-30",
-          "rainfall": 9.1
+          "rainfall": 1
         },
         "31": {
           "date": "2025-10-31",
-          "rainfall": 4.1
+          "rainfall": 0
         }
       },
       "11": {
         "1": {
           "date": "2025-11-01",
-          "rainfall": 5.2
+          "rainfall": 0
         },
         "2": {
           "date": "2025-11-02",
-          "rainfall": 0.5
+          "rainfall": 0
         },
         "3": {
           "date": "2025-11-03",
-          "rainfall": 3
+          "rainfall": 0
         },
         "4": {
           "date": "2025-11-04",
-          "rainfall": 35.2
+          "rainfall": 0
         },
         "5": {
           "date": "2025-11-05",
-          "rainfall": 1.4
+          "rainfall": 0
         },
         "6": {
           "date": "2025-11-06",
-          "rainfall": 1.1
+          "rainfall": 0
         },
         "7": {
           "date": "2025-11-07",
-          "rainfall": 11.8
+          "rainfall": 5
         },
         "8": {
           "date": "2025-11-08",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "9": {
           "date": "2025-11-09",
-          "rainfall": 10.6
+          "rainfall": 8
         },
         "10": {
           "date": "2025-11-10",
-          "rainfall": 3.6
+          "rainfall": 19
         },
         "11": {
           "date": "2025-11-11",
-          "rainfall": 15.1
+          "rainfall": 10
         },
         "12": {
           "date": "2025-11-12",
-          "rainfall": 4.1
+          "rainfall": 3
         },
         "13": {
           "date": "2025-11-13",
-          "rainfall": 11.9
+          "rainfall": 15
         },
         "14": {
           "date": "2025-11-14",
-          "rainfall": 15.1
+          "rainfall": 54
         },
         "15": {
           "date": "2025-11-15",
-          "rainfall": 0
+          "rainfall": 1
         },
         "16": {
           "date": "2025-11-16",
@@ -1309,97 +1309,97 @@
         },
         "17": {
           "date": "2025-11-17",
-          "rainfall": 1
+          "rainfall": 0
         },
         "18": {
           "date": "2025-11-18",
-          "rainfall": 4.5
+          "rainfall": 0
         },
         "19": {
           "date": "2025-11-19",
-          "rainfall": 20.2
+          "rainfall": 8
         },
         "20": {
           "date": "2025-11-20",
-          "rainfall": 3
+          "rainfall": 0
         },
         "21": {
           "date": "2025-11-21",
-          "rainfall": 4.4
+          "rainfall": 4
         },
         "22": {
           "date": "2025-11-22",
-          "rainfall": 12.1
+          "rainfall": 16
         },
         "23": {
           "date": "2025-11-23",
-          "rainfall": 6.9
+          "rainfall": 4
         },
         "24": {
           "date": "2025-11-24",
-          "rainfall": 3.4
+          "rainfall": 0
         },
         "25": {
           "date": "2025-11-25",
-          "rainfall": 0.4
+          "rainfall": 0
         },
         "26": {
           "date": "2025-11-26",
-          "rainfall": 2.7
+          "rainfall": 2
         },
         "27": {
           "date": "2025-11-27",
-          "rainfall": 2.8
+          "rainfall": 1
         },
         "28": {
           "date": "2025-11-28",
-          "rainfall": 14.2
+          "rainfall": 0
         },
         "29": {
           "date": "2025-11-29",
-          "rainfall": 2.2
+          "rainfall": 24
         },
         "30": {
           "date": "2025-11-30",
-          "rainfall": 10.9
+          "rainfall": 0
         }
       },
       "12": {
         "1": {
           "date": "2025-12-01",
-          "rainfall": 16.6
+          "rainfall": 12
         },
         "2": {
           "date": "2025-12-02",
-          "rainfall": 1.6
+          "rainfall": 8
         },
         "3": {
           "date": "2025-12-03",
-          "rainfall": 15.4
+          "rainfall": 0
         },
         "4": {
           "date": "2025-12-04",
-          "rainfall": 3.2
+          "rainfall": 21
         },
         "5": {
           "date": "2025-12-05",
-          "rainfall": 39.9
+          "rainfall": 12
         },
         "6": {
           "date": "2025-12-06",
-          "rainfall": 10.6
+          "rainfall": 2
         },
         "7": {
           "date": "2025-12-07",
-          "rainfall": 7.1
+          "rainfall": 11
         },
         "8": {
           "date": "2025-12-08",
-          "rainfall": 36.7
+          "rainfall": 1
         },
         "9": {
           "date": "2025-12-09",
-          "rainfall": 6.4
+          "rainfall": 18
         },
         "10": {
           "date": "2025-12-10",
@@ -1407,11 +1407,11 @@
         },
         "11": {
           "date": "2025-12-11",
-          "rainfall": 18.5
+          "rainfall": 0
         },
         "12": {
           "date": "2025-12-12",
-          "rainfall": 0
+          "rainfall": 4
         },
         "13": {
           "date": "2025-12-13",
@@ -1419,43 +1419,43 @@
         },
         "14": {
           "date": "2025-12-14",
-          "rainfall": 25.7
+          "rainfall": 0
         },
         "15": {
           "date": "2025-12-15",
-          "rainfall": 6.4
+          "rainfall": 14
         },
         "16": {
           "date": "2025-12-16",
-          "rainfall": 0.9
+          "rainfall": 9
         },
         "17": {
           "date": "2025-12-17",
-          "rainfall": 17.8
+          "rainfall": 3
         },
         "18": {
           "date": "2025-12-18",
-          "rainfall": 12.1
+          "rainfall": 33
         },
         "19": {
           "date": "2025-12-19",
-          "rainfall": 2.7
+          "rainfall": 0
         },
         "20": {
           "date": "2025-12-20",
-          "rainfall": 9.1
+          "rainfall": 0
         },
         "21": {
           "date": "2025-12-21",
-          "rainfall": 5.4
+          "rainfall": 4
         },
         "22": {
           "date": "2025-12-22",
-          "rainfall": 3.1
+          "rainfall": 2
         },
         "23": {
           "date": "2025-12-23",
-          "rainfall": 0.6
+          "rainfall": 0
         },
         "24": {
           "date": "2025-12-24",
@@ -1487,7 +1487,7 @@
         },
         "31": {
           "date": "2025-12-31",
-          "rainfall": 1.1
+          "rainfall": 0
         }
       }
     },
@@ -1495,189 +1495,189 @@
       "1": {
         "1": {
           "date": "2026-01-01",
-          "rainfall": 1.4
+          "rainfall": 0
         },
         "2": {
           "date": "2026-01-02",
-          "rainfall": 1.3
+          "rainfall": 2
         },
         "3": {
           "date": "2026-01-03",
-          "rainfall": 1.5
+          "rainfall": 0
         },
         "4": {
           "date": "2026-01-04",
-          "rainfall": 5.3
+          "rainfall": 0
         },
         "5": {
           "date": "2026-01-05",
-          "rainfall": 1.8
+          "rainfall": 0
         },
         "6": {
           "date": "2026-01-06",
-          "rainfall": 3.2
+          "rainfall": 6
         },
         "7": {
           "date": "2026-01-07",
-          "rainfall": 5.5
+          "rainfall": 0
         },
         "8": {
           "date": "2026-01-08",
-          "rainfall": 30.3
+          "rainfall": 24
         },
         "9": {
           "date": "2026-01-09",
-          "rainfall": 5.7
+          "rainfall": 6
         },
         "10": {
           "date": "2026-01-10",
-          "rainfall": 9
+          "rainfall": 0
         },
         "11": {
           "date": "2026-01-11",
-          "rainfall": 16.3
+          "rainfall": 6
         },
         "12": {
           "date": "2026-01-12",
-          "rainfall": 8.4
+          "rainfall": 5
         },
         "13": {
           "date": "2026-01-13",
-          "rainfall": 0.3
+          "rainfall": 9
         },
         "14": {
           "date": "2026-01-14",
-          "rainfall": 2.6
+          "rainfall": 4
         },
         "15": {
           "date": "2026-01-15",
-          "rainfall": 3.9
+          "rainfall": 44
         },
         "16": {
           "date": "2026-01-16",
-          "rainfall": 4.8
+          "rainfall": 17
         },
         "17": {
           "date": "2026-01-17",
-          "rainfall": 2.6
+          "rainfall": 1
         },
         "18": {
           "date": "2026-01-18",
-          "rainfall": 0
+          "rainfall": 1
         },
         "19": {
           "date": "2026-01-19",
-          "rainfall": 10.2
+          "rainfall": 1
         },
         "20": {
           "date": "2026-01-20",
-          "rainfall": 29.1
+          "rainfall": 9
         },
         "21": {
           "date": "2026-01-21",
-          "rainfall": 24.1
+          "rainfall": 17
         },
         "22": {
           "date": "2026-01-22",
-          "rainfall": 13.9
+          "rainfall": 18
         },
         "23": {
           "date": "2026-01-23",
-          "rainfall": 43.3
+          "rainfall": 5
         },
         "24": {
           "date": "2026-01-24",
-          "rainfall": 17.7
+          "rainfall": 18
         },
         "25": {
           "date": "2026-01-25",
-          "rainfall": 0.1
+          "rainfall": 0
         },
         "26": {
           "date": "2026-01-26",
-          "rainfall": 55.1
+          "rainfall": 2
         },
         "27": {
           "date": "2026-01-27",
-          "rainfall": 3
+          "rainfall": 28
         },
         "28": {
           "date": "2026-01-28",
-          "rainfall": 10.6
+          "rainfall": 0
         },
         "29": {
           "date": "2026-01-29",
-          "rainfall": 15.8
+          "rainfall": 3
         },
         "30": {
           "date": "2026-01-30",
-          "rainfall": 8
+          "rainfall": 12
         },
         "31": {
           "date": "2026-01-31",
-          "rainfall": 7.4
+          "rainfall": 3
         }
       },
       "2": {
         "1": {
           "date": "2026-02-01",
-          "rainfall": 2.4
+          "rainfall": 12
         },
         "2": {
           "date": "2026-02-02",
-          "rainfall": 4.8
+          "rainfall": 0
         },
         "3": {
           "date": "2026-02-03",
-          "rainfall": 2.5
+          "rainfall": 22
         },
         "4": {
           "date": "2026-02-04",
-          "rainfall": 10.4
+          "rainfall": 0
         },
         "5": {
           "date": "2026-02-05",
-          "rainfall": 10.3
+          "rainfall": 16
         },
         "6": {
           "date": "2026-02-06",
-          "rainfall": 9.9
+          "rainfall": 39
         },
         "7": {
           "date": "2026-02-07",
-          "rainfall": 4.1
+          "rainfall": 5
         },
         "8": {
           "date": "2026-02-08",
-          "rainfall": 7.8
+          "rainfall": 10
         },
         "9": {
           "date": "2026-02-09",
-          "rainfall": 16.7
+          "rainfall": 1
         },
         "10": {
           "date": "2026-02-10",
-          "rainfall": 11.1
+          "rainfall": 17
         },
         "11": {
           "date": "2026-02-11",
-          "rainfall": 5.8
+          "rainfall": 6
         },
         "12": {
           "date": "2026-02-12",
-          "rainfall": 3.3
+          "rainfall": 11
         },
         "13": {
           "date": "2026-02-13",
-          "rainfall": 3.4
+          "rainfall": 9
         },
         "14": {
           "date": "2026-02-14",
-          "rainfall": 12.9
+          "rainfall": 0
         },
         "15": {
           "date": "2026-02-15",
-          "rainfall": 8.8
+          "rainfall": 27
         },
         "16": {
           "date": "2026-02-16",
@@ -1685,61 +1685,61 @@
         },
         "17": {
           "date": "2026-02-17",
-          "rainfall": 9.2
+          "rainfall": 0
         },
         "18": {
           "date": "2026-02-18",
-          "rainfall": 8
+          "rainfall": 21
         },
         "19": {
           "date": "2026-02-19",
-          "rainfall": 0.7
+          "rainfall": 6
         },
         "20": {
           "date": "2026-02-20",
-          "rainfall": 3.2
+          "rainfall": 4
         },
         "21": {
           "date": "2026-02-21",
-          "rainfall": 9.8
+          "rainfall": 2
         },
         "22": {
           "date": "2026-02-22",
-          "rainfall": 0.6
+          "rainfall": 1
         },
         "23": {
           "date": "2026-02-23",
-          "rainfall": 0.9
+          "rainfall": 0
         },
         "24": {
           "date": "2026-02-24",
-          "rainfall": 0
+          "rainfall": 1
         },
         "25": {
           "date": "2026-02-25",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "26": {
           "date": "2026-02-26",
-          "rainfall": 22.2
+          "rainfall": 4
         },
         "27": {
           "date": "2026-02-27",
-          "rainfall": 8.9
+          "rainfall": 14
         },
         "28": {
           "date": "2026-02-28",
-          "rainfall": 3.7
+          "rainfall": 1
         }
       },
       "3": {
         "1": {
           "date": "2026-03-01",
-          "rainfall": 3.6
+          "rainfall": 0
         },
         "2": {
           "date": "2026-03-02",
-          "rainfall": 2.6
+          "rainfall": 0
         },
         "3": {
           "date": "2026-03-03",
@@ -1751,11 +1751,11 @@
         },
         "5": {
           "date": "2026-03-05",
-          "rainfall": 3.4
+          "rainfall": 0
         },
         "6": {
           "date": "2026-03-06",
-          "rainfall": 0
+          "rainfall": 8
         },
         "7": {
           "date": "2026-03-07",
@@ -1763,15 +1763,15 @@
         },
         "8": {
           "date": "2026-03-08",
-          "rainfall": 1.5
+          "rainfall": 2
         },
         "9": {
           "date": "2026-03-09",
-          "rainfall": 0.2
+          "rainfall": 0
         },
         "10": {
           "date": "2026-03-10",
-          "rainfall": 7.4
+          "rainfall": 6
         },
         "11": {
           "date": "2026-03-11",
@@ -1779,11 +1779,11 @@
         },
         "12": {
           "date": "2026-03-12",
-          "rainfall": 13
+          "rainfall": 16
         },
         "13": {
           "date": "2026-03-13",
-          "rainfall": 4
+          "rainfall": 2
         },
         "14": {
           "date": "2026-03-14",
@@ -1791,11 +1791,11 @@
         },
         "15": {
           "date": "2026-03-15",
-          "rainfall": 3.2
+          "rainfall": 8
         },
         "16": {
           "date": "2026-03-16",
-          "rainfall": 0.7
+          "rainfall": 0
         },
         "17": {
           "date": "2026-03-17",
@@ -1827,19 +1827,19 @@
         },
         "24": {
           "date": "2026-03-24",
-          "rainfall": 3.9
+          "rainfall": 5
         },
         "25": {
           "date": "2026-03-25",
-          "rainfall": 0
+          "rainfall": 2
         },
         "26": {
           "date": "2026-03-26",
-          "rainfall": 1.7
+          "rainfall": 0
         },
         "27": {
           "date": "2026-03-27",
-          "rainfall": 4.8
+          "rainfall": 6
         },
         "28": {
           "date": "2026-03-28",
@@ -1847,7 +1847,7 @@
         },
         "29": {
           "date": "2026-03-29",
-          "rainfall": 6.6
+          "rainfall": 1
         },
         "30": {
           "date": "2026-03-30",
@@ -1865,19 +1865,19 @@
         },
         "2": {
           "date": "2026-04-02",
-          "rainfall": 7.1
+          "rainfall": 0
         },
         "3": {
           "date": "2026-04-03",
-          "rainfall": 1.1
+          "rainfall": 0
         },
         "4": {
           "date": "2026-04-04",
-          "rainfall": 1.1
+          "rainfall": 0
         },
         "5": {
           "date": "2026-04-05",
-          "rainfall": 0
+          "rainfall": 1
         },
         "6": {
           "date": "2026-04-06",
@@ -1897,35 +1897,35 @@
         },
         "10": {
           "date": "2026-04-10",
-          "rainfall": 5.5
+          "rainfall": 0
         },
         "11": {
           "date": "2026-04-11",
-          "rainfall": 1.8
+          "rainfall": 1
         },
         "12": {
           "date": "2026-04-12",
-          "rainfall": 0
+          "rainfall": 4
         },
         "13": {
           "date": "2026-04-13",
-          "rainfall": 12.4
+          "rainfall": 7
         },
         "14": {
           "date": "2026-04-14",
-          "rainfall": 1.2
+          "rainfall": 3
         },
         "15": {
           "date": "2026-04-15",
-          "rainfall": 3.9
+          "rainfall": 2
         },
         "16": {
           "date": "2026-04-16",
-          "rainfall": 0.5
+          "rainfall": 0
         },
         "17": {
           "date": "2026-04-17",
-          "rainfall": 3.7
+          "rainfall": 0
         },
         "18": {
           "date": "2026-04-18",
@@ -1969,7 +1969,7 @@
         },
         "28": {
           "date": "2026-04-28",
-          "rainfall": 0
+          "rainfall": 1
         },
         "29": {
           "date": "2026-04-29",
@@ -1977,7 +1977,7 @@
         },
         "30": {
           "date": "2026-04-30",
-          "rainfall": 3.7
+          "rainfall": 0
         }
       },
       "5": {
@@ -1987,11 +1987,11 @@
         },
         "2": {
           "date": "2026-05-02",
-          "rainfall": 9.8
+          "rainfall": 7
         },
         "3": {
           "date": "2026-05-03",
-          "rainfall": 0.4
+          "rainfall": 14
         },
         "4": {
           "date": "2026-05-04",
@@ -1999,11 +1999,11 @@
         },
         "5": {
           "date": "2026-05-05",
-          "rainfall": 0.7
+          "rainfall": 0
         },
         "6": {
           "date": "2026-05-06",
-          "rainfall": 8.6
+          "rainfall": 0
         },
         "7": {
           "date": "2026-05-07",
@@ -2027,35 +2027,35 @@
         },
         "12": {
           "date": "2026-05-12",
-          "rainfall": 2.7
+          "rainfall": 0
         },
         "13": {
           "date": "2026-05-13",
-          "rainfall": 1.8
+          "rainfall": 9
         },
         "14": {
           "date": "2026-05-14",
-          "rainfall": 0.4
+          "rainfall": 6
         },
         "15": {
           "date": "2026-05-15",
-          "rainfall": 2.6
+          "rainfall": 0
         },
         "16": {
           "date": "2026-05-16",
-          "rainfall": 1.1
+          "rainfall": 3
         },
         "17": {
           "date": "2026-05-17",
-          "rainfall": 8.4
+          "rainfall": 0
         },
         "18": {
           "date": "2026-05-18",
-          "rainfall": 4.8
+          "rainfall": 2
         },
         "19": {
           "date": "2026-05-19",
-          "rainfall": 0
+          "rainfall": 14
         },
         "20": {
           "date": "2026-05-20",

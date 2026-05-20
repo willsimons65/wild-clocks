@@ -8,6 +8,7 @@ import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
+import appletonRainfallDaily from "@/data/appleton-woods/aggregates/appleton-rainfall-daily.json";
 
 export default function AppletonWoods({
   year,
@@ -122,6 +123,7 @@ if (loading) {
               data={weather?.[month] || []}
               fullData={allDailyRows}
               temperatureData={appletonWoodsClimate}
+              rainfallDailyData={appletonRainfallDaily}
             />
           ))}
         </div>

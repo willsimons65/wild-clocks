@@ -67,33 +67,42 @@ export default function MonthBlock({
           />
         );
 
-      case "rainfall":
-        if (place === "thousand-year-trust") {
-          return (
-            <div className="space-y-5">
-              <CabillaRainfallSummary
-                dailyData={rainfallDailyData}
-                year={year}
-                monthIndex={monthIndex}
-              />
+case "rainfall":
+  if (rainfallDailyData) {
+    return (
+      <div className="space-y-5">
+        <CabillaRainfallSummary
+          dailyData={rainfallDailyData}
+          year={year}
+          monthIndex={monthIndex}
+        />
 
-              <CabillaRainfallChart
-                dailyData={rainfallDailyData}
-                year={year}
-                monthIndex={monthIndex}
-              />
-            </div>
-          );
-        }
-
-        return (
+        {place === "thousand-year-trust" ? (
+          <CabillaRainfallChart
+            dailyData={rainfallDailyData}
+            year={year}
+            monthIndex={monthIndex}
+          />
+        ) : (
           <RainfallChart
             data={monthRows}
             month={month}
             monthIndex={monthIndex}
             year={year}
           />
-        );
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <RainfallChart
+      data={monthRows}
+      month={month}
+      monthIndex={monthIndex}
+      year={year}
+    />
+  );
 
       case "humidity":
         return (
