@@ -28,7 +28,7 @@ export default function PhotosView({
   setActiveIndex,
   photos = [],
 }) {
-  const base = import.meta.env.VITE_R2_PUBLIC_BASE_URL;
+
   const monthLabel = MONTH_NAMES[monthIndex] || "Month";
 
   // Load + validate the 4 slots
@@ -114,7 +114,13 @@ useEffect(() => {
 
   const currentSrc = safeIndex != null ? urls[safeIndex] : null;
 
-  const isManifestViewer = Array.isArray(photos) && photos.length > 0;
+    const [expanded, setExpanded] = useState(false);
+
+      useEffect(() => {
+      setExpanded(false);
+    }, [place, year, monthIndex, activeIndex]);
+
+    const isManifestViewer = Array.isArray(photos) && photos.length > 0;
 
   // ------------------------------------------------------------
   // Correct prev/next based on actual valid photos
@@ -235,38 +241,24 @@ const animClass =
 
 {/* Main image */}
 <div className="relative flex items-center justify-center">
-  <div className="w-full max-w-[620px]">
+  <div
+  className={[
+    "w-full",
+    isManifestViewer && expanded
+      ? "max-w-[1200px]"
+      : "max-w-[620px]",
+  ].join(" ")}
+    > 
     <div
       className={[
         "rounded-2xl overflow-hidden border border-white/10 relative",
         isManifestViewer
-          ? "aspect-square bg-white/[0.02] flex items-center justify-center"
+          ? expanded
+            ? "bg-transparent border-transparent flex items-center justify-center"
+            : "aspect-square bg-white/[0.04] flex items-center justify-center"
           : "bg-black/30",
       ].join(" ")}
     >
-      {/* Legacy parallax backplate only */}
-      {currentSrc && !isManifestViewer ? (
-        <img
-          src={currentSrc}
-          alt=""
-          aria-hidden="true"
-          draggable={false}
-          className={[
-            "absolute inset-0 w-full h-full object-cover",
-            "opacity-[0.01] scale-[1.05] blur-[1.5px]",
-            "will-change-transform will-change-opacity",
-            "transition-[transform,opacity] ease-out",
-            anim === "fade" ? "duration-150" : "duration-90",
-            anim === "slide-left"
-              ? "-translate-x-[8px] opacity-0"
-              : anim === "slide-right"
-              ? "translate-x-[8px] opacity-0"
-              : anim === "fade"
-              ? "opacity-0 scale-[1.02]"
-              : "opacity-[0.10] translate-x-0",
-          ].join(" ")}
-        />
-      ) : null}
 
       {/* Foreground main image */}
       {currentSrc ? (
@@ -274,23 +266,44 @@ const animClass =
           src={currentSrc}
           alt=""
           draggable={false}
+          onClick={() => {
+            if (isManifestViewer) setExpanded(true);
+          }}
           className={[
             "relative block object-contain",
-            isManifestViewer ? "w-full h-auto rounded-none" : "w-full h-auto",
+            isManifestViewer
+              ? expanded
+                ? "w-full h-auto max-w-none rounded-none cursor-zoom-out"
+                : "w-full h-auto rounded-none cursor-zoom-in"
+              : "w-full h-auto",
             "will-change-transform will-change-opacity",
             "transition-[transform,opacity] ease-out",
             anim === "fade" ? "duration-170" : "duration-110",
             animClass,
           ].join(" ")}
         />
-      ) : (
+              ) : (
         <div className="aspect-square flex items-center justify-center text-white/50">
           Image not available
         </div>
       )}
+      
+      {expanded && isManifestViewer ? (
+        <button
+          type="button"
+          aria-label="Close expanded image"
+          onClick={() => setExpanded(false)}
+          className="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-black/45 border border-white/15 text-white/80 hover:text-white hover:bg-black/60 transition"
+        >
+          ×
+        </button>
+
+      ) : null}
     </div>
 
     {/* arrows */}
+  {!expanded ? (
+  <>
     <button
       aria-label="Previous image"
       onClick={prev}
@@ -316,10 +329,15 @@ const animClass =
     >
       ›
     </button>
+  </>
+) : null}
+
+
   </div>
 </div>
 
       {/* Thumbnails */}
+    {!expanded ? (
       <div className="flex justify-center w-full">
         <div className="max-w-[70vw] flex justify-center">
           <div
@@ -366,6 +384,7 @@ const animClass =
           </div>
         </div>
       </div>
+      ) : null}
     </div>  
   );
 }
