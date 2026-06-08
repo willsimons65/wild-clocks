@@ -1,7 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const INPUT = "src/data/cabilla/raw/20260507_datahog_export.txt";
+const INPUT = process.argv[2];
+
+if (!INPUT) {
+  console.error("Usage: node scripts/parse-cabilla-datahog.js <input-file>");
+  process.exit(1);
+}
+
 const OUTPUT = "src/data/cabilla/parsed/cabilla-microclimate-raw.json";
 
 const CHANNELS = {
@@ -40,18 +46,30 @@ function parseLine(line) {
   return { timestamp, ...readings };
 }
 
+function getDateRange(rows) {
+  if (!rows.length) return "No rows";
+
+  const sorted = [...rows].sort(
+    (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
+  );
+
+  return `${sorted[0].timestamp} → ${sorted[sorted.length - 1].timestamp}`;
+}
+
+const existingRows = fs.existsSync(OUTPUT)
+  ? JSON.parse(fs.readFileSync(OUTPUT, "utf8")).rows || []
+  : [];
+
 const text = fs.readFileSync(INPUT, "utf8");
 
-const rows = text
+const newRows = text
   .split(/\r?\n/)
   .map(parseLine)
-  .filter(Boolean)
-  .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+  .filter(Boolean);
 
-// de-dupe by timestamp, keeping the fullest row
 const byTimestamp = new Map();
 
-for (const row of rows) {
+for (const row of [...existingRows, ...newRows]) {
   const existing = byTimestamp.get(row.timestamp);
 
   if (!existing || Object.keys(row).length > Object.keys(existing).length) {
@@ -59,7 +77,9 @@ for (const row of rows) {
   }
 }
 
-const cleaned = [...byTimestamp.values()];
+const cleaned = [...byTimestamp.values()].sort(
+  (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
+);
 
 fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
 
@@ -77,4 +97,7 @@ fs.writeFileSync(
   )
 );
 
-console.log(`Parsed ${cleaned.length} rows`);
+console.log(`Existing rows: ${existingRows.length}`);
+console.log(`New rows: ${newRows.length}`);
+console.log(`Merged rows: ${cleaned.length}`);
+console.log(`Date range: ${getDateRange(cleaned)}`);
