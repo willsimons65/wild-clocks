@@ -47,5 +47,13 @@
     "month": 6,
     "slot": 1,
     "url": "/cabilla/2026/06-june/slot-1.webp"
+  },
+  {
+    "id": "cabilla-2026-06-slot-2",
+    "place": "cabilla",
+    "year": 2026,
+    "month": 6,
+    "slot": 2,
+    "url": "/cabilla/2026/06-june/slot-2.webp"
   }
 ]
