@@ -2,12 +2,16 @@
 
 import { baselineEnvelope } from "@/data/climate-envelope/baseline-envelope";
 
+const GDD_AXIS_MAX = 4000;
+const MOISTURE_AXIS_MIN = -4000;
+const CHART_HALF_HEIGHT = 120;
+
 export default function ClimateEnvelopeCard() {
   return (
     <section className="rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-7 md:px-8 md:py-8">
       <header className="mb-8">
         <h2 className="text-xl font-semibold text-white">
-          Annual climate envelope (component under development)
+          Annual climate envelope (component under construction)
         </h2>
 
         <p className="mt-4 max-w-[90%] text-sm md:text-base text-white/75 leading-relaxed">
@@ -80,7 +84,7 @@ export default function ClimateEnvelopeCard() {
                 "70,160",
                 ...baselineEnvelope.chartData.map((d, i) => {
                 const x = 70 + i * (790 / (baselineEnvelope.chartData.length - 1));
-                const y = 160 - (d.gdd / baselineEnvelope.peakGDD) * 120;
+                const y = 160 - (d.gdd / GDD_AXIS_MAX) * CHART_HALF_HEIGHT;
                 return `${x},${y}`;
                 }),
                 "860,160",
@@ -96,10 +100,9 @@ export default function ClimateEnvelopeCard() {
                 ...baselineEnvelope.chartData.map((d, i) => {
                 const x = 70 + i * (790 / (baselineEnvelope.chartData.length - 1));
                 const y =
-                    160 +
-                    (Math.abs(d.moisture) /
-                    Math.abs(baselineEnvelope.peakMoistureDeficit)) *
-                    120;
+                160 +
+                (Math.abs(d.moisture) / Math.abs(MOISTURE_AXIS_MIN)) *
+                    CHART_HALF_HEIGHT;
                 return `${x},${y}`;
                 }),
                 "860,160",
@@ -108,7 +111,7 @@ export default function ClimateEnvelopeCard() {
             opacity="0.95"
             />
 
-            {[140, 105, 70, 35, -35, -70, -105, -140].map((offset) => {
+            {[140, 105, 70, 35, -35, -70, -105].map((offset) => {
             const yValue = 160 - offset;
             return (
                 <line
@@ -142,7 +145,6 @@ export default function ClimateEnvelopeCard() {
   { y: 195, label: "-1000" },
   { y: 230, label: "-2000" },
   { y: 265, label: "-3000" },
-  { y: 300, label: "-4000" },
 ].map(({ y, label }) => (
   <text
     key={label}

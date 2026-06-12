@@ -1,21 +1,67 @@
-// src/data/climate-envelope/baseline-envelope.js
-
 export const baselineEnvelope = {
-  peakGDD: 2100,
-  peakMoistureDeficit: -2100,
+  peakGDD: 2078.2,
+  peakMoistureDeficit: -1934.1,
 
   chartData: [
-    { month: "Jan", gdd: 100, moisture: -50 },
-    { month: "Feb", gdd: 300, moisture: -150 },
-    { month: "Mar", gdd: 600, moisture: -400 },
-    { month: "Apr", gdd: 900, moisture: -800 },
-    { month: "May", gdd: 1300, moisture: -1200 },
-    { month: "Jun", gdd: 1700, moisture: -1700 },
-    { month: "Jul", gdd: 2100, moisture: -2100 },
-    { month: "Aug", gdd: 1900, moisture: -1900 },
-    { month: "Sep", gdd: 1400, moisture: -1300 },
-    { month: "Oct", gdd: 800, moisture: -700 },
-    { month: "Nov", gdd: 400, moisture: -300 },
-    { month: "Dec", gdd: 150, moisture: -100 },
-  ],
+    {
+        "month": "Jan",
+        "gdd": 33,
+        "moisture": -425.7
+    },
+    {
+        "month": "Feb",
+        "gdd": 61.4,
+        "moisture": -393.2
+    },
+    {
+        "month": "Mar",
+        "gdd": 120.2,
+        "moisture": -536.2
+    },
+    {
+        "month": "Apr",
+        "gdd": 230.1,
+        "moisture": -793.3
+    },
+    {
+        "month": "May",
+        "gdd": 443,
+        "moisture": -1134.8
+    },
+    {
+        "month": "Jun",
+        "gdd": 743,
+        "moisture": -1507.9
+    },
+    {
+        "month": "Jul",
+        "gdd": 1118.3,
+        "moisture": -1833.6
+    },
+    {
+        "month": "Aug",
+        "gdd": 1482.1,
+        "moisture": -1928.2
+    },
+    {
+        "month": "Sept",
+        "gdd": 1765.9,
+        "moisture": -1759.3
+    },
+    {
+        "month": "Oct",
+        "gdd": 1956.7,
+        "moisture": -1418.9
+    },
+    {
+        "month": "Nov",
+        "gdd": 2032.8,
+        "moisture": -974.1
+    },
+    {
+        "month": "Dec",
+        "gdd": 2078.2,
+        "moisture": -588.1
+    }
+],
 };
