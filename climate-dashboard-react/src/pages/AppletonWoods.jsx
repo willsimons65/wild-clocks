@@ -9,6 +9,7 @@ import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
 import appletonRainfallDaily from "@/data/appleton-woods/aggregates/appleton-rainfall-daily.json";
+import ClimateEnvelopeCard from "@/components/trends/ClimateEnvelopeCard";
 
 export default function AppletonWoods({
   year,
@@ -111,6 +112,8 @@ if (loading) {
             "Autumn leaf fall and canopy retreat",
           ]}
         />
+
+        <ClimateEnvelopeCard />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {months.map((month) => (
