@@ -1,17 +1,26 @@
 // src/components/trends/ClimateEnvelopeCard.jsx
 
+import { useState } from "react";
 import { baselineEnvelope } from "@/data/climate-envelope/baseline-envelope";
+import { currentEnvelope } from "@/data/climate-envelope/current-envelope";
 
 const GDD_AXIS_MAX = 4000;
 const MOISTURE_AXIS_MIN = -4000;
 const CHART_HALF_HEIGHT = 120;
 
 export default function ClimateEnvelopeCard() {
+  const [period, setPeriod] = useState("baseline");
+
+  const envelope =
+    period === "baseline" ? baselineEnvelope : currentEnvelope;
+
+  const isBaseline = period === "baseline";
+
   return (
     <section className="rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-7 md:px-8 md:py-8">
       <header className="mb-8">
         <h2 className="text-xl font-semibold text-white">
-          Annual climate envelope (component under construction)
+          Annual climate envelope
         </h2>
 
         <p className="mt-4 max-w-[90%] text-sm md:text-base text-white/75 leading-relaxed">
@@ -22,52 +31,81 @@ export default function ClimateEnvelopeCard() {
       </header>
 
       <div className="mb-8 flex justify-center">
-        <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-1 text-sm">
-          <button className="rounded-full bg-white/15 px-8 py-1.5 text-white">
+        <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
+            <button
+            onClick={() => setPeriod("baseline")}
+            className={`rounded-full px-8 py-1 transition-colors ${
+                isBaseline ? "bg-white/15 text-white" : "text-white/55 hover:text-white/80"
+            }`}
+            >
             Baseline
-          </button>
-          <button className="rounded-full px-8 py-1.5 text-white/55">
+            </button>
+
+            <button
+            onClick={() => setPeriod("current")}
+            className={`rounded-full px-8 py-1 transition-colors ${
+                !isBaseline ? "bg-white/15 text-white" : "text-white/55 hover:text-white/80"
+            }`}
+            >
             Current
-          </button>
+            </button>
         </div>
       </div>
 
       <div className="grid gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:items-stretch">
         <div className="md:pr-4">
-          <h3 className="text-base font-semibold text-white">
-            Baseline envelope
+            <h3 className="text-base font-semibold text-white">
+            {isBaseline ? "Baseline envelope" : "Current envelope"}
             <br />
-            1961–1990
-          </h3>
+            {isBaseline ? "1961–1990" : "2021–2025"}
+            </h3>
 
           <dl className="mt-6 space-y-1 text-sm font-semibold text-white">
             <div>
               <dt className="inline">Peak GDD: </dt>
-              <dd className="inline">2,100</dd>
+              <dd className="inline">
+                {Math.round(envelope.peakGDD).toLocaleString()}</dd>
             </div>
             <div>
               <dt className="inline">Peak moisture deficit: </dt>
-              <dd className="inline">−2,100</dd>
+              <dd className="inline">
+                {Math.round(envelope.peakMoistureDeficit).toLocaleString()}</dd>
             </div>
           </dl>
 
-          <div className="mt-8 space-y-4 text-sm leading-snug text-white/70">
-            <p>
-              The 1961–1990 baseline represents the historical climate envelope
-              for this woodland before accelerated regional warming.
-            </p>
+<div className="mt-8 space-y-4 text-sm leading-snug text-white/70">
+  {isBaseline ? (
+    <>
+      <p>
+        The 1961–1990 baseline represents the historical climate envelope
+        for this woodland before accelerated regional warming.
+      </p>
 
-            <p>
-              During this thirty-year reference period, both seasonal heat
-              accumulation and the summer moisture deficit remained within
-              tightly defined boundaries.
-            </p>
-          </div>
+      <p>
+        During this thirty-year reference period, both seasonal heat
+        accumulation and the summer moisture deficit remained within
+        tightly defined boundaries.
+      </p>
+    </>
+  ) : (
+    <>
+      <p>
+        The 2021–2025 envelope represents the current climate conditions
+        experienced by Appleton Woods.
+      </p>
+
+      <p>
+        Compared with the historical baseline, accumulated warmth has
+        increased substantially and seasonal moisture deficits have deepened.
+      </p>
+    </>
+  )}
+</div>
         </div>
 
         <div>
-        <div className="min-h-[340px] rounded-xl bg-white/[0.03] p-6">
-        <svg viewBox="0 0 900 360" className="h-full w-full">
+        <div className="min-h-[310px] rounded-xl bg-white/[0.03] p-6">
+        <svg viewBox="0 0 900 310" className="h-full w-full">
             {/* zero line */}
             <line
             x1="70"
@@ -82,8 +120,8 @@ export default function ClimateEnvelopeCard() {
             <polygon
             points={[
                 "70,160",
-                ...baselineEnvelope.chartData.map((d, i) => {
-                const x = 70 + i * (790 / (baselineEnvelope.chartData.length - 1));
+                ...envelope.chartData.map((d, i) => {
+                const x = 70 + i * (790 / (envelope.chartData.length - 1));
                 const y = 160 - (d.gdd / GDD_AXIS_MAX) * CHART_HALF_HEIGHT;
                 return `${x},${y}`;
                 }),
@@ -97,8 +135,8 @@ export default function ClimateEnvelopeCard() {
             <polygon
             points={[
                 "70,160",
-                ...baselineEnvelope.chartData.map((d, i) => {
-                const x = 70 + i * (790 / (baselineEnvelope.chartData.length - 1));
+                ...envelope.chartData.map((d, i) => {
+                const x = 70 + i * (790 / (envelope.chartData.length - 1));
                 const y =
                 160 +
                 (Math.abs(d.moisture) / Math.abs(MOISTURE_AXIS_MIN)) *
@@ -160,7 +198,7 @@ export default function ClimateEnvelopeCard() {
 
 {/* Section labels */}
 <text
-  x="8"
+  x="22"
   y="100"
   transform="rotate(-90 8 100)"
   textAnchor="middle"
@@ -171,7 +209,7 @@ export default function ClimateEnvelopeCard() {
 </text>
 
 <text
-  x="8"
+  x="37"
   y="245"
   transform="rotate(-90 8 245)"
   textAnchor="middle"
@@ -192,7 +230,7 @@ export default function ClimateEnvelopeCard() {
                 <text
                 key={month}
                 x={x}
-                y="325"
+                y="300"
                 textAnchor="middle"
                 fontSize="11"
                 fill="rgba(255,255,255,0.7)"
@@ -206,7 +244,7 @@ export default function ClimateEnvelopeCard() {
         </svg>
         
     </div>
-      <p className="mt-3 text-xs leading-relaxed text-white/45">
+      <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
     Historical climate data are derived from the Radcliffe Observatory,
     Oxford, approximately 4 miles from Appleton Woods. Recent temperature
     records are drawn from the Observatory, while rainfall observations are
