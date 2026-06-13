@@ -23,6 +23,7 @@ export default function AppletonWoods({
 }, [setPlace]);
 
   const [metric, setMetric] = useState("temperature");
+  const [viewMode, setViewMode] = useState("feed");
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -113,23 +114,51 @@ if (loading) {
           ]}
         />
 
-        <ClimateEnvelopeCard />
+        <div className="flex justify-center">
+          <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
+            <button
+              onClick={() => setViewMode("feed")}
+              className={`rounded-full px-8 py-1 transition-colors ${
+                viewMode === "feed"
+                  ? "bg-white/15 text-white"
+                  : "text-white/55 hover:text-white/80"
+              }`}
+            >
+              Feed
+            </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {months.map((month) => (
-            <MonthBlock
-              key={month}
-              month={month}
-              year={year}
-              place="appleton-woods"
-              metric={metric}
-              data={weather?.[month] || []}
-              fullData={allDailyRows}
-              temperatureData={appletonWoodsClimate}
-              rainfallDailyData={appletonRainfallDaily}
-            />
-          ))}
+            <button
+              onClick={() => setViewMode("trends")}
+              className={`rounded-full px-8 py-1 transition-colors ${
+                viewMode === "trends"
+                  ? "bg-white/15 text-white"
+                  : "text-white/55 hover:text-white/80"
+              }`}
+            >
+              Trends
+            </button>
+          </div>
         </div>
+
+{viewMode === "trends" ? (
+  <ClimateEnvelopeCard />
+) : (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {months.map((month) => (
+      <MonthBlock
+        key={month}
+        month={month}
+        year={year}
+        place="appleton-woods"
+        metric={metric}
+        data={weather?.[month] || []}
+        fullData={allDailyRows}
+        temperatureData={appletonWoodsClimate}
+        rainfallDailyData={appletonRainfallDaily}
+      />
+    ))}
+  </div>
+)}
       </main>
               <footer className="mt-10 border-t border-white/10">
         <div className="w-full max-w-[1200px] mx-auto px-4 lg:px-6 py-6 text-center">

@@ -6,10 +6,6 @@ import { loadPhotoIndexForPlace, getLeadPhotoForSlot } from "@/services/photoSer
 import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
 
-import MicroClockCard from "@/components/insights/MicroClockCard";
-import WaterBalanceLiteCard from "@/components/insights/WaterBalanceLiteCard";
-import { MICRO_CLOCKS } from "@/data/microClocks";
-
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 
@@ -112,15 +108,6 @@ export default function LittleKnepp({
     );
   }
 
-    const baseFloweringClock = MICRO_CLOCKS["little-knepp"]?.floweringSeason;
-
-    const floweringClock = baseFloweringClock
-      ? {
-          ...baseFloweringClock,
-          showArc: year === 2025,
-        }
-      : null;
-
   // -------------------------------
   // Render page
   // -------------------------------
@@ -137,20 +124,6 @@ export default function LittleKnepp({
 
       <div className={`transition-opacity duration-300 ${fade ? "opacity-0" : "opacity-100"}`}>
         <div className="max-w-[1200px] mx-auto p-6 space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-3">
-              <h2 className="text-lg font-semibold text-white">Flowering season</h2>
-              <MicroClockCard year={year} {...floweringClock} />
-            </div>
-
-            <div className="md:col-span-2">
-              
-              <WaterBalanceLiteCard
-                climateData={littleKneppClimate}
-                year={year}
-              />
-            </div>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {months.map((month) => (
