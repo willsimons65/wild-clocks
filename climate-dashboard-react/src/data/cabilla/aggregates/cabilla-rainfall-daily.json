@@ -1,6 +1,6 @@
 {
   "source": "Google Sheets",
-  "generatedAt": "2026-06-08T10:55:48.911Z",
+  "generatedAt": "2026-06-18T06:27:34.067Z",
   "units": {
     "rainfall": "mm"
   },
@@ -2079,7 +2079,7 @@
         },
         "25": {
           "date": "2026-05-25",
-          "rainfall": 0
+          "rainfall": 1.8
         },
         "26": {
           "date": "2026-05-26",
@@ -2087,7 +2087,7 @@
         },
         "27": {
           "date": "2026-05-27",
-          "rainfall": 0
+          "rainfall": 0.8
         },
         "28": {
           "date": "2026-05-28",
@@ -2109,51 +2109,51 @@
       "6": {
         "1": {
           "date": "2026-06-01",
-          "rainfall": 19.3
+          "rainfall": 0
         },
         "2": {
           "date": "2026-06-02",
-          "rainfall": 3.1
+          "rainfall": 0
         },
         "3": {
           "date": "2026-06-03",
-          "rainfall": 6.4
+          "rainfall": 0
         },
         "4": {
           "date": "2026-06-04",
-          "rainfall": 2.5
+          "rainfall": 0
         },
         "5": {
           "date": "2026-06-05",
-          "rainfall": 33
+          "rainfall": 0
         },
         "6": {
           "date": "2026-06-06",
-          "rainfall": 2.8
+          "rainfall": 0
         },
         "7": {
           "date": "2026-06-07",
-          "rainfall": 0
+          "rainfall": 0.4
         },
         "8": {
           "date": "2026-06-08",
-          "rainfall": 0
+          "rainfall": 1.1
         },
         "9": {
           "date": "2026-06-09",
-          "rainfall": 0
+          "rainfall": 2
         },
         "10": {
           "date": "2026-06-10",
-          "rainfall": 0
+          "rainfall": 1.5
         },
         "11": {
           "date": "2026-06-11",
-          "rainfall": 0
+          "rainfall": 2.2
         },
         "12": {
           "date": "2026-06-12",
-          "rainfall": 0
+          "rainfall": 0.2
         },
         "13": {
           "date": "2026-06-13",
@@ -2161,19 +2161,19 @@
         },
         "14": {
           "date": "2026-06-14",
-          "rainfall": 0
+          "rainfall": 1
         },
         "15": {
           "date": "2026-06-15",
-          "rainfall": 0
+          "rainfall": 3
         },
         "16": {
           "date": "2026-06-16",
-          "rainfall": 0
+          "rainfall": 1.8
         },
         "17": {
           "date": "2026-06-17",
-          "rainfall": 0
+          "rainfall": 3.4
         },
         "18": {
           "date": "2026-06-18",

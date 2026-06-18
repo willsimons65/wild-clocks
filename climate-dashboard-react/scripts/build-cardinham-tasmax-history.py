@@ -3,16 +3,16 @@ import pandas as pd
 import xarray as xr
 
 RAW_ROOT = Path.home() / "Documents/ceda/cabilla"
-OUTPUT = "src/data/haduk/extracted/cardinham_rainfall_1961_1974.csv"
+OUTPUT = "src/data/haduk/extracted/cardinham_tasmax_1961_1974.csv"
 
 EASTING = 211500
 NORTHING = 67500
 
-files = sorted(RAW_ROOT.glob("*/rainfall/rainfall_hadukgrid_uk_1km_day_*.nc"))
+files = sorted(RAW_ROOT.glob("*/max-temp/tasmax_hadukgrid_uk_1km_day_*.nc"))
 
 frames = []
 
-print(f"Found {len(files)} rainfall files")
+print(f"Found {len(files)} tasmax files")
 
 for file in files:
     print(f"Processing {file.name}")
@@ -25,14 +25,14 @@ for file in files:
         method="nearest",
     )
 
-    df = point[["rainfall"]].to_dataframe().reset_index()
-    df = df[["time", "rainfall"]]
-    df.columns = ["Date", "Rainfall"]
+    df = point[["tasmax"]].to_dataframe().reset_index()
+    df = df[["time", "tasmax"]]
+    df.columns = ["Date", "TasMax"]
 
     frames.append(df)
 
 if not frames:
-    raise RuntimeError("No rainfall files found")
+    raise RuntimeError("No tasmax files found")
 
 combined = pd.concat(frames, ignore_index=True)
 combined["Date"] = pd.to_datetime(combined["Date"])
@@ -42,15 +42,15 @@ combined = combined.sort_values("Date")
 combined.to_csv(OUTPUT, index=False)
 
 # One-column Numbers import
-rainfall_only = combined[["Rainfall"]].round(1)
+tasmax_only = combined[["TasMax"]].round(1)
 
-rainfall_only.to_csv(
-    "src/data/haduk/extracted/cardinham_rainfall_values_only.csv",
+tasmax_only.to_csv(
+    "src/data/haduk/extracted/cardinham_tasmax_values_only.csv",
     index=False,
 )
 
 print(f"Wrote {OUTPUT}")
-print("Wrote src/data/haduk/extracted/cardinham_rainfall_values_only.csv")
+print("Wrote src/data/haduk/extracted/cardinham_tasmax_values_only.csv")
 
 print(f"Rows: {len(combined)}")
 print(combined.head())
