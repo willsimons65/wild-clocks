@@ -3,12 +3,24 @@ import pandas as pd
 import xarray as xr
 
 RAW_ROOT = Path.home() / "Documents/ceda/cabilla"
-OUTPUT = "src/data/haduk/extracted/cardinham_rainfall_1961_1974.csv"
+OUTPUT = "src/data/haduk/extracted/cardinham_rainfall_2020_2024.csv"
 
 EASTING = 211500
 NORTHING = 67500
 
-files = sorted(RAW_ROOT.glob("*/rainfall/rainfall_hadukgrid_uk_1km_day_*.nc"))
+START_YEAR = 2020
+END_YEAR = 2024
+
+files = []
+
+for year in range(START_YEAR, END_YEAR + 1):
+    files.extend(
+        sorted(
+            (RAW_ROOT / str(year) / "rainfall").glob(
+                "rainfall_hadukgrid_uk_1km_day_*.nc"
+            )
+        )
+    )
 
 frames = []
 
@@ -45,12 +57,12 @@ combined.to_csv(OUTPUT, index=False)
 rainfall_only = combined[["Rainfall"]].round(1)
 
 rainfall_only.to_csv(
-    "src/data/haduk/extracted/cardinham_rainfall_values_only.csv",
+    "src/data/haduk/extracted/cardinham_rainfall_2020_2024_values_only.csv",
     index=False,
 )
 
 print(f"Wrote {OUTPUT}")
-print("Wrote src/data/haduk/extracted/cardinham_rainfall_values_only.csv")
+print("Wrote src/data/haduk/extracted/cardinham_rainfall_2020_2024_values_only.csv")
 
 print(f"Rows: {len(combined)}")
 print(combined.head())

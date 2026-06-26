@@ -11,6 +11,9 @@ import cabillaMicroclimate from "@/data/cabilla/aggregates/cabilla-microclimate-
 import cabillaDailyData from "@/data/cabilla/aggregates/cabilla-microclimate-daily.json";
 import cabillaRainfallDaily from "@/data/cabilla/aggregates/cabilla-rainfall-daily.json";
 import { PHOTO_MANIFESTS } from "@/data/photos/manifests";
+import ClimateEnvelopeCard from "@/components/trends/ClimateEnvelopeCard";
+import { cabillaBaselineEnvelope } from "@/data/climate-envelope/cabilla/cabilla-baseline-envelope";
+import { cabillaCurrentEnvelope } from "@/data/climate-envelope/cabilla/cabilla-current-envelope";
 
 export default function ThousandYearTrust({
   year,
@@ -25,6 +28,7 @@ export default function ThousandYearTrust({
     setMetric("microclimate");
   }, [setPlace, setMetric]);
 
+  const [viewMode, setViewMode] = useState("feed");
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -124,30 +128,74 @@ export default function ThousandYearTrust({
         ]}
         />
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-{months.map((month, monthIndex) => {
-  const monthPhotos = cabillaPhotos.filter(
-    (p) => p.month === monthIndex + 1
-  );
+                <div className="flex justify-center">
+          <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
+            <button
+              onClick={() => setViewMode("feed")}
+              className={`rounded-full px-8 py-1 transition-colors ${
+                viewMode === "feed"
+                  ? "bg-white/15 text-white"
+                  : "text-white/55 hover:text-white/80"
+              }`}
+            >
+              Feed
+            </button>
 
-  return (
-    <MonthBlock
-      key={month}
-      month={month}
-      year={year}
-      place="thousand-year-trust"
-      metric={metric}
-      data={weather?.[month] || []}
-      fullData={allDailyRows}
-      temperatureData={cabillaMicroclimate}
-      microclimateDailyData={cabillaDailyData}
-      rainfallDailyData={cabillaRainfallDaily}
-      photos={monthPhotos}
-    />
-  );
-})}
+            <button
+              onClick={() => setViewMode("trends")}
+              className={`rounded-full px-8 py-1 transition-colors ${
+                viewMode === "trends"
+                  ? "bg-white/15 text-white"
+                  : "text-white/55 hover:text-white/80"
+              }`}
+            >
+              Trends
+            </button>
+          </div>
         </div>
+
+{viewMode === "trends" ? (
+<ClimateEnvelopeCard
+  placeName="Cabilla"
+  baselineEnvelope={cabillaBaselineEnvelope}
+  currentEnvelope={cabillaCurrentEnvelope}
+  baselineLabel="1961–1990"
+  currentLabel="2020–2024"
+  baselineCopy={[
+    "The 1961–1990 baseline represents the historical climate envelope for Cabilla before the most recent phase of warming.",
+    "During this reference period, the rainforest system experienced lower heat accumulation and a shallower seasonal moisture deficit.",
+  ]}
+  currentCopy={[
+    "The 2020–2024 envelope represents recent climate conditions experienced by Cabilla.",
+    "Compared with the historical baseline, accumulated warmth has increased while the seasonal moisture deficit has deepened.",
+  ]}
+  sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
+/>
+) : (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {months.map((month, monthIndex) => {
+      const monthPhotos = cabillaPhotos.filter(
+        (p) => p.month === monthIndex + 1
+      );
+
+      return (
+        <MonthBlock
+          key={month}
+          month={month}
+          year={year}
+          place="thousand-year-trust"
+          metric={metric}
+          data={weather?.[month] || []}
+          fullData={allDailyRows}
+          temperatureData={cabillaMicroclimate}
+          microclimateDailyData={cabillaDailyData}
+          rainfallDailyData={cabillaRainfallDaily}
+          photos={monthPhotos}
+        />
+      );
+    })}
+  </div>
+)}
 
       </main>
         <footer className="mt-10 border-t border-white/10">

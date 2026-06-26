@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-const INPUT_PATH = "src/data/climate-envelope/raw/baseline-1961-1990-60.csv";
-const OUTPUT_PATH = "src/data/climate-envelope/appleton/baseline-envelope.js";
+const INPUT_PATH = "src/data/climate-envelope/raw/baseline_cabilla_1961_1990_60.csv";
+const OUTPUT_PATH = "src/data/climate-envelope/cabilla/cabilla-baseline-envelope.js";
 
 function parseCSV(text) {
   const allLines = text.trim().split(/\r?\n/);
@@ -59,7 +59,7 @@ const chartData = Array.from(byMonth.values()).map((row) => ({
 const peakGDD = Math.max(...rows.map((row) => row.gdd));
 const peakMoistureDeficit = Math.min(...rows.map((row) => row.moisture));
 
-const output = `export const baselineEnvelope = {
+const output = `export const cabillaBaselineEnvelope = {
   peakGDD: ${Number(peakGDD.toFixed(1))},
   peakMoistureDeficit: ${Number(peakMoistureDeficit.toFixed(1))},
 

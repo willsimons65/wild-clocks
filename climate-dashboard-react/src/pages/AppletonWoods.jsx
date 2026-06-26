@@ -10,6 +10,8 @@ import { groupByMonth } from "@/utils/charts";
 import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
 import appletonRainfallDaily from "@/data/appleton-woods/aggregates/appleton-rainfall-daily.json";
 import ClimateEnvelopeCard from "@/components/trends/ClimateEnvelopeCard";
+import { baselineEnvelope as appletonBaselineEnvelope } from "@/data/climate-envelope/appleton/baseline-envelope";
+import { currentEnvelope as appletonCurrentEnvelope } from "@/data/climate-envelope/appleton/current-envelope";
 
 export default function AppletonWoods({
   year,
@@ -141,7 +143,22 @@ if (loading) {
         </div>
 
 {viewMode === "trends" ? (
-  <ClimateEnvelopeCard />
+  <ClimateEnvelopeCard
+  placeName="Appleton Woods"
+  baselineEnvelope={appletonBaselineEnvelope}
+  currentEnvelope={appletonCurrentEnvelope}
+  baselineLabel="1961–1990"
+  currentLabel="2021–2025"
+  baselineCopy={[
+    "The 1961–1990 baseline represents the historical climate envelope for this woodland before accelarated regional warming.",
+    "During this thirty-year reference period, both seasonal heat accumulation and summer moisture deficit remained within tightly defined boundaries.",
+  ]}
+  currentCopy={[
+    "The 2021–2025 envelope represents recent climate conditions experienced by Appleton Woods.",
+    "Compared with the historical baseline, accumulated warmth has increased substantially and seasonal moisture deficits have deepened.",
+  ]}
+  sourceNote="Historical climate data are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods. Recent temperature records are drawn from the Observatory, while rainfall observations are collected locally."
+/>
 ) : (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     {months.map((month) => (
