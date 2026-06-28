@@ -15,6 +15,10 @@ import ClimateEnvelopeCard from "@/components/trends/ClimateEnvelopeCard";
 import { cabillaBaselineEnvelope } from "@/data/climate-envelope/cabilla/cabilla-baseline-envelope";
 import { cabillaCurrentEnvelope } from "@/data/climate-envelope/cabilla/cabilla-current-envelope";
 
+import RainfallRegimeCard from "@/components/trends/RainfallRegimeCard";
+import { cabillaBaselineRainfallRegime } from "@/data/annual-rainfall/cabilla/baseline-regime";
+import { cabillaCurrentRainfallRegime } from "@/data/annual-rainfall/cabilla/current-regime";
+
 export default function ThousandYearTrust({
   year,
   setYear,
@@ -155,22 +159,41 @@ export default function ThousandYearTrust({
         </div>
 
 {viewMode === "trends" ? (
-<ClimateEnvelopeCard
-  placeName="Cabilla"
-  baselineEnvelope={cabillaBaselineEnvelope}
-  currentEnvelope={cabillaCurrentEnvelope}
-  baselineLabel="1961–1990"
-  currentLabel="2020–2024"
-  baselineCopy={[
-    "The 1961–1990 baseline represents the historical climate envelope for Cabilla before the most recent phase of warming.",
-    "During this reference period, the rainforest system experienced lower heat accumulation and a shallower seasonal moisture deficit.",
-  ]}
-  currentCopy={[
-    "The 2020–2024 envelope represents recent climate conditions experienced by Cabilla.",
-    "Compared with the historical baseline, accumulated warmth has increased while the seasonal moisture deficit has deepened.",
-  ]}
-  sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
-/>
+  <div className="space-y-8">
+    <ClimateEnvelopeCard
+      placeName="Cabilla"
+      baselineEnvelope={cabillaBaselineEnvelope}
+      currentEnvelope={cabillaCurrentEnvelope}
+      baselineLabel="1961–1990"
+      currentLabel="2020–2024"
+      baselineCopy={[
+        "The 1961–1990 baseline represents the historical climate envelope for Cabilla before the most recent phase of warming.",
+        "During this reference period, the rainforest system experienced lower heat accumulation and a shallower seasonal moisture deficit.",
+      ]}
+      currentCopy={[
+        "The 2020–2024 envelope represents recent climate conditions experienced by Cabilla.",
+        "Compared with the historical baseline, accumulated warmth has increased while the seasonal moisture deficit has deepened.",
+      ]}
+      sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
+    />
+
+    <RainfallRegimeCard
+      placeName="Cabilla"
+      baselineRegime={cabillaBaselineRainfallRegime}
+      currentRegime={cabillaCurrentRainfallRegime}
+      baselineLabel="1961–1990"
+      currentLabel="2020–2024"
+      baselineCopy={[
+        "Light rainfall dominated the year.",
+        "Dry days were rare, and rainfall above 10 mm was almost absent. Moisture was delivered little and often, producing a remarkably even rainfall regime.",
+      ]}
+      currentCopy={[
+        "The rainfall regime is now noticeably less even.",
+        "Dry days are now much more common, while heavy rainfall events occur regularly. Rain increasingly arrives in bursts rather than being spread across the year.",
+      ]}
+      sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
+    />
+  </div>
 ) : (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     {months.map((month, monthIndex) => {

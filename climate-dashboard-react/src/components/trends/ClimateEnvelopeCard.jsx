@@ -181,8 +181,8 @@ useEffect(() => {
         </div>
 
         <div>
-        <div className="min-h-[310px] rounded-xl bg-white/[0.03] p-6">
-        <svg viewBox="0 0 900 310" className="h-full w-full">
+        <div className="min-h-[320px] rounded-xl bg-white/[0.03] p-6">
+        <svg viewBox="0 0 900 320" className="h-full w-full">
             {/* zero line */}
             <line
             x1="70"
