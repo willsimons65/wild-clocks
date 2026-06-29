@@ -152,7 +152,7 @@ useEffect(() => {
       <div className="grid gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:items-stretch">
         <div className="md:pr-4">
             <h3 className="text-base font-semibold text-white">
-            Rainfall regime
+            {isBaseline ? "Baseline regime" : "Current regime"}
             <br />
             {isBaseline ? baselineLabel : currentLabel}
             </h3>
