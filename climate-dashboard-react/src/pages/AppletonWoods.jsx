@@ -13,11 +13,17 @@ import ClimateEnvelopeCard from "@/components/trends/ClimateEnvelopeCard";
 import { baselineEnvelope as appletonBaselineEnvelope } from "@/data/climate-envelope/appleton/baseline-envelope";
 import { currentEnvelope as appletonCurrentEnvelope } from "@/data/climate-envelope/appleton/current-envelope";
 
+import RainfallRegimeCard from "@/components/trends/RainfallRegimeCard";
+import { appletonBaselineRainfallRegime } from "@/data/annual-rainfall/appleton/baseline-regime";
+import { appletonCurrentRainfallRegime } from "@/data/annual-rainfall/appleton/current-regime";
+
 export default function AppletonWoods({
   year,
   setYear,
   place,
   setPlace,
+  
+
 }) {
 
   useEffect(() => {
@@ -143,6 +149,7 @@ if (loading) {
         </div>
 
 {viewMode === "trends" ? (
+  <div className="space-y-8">
   <ClimateEnvelopeCard
   placeName="Appleton Woods"
   baselineEnvelope={appletonBaselineEnvelope}
@@ -159,6 +166,27 @@ if (loading) {
   ]}
   sourceNote="Historical climate data are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods. Recent temperature records are drawn from the Observatory, while rainfall observations are collected locally."
 />
+
+<RainfallRegimeCard
+      placeName="Cabilla"
+      baselineRegime={appletonBaselineRainfallRegime}
+      currentRegime={appletonCurrentRainfallRegime}
+      baselineLabel="1961–1990"
+      currentLabel="2021–2025"
+      introCopy=
+        "Although annual rainfall has changed relatively little, the way it is delivered has changed substantially. Light rainfall has become much less frequent, dry days are now commonplace, and rainfall above 10 mm—once an occasional event—now occurs regularly."
+      
+      baselineCopy={[
+        "Light rainfall dominated the year.",
+        "Dry days were uncommon, and rainfall above 10 mm was somewhat rare. Moisture was delivered little and often, helping to maintain consistently damp soils throughout much of the year.",
+      ]}
+      currentCopy={[
+        "Dry days are now much more frequent, while heavier rainfall events occur regularly.",
+        "Water increasingly arrives in bursts separated by longer dry spells, changing how moisture is stored and made available within the woodland.",
+      ]}
+      sourceNote="Historical climate data are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods. Recent temperature records are drawn from the Observatory, while rainfall observations are collected locally."
+    />
+  </div>
 ) : (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     {months.map((month) => (

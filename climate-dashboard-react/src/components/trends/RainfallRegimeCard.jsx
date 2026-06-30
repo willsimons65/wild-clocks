@@ -52,6 +52,7 @@ export default function RainfallRegimeCard({
   baselineLabel = "1961–1990",
   currentLabel = "2021–2025",
   sourceNote,
+  introCopy,
   baselineCopy,
   currentCopy,
 }) {
@@ -123,7 +124,7 @@ useEffect(() => {
         </h2>
 
         <p className="mt-4 max-w-[90%] text-sm md:text-base text-white/75 leading-relaxed">
-          The chart shows how an average year’s rainfall is distributed across different rainfall intensities. During the baseline period, water was supplied to the woodland gradually throughout the year. Today, the same annual rainfall is increasingly delivered in fewer, heavier events separated by longer dry spells.
+        {introCopy}
         </p>
       </header>
 

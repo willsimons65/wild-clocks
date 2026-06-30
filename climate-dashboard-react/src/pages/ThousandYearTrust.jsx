@@ -183,6 +183,8 @@ export default function ThousandYearTrust({
       currentRegime={cabillaCurrentRainfallRegime}
       baselineLabel="1961–1990"
       currentLabel="2020–2024"
+      introCopy=
+        "The chart shows how an average year's rainfall is distributed across different rainfall intensities. During the baseline period, water was supplied to the woodland gradually throughout the year. Today, the same annual rainfall is increasingly delivered in fewer, heavier events separated by longer dry spells."
       baselineCopy={[
         "Light rainfall dominated the year.",
         "Dry days were rare, and rainfall above 10 mm was almost absent. Moisture was delivered little and often, producing a remarkably even rainfall regime.",
