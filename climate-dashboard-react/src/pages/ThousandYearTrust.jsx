@@ -19,6 +19,10 @@ import RainfallRegimeCard from "@/components/trends/RainfallRegimeCard";
 import { cabillaBaselineRainfallRegime } from "@/data/annual-rainfall/cabilla/baseline-regime";
 import { cabillaCurrentRainfallRegime } from "@/data/annual-rainfall/cabilla/current-regime";
 
+import HeatStressCard from "@/components/trends/HeatStressCard";
+import { cabillaBaselineHeatStress } from "@/data/heat-stress/cabilla/baseline-heat-stress";
+import { cabillaCurrentHeatStress } from "@/data/heat-stress/cabilla/current-heat-stress";
+
 export default function ThousandYearTrust({
   year,
   setYear,
@@ -195,6 +199,24 @@ export default function ThousandYearTrust({
       ]}
       sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
     />
+
+      <HeatStressCard
+        placeName="Cabilla"
+        baselineData={cabillaBaselineHeatStress}
+        currentData={cabillaCurrentHeatStress}
+        baselineLabel="1961–1990"
+        currentLabel="2020–2024"
+        introCopy="Hot days matter because woodland stress is often driven by short periods of high daytime temperature, not by seasonal averages. These thresholds show how often Cabilla's temperate rainforest experiences potentially stressful heat."
+        baselineCopy={[
+          "Historically, hot days were relatively uncommon.",
+          "Temperatures above 25°C occurred only occasionally, while days above 30°C were exceptionally rare. The woodland's cool, humid climate provided natural protection from prolonged summer heat.",
+        ]}
+        currentCopy={[
+          "Heat stress is becoming more noticeable.",
+          "Days above 25°C have more than tripled, and temperatures above 30°C—once almost absent—now occur about once each year. Even this cool Atlantic woodland is experiencing increasingly frequent periods of summer heat.",
+        ]}
+        sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
+      />
   </div>
 ) : (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
