@@ -12,7 +12,7 @@ const CONFIGS = [
   {
     label: "Appleton Woods",
     placeMatch: "appleton woods",
-    sheetUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSagwLT2bTQPD0djOzNmw6FBZurQuE8-7WqL0fm4QLPUowX9TIZVAcuUpHVcwE3kIjkpcFgbXZRE3IZ/pub?gid=1632733499&single=true&output=csv",
+    sheetUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnTrtD4kMVWWH8lTnDCYOrfM7ORsYYjxce8oE3QU_3fAiZ6NkVqorUa_ANqDP9dbOwSi2YBVXCosYP/pub?output=csv",
     output: "src/data/appleton-woods/aggregates/appleton-rainfall-daily.json",
   },
   {
@@ -51,6 +51,35 @@ function fetchCSV(url, redirects = 0) {
   });
 }
 
+function parseDate(row) {
+  const year = Number(row.Year);
+
+  let month = null;
+  if (row.Month) {
+    const monthName = String(row.Month).trim().toLowerCase();
+    const idx = MONTHS.indexOf(monthName);
+    if (idx >= 0) month = idx + 1;
+    else if (!Number.isNaN(Number(row.Month))) month = Number(row.Month);
+  }
+
+  const rawDate = String(row.Date || "").trim();
+
+  // Full ISO date: 2026-06-30
+  if (/^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
+    const [y, m, d] = rawDate.split("-").map(Number);
+    return { year: y, month: m, day: d };
+  }
+
+  // Day of month only: 30
+  const day = Number(rawDate);
+
+  if (Number.isNaN(year) || Number.isNaN(day) || !month) {
+    return null;
+  }
+
+  return { year, month, day };
+}
+
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
 
@@ -76,7 +105,16 @@ function round1(value) {
 
 async function buildPlace(config) {
   const csv = await fetchCSV(config.sheetUrl);
+  // Temporary debug
+
   const rows = parseCSV(csv);
+
+  if (!rows.length || !rows[0]?.Place) {
+  throw new Error(`${config.label}: CSV did not contain valid rainfall rows`);
+}
+
+console.log(`${config.label}: ${rows.length} rows read`);
+console.log(rows[0]);
 
   const output = {
     source: "Google Sheets",
@@ -90,26 +128,16 @@ async function buildPlace(config) {
 
     if (!place.includes(config.placeMatch)) continue;
 
-    const year = Number(row.Year);
-    const day = Number(row.Date);
-    const rainfall = Number(row["Rainfall [mm]"]);
+    const parsedDate = parseDate(row);
+    const rainfall = Number(
+    row["Rainfall [mm]"] ?? row["Precipitation mm"]
+    );
 
-    let month = null;
-
-    if (row.Month) {
-      const monthName = String(row.Month).trim().toLowerCase();
-      const idx = MONTHS.indexOf(monthName);
-      if (idx >= 0) month = idx + 1;
+    if (!parsedDate || Number.isNaN(rainfall)) {
+    continue;
     }
 
-    if (
-      Number.isNaN(year) ||
-      Number.isNaN(day) ||
-      Number.isNaN(rainfall) ||
-      !month
-    ) {
-      continue;
-    }
+    const { year, month, day } = parsedDate;
 
     const date = new Date(year, month - 1, day, 12);
 
@@ -124,9 +152,6 @@ async function buildPlace(config) {
 
   fs.mkdirSync(path.dirname(config.output), { recursive: true });
   fs.writeFileSync(config.output, JSON.stringify(output, null, 2));
-
-  console.log(`${config.label} rainfall daily JSON built`);
-}
 
 async function build() {
   for (const config of CONFIGS) {
