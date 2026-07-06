@@ -21,6 +21,10 @@ import HeatStressCard from "@/components/trends/HeatStressCard";
 import { appletonBaselineHeatStress } from "@/data/heat-stress/appleton/baseline-heat-stress";
 import { appletonCurrentHeatStress } from "@/data/heat-stress/appleton/current-heat-stress";
 
+import WinterColdCard from "@/components/trends/WinterColdCard";
+import { appletonBaselineWinterCold } from "@/data/winter-cold/appleton/baseline-winter-cold";
+import { appletonCurrentWinterCold } from "@/data/winter-cold/appleton/current-winter-cold";
+
 export default function AppletonWoods({
   year,
   setYear,
@@ -205,6 +209,24 @@ if (loading) {
     currentCopy={[
       "Hot days are now much more frequent across every threshold.",
       "The woodland is exposed to more frequent daytime heat stress, increasing pressure on soils, seedlings and understorey plants, especially when heat coincides with dry conditions.",
+    ]}
+    sourceNote="Historical and recent temperature records are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods."
+  />
+
+    <WinterColdCard
+    placeName="Appleton Woods"
+    baselineData={appletonBaselineWinterCold}
+    currentData={appletonCurrentWinterCold}
+    baselineLabel="1961–1990"
+    currentLabel="2021–2025"
+    introCopy="Winter is becoming shorter and milder. These thresholds show how often Appleton Woods experiences ecologically important cold, from cool winter days through to hard frost. Many woodland processes—from dormancy and bud development to the survival of insects, fungi and pathogens—depend on these periods of sustained cold."
+    baselineCopy={[
+      "Winter cold was a defining feature of the year.",
+      "Cool conditions persisted for much of the winter, with temperatures below 7°C on around half the days of the year. Frosts were common and hard frosts occurred most winters, providing the prolonged cold that has shaped Britain's woodland ecology for centuries.",
+    ]}
+    currentCopy={[
+      "Winter cold is becoming less persistent.",
+      "Days below every threshold have become less frequent. The woodland still experiences frost, but sustained winter chill and hard frosts are becoming increasingly rare. As winters continue to warm, the seasonal cold that many native species rely on is gradually disappearing.",
     ]}
     sourceNote="Historical and recent temperature records are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods."
   />

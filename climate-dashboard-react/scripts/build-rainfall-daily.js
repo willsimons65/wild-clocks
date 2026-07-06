@@ -18,7 +18,7 @@ const CONFIGS = [
   {
     label: "Little Knepp",
     placeMatch: "little knepp",
-    sheetUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSagwLT2bTQPD0djOzNmw6FBZurQuE8-7WqL0fm4QLPUowX9TIZVAcuUpHVcwE3kIjkpcFgbXZRE3IZ/pub?gid=278565200&single=true&output=csv",
+    sheetUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSmWrUW53NZXXPO-67eWAxOAqLBXWhVWb3ftNZipsVymsl7iapTucavMLurhwQgGwhXmu4quk2Av0mm/pub?output=csv",
     output: "src/data/little-knepp/aggregates/little-knepp-rainfall-daily.json",
   },
 ];
@@ -152,6 +152,7 @@ console.log(rows[0]);
 
   fs.mkdirSync(path.dirname(config.output), { recursive: true });
   fs.writeFileSync(config.output, JSON.stringify(output, null, 2));
+}
 
 async function build() {
   for (const config of CONFIGS) {
