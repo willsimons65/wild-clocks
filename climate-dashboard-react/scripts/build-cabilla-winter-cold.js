@@ -1,13 +1,13 @@
 import fs from "fs";
 import path from "path";
 
-const INPUT_PATH = "src/data/winter-cold/raw/appleton_winter_cold.csv";
+const INPUT_PATH = "src/data/winter-cold/raw/cabilla_winter_cold.csv";
 
 const BASELINE_OUTPUT_PATH =
-  "src/data/winter-cold/appleton/baseline-winter-cold.js";
+  "src/data/winter-cold/cabilla/baseline-winter-cold.js";
 
 const CURRENT_OUTPUT_PATH =
-  "src/data/winter-cold/appleton/current-winter-cold.js";
+  "src/data/winter-cold/cabilla/current-winter-cold.js";
 
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
@@ -68,12 +68,12 @@ const currentCategories = categories.map((category) => ({
   days: Number((currentCounts[category.key] / 5).toFixed(1)),
 }));
 
-const baselineOutput = `export const appletonBaselineWinterCold = {
+const baselineOutput = `export const cabillaBaselineWinterCold = {
   categories: ${JSON.stringify(baselineCategories, null, 4)},
 };
 `;
 
-const currentOutput = `export const appletonCurrentWinterCold = {
+const currentOutput = `export const cabillaCurrentWinterCold = {
   categories: ${JSON.stringify(currentCategories, null, 4)},
 };
 `;

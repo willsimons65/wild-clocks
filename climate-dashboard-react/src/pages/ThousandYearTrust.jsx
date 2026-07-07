@@ -23,6 +23,10 @@ import HeatStressCard from "@/components/trends/HeatStressCard";
 import { cabillaBaselineHeatStress } from "@/data/heat-stress/cabilla/baseline-heat-stress";
 import { cabillaCurrentHeatStress } from "@/data/heat-stress/cabilla/current-heat-stress";
 
+import WinterColdCard from "@/components/trends/WinterColdCard";
+import { cabillaBaselineWinterCold } from "@/data/winter-cold/cabilla/baseline-winter-cold";
+import { cabillaCurrentWinterCold } from "@/data/winter-cold/cabilla/current-winter-cold";
+
 export default function ThousandYearTrust({
   year,
   setYear,
@@ -217,6 +221,24 @@ export default function ThousandYearTrust({
         ]}
         sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
       />
+
+          <WinterColdCard
+          placeName="Cabilla"
+          baselineData={cabillaBaselineWinterCold}
+          currentData={cabillaCurrentWinterCold}
+          baselineLabel="1961–1990"
+          currentLabel="2020–2024"
+          introCopy="Temperate rainforests depend on long periods of cool, humid weather rather than frequent hard frosts. These thresholds show how often Cabilla experiences ecologically important winter cold, helping to sustain the conditions that define Britain's Atlantic woodlands."
+          baselineCopy={[
+            "Cool, maritime winters shaped the woodland.",
+            "Historically, Cabilla experienced long periods of cool weather, but relatively few frosts. The woodland's Atlantic climate moderated winter extremes, creating stable, humid conditions that favour mosses, lichens, liverworts and other rainforest species.",
+          ]}
+          currentCopy={[
+            "Winter cold is becoming less persistent.",
+            "Days below every threshold have become less frequent. Frost is now uncommon and hard frost has almost disappeared, while even the long periods of cool weather that characterise Atlantic winters are becoming shorter.",
+          ]}
+          sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
+        />
   </div>
 ) : (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
