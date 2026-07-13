@@ -10,6 +10,7 @@ import Home from "@/pages/Home";
 import LittleKnepp from "@/pages/LittleKnepp";
 import AppletonWoods from "@/pages/AppletonWoods";
 import ThousandYearTrust from "@/pages/ThousandYearTrust";
+import CabillaFutureHeatStressPrototype from "@/pages/prototypes/CabillaFutureHeatStressPrototype";
 import littleKneppClimate from "@/data/aggregates/little-knepp.json";
 import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
 import About from "@/pages/About";
@@ -111,6 +112,20 @@ export default function App() {
               path="/thousand-year-trust"
               element={
                 <ThousandYearTrust
+                  year={year}
+                  setYear={setYear}
+                  place="thousand-year-trust"
+                  setPlace={setPlace}
+                  metric={metric}
+                  setMetric={setMetric}
+                />
+              }
+            />
+
+            <Route
+              path="/prototypes/cabilla-future-heat-stress"
+              element={
+                <CabillaFutureHeatStressPrototype
                   year={year}
                   setYear={setYear}
                   place="thousand-year-trust"
