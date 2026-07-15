@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function PossibleFuturesCard({
   period,
+  periodControl,
   introCopy,
   summaryCopy = [],
   sourceNote,
@@ -55,33 +56,43 @@ export default function PossibleFuturesCard({
 
       {isOpen && (
         <div className="grid gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:items-stretch">
-          <div className="md:pr-4">
-            <h3 className="text-base font-semibold text-white">
-              Climatic period
-              <br />
-              {periodLabel}
-            </h3>
+<div>
+  <h3 className="text-lg font-semibold text-white">
+    Climatic period
+  </h3>
 
-            {summaryCopy.length > 0 && (
-              <div className="mt-6 space-y-4 text-sm leading-snug text-white/70">
-                {summaryCopy.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            )}
-          </div>
+  <div className="mt-1">
+    {periodControl ?? (
+      <div className="text-2xl font-semibold text-white">
+        {period}
+      </div>
+    )}
+  </div>
 
-          <div>
+  {summaryCopy.length > 0 && (
+    <div className="mt-10 space-y-8">
+      <p className="text-sm font-semibold leading-relaxed text-white">
+        {summaryCopy[0]}
+      </p>
+
+      <p className="text-sm leading-relaxed text-white/70">
+        {summaryCopy[1]}
+      </p>
+    </div>
+  )}
+</div>
+
+            <div>
             <div className="min-h-[220px] rounded-xl bg-white/[0.03] p-6">
-              {children}
+                {children}
             </div>
 
             {sourceNote && (
-              <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
+                <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-relaxed text-white/45">
                 {sourceNote}
-              </p>
+                </p>
             )}
-          </div>
+            </div>
         </div>
       )}
     </section>

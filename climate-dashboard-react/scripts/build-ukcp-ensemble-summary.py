@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 
+import re
 
 NORMALISED_COLUMNS = {
     "DaysAbove25C_365": "WarmDay",
@@ -132,12 +133,6 @@ def main() -> None:
         help="Directory for member and ensemble summary CSV files.",
     )
 
-    parser.add_argument(
-        "--period",
-        default="2071-2080",
-        help="Period label used in output filenames. Default: 2071-2080",
-    )
-
     args = parser.parse_args()
 
     if not args.input_directory.exists():
@@ -146,8 +141,13 @@ def main() -> None:
         )
 
     input_files = sorted(
-        args.input_directory.glob(
-            "cabilla-heat-stress-member-*-*.csv"
+        path
+        for path in args.input_directory.glob(
+            "cabilla-heat-stress-member-*.csv"
+        )
+        if re.fullmatch(
+            r"cabilla-heat-stress-member-\d{2}-\d{4}-\d{4}\.csv",
+            path.name,
         )
     )
 
@@ -180,48 +180,52 @@ def main() -> None:
     member_summary = pd.DataFrame(member_records)
 
     member_summary = member_summary.sort_values(
-        "EnsembleMember"
+        ["FirstModelYear", "EnsembleMember"]
     ).reset_index(drop=True)
-
-    ensemble_summary = build_ensemble_summary(
-        member_summary
-    )
 
     args.output_directory.mkdir(
         parents=True,
         exist_ok=True,
     )
 
-    member_output = (
-        args.output_directory
-        / f"cabilla-heat-stress-member-summary-{args.period}.csv"
-    )
+    for first_year, period_members in member_summary.groupby(
+        "FirstModelYear"
+    ):
+        period = f"{first_year}-{first_year + 9}"
 
-    ensemble_output = (
-        args.output_directory
-        / f"cabilla-heat-stress-ensemble-summary-{args.period}.csv"
-    )
+        ensemble_summary = build_ensemble_summary(
+            period_members
+        )
 
-    member_summary.to_csv(
-        member_output,
-        index=False,
-    )
+        member_output = (
+            args.output_directory
+            / f"cabilla-heat-stress-member-summary-{period}.csv"
+        )
 
-    ensemble_summary.to_csv(
-        ensemble_output,
-        index=False,
-    )
+        ensemble_output = (
+            args.output_directory
+            / f"cabilla-heat-stress-ensemble-summary-{period}.csv"
+        )
 
-    print("\n=== MEMBER SUMMARY ===")
-    print(member_summary.to_string(index=False))
+        period_members.to_csv(
+            member_output,
+            index=False,
+        )
 
-    print("\n=== ENSEMBLE SUMMARY ===")
-    print(ensemble_summary.to_string(index=False))
+        ensemble_summary.to_csv(
+            ensemble_output,
+            index=False,
+        )
+
+        print(f"\nWritten {period}")
+        print(f"  Member summary:   {member_output}")
+        print(f"  Ensemble summary: {ensemble_output}")
 
     print("\n=== OUTPUT ===")
-    print(f"Members summarised: {len(member_summary)}")
-    print(f"Member summary:     {member_output}")
-    print(f"Ensemble summary:   {ensemble_output}")
+    print(
+        f"Member-period summaries processed: "
+        f"{len(member_summary)}"
+    )
 
 
 if __name__ == "__main__":

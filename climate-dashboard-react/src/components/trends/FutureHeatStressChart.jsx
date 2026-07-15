@@ -2,6 +2,8 @@
 
 import React, { useMemo, useState } from "react";
 
+import Lozenge from "@/images/assets/lozenge.svg";
+
 const DEFAULT_MAX_DAYS = 60;
 
 function roundDay(value) {
@@ -47,7 +49,7 @@ const activeLabel =
   activeThreshold.key === "warmDay"
     ? "Warm days"
     : `${activeThreshold.label} days`;
-    
+
   return (
     <div className="w-full">
 <div
@@ -60,7 +62,7 @@ const activeLabel =
 </div>
 
 <div
-  className="space-y-4"
+  className="space-y-2"
   onMouseLeave={() => setActiveKey(thresholds[0].key)}
 >
         {thresholds.map((threshold) => {
@@ -75,6 +77,14 @@ const activeLabel =
           const medianPosition = scaleValue(
             threshold.median
           );
+
+          const roundedMedian = roundDay(threshold.median);
+          const showMedianMarker = roundedMedian > 0;
+          const medianOffset = showMedianMarker ? "0px" : "4px";
+          const medianYOffset = showMedianMarker ? "0px" : "4px";
+          const medianLabelBottom = showMedianMarker
+            ? "bottom-[27px]"
+            : "bottom-[18px]";
 
           const rangeWidth = Math.max(
             upperPosition - lowerPosition,
@@ -120,21 +130,21 @@ const activeLabel =
                 )} days`}
               >
 {/* Plausible-range interval */}
-<span
-  className={[
-    "absolute top-1/2 h-6 -translate-y-1/2",
-    "origin-center transition-all duration-200",
-    isActive
-      ? "scale-y-100 opacity-100"
-      : "scale-y-[0.82] opacity-55",
-  ].join(" ")}
-  style={{
-    left: `${lowerPosition}%`,
-    width: `${rangeWidth}%`,
-  }}
->
-  <span className="absolute inset-0 bg-orange-500/85" />
-</span>
+    <span
+    className={[
+        "absolute top-1/2 h-6 -translate-y-1/2",
+        "origin-center transition-all duration-200",
+        isActive
+        ? "scale-y-100 opacity-100"
+        : "scale-y-[0.82] opacity-55",
+    ].join(" ")}
+    style={{
+        left: `${lowerPosition}%`,
+        width: `${rangeWidth}%`,
+    }}
+    >
+    <span className="absolute inset-0 bg-orange-500/85" />
+    </span>
 
 {/* Median value and lozenge */}
 <span
@@ -143,31 +153,33 @@ const activeLabel =
     "transition-all duration-200",
   ].join(" ")}
   style={{
-    left: `${medianPosition}%`,
+    left: `calc(${medianPosition}% + ${medianOffset})`,
+    transform: `translate(-50%, calc(-50% + ${medianYOffset}))`,
   }}
 >
 <span
   className={[
-    "absolute bottom-[25px] left-1/2 -translate-x-1/2",
+    "absolute left-1/2 -translate-x-1/2",
     "text-[12px] font-semibold text-white/85",
     "transition-opacity duration-200",
+    medianLabelBottom,
     isActive ? "opacity-100" : "opacity-0",
   ].join(" ")}
 >
-  {roundDay(threshold.median)}
+  {roundedMedian}
 </span>
 
-<span
-  className={[
-    "block rotate-45 bg-neutral-800 transition-transform duration-200",
-    isActive ? "scale-100" : "scale-[0.89]",
-  ].join(" ")}
-  style={{
-    width: "18px",
-    height: "18px",
-  }}
-  aria-hidden="true"
-/>
+  {showMedianMarker && (
+    <img
+      src={Lozenge}
+      alt=""
+      aria-hidden="true"
+      className={[
+        "block h-6 w-3 transition-transform duration-200",
+        isActive ? "scale-100" : "scale-[0.89]",
+      ].join(" ")}
+    />
+  )}
 </span>
               </button>
             </div>
@@ -175,7 +187,7 @@ const activeLabel =
         })}
       </div>
 
-      <div className="mt-7 grid grid-cols-[120px_minmax(0,1fr)] gap-5 md:grid-cols-[103px_minmax(0,1fr)] md:gap-7">
+      <div className="mt-4 grid grid-cols-[120px_minmax(0,1fr)] gap-5 md:grid-cols-[103px_minmax(0,1fr)] md:gap-7">
         <div />
 
         <div>
