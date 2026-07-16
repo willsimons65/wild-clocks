@@ -78,7 +78,7 @@ export default function CabillaFutureHeatStressPrototype() {
                 aria-label="Select climatic period"
                 className={[
                   "appearance-none bg-transparent",
-                  "cursor-pointer pr-8",
+                  "cursor-pointer pr-6",
                   "text-lg font-semibold text-white",
                   "focus:outline-none focus-visible:ring-2",
                   "focus-visible:ring-amber-300/0",

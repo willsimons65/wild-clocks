@@ -18,7 +18,7 @@ export default function PossibleFuturesCard({
       : period?.label ?? "";
 
   return (
-    <section className="rounded-2xl border border-amber-400/20 bg-amber-950/20 px-6 py-7 md:px-8 md:py-8">
+    <section className="rounded-2xl border border-amber-400/20 bg-amber-400/2 px-6 py-7 md:px-8 md:py-8">
       <header className="mb-8">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-300/75">
           Climate projections
