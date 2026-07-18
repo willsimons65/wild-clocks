@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import ChevronDown from "@/images/assets/chevron-down.svg";
+
 export default function PossibleFuturesCard({
   period,
   periodControl,
@@ -10,7 +12,7 @@ export default function PossibleFuturesCard({
   sourceNote,
   children,
 }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const periodLabel =
     typeof period === "string"
@@ -18,8 +20,8 @@ export default function PossibleFuturesCard({
       : period?.label ?? "";
 
   return (
-    <section className="rounded-2xl border border-amber-400/20 bg-amber-400/2 px-6 py-7 md:px-8 md:py-8">
-      <header className="mb-8">
+    <section className="rounded-2xl border border-amber-400/20 bg-amber-200/0 px-6 py-7 md:px-8 md:py-8">
+      <header>
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-300/75">
           Climate projections
         </p>
@@ -28,71 +30,84 @@ export default function PossibleFuturesCard({
           Possible futures
         </h2>
 
-        <p className="mt-4 max-w-[90%] text-sm leading-relaxed text-white/75 md:text-base">
-          {introCopy}
-        </p>
-      </header>
+        {introCopy && (
+          <p className="mt-4 max-w-[90%] text-sm leading-relaxed text-white/75 md:text-base">
+            {introCopy}
+          </p>
+        )}
 
-      <div className="mb-8 flex justify-center">
         <button
           type="button"
           onClick={() => setIsOpen((current) => !current)}
-          className="inline-flex rounded-full border border-amber-300/20 bg-black/20 p-0.5 text-sm"
+          className="
+            mt-5
+            inline-flex
+            items-center
+            gap-3
+            text-sm
+            font-medium
+            text-amber-300/85
+            transition-colors
+            hover:text-amber-200
+            focus:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-amber-300/40
+          "
           aria-expanded={isOpen}
         >
-          <span
-            className={`rounded-full px-8 py-1 transition-colors ${
-              isOpen
-                ? "bg-amber-300/15 text-amber-100"
-                : "text-white/55 hover:text-white/80"
-            }`}
-          >
+          <span>
             {isOpen
               ? "Hide projections"
               : "Explore possible futures"}
           </span>
+
+          <img
+            src={ChevronDown}
+            alt=""
+            aria-hidden="true"
+            className={[
+              "h-4 w-4 transition-transform duration-200",
+              isOpen ? "rotate-180" : "rotate-0",
+            ].join(" ")}
+          />
         </button>
-      </div>
+      </header>
 
       {isOpen && (
-        <div className="grid gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:items-stretch">
-<div>
-  <h3 className="text-lg font-semibold text-white">
-    Climatic period
-  </h3>
+        <div className="mt-6 grid gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:items-stretch">
+          <div className="md:pr-4">
+            <h3 className="text-base font-semibold text-white">
+              Climatic period
+            </h3>
 
-  <div className="mt-1">
-    {periodControl ?? (
-      <div className="text-2xl font-semibold text-white">
-        {period}
-      </div>
-    )}
-  </div>
+            <div className="mt-2">
+              {periodControl ?? (
+                <p className="text-xl font-semibold text-white">
+                  {periodLabel}
+                </p>
+              )}
+            </div>
 
-  {summaryCopy.length > 0 && (
-    <div className="mt-10 space-y-8">
-      <p className="text-sm font-semibold leading-relaxed text-white">
-        {summaryCopy[0]}
-      </p>
+            {summaryCopy.length > 0 && (
+              <div className="mt-6 space-y-4 text-sm leading-snug text-white/70">
+                {summaryCopy.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            )}
+          </div>
 
-      <p className="text-sm leading-relaxed text-white/70">
-        {summaryCopy[1]}
-      </p>
-    </div>
-  )}
-</div>
-
-            <div>
+          <div>
             <div className="min-h-[220px] rounded-xl bg-white/[0.03] p-6">
-                {children}
+              {children}
             </div>
 
             {sourceNote && (
-                <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-relaxed text-white/45">
+              <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
                 {sourceNote}
-                </p>
+              </p>
             )}
-            </div>
+          </div>
         </div>
       )}
     </section>

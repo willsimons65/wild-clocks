@@ -55,8 +55,7 @@
     "month": 6,
     "slot": 2,
     "url": "/cabilla/2026/06-june/slot-2.webp"
-  }
-  ,
+  },
   {
     "id": "cabilla-2026-06-slot-3",
     "place": "cabilla",
@@ -64,5 +63,21 @@
     "month": 6,
     "slot": 3,
     "url": "/cabilla/2026/06-june/slot-3.webp"
+  },
+  {
+    "id": "cabilla-2026-06-slot-4",
+    "place": "cabilla",
+    "year": 2026,
+    "month": 6,
+    "slot": 4,
+    "url": "/cabilla/2026/06-june/slot-4.webp"
+  },
+  {
+    "id": "cabilla-2026-07-slot-2",
+    "place": "cabilla",
+    "year": 2026,
+    "month": 7,
+    "slot": 2,
+    "url": "/cabilla/2026/07-july/slot-2.webp"
   }
 ]

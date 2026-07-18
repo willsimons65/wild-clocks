@@ -27,6 +27,8 @@ import WinterColdCard from "@/components/trends/WinterColdCard";
 import { cabillaBaselineWinterCold } from "@/data/winter-cold/cabilla/baseline-winter-cold";
 import { cabillaCurrentWinterCold } from "@/data/winter-cold/cabilla/current-winter-cold";
 
+import { cabillaFutureHeatStress } from "@/data/heat-stress/cabilla/future-heat-stress";
+
 export default function ThousandYearTrust({
   year,
   setYear,
@@ -204,7 +206,7 @@ export default function ThousandYearTrust({
       sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
     />
 
-      <HeatStressCard
+    <HeatStressCard
         placeName="Cabilla"
         baselineData={cabillaBaselineHeatStress}
         currentData={cabillaCurrentHeatStress}
@@ -212,15 +214,23 @@ export default function ThousandYearTrust({
         currentLabel="2020–2024"
         introCopy="Hot days matter because woodland stress is often driven by short periods of high daytime temperature, not by seasonal averages. These thresholds show how often Cabilla's temperate rainforest experiences potentially stressful heat."
         baselineCopy={[
-          "Historically, hot days were relatively uncommon.",
-          "Temperatures above 25°C occurred only occasionally, while days above 30°C were exceptionally rare. The woodland's cool, humid climate provided natural protection from prolonged summer heat.",
+            "Historically, hot days were relatively uncommon.",
+            "Temperatures above 25°C occurred only occasionally, while days above 30°C were exceptionally rare.",
         ]}
         currentCopy={[
-          "Heat stress is becoming more noticeable.",
-          "Days above 25°C have more than tripled, and temperatures above 30°C—once almost absent—now occur about once each year. Even this cool Atlantic woodland is experiencing increasingly frequent periods of summer heat.",
+            "Heat stress is becoming more noticeable.",
+            "Days above 25°C have become more frequent, while temperatures above 30°C—once almost absent—now occur periodically.",
         ]}
         sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
-      />
+
+        futureData={cabillaFutureHeatStress}
+        futureIntroCopy="Climate projections help us explore how environmental conditions at Cabilla could change under different warming scenarios. They describe plausible futures rather than predictions of individual years."
+        futureSummaryCopy={[
+            "Temperatures above 25°C could occur several times more often than they do today.",
+            "Short periods of intense heat may become a regular feature of summer, increasing water stress for trees and altering understorey conditions.",
+        ]}
+        futureSourceNote="Derived from UKCP18 Local projections on a 5 km grid, using the grid cell covering Cabilla. Values show the ensemble median and 10th–90th percentile range under RCP8.5."
+    />
 
           <WinterColdCard
           placeName="Cabilla"
