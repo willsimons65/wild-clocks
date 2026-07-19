@@ -315,8 +315,12 @@ useEffect(() => {
 </div>
 
 {futureData && (
-  <div className="mt-8">
+  <div
+    id="possible-futures"
+    className="mt-8 scroll-mt-24"
+  >
     <PossibleFuturesCard
+    anchorId="cabilla-heat-stress-futures"
     period={
         selectedFutureData?.period ??
         selectedFuturePeriod.replace("-", "–")

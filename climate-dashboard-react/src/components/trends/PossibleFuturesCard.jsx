@@ -1,18 +1,25 @@
 // src/components/trends/PossibleFuturesCard.jsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ChevronDown from "@/images/assets/chevron-down.svg";
 
 export default function PossibleFuturesCard({
-  period,
-  periodControl,
-  introCopy,
-  summaryCopy = [],
-  sourceNote,
-  children,
+    anchorId,
+    period,
+    periodControl,
+    introCopy,
+    summaryCopy = [],
+    sourceNote,
+    children,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+
+useEffect(() => {
+  if (anchorId && window.location.hash === `#${anchorId}`) {
+    setIsOpen(true);
+  }
+}, [anchorId]);
 
   const periodLabel =
     typeof period === "string"
@@ -20,7 +27,10 @@ export default function PossibleFuturesCard({
       : period?.label ?? "";
 
   return (
-    <section className="rounded-2xl border border-amber-400/20 bg-amber-200/0 px-6 py-7 md:px-8 md:py-8">
+    <section
+    id={anchorId}
+    className="scroll-mt-24 rounded-2xl border border-amber-400/20 bg-amber-200/0 px-6 py-7 md:px-8 md:py-8"
+    >
       <header>
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-300/75">
           Climate projections
