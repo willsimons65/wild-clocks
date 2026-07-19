@@ -315,16 +315,13 @@ useEffect(() => {
 </div>
 
 {futureData && (
-  <div
-    id="possible-futures"
-    className="mt-8 scroll-mt-24"
-  >
+<div className="mt-8">
     <PossibleFuturesCard
     anchorId="cabilla-heat-stress-futures"
     period={
-        selectedFutureData?.period ??
-        selectedFuturePeriod.replace("-", "–")
-    }
+            selectedFutureData?.period ??
+            selectedFuturePeriod?.replace("-", "–")
+            }
       periodControl={
         <div className="relative inline-flex items-center">
           <select
@@ -339,7 +336,8 @@ useEffect(() => {
               bg-transparent
               p-0
               pr-7
-              text-xl
+              w-auto
+              min-w-0
               font-semibold
               text-white
               outline-none

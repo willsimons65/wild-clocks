@@ -16,7 +16,10 @@ export default function PossibleFuturesCard({
   const [isOpen, setIsOpen] = useState(false);
 
 useEffect(() => {
-  if (anchorId && window.location.hash === `#${anchorId}`) {
+  if (
+    anchorId &&
+    window.location.hash === `#${anchorId}`
+  ) {
     setIsOpen(true);
   }
 }, [anchorId]);
@@ -27,10 +30,10 @@ useEffect(() => {
       : period?.label ?? "";
 
   return (
-    <section
-    id={anchorId}
-    className="scroll-mt-24 rounded-2xl border border-amber-400/20 bg-amber-200/0 px-6 py-7 md:px-8 md:py-8"
-    >
+        <section
+        id={anchorId}
+        className="scroll-mt-24 rounded-2xl border border-amber-400/20 bg-amber-200/0 px-6 py-7 md:px-8 md:py-8"
+            >
       <header>
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-300/75">
           Climate projections

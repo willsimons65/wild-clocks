@@ -109,7 +109,7 @@ export default function App() {
             />
 
             <Route
-              path="/thousand-year-trust"
+              path="/thousand-year-trust/:view?"
               element={
                 <ThousandYearTrust
                   year={year}

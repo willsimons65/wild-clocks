@@ -1,6 +1,7 @@
 // src/pages/ThousandYearTrust.jsx
 
 import React, { useState, useEffect, useMemo } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
@@ -41,8 +42,9 @@ export default function ThousandYearTrust({
     setPlace("thousand-year-trust");
     setMetric("microclimate");
   }, [setPlace, setMetric]);
-
-  const [viewMode, setViewMode] = useState("feed");
+  const navigate = useNavigate();
+    const { view: routeView } = useParams();
+    const view = routeView === "trends" ? "trends" : "feed";
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -104,6 +106,47 @@ export default function ThousandYearTrust({
     setWeather(allYearsData[year] || {});
   }, [year, allYearsData]);
 
+useEffect(() => {
+  if (view !== "trends" || !window.location.hash) return;
+
+  const targetId = window.location.hash.slice(1);
+  let attempts = 0;
+  let secondScrollTimeout;
+
+  const scrollToTarget = () => {
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      secondScrollTimeout = window.setTimeout(() => {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 300);
+
+      return;
+    }
+
+    attempts += 1;
+
+    if (attempts < 20) {
+      window.setTimeout(scrollToTarget, 50);
+    }
+  };
+
+  const initialTimeout = window.setTimeout(scrollToTarget, 50);
+
+  return () => {
+    window.clearTimeout(initialTimeout);
+    window.clearTimeout(secondScrollTimeout);
+  };
+}, [view]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-[#1E1E1E] text-white flex items-center justify-center">
@@ -143,32 +186,34 @@ export default function ThousandYearTrust({
         />
 
                 <div className="flex justify-center">
-          <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
-            <button
-              onClick={() => setViewMode("feed")}
-              className={`rounded-full px-8 py-1 transition-colors ${
-                viewMode === "feed"
-                  ? "bg-white/15 text-white"
-                  : "text-white/55 hover:text-white/80"
-              }`}
-            >
-              Feed
-            </button>
+<div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
+  <button
+    type="button"
+    onClick={() => navigate("/thousand-year-trust/feed")}
+    className={`rounded-full px-8 py-1 transition-colors ${
+      view === "feed"
+        ? "bg-white/15 text-white"
+        : "text-white/55 hover:text-white/80"
+    }`}
+  >
+    Daily feed
+  </button>
 
-            <button
-              onClick={() => setViewMode("trends")}
-              className={`rounded-full px-8 py-1 transition-colors ${
-                viewMode === "trends"
-                  ? "bg-white/15 text-white"
-                  : "text-white/55 hover:text-white/80"
-              }`}
-            >
-              Trends
-            </button>
-          </div>
+  <button
+    type="button"
+    onClick={() => navigate("/thousand-year-trust/trends")}
+    className={`rounded-full px-8 py-1 transition-colors ${
+      view === "trends"
+        ? "bg-white/15 text-white"
+        : "text-white/55 hover:text-white/80"
+    }`}
+  >
+    Trends
+  </button>
+</div>
         </div>
 
-{viewMode === "trends" ? (
+{view === "trends" ? (
   <div className="space-y-8">
     <ClimateEnvelopeCard
       placeName="Cabilla"
