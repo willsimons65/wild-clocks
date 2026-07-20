@@ -13,7 +13,13 @@ export default function PossibleFuturesCard({
     sourceNote,
     children,
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(() => {
+  if (typeof window === "undefined" || !anchorId) {
+    return false;
+  }
+
+  return window.location.hash === `#${anchorId}`;
+});
 
 useEffect(() => {
   if (

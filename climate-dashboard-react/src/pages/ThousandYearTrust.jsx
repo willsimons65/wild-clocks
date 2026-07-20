@@ -1,7 +1,7 @@
 // src/pages/ThousandYearTrust.jsx
 
 import React, { useState, useEffect, useMemo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
@@ -48,6 +48,7 @@ export default function ThousandYearTrust({
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   const cabillaPhotos = useMemo(() => {
   return PHOTO_MANIFESTS["cabilla"]?.[year] || [];
@@ -107,53 +108,57 @@ export default function ThousandYearTrust({
   }, [year, allYearsData]);
 
 useEffect(() => {
-  if (view !== "trends" || !window.location.hash) return;
+  if (
+    loading ||
+    view !== "trends" ||
+    !location.hash
+  ) {
+    return;
+  }
 
-  const targetId = window.location.hash.slice(1);
+  const targetId = decodeURIComponent(
+    location.hash.slice(1)
+  );
+
+  let cancelled = false;
+  let retryTimeout;
   let attempts = 0;
-  let secondScrollTimeout;
 
   const scrollToTarget = () => {
+    if (cancelled) return;
+
     const target = document.getElementById(targetId);
 
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (!target) {
+      attempts += 1;
 
-      secondScrollTimeout = window.setTimeout(() => {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 300);
+      if (attempts < 40) {
+        retryTimeout = window.setTimeout(
+          scrollToTarget,
+          50
+        );
+      }
 
       return;
     }
 
-    attempts += 1;
-
-    if (attempts < 20) {
-      window.setTimeout(scrollToTarget, 50);
-    }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    });
   };
 
-  const initialTimeout = window.setTimeout(scrollToTarget, 50);
+  scrollToTarget();
 
   return () => {
-    window.clearTimeout(initialTimeout);
-    window.clearTimeout(secondScrollTimeout);
+    cancelled = true;
+    window.clearTimeout(retryTimeout);
   };
-}, [view]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#1E1E1E] text-white flex items-center justify-center">
-        Loading Thousand Year Trust data…
-      </div>
-    );
-  }
+}, [loading, view, location.hash]);
 
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
