@@ -194,7 +194,8 @@ const activeLabel =
         })}
       </div>
 
-      <div className="mt-4 grid grid-cols-[120px_minmax(0,1fr)] gap-5 md:grid-cols-[103px_minmax(0,1fr)] md:gap-7">
+      <div
+        className="mt-4 grid grid-cols-[92px_minmax(0,1fr)] gap-3 md:grid-cols-[120px_minmax(0,1fr)] md:gap-7">
         <div />
 
         <div>
