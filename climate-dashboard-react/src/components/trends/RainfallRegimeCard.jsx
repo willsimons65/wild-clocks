@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-const CHART_MAX_DAYS = 365;
+import ThresholdBarChart from "./ThresholdBarChart";
 
 const BAR_COLOURS = {
   dry: "#84a3f2ff",       // pale blue
@@ -166,68 +166,20 @@ useEffect(() => {
 </div>
         </div>
 
-        <div>
-        <div className="min-h-[220px] rounded-xl bg-white/[0.03] p-6">
-<svg viewBox="0 0 900 220" className="h-full w-full">
-  {regime.categories.map((category, index) => {
-    const chartLeft = 85;
-    const chartWidth = 620;
-    const rowY = 35 + index * 50;
-    const barHeight = 28;
+<div>
+  <div className="rounded-xl bg-white/[0.03] p-4 sm:p-6">
+    <ThresholdBarChart
+      regime={regime}
+      maxDays={365}
+      colours={BAR_COLOURS}
+      ariaLabel="Average number of days in each rainfall category per year"
+    />
+  </div>
 
-    const barWidth = (category.days / CHART_MAX_DAYS) * chartWidth;
-
-    return (
-      <g key={category.key}>
-        <text
-          x="65"
-          y={rowY + 3}
-          textAnchor="end"
-          fontSize="13"
-          fill="rgba(255,255,255,0.85)"
-        >
-          {category.label}
-        </text>
-
-        <text
-          x="65"
-          y={rowY + 19}
-          textAnchor="end"
-          fontSize="11"
-          fill="rgba(255,255,255,0.45)"
-        >
-          {category.range}
-        </text>
-
-        <rect
-          x={chartLeft}
-          y={rowY - 8}
-          width={barWidth}
-          height={barHeight}
-          rx="0"
-          fill={BAR_COLOURS[category.key]}
-          opacity={category.key === "light" ? 0.82 : 0.95}
-        />
-
-        <text
-          x={chartLeft + barWidth + 16}
-          y={rowY + 10}
-          fontSize="13"
-          fill="rgba(255,255,255,0.72)"
-        >
-          {Math.round(category.days)}
-        </text>
-      </g>
-    );
-  })}
-</svg>
-        
-    </div>
-      <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
-        {sourceNote}
+  <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
+    {sourceNote}
   </p>
-    
-    </div>
+</div>
     </div>
 
     </section>

@@ -101,18 +101,18 @@ const activeLabel =
             onMouseEnter={() => setActiveKey(threshold.key)}
             >
             <div
-                className={[
-                    "text-right transition-opacity duration-200",
-                    isActive ? "opacity-100" : "opacity-60",
-                ].join(" ")}
-                >
-                <div className="text-sm font-medium leading-tight text-white md:text-xs">
-                    {threshold.label}
-                </div>
+            className={[
+                "text-right transition-opacity duration-200",
+                isActive ? "opacity-100" : "opacity-60",
+            ].join(" ")}
+            >
+            <div className="text-[13px] font-medium leading-tight text-white md:text-xs">
+                {threshold.label}
+            </div>
 
-                <div className="mt-0.5 text-xs text-white/55 md:text-[10px]">
-                    {threshold.range}
-                </div>
+            <div className="mt-0.5 text-[11px] text-white/55 md:text-[10px]">
+                {threshold.range}
+            </div>
             </div>
 
               <button

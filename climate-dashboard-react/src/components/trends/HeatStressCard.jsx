@@ -4,17 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import PossibleFuturesCard from "./PossibleFuturesCard";
 import FutureHeatStressChart from "./FutureHeatStressChart";
+import ThresholdBarChart from "./ThresholdBarChart";
 
 import ChevronDown from "@/images/assets/chevron-down.svg";
-
-const CHART_MAX_DAYS = 35;
-
-const BAR_COLOURS = {
-  warm: "#FFE4A1",       // pale yellow
-  heatStress: "#FFBD4B",     // mid yellow
-  highHeatStress: "#FF913C",  // orange
-  extremeHeat: "#FF602F",     // deep orange
-};
 
 function clamp(value, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
@@ -53,6 +45,13 @@ function buildAnimatedRegime(fromRegime, toRegime, progress) {
 function normalisePeriod(value = "") {
   return value.replace(/–/g, "-");
 }
+
+const HEAT_STRESS_COLOURS = {
+  warm: "#FFE4A1",
+  heatStress: "#FFBD4B",
+  highHeatStress: "#FF913C",
+  extremeHeat: "#FF602F",
+};
 
 const PERIOD_OPTIONS = [
   {
@@ -233,86 +232,40 @@ useEffect(() => {
         </div>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:items-stretch">
+        <div className="grid gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:items-stretch">
         <div className="md:pr-4">
             <h3 className="text-base font-semibold text-white">
-            {isBaseline ? "Baseline heat stress" : "Current heat stress"}
+            {isBaseline
+                ? "Baseline heat stress"
+                : "Current heat stress"}
             <br />
             {isBaseline ? baselineLabel : currentLabel}
             </h3>
 
+            <div className="mt-6 space-y-4 text-sm leading-snug text-white/70">
+            {(isBaseline ? baselineCopy : currentCopy).map(
+                (paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+                )
+            )}
+            </div>
+        </div>
 
-<div className="mt-6 space-y-4 text-sm leading-snug text-white/70">
-  {(isBaseline ? baselineCopy : currentCopy).map((paragraph) => (
-    <p key={paragraph}>{paragraph}</p>
-  ))}
-</div>
-    </div>
+        <div>
+            <div className="rounded-xl bg-white/[0.03] p-4 sm:p-6">
+            <ThresholdBarChart
+            regime={regime}
+            maxDays={35}
+            colours={HEAT_STRESS_COLOURS}
+            ariaLabel="Average number of heat stress days per year"
+            />
+            </div>
 
-<div>
-    <div className="min-h-[220px] rounded-xl bg-white/[0.03] p-6">
-<svg viewBox="0 0 900 220" className="h-full w-full">
-  {regime.categories.map((category, index) => {
-    const chartLeft = 125;
-    const chartWidth = 620;
-    const rowY = 35 + index * 50;
-    const barHeight = 28;
-
-    const barWidth = (category.days / CHART_MAX_DAYS) * chartWidth;
-
-    return (
-      <g key={category.key}>
-        <text
-          x="105"
-          y={rowY + 3}
-          textAnchor="end"
-          fontSize="13"
-          fill="rgba(255,255,255,0.85)"
-        >
-          {category.label}
-        </text>
-
-        <text
-          x="105"
-          y={rowY + 19}
-          textAnchor="end"
-          fontSize="11"
-          fill="rgba(255,255,255,0.45)"
-        >
-          {category.range}
-        </text>
-
-        <rect
-          x={chartLeft}
-          y={rowY - 8}
-          width={barWidth}
-          height={barHeight}
-          rx="0"
-          fill={BAR_COLOURS[category.key]}
-          opacity="0.95"
-        />
-
-        <text
-          x={chartLeft + barWidth + 14}
-          y={rowY + 10}
-          fontSize="13"
-          fill="rgba(255,255,255,0.72)"
-        >
-          {category.days.toFixed(1)}
-        </text>
-      </g>
-    );
-  })}
-</svg>
-</div>
-        
-        <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
+            <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
             {sourceNote}
-        </p>
-
-    </div>
-    
-</div>
+            </p>
+        </div>
+        </div>
 
 {futureData && (
 <div className="mt-8">

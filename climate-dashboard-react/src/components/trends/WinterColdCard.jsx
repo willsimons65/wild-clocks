@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-const CHART_MAX_DAYS = 365;
+import ThresholdBarChart from "./ThresholdBarChart";
 
-const BAR_COLOURS = {
+const WINTER_COLD_COLOURS = {
   winterChill: "#03BBB6",
   dormancyConditions: "#30CBC7",
   nearFreezing: "#64DBDA",
@@ -167,68 +167,20 @@ useEffect(() => {
 </div>
         </div>
 
-        <div>
-        <div className="min-h-[270px] rounded-xl bg-white/[0.03] p-6">
-<svg viewBox="0 0 900 270" className="h-full w-full">
-  {regime.categories.map((category, index) => {
-    const chartLeft = 155;
-    const chartWidth = 620;
-    const rowY = 35 + index * 50;
-    const barHeight = 28;
-
-    const barWidth = (category.days / CHART_MAX_DAYS) * chartWidth;
-
-    return (
-      <g key={category.key}>
-        <text
-          x="135"
-          y={rowY + 3}
-          textAnchor="end"
-          fontSize="13"
-          fill="rgba(255,255,255,0.85)"
-        >
-          {category.label}
-        </text>
-
-        <text
-          x="135"
-          y={rowY + 19}
-          textAnchor="end"
-          fontSize="11"
-          fill="rgba(255,255,255,0.45)"
-        >
-          {category.range}
-        </text>
-
-        <rect
-          x={chartLeft}
-          y={rowY - 8}
-          width={barWidth}
-          height={barHeight}
-          rx="0"
-          fill={BAR_COLOURS[category.key]}
-          opacity="0.95"
-        />
-
-        <text
-          x={chartLeft + barWidth + 14}
-          y={rowY + 10}
-          fontSize="13"
-          fill="rgba(255,255,255,0.72)"
-        >
-          {category.days.toFixed(1)}
-        </text>
-      </g>
-    );
-  })}
-</svg>
-        
+<div>
+    <div className="rounded-xl bg-white/[0.03] p-4 sm:p-6">
+    <ThresholdBarChart
+        regime={regime}
+        maxDays={365}
+        colours={WINTER_COLD_COLOURS}
+        ariaLabel="Average number of winter cold days per year"
+    />
     </div>
-      <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
-        {sourceNote}
+
+  <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed text-white/45">
+    {sourceNote}
   </p>
-    
-    </div>
+</div>
     </div>
 
     </section>
