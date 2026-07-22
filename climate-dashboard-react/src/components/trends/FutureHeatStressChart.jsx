@@ -94,11 +94,18 @@ const activeLabel =
           const isActive =
             threshold.key === activeThreshold.key;
 
-          return (
+            return (
             <div
-            key={threshold.key}
-            className="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-5 md:grid-cols-[100px_minmax(0,1fr)] md:gap-7"
-            onMouseEnter={() => setActiveKey(threshold.key)}
+                key={threshold.key}
+                className="
+                grid
+                grid-cols-[92px_minmax(0,1fr)]
+                items-center
+                gap-3
+                md:grid-cols-[120px_minmax(0,1fr)]
+                md:gap-7
+                "
+                onMouseEnter={() => setActiveKey(threshold.key)}
             >
             <div
             className={[
