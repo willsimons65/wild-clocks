@@ -20,6 +20,7 @@ import { appletonCurrentRainfallRegime } from "@/data/annual-rainfall/appleton/c
 import HeatStressCard from "@/components/trends/HeatStressCard";
 import { appletonBaselineHeatStress } from "@/data/heat-stress/appleton/baseline-heat-stress";
 import { appletonCurrentHeatStress } from "@/data/heat-stress/appleton/current-heat-stress";
+import { appletonFutureHeatStress } from "@/data/heat-stress/appleton/future-heat-stress";
 
 import WinterColdCard from "@/components/trends/WinterColdCard";
 import { appletonBaselineWinterCold } from "@/data/winter-cold/appleton/baseline-winter-cold";
@@ -176,7 +177,7 @@ if (loading) {
 />
 
 <RainfallRegimeCard
-      placeName="Cabilla"
+      placeName="Appleton Woods"
       baselineRegime={appletonBaselineRainfallRegime}
       currentRegime={appletonCurrentRainfallRegime}
       baselineLabel="1961–1990"
@@ -195,23 +196,31 @@ if (loading) {
       sourceNote="Historical climate data are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods. Recent temperature records are drawn from the Observatory, while rainfall observations are collected locally."
     />
 
-  <HeatStressCard
-    placeName="Appleton Woods"
-    baselineData={appletonBaselineHeatStress}
-    currentData={appletonCurrentHeatStress}
-    baselineLabel="1961–1990"
-    currentLabel="2021–2025"
-    introCopy="Hot days matter because woodland stress is often driven by short periods of high daytime temperature, not by seasonal averages. These thresholds show how often Appleton Woods now experiences potentially stressful heat."
-    baselineCopy={[
-      "Historically, hot days were relatively uncommon.",
-      "Warm days occurred most years, but higher heat-stress thresholds were reached only occasionally. Extreme heat was rare, giving the woodland more time to recover between hot spells.",
-    ]}
-    currentCopy={[
-      "Hot days are now much more frequent across every threshold.",
-      "The woodland is exposed to more frequent daytime heat stress, increasing pressure on soils, seedlings and understorey plants, especially when heat coincides with dry conditions.",
-    ]}
-    sourceNote="Historical and recent temperature records are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods."
-  />
+    <HeatStressCard
+      placeName="Appleton Woods"
+      baselineData={appletonBaselineHeatStress}
+      currentData={appletonCurrentHeatStress}
+      baselineLabel="1961–1990"
+      currentLabel="2021–2025"
+      introCopy="Hot days matter because woodland stress is often driven by short periods of high daytime temperature, not by seasonal averages. These thresholds show how often Appleton Woods now experiences potentially stressful heat."
+      baselineCopy={[
+        "Historically, hot days were relatively uncommon.",
+        "Warm days occurred most years, but higher heat-stress thresholds were reached only occasionally. Extreme heat was rare, giving the woodland more time to recover between hot spells.",
+      ]}
+      currentCopy={[
+        "Hot days are now much more frequent across every threshold.",
+        "The woodland is exposed to more frequent daytime heat stress, increasing pressure on soils, seedlings and understorey plants, especially when heat coincides with dry conditions.",
+      ]}
+      sourceNote="Historical and recent temperature records are derived from the Radcliffe Observatory, Oxford, approximately 4 miles from Appleton Woods."
+
+      futureData={appletonFutureHeatStress}
+      futureIntroCopy="Climate projections help us explore how heat conditions at Appleton Woods could change during the coming decades. They describe a range of plausible future climates rather than predicting individual years."
+      futureSummaryCopy={[
+        "Hot days could become a regular and increasingly persistent feature of summer.",
+        "By the later decades, periods of high and extreme heat may place sustained pressure on woodland soils, young trees and ground-layer vegetation, particularly when combined with drought.",
+      ]}
+      futureSourceNote="Derived from UKCP18 Local projections on a 5 km grid, using the grid cell covering Appleton Woods. Values show the ensemble median and 10th–90th percentile range under RCP8.5."
+    />
 
     <WinterColdCard
     placeName="Appleton Woods"

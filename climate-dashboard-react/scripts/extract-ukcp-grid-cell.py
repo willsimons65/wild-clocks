@@ -29,7 +29,7 @@ def build_output_filename(input_file: Path) -> str:
     tasmax_rcp85_land-cpm_uk_5km_04_day_20701201-20801130.nc
 
     becomes:
-    cabilla-tasmax-member-04-2070-2080.csv
+    appleton-tasmax-member-04-2070-2080.csv
     """
     match = MEMBER_PATTERN.search(input_file.name)
 
@@ -45,7 +45,7 @@ def build_output_filename(input_file: Path) -> str:
     end_year = end_date[:4]
 
     return (
-        f"cabilla-tasmax-member-{member}-"
+        f"appleton-tasmax-member-{member}-"
         f"{start_year}-{end_year}.csv"
     )
 
@@ -200,15 +200,15 @@ def main() -> None:
     parser.add_argument(
         "--easting",
         type=float,
-        default=213750,
-        help="British National Grid easting. Default: 213750",
+        default=445359,
+        help="British National Grid easting. Default: 445359",
     )
 
     parser.add_argument(
         "--northing",
         type=float,
-        default=71250,
-        help="British National Grid northing. Default: 71250",
+        default=200981,
+        help="British National Grid northing. Default: 200981",
     )
 
     parser.add_argument(

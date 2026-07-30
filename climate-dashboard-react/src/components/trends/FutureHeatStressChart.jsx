@@ -16,6 +16,28 @@ export default function FutureHeatStressChart({
 }) {
   const thresholds = data?.thresholds ?? [];
 
+  const highestUpperValue = Math.max(
+    0,
+    ...thresholds.map((threshold) =>
+      Number(threshold.upper) || 0
+    )
+  );
+
+  const tickInterval =
+    highestUpperValue > 60 ? 20 : 10;
+
+  const automaticMaxDays = Math.max(
+    DEFAULT_MAX_DAYS,
+    Math.ceil(
+      highestUpperValue / tickInterval
+    ) * tickInterval
+  );
+
+  const resolvedMaxDays = Math.max(
+    maxDays,
+    automaticMaxDays
+  );
+
   const [activeKey, setActiveKey] = useState(
     thresholds[0]?.key ?? null
   );
@@ -32,14 +54,16 @@ export default function FutureHeatStressChart({
     return null;
   }
 
-  const scaleValue = (value) => {
+    const scaleValue = (value) => {
     const clampedValue = Math.max(
-      0,
-      Math.min(value, maxDays)
+        0,
+        Math.min(value, resolvedMaxDays)
     );
 
-    return (clampedValue / maxDays) * 100;
-  };
+    return (
+        (clampedValue / resolvedMaxDays) * 100
+    );
+    };
 
   const activeLower = roundDay(activeThreshold.lower);
   const activeUpper = roundDay(activeThreshold.upper);
@@ -201,10 +225,15 @@ const activeLabel =
         <div>
           <div className="flex justify-between text-xs font-medium text-white/55 md:text-[13px]">
             {Array.from(
-              { length: Math.floor(maxDays / 10) + 1 },
-              (_, index) => index * 10
+            {
+                length:
+                Math.floor(
+                    resolvedMaxDays / tickInterval
+                ) + 1,
+            },
+            (_, index) => index * tickInterval
             ).map((value) => (
-              <span key={value}>{value}</span>
+            <span key={value}>{value}</span>
             ))}
           </div>
         </div>

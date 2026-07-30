@@ -85,7 +85,7 @@ const PERIOD_OPTIONS = [
   {
     period: "2071–2080",
     summaryCopy: [
-      "Temperatures above 25°C could occur several times more often than they do today.",
+      "Temperatures above 25°C could occur multiple times more often than they do today.",
       "Heat stress may become a regular part of summer, with implications for tree health, woodland structure and the long-term composition of the forest.",
     ],
   },
