@@ -67,7 +67,7 @@ export default function About() {
           <section className="md:col-span-2 space-y-10">
 
             {/* ABOUT */}
-            <div id="what">
+            <div id="what" className="scroll-mt-24">
               <h1 className="text-2xl md:text-3xl font-light mb-6">
                 What is Wild Clocks?
               </h1>

@@ -1,6 +1,6 @@
 {
   "source": "Google Sheets",
-  "generatedAt": "2026-08-04T07:54:30.353Z",
+  "generatedAt": "2026-08-10T07:53:22.169Z",
   "units": {
     "rainfall": "mm"
   },
@@ -39547,7 +39547,7 @@
         },
         "4": {
           "date": "2026-08-04",
-          "rainfall": 0
+          "rainfall": 1
         },
         "5": {
           "date": "2026-08-05",
