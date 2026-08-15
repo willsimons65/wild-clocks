@@ -55,17 +55,18 @@ export default function MonthBlock({
       )
     : [];
 
-  const renderChart = () => {
-    switch (metric) {
-      case "temperature":
-        return (
-          <TemperatureChart
-            data={monthRows}
-            month={month}
-            monthIndex={monthIndex}
-            year={year}
-          />
-        );
+const renderChart = () => {
+  switch (metric) {
+    case "temperature":
+      return (
+        <TemperatureChart
+          data={monthRows}
+          month={month}
+          monthIndex={monthIndex}
+          year={year}
+          heatwaveThreshold={27}
+        />
+      );
 
 case "rainfall":
   if (rainfallDailyData) {

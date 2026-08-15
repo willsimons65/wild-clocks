@@ -10,7 +10,12 @@ import ChartDateBubble from "./base/ChartDateBubble";
 import EmptyChartState from "./base/EmptyChartState";
 import { CHART_HEIGHT } from "@/constants/chartLayout";
 
-export default function TemperatureChart({ data, year, monthIndex }) {
+export default function TemperatureChart({
+  data,
+  year,
+  monthIndex,
+  heatwaveThreshold,
+}) {
   if (!data || data.length === 0) {
     return (
       <EmptyChartState message="No temperature data recorded yet" />
@@ -23,10 +28,26 @@ export default function TemperatureChart({ data, year, monthIndex }) {
     min: Number(d.temperatureMin),
   }));
 
+const threshold = Number(heatwaveThreshold);
+
+const thresholdReached =
+  Number.isFinite(threshold) &&
+  clean.some(
+    (d) => Number.isFinite(d.max) && d.max >= threshold
+  );
+
+const lastDay = new Date(year, monthIndex, 0).getDate();
+
   const yScale = (v) =>
     CHART_HEIGHT - ((v + 10) / 55) * CHART_HEIGHT;
 
   const yTicks = [-10, 5, 20, 35, 45];
+
+  console.log({
+  heatwaveThreshold,
+  thresholdReached,
+  maxTemperature: Math.max(...clean.map((d) => d.max)),
+});
 
   return (
     <ChartContainer
@@ -72,20 +93,30 @@ TooltipComponent={({ index, x, y, position }) => {
 
 
     >
-      <ChartGrid />
-      <ChartAxes yFormatter={(v) => `${v}°C`} />
+<ChartGrid />
+<ChartAxes yFormatter={(v) => `${v}°C`} />
 
-      {/* MAX TEMP LINE */}
-      <ChartLine
-        data={clean.map((d) => ({ day: d.day, value: d.max }))}
-        seriesColor="#FF2E94"
-      />
+{thresholdReached && (
+  <ChartLine
+    data={[
+      { day: 1, value: threshold },
+      { day: lastDay, value: threshold },
+    ]}
+    seriesColor="#f97316"
+    strokeWidth={1.25}
+    animate={false}
+  />
+)}
 
-      {/* MIN TEMP LINE */}
-      <ChartLine
-        data={clean.map((d) => ({ day: d.day, value: d.min }))}
-        seriesColor="#7bbaff"
-      />
+<ChartLine
+  data={clean.map((d) => ({ day: d.day, value: d.max }))}
+  seriesColor="#FF2E94"
+/>
+
+<ChartLine
+  data={clean.map((d) => ({ day: d.day, value: d.min }))}
+  seriesColor="#7bbaff"
+/>
     </ChartContainer>
   );
 }
