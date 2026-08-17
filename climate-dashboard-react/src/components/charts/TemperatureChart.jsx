@@ -28,7 +28,10 @@ export default function TemperatureChart({
     min: Number(d.temperatureMin),
   }));
 
-const threshold = Number(heatwaveThreshold);
+const threshold =
+  heatwaveThreshold == null
+    ? null
+    : Number(heatwaveThreshold);
 
 const hasHeatwave = (rows, threshold) => {
   if (!Number.isFinite(threshold)) return false;
