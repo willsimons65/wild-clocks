@@ -23,6 +23,12 @@ const MONTHS = [
   "July", "August", "September", "October", "November", "December",
 ];
 
+const HEATWAVE_THRESHOLDS = {
+  "appleton-woods": 27,
+  "little-knepp": 27,
+  "thousand-year-trust": 25,
+};
+
 export default function MonthBlock({
   month,
   year,
@@ -37,6 +43,9 @@ export default function MonthBlock({
 }) {
   const navigate = useNavigate();
   const [microclimateMetric, setMicroclimateMetric] = useState("temperature");
+
+  const heatwaveThreshold =
+  HEATWAVE_THRESHOLDS[place] ?? null;
 
   const monthIndex0 = MONTHS.indexOf(month);
   const monthIndex = monthIndex0 + 1;
@@ -59,13 +68,13 @@ const renderChart = () => {
   switch (metric) {
     case "temperature":
       return (
-        <TemperatureChart
-          data={monthRows}
-          month={month}
-          monthIndex={monthIndex}
-          year={year}
-          heatwaveThreshold={27}
-        />
+      <TemperatureChart
+        data={monthRows}
+        month={month}
+        monthIndex={monthIndex}
+        year={year}
+        heatwaveThreshold={heatwaveThreshold}
+      />
       );
 
 case "rainfall":

@@ -30,11 +30,42 @@ export default function TemperatureChart({
 
 const threshold = Number(heatwaveThreshold);
 
-const thresholdReached =
-  Number.isFinite(threshold) &&
-  clean.some(
-    (d) => Number.isFinite(d.max) && d.max >= threshold
-  );
+const hasHeatwave = (rows, threshold) => {
+  if (!Number.isFinite(threshold)) return false;
+
+  const sorted = [...rows]
+    .filter(
+      (d) =>
+        Number.isFinite(d.day) &&
+        Number.isFinite(d.max)
+    )
+    .sort((a, b) => a.day - b.day);
+
+  let streak = 0;
+  let previousDay = null;
+
+  for (const d of sorted) {
+    const isConsecutive =
+      previousDay !== null &&
+      d.day === previousDay + 1;
+
+    if (d.max >= threshold) {
+      streak = isConsecutive ? streak + 1 : 1;
+
+      if (streak >= 3) {
+        return true;
+      }
+    } else {
+      streak = 0;
+    }
+
+    previousDay = d.day;
+  }
+
+  return false;
+};
+
+const thresholdReached = hasHeatwave(clean, threshold);
 
 const lastDay = new Date(year, monthIndex, 0).getDate();
 
