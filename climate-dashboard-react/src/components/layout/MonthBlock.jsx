@@ -44,8 +44,6 @@ export default function MonthBlock({
   const navigate = useNavigate();
   const [microclimateMetric, setMicroclimateMetric] = useState("temperature");
 
-  console.log("MonthBlock place:", place);
-
   const heatwaveThreshold =
   HEATWAVE_THRESHOLDS[place] ?? null;
 
