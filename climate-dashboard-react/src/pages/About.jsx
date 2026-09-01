@@ -2,9 +2,7 @@
 
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
-import FootnoteToggle from "@/components/ui/FootnoteToggle";
 import ExternalLink from "@/components/ui/ExternalLink";
-import CameraMountAnimation from "@/components/illustrations/CameraMountAnimation";
 
 
 export default function About() {

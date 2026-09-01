@@ -1,6 +1,6 @@
 {
   "source": "Cabilla DataHog export",
-  "generatedAt": "2026-06-08T16:26:16.516Z",
+  "generatedAt": "2026-08-30T06:30:20.385Z",
   "stableStart": {
     "year": 2026,
     "month": 3,
@@ -44,14 +44,24 @@
         "maxSolarRadiation": 1322.9
       },
       "6": {
-        "days": 5,
-        "readings": 669,
-        "avgMeanTemp": 12.7,
-        "maxTemp": 16.1,
-        "minTemp": 8.7,
-        "avgHumidity": 96.1,
-        "avgSolarRadiation": 172.4,
-        "maxSolarRadiation": 1144.7
+        "days": 30,
+        "readings": 4320,
+        "avgMeanTemp": 15.6,
+        "maxTemp": 33,
+        "minTemp": 8.1,
+        "avgHumidity": 84.9,
+        "avgSolarRadiation": 231.6,
+        "maxSolarRadiation": 1191.9
+      },
+      "7": {
+        "days": 29,
+        "readings": 4118,
+        "avgMeanTemp": 19.1,
+        "maxTemp": 30.9,
+        "minTemp": 10.6,
+        "avgHumidity": 68.8,
+        "avgSolarRadiation": 346,
+        "maxSolarRadiation": 1202.1
       }
     }
   }

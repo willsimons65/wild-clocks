@@ -1,6 +1,6 @@
 {
   "source": "Google Sheets",
-  "generatedAt": "2026-08-21T15:31:52.033Z",
+  "generatedAt": "2026-08-31T20:05:49.149Z",
   "units": {
     "rainfall": "mm"
   },
@@ -2441,7 +2441,7 @@
         },
         "22": {
           "date": "2026-08-22",
-          "rainfall": 0
+          "rainfall": 4.8
         },
         "23": {
           "date": "2026-08-23",
@@ -2449,31 +2449,31 @@
         },
         "24": {
           "date": "2026-08-24",
-          "rainfall": 0
+          "rainfall": 0.8
         },
         "25": {
           "date": "2026-08-25",
-          "rainfall": 0
+          "rainfall": 1.7
         },
         "26": {
           "date": "2026-08-26",
-          "rainfall": 0
+          "rainfall": 7.9
         },
         "27": {
           "date": "2026-08-27",
-          "rainfall": 0
+          "rainfall": 2.6
         },
         "28": {
           "date": "2026-08-28",
-          "rainfall": 0
+          "rainfall": 1.4
         },
         "29": {
           "date": "2026-08-29",
-          "rainfall": 0
+          "rainfall": 23.8
         },
         "30": {
           "date": "2026-08-30",
-          "rainfall": 0
+          "rainfall": 3.9
         },
         "31": {
           "date": "2026-08-31",

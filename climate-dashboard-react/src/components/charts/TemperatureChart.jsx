@@ -77,11 +77,6 @@ const lastDay = new Date(year, monthIndex, 0).getDate();
 
   const yTicks = [-10, 5, 20, 35, 45];
 
-  console.log({
-  heatwaveThreshold,
-  thresholdReached,
-  maxTemperature: Math.max(...clean.map((d) => d.max)),
-});
 
   return (
     <ChartContainer

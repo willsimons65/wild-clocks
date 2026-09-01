@@ -30,6 +30,8 @@ import { cabillaCurrentWinterCold } from "@/data/winter-cold/cabilla/current-win
 
 import { cabillaFutureHeatStress } from "@/data/heat-stress/cabilla/future-heat-stress";
 
+import ArchiveView from "@/components/archive/ArchiveView";
+
 export default function ThousandYearTrust({
   year,
   setYear,
@@ -44,7 +46,9 @@ export default function ThousandYearTrust({
   }, [setPlace, setMetric]);
   const navigate = useNavigate();
     const { view: routeView } = useParams();
-    const view = routeView === "trends" ? "trends" : "feed";
+    const view = ["feed", "trends", "archive"].includes(routeView)
+    ? routeView
+    : "feed";
   const [allYearsData, setAllYearsData] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -194,8 +198,10 @@ useEffect(() => {
 <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
   <button
     type="button"
-    onClick={() => navigate("/thousand-year-trust/feed")}
-    className={`rounded-full px-8 py-1 transition-colors ${
+        onClick={() =>
+        navigate("/thousand-year-trust/feed", { replace: true })
+        }
+        className={`rounded-full px-8 py-1 transition-colors ${
       view === "feed"
         ? "bg-white/15 text-white"
         : "text-white/55 hover:text-white/80"
@@ -204,19 +210,36 @@ useEffect(() => {
     Daily feed
   </button>
 
-  <button
-    type="button"
-    onClick={() => navigate("/thousand-year-trust/trends")}
-    className={`rounded-full px-8 py-1 transition-colors ${
-      view === "trends"
-        ? "bg-white/15 text-white"
-        : "text-white/55 hover:text-white/80"
-    }`}
-  >
-    Trends
-  </button>
+<button
+  type="button"
+  onClick={() =>
+    navigate("/thousand-year-trust/trends", { replace: true })
+  }
+  className={`rounded-full px-8 py-1 transition-colors ${
+    view === "trends"
+      ? "bg-white/15 text-white"
+      : "text-white/55 hover:text-white/80"
+  }`}
+>
+  Trends
+</button>
+
+<button
+  type="button"
+  onClick={() =>
+    navigate("/thousand-year-trust/archive", { replace: true })
+  }
+  className={`rounded-full px-8 py-1 transition-colors ${
+    view === "archive"
+      ? "bg-white/15 text-white"
+      : "text-white/55 hover:text-white/80"
+  }`}
+>
+  Archive
+</button>
+
+    </div>
 </div>
-        </div>
 
 {view === "trends" ? (
   <div className="space-y-8">
@@ -300,6 +323,8 @@ useEffect(() => {
           sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
         />
   </div>
+) : view === "archive" ? (
+  <ArchiveView place="thousand-year-trust" />
 ) : (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     {months.map((month, monthIndex) => {
