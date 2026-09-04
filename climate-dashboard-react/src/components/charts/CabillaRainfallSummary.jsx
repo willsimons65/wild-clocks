@@ -12,8 +12,8 @@ function getMonthEntries(dailyData, year, monthIndex) {
 }
 
 const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
 ];
 
 export default function CabillaRainfallSummary({
@@ -68,7 +68,11 @@ return {
 };
   }, [dailyData, year, monthIndex]);
 
-  return (
+const usesOnSiteCabillaData =
+  Number(year) > 2026 ||
+  (Number(year) === 2026 && monthIndex >= 9);
+
+return (
     <div>
       <div className="grid grid-cols-2 gap-2">
         <div className="rounded-xl bg-white/[0.04] border border-white/10 px-3 py-3 text-center">
@@ -92,9 +96,11 @@ return {
         </div>
       </div>
 
-      <p className="mt-3 text-center text-[12px] leading-relaxed text-white/45">
-        Proxy rainfall data from nearby weather station
-      </p>
+        <p className="mt-3 text-center text-[12px] leading-relaxed text-white/45">
+        {usesOnSiteCabillaData
+            ? "On-site microclimate data from Cabilla"
+            : "Proxy rainfall data from nearby weather station"}
+        </p>
     </div>
   );
 }

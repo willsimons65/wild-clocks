@@ -250,8 +250,9 @@ export default function ArchiveAbout() {
                 <p className="mb-2">Record of changes:</p>
 
                 <ul className="list-disc pl-6 space-y-1">
-                  <li>28 August 2026 — Wild Clocks monitoring began.</li>
-                  <li>29 August 2026 — Woodland temperature and humidity sensor currently not working.</li>
+                  <li>28 August 2026 — Wild Clocks environmental monitoring began.</li>
+                  <li>29 August 2026 — Intermittent transmission from the woodland temperature and humidity sensor identified.</li>
+                  <li>3 September 2026 — Woodland temperature and humidity sensor moved closer to the main weather station to improve signal reception. Sensor now transmitting normally.</li>
                 </ul>
               </div>
               <p>
