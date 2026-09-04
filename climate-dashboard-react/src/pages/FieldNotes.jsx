@@ -2,7 +2,6 @@
 
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
-import WaveClockDiagram from "@/components/field-notes/WaveClockDiagram";
 import RainfallStatesDiagram from "@/data/notes/RainfallStatesDiagram";
 import FootnoteToggle from "@/components/ui/FootnoteToggle";
 import SequenceSlider from "@/data/notes/SequenceSlider";
