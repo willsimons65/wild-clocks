@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ArchiveAbout from "./ArchiveAbout";
 import DailyDataArchive from "./DailyDataArchive";
+import FullResolutionArchive from "./FullResolutionArchive";
 
 export default function ArchiveView({ place }) {
   const [archiveView, setArchiveView] = useState("about");
@@ -58,20 +59,7 @@ export default function ArchiveView({ place }) {
 )}
 
 {archiveView === "full" && (
-
-
-    <div className="pt-10">
-      <p className="text-white/80">
-        Daily data will be suitable for most purposes. Researchers requiring
-        greater temporal detail will be able to request access to the
-        full-resolution archive once monitoring begins.
-      </p>
-
-      <p className="mt-8 text-white/60">
-        No full-resolution data are available yet.
-    </p>
-    </div>
-
+  <FullResolutionArchive place={place} />
 )}
     </section>
   );
