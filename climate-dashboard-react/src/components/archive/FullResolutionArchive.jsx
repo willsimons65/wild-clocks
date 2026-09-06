@@ -28,7 +28,7 @@ export default function FullResolutionArchive({ place }) {
     }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const nextErrors = {};
@@ -50,21 +50,58 @@ export default function FullResolutionArchive({ place }) {
       return;
     }
 
-    // Temporary:
-    // later this will POST the request to our Cloudflare backend.
-    setSubmitted(true);
+    setErrors((current) => ({
+    ...current,
+    submit: "",
+    }));
+
+try {
+  const response = await fetch("/api/archive-access-request", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      site: place,
+      name: formData.name.trim(),
+      organisation: formData.organisation.trim(),
+      email: formData.email.trim(),
+      purpose: formData.purpose.trim(),
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Request could not be submitted");
   }
+
+  setSubmitted(true);
+} catch (error) {
+  console.error(error);
+
+  setErrors((current) => ({
+    ...current,
+    submit: "There was a problem submitting your request. Please try again.",
+  }));
+}
+}
 
   if (submitted) {
     return (
       <div className="pt-10 max-w-4xl">
-        <h2 className="text-xl md:text-2xl font-medium">
-          Request received! Thank you for your interest
+    <h2 className="text-xl md:text-2xl font-medium">
+        Request received
         </h2>
 
         <div className="mt-6 space-y-5 text-white/80 leading-relaxed">
-          <p>The archive is currently being tested and is scheduled for release in a few weeks. Please check back then, when the full system will be ready and requests can be completed.</p>
+        <p>
+            Thank you for your interest. Your request has been recorded.
+        </p>
 
+        <p>
+            The archive is currently being tested and is scheduled for release
+            in a few weeks. We’ll contact you when full-resolution access becomes
+            available.
+        </p>
         </div>
       </div>
     );
@@ -178,6 +215,12 @@ export default function FullResolutionArchive({ place }) {
         <p className="max-w-lg text-sm text-white/85 leading-relaxed">
           Your request will be shared with Wild Clocks and the host organisation so that access can be reviewed.
         </p>
+
+        {errors.submit && (
+        <p className="text-red-500">
+            {errors.submit}
+        </p>
+        )}
 
         <button
           type="submit"
