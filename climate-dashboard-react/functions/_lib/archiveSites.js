@@ -5,7 +5,7 @@ export const ARCHIVE_SITES = {
     reviewers: [
       {
         name: "Will Simons",
-        email: "will@wildclocks.io",
+        email: "archive@wildclocks.io",
       },
       {
         name: "Ennia Bosshard",
