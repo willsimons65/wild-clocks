@@ -318,7 +318,7 @@ export default function ArchiveAbout() {
 
             <div className="space-y-5 text-white/80 leading-relaxed">
               <p>
-                Researchers using Wild Clocks data are asked to acknowledge both the observatory and Wild Clocks in publications, reports, student projects and other outputs.
+                Researchers using Wild Clocks data are asked to acknowledge both the host organisation and Wild Clocks in publications, reports, student projects and other outputs.
               </p>
 
               <p className="mb-2">Suggested citation:</p>

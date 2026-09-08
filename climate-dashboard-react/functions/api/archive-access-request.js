@@ -1,3 +1,6 @@
+import { ARCHIVE_SITES } from "../_lib/archiveSites.js";
+import { sendEmail } from "../_lib/sendEmail.js";
+
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
@@ -46,6 +49,38 @@ export async function onRequestPost(context) {
         createdAt
       )
       .run();
+
+    const siteConfig = ARCHIVE_SITES[site];
+
+    if (siteConfig) {
+    const notifications = siteConfig.reviewers.map((reviewer) =>
+        sendEmail(context, {
+        to: reviewer.email,
+        subject: `New full-resolution data request — ${siteConfig.name}`,
+        text: `
+    A new request has been submitted to the Wild Clocks archive.
+
+    Site: ${siteConfig.name}
+    Name: ${name}
+    Organisation: ${organisation || "Not provided"}
+    Email: ${email}
+
+    How will they use the data?
+    ${purpose}
+
+    Request ID: ${id}
+
+    This is currently a notification only. No action is required.
+        `.trim(),
+        })
+    );
+
+    context.waitUntil(
+        Promise.all(notifications).catch((error) => {
+        console.error("Archive notification failed:", error);
+        })
+    );
+    }
 
     return Response.json(
       {
