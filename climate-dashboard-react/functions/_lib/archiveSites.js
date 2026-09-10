@@ -6,10 +6,6 @@ export const ARCHIVE_SITES = {
       {
         name: "Will Simons",
         email: "archive@wildclocks.io",
-      },
-      {
-        name: "Ennia Bosshard",
-        email: "research@thousandyeartrust.org",
       }
     ],
   },
