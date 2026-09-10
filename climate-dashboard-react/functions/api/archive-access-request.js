@@ -1,27 +1,9 @@
 import { ARCHIVE_SITES } from "../_lib/archiveSites.js";
 import { sendEmail } from "../_lib/sendEmail.js";
-
-function createReviewToken() {
-  const bytes = new Uint8Array(32);
-  crypto.getRandomValues(bytes);
-
-  return Array.from(bytes, (byte) =>
-    byte.toString(16).padStart(2, "0")
-  ).join("");
-}
-
-async function hashToken(token) {
-  const encoded = new TextEncoder().encode(token);
-
-  const digest = await crypto.subtle.digest(
-    "SHA-256",
-    encoded
-  );
-
-  return Array.from(new Uint8Array(digest), (byte) =>
-    byte.toString(16).padStart(2, "0")
-  ).join("");
-}
+import {
+  createReviewToken,
+  hashToken,
+} from "../_lib/reviewTokens.js";
 
 export async function onRequestPost(context) {
   try {
@@ -102,11 +84,33 @@ export async function onRequestPost(context) {
     const siteConfig = ARCHIVE_SITES[site];
 
     if (siteConfig) {
-    const notifications = siteConfig.reviewers.map((reviewer) =>
-        sendEmail(context, {
-        to: reviewer.email,
-        subject: `New full-resolution data request — ${siteConfig.name}`,
-        text: `
+    const tokens = {
+        wildclocks: wildclocksToken,
+        partner: partnerToken,
+    };
+
+    const notifications = siteConfig.reviewers
+        .map((reviewer) => {
+        const reviewToken = tokens[reviewer.role];
+
+        if (!reviewToken) {
+            console.error(
+            `Unknown archive reviewer role: ${reviewer.role}`
+            );
+            return null;
+        }
+
+        const reviewUrl = new URL(
+            `/archive/review/${id}`,
+            context.request.url
+        );
+
+        reviewUrl.searchParams.set("token", reviewToken);
+
+        return sendEmail(context, {
+            to: reviewer.email,
+            subject: `New full-resolution data request — ${siteConfig.name}`,
+            text: `
     A new request has been submitted to the Wild Clocks archive.
 
     Site: ${siteConfig.name}
@@ -119,10 +123,12 @@ export async function onRequestPost(context) {
 
     Request ID: ${id}
 
-    This is currently a notification only. No action is required.
-        `.trim(),
+    Review request:
+    ${reviewUrl.toString()}
+            `.trim(),
+        });
         })
-    );
+        .filter(Boolean);
 
     context.waitUntil(
         Promise.all(notifications).catch((error) => {
@@ -131,7 +137,7 @@ export async function onRequestPost(context) {
     );
     }
 
-    return Response.json(
+        return Response.json(
       {
         success: true,
         id,

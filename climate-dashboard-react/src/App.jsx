@@ -23,6 +23,8 @@ import {
   getDefaultMetricForPlace,
 } from "@/config/metricAvailability";
 
+import ArchiveReview from "@/pages/ArchiveReview";
+
 export default function App() {
   const DEFAULT_YEAR = 2026;
 
@@ -155,8 +157,16 @@ export default function App() {
 
             <Route path="/field-notes" element={<FieldNotes />} />
 
-            <Route path="/parklands" element={<Navigate to="/little-knepp" replace />} />
+            <Route path="/parklands" 
+            element={<Navigate 
+            to="/little-knepp" replace />} />
+            
             <Route path="*" element={<Navigate to="/" replace />} />
+
+            <Route
+              path="/archive/review/:id"
+              element={<ArchiveReview />}
+            />
 
           </Routes>
         </div>
