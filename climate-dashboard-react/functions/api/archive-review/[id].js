@@ -1,4 +1,6 @@
 import { hashToken } from "../../_lib/reviewTokens.js";
+import { ARCHIVE_SITES } from "../../_lib/archiveSites.js";
+import { sendEmail } from "../../_lib/sendEmail.js";
 
 async function getReview(context, token) {
   const id = context.params.id;
@@ -148,10 +150,13 @@ export async function onRequestPost(context) {
       overallStatus = "approved";
     }
 
-    const completedAt =
-      overallStatus === "pending"
-        ? null
-        : reviewedAt;
+    const decisionJustCompleted =
+    request.status === "pending" &&
+    overallStatus !== "pending";
+
+    const completedAt = decisionJustCompleted
+    ? reviewedAt
+    : request.decision_completed_at;
 
     if (reviewer === "wildclocks") {
       await context.env.ARCHIVE_DB
@@ -191,6 +196,61 @@ export async function onRequestPost(context) {
           request.id
         )
         .run();
+    }
+
+    if (decisionJustCompleted) {
+    const siteConfig = ARCHIVE_SITES[request.site];
+
+    const siteName =
+        siteConfig?.name || request.site;
+
+    const isApproved =
+        overallStatus === "approved";
+
+    const subject = isApproved
+        ? `Your ${siteName} archive access request has been approved`
+        : `Update on your ${siteName} archive access request`;
+
+    const text = isApproved
+        ? `
+    Hello ${request.name},
+
+    Your request for access to the ${siteName} full-resolution environmental data archive has been approved.
+
+    The archive access service is currently being completed. We’ll send you instructions for accessing the data shortly.
+
+    Request ID: ${request.id}
+
+    Best,
+    Wild Clocks
+        `.trim()
+        : `
+    Hello ${request.name},
+
+    Thank you for your interest in the ${siteName} full-resolution environmental data archive.
+
+    Your request for access has not been approved on this occasion.
+
+    The daily environmental dataset remains openly available through the Wild Clocks archive.
+
+    Request ID: ${request.id}
+
+    Best,
+    Wild Clocks
+        `.trim();
+
+    context.waitUntil(
+        sendEmail(context, {
+        to: request.email,
+        subject,
+        text,
+        }).catch((error) => {
+        console.error(
+            "Requester decision email failed:",
+            error
+        );
+        })
+    );
     }
 
     return Response.json({

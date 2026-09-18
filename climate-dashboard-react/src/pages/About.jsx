@@ -13,7 +13,7 @@ export default function About() {
       <main className="max-w-[1200px] mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
-          {/* LEFT COLUMN — Navigation (1/3) */}
+{/* LEFT COLUMN — Navigation (1/3) */}
 <aside className="hidden md:block md:col-span-1">
   <nav className="pl-4 space-y-6 text-white/70 text-xl md:text-base">
     <a
