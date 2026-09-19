@@ -11,7 +11,7 @@ export const ARCHIVE_SITES = {
       {
         role: "partner",
         name: "Ennia Bosshard",
-        email: "hello@wildclocks.io",
+        email: "research@thousandyeartrust.org",
         },
     ],
   },
