@@ -1,6 +1,7 @@
 import { hashToken } from "../../_lib/reviewTokens.js";
 import { ARCHIVE_SITES } from "../../_lib/archiveSites.js";
 import { sendEmail } from "../../_lib/sendEmail.js";
+import { grantCabillaArchiveAccess } from "../../_lib/cloudflareAccess.js";
 
 async function getReview(context, token) {
   const id = context.params.id;
@@ -199,58 +200,95 @@ export async function onRequestPost(context) {
     }
 
     if (decisionJustCompleted) {
-    const siteConfig = ARCHIVE_SITES[request.site];
+      const siteConfig = ARCHIVE_SITES[request.site];
 
-    const siteName =
+      const siteName =
         siteConfig?.name || request.site;
 
-    const isApproved =
+      const isApproved =
         overallStatus === "approved";
 
-    const subject = isApproved
-        ? `Your ${siteName} archive access request has been approved`
-        : `Update on your ${siteName} archive access request`;
+      if (isApproved) {
+        let accessGranted = false;
 
-    const text = isApproved
-        ? `
-    Hello ${request.name},
+        try {
+          if (request.site !== "thousand-year-trust") {
+            throw new Error(
+              `No private archive access configuration for site: ${request.site}`
+            );
+          }
 
-    Your request for access to the ${siteName} full-resolution environmental data archive has been approved.
+          await grantCabillaArchiveAccess(
+            context,
+            request.email
+          );
 
-    The archive access service is currently being completed. We’ll send you instructions for accessing the data shortly.
-
-    Request ID: ${request.id}
-
-    Best,
-    Wild Clocks
-        `.trim()
-        : `
-    Hello ${request.name},
-
-    Thank you for your interest in the ${siteName} full-resolution environmental data archive.
-
-    Your request for access has not been approved on this occasion.
-
-    The daily environmental dataset remains openly available through the Wild Clocks archive.
-
-    Request ID: ${request.id}
-
-    Best,
-    Wild Clocks
-        `.trim();
-
-    context.waitUntil(
-        sendEmail(context, {
-        to: request.email,
-        subject,
-        text,
-        }).catch((error) => {
-        console.error(
-            "Requester decision email failed:",
+          accessGranted = true;
+        } catch (error) {
+          console.error(
+            "Archive access provisioning failed:",
             error
+          );
+        }
+
+        if (accessGranted) {
+          context.waitUntil(
+            sendEmail(context, {
+              to: request.email,
+              subject: `Your ${siteName} archive access request has been approved`,
+              text: `
+Hello ${request.name},
+
+Your request for access to the ${siteName} full-resolution environmental data archive has been approved.
+
+Access has now been enabled for the email address used in your request.
+
+We’ll send you instructions for accessing the data shortly.
+
+Request ID: ${request.id}
+
+Best,
+Wild Clocks
+              `.trim(),
+            }).catch((error) => {
+              console.error(
+                "Requester approval email failed:",
+                error
+              );
+            })
+          );
+        } else {
+          console.error(
+            `Request ${request.id} was approved, but archive access could not be provisioned.`
+          );
+        }
+      } else {
+        context.waitUntil(
+          sendEmail(context, {
+            to: request.email,
+            subject: `Update on your ${siteName} archive access request`,
+            text: `
+Hello ${request.name},
+
+Thank you for your interest in the ${siteName} full-resolution environmental data archive.
+
+Your request for access has not been approved on this occasion.
+
+The daily environmental dataset remains openly available through the Wild Clocks archive.
+
+Request ID: ${request.id}
+
+Best,
+Wild Clocks
+            `.trim(),
+          }).catch((error) => {
+            console.error(
+              "Requester decline email failed:",
+              error
+            );
+          })
         );
-        })
-    );
+      }
     }
 
     return Response.json({
