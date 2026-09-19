@@ -53,21 +53,19 @@ async function cloudflareRequest(
   return data.result;
 }
 
-async function getAccessPolicy(
+async function getReusablePolicy(
   context,
-  appId,
   policyId
 ) {
   return cloudflareRequest(
     context,
-    `/access/apps/${appId}/policies/${policyId}`
+    `/access/policies/${policyId}`
   );
 }
 
 function policyIncludesEmail(policy, email) {
-  const normalizedEmail = email
-    .trim()
-    .toLowerCase();
+  const normalizedEmail =
+    email.trim().toLowerCase();
 
   return (policy.include || []).some((rule) => {
     const ruleEmail =
@@ -87,7 +85,6 @@ function buildPolicyUpdate(policy, include) {
   };
 
   const optionalFields = [
-    "precedence",
     "session_duration",
     "approval_required",
     "approval_groups",
@@ -110,14 +107,12 @@ function buildPolicyUpdate(policy, include) {
 export async function grantAccessByEmail(
   context,
   {
-    appId,
     policyId,
     email,
   }
 ) {
-  const normalizedEmail = email
-    .trim()
-    .toLowerCase();
+  const normalizedEmail =
+    email.trim().toLowerCase();
 
   if (!normalizedEmail) {
     throw new Error(
@@ -125,13 +120,11 @@ export async function grantAccessByEmail(
     );
   }
 
-  const policy = await getAccessPolicy(
+  const policy = await getReusablePolicy(
     context,
-    appId,
     policyId
   );
 
-  // Safe to call more than once.
   if (policyIncludesEmail(policy, normalizedEmail)) {
     return {
       granted: true,
@@ -150,7 +143,7 @@ export async function grantAccessByEmail(
 
   const updatedPolicy = await cloudflareRequest(
     context,
-    `/access/apps/${appId}/policies/${policyId}`,
+    `/access/policies/${policyId}`,
     {
       method: "PUT",
       body: JSON.stringify(
@@ -171,15 +164,8 @@ export async function grantCabillaArchiveAccess(
   email
 ) {
   const {
-    CABILLA_ACCESS_APP_ID,
     CABILLA_ACCESS_POLICY_ID,
   } = context.env;
-
-  if (!CABILLA_ACCESS_APP_ID) {
-    throw new Error(
-      "CABILLA_ACCESS_APP_ID is not configured"
-    );
-  }
 
   if (!CABILLA_ACCESS_POLICY_ID) {
     throw new Error(
@@ -188,7 +174,6 @@ export async function grantCabillaArchiveAccess(
   }
 
   return grantAccessByEmail(context, {
-    appId: CABILLA_ACCESS_APP_ID,
     policyId: CABILLA_ACCESS_POLICY_ID,
     email,
   });
