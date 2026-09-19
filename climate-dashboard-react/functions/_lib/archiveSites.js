@@ -10,7 +10,7 @@ export const ARCHIVE_SITES = {
       },
       {
         role: "partner",
-        name: "Ennia Bosshard",
+        name: "Will Simons",
         email: "hello@wildclocks.io",
         },
     ],
