@@ -55,7 +55,7 @@ export const thousandYearTrustArchive = {
 
             sizeBytes: 4200000,
 
-            format: "txt",
+            format: "csv",
 
             objectKey:
                 "cabilla/full-resolution/2026/september/cabilla-full-resolution-2026-09.csv",
