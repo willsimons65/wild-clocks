@@ -63,6 +63,7 @@ function buildDownloadUrl(storage, objectKey) {
 
 export default function ArchiveFileList({
   dataset,
+  onDownloadRequest,
 }) {
   const years = dataset?.years ?? [];
 
@@ -102,6 +103,8 @@ export default function ArchiveFileList({
 
               const format =
                 file.format?.toUpperCase() ?? "FILE";
+                
+                const monthLabel = formatMonth(file.month);
 
               return (
                 <div
@@ -109,7 +112,7 @@ export default function ArchiveFileList({
                   className="grid grid-cols-4 py-3"
                 >
                   <span>
-                    {formatMonth(file.month)}
+                    {monthLabel}
                   </span>
 
                   <span>
@@ -127,12 +130,27 @@ export default function ArchiveFileList({
                     </span>
                     ) : (
                     downloadUrl && (
-                        <a
-                        href={downloadUrl}
-                        className="text-emerald-400 hover:underline"
-                        >
-                        Download {format}
-                        </a>
+                    <a
+                    href={downloadUrl}
+                    onClick={(event) => {
+                        if (!onDownloadRequest) {
+                        return;
+                        }
+
+                        event.preventDefault();
+
+                        onDownloadRequest({
+                        file,
+                        year: yearGroup.year,
+                        monthLabel,
+                        format,
+                        downloadUrl,
+                        });
+                    }}
+                    className="text-emerald-400 hover:underline"
+                    >
+                    Download {format}
+                    </a>
                     )
                     )}
                   </span>
