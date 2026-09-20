@@ -205,6 +205,8 @@ export async function onRequestPost(context) {
       const siteName =
         siteConfig?.name || request.site;
 
+      const archiveUrl = siteConfig?.archiveUrl;
+
       const isApproved =
         overallStatus === "approved";
 
@@ -241,9 +243,18 @@ Hello ${request.name},
 
 Your request for access to the ${siteName} full-resolution environmental data archive has been approved.
 
-Access has now been enabled for the email address used in your request.
+Access has been enabled for:
 
-We’ll send you instructions for accessing the data shortly.
+${request.email}
+
+View the ${siteName} archive:
+${archiveUrl}
+
+Open Archive, select Full-resolution, and choose the file you would like to download.
+
+When you select Download, you may be asked to verify your email address. Cloudflare will send a one-time PIN to the approved address above. Enter the PIN to access the protected file.
+
+You do not need to submit another access request.
 
 Request ID: ${request.id}
 

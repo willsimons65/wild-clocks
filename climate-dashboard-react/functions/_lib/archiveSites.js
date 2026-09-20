@@ -2,6 +2,7 @@ export const ARCHIVE_SITES = {
   "thousand-year-trust": {
     name: "Cabilla",
     organisation: "Thousand Year Trust",
+    archiveUrl: "https://wildclocks.io/thousand-year-trust",
     reviewers: [
       {
         role: "wildclocks",
@@ -11,7 +12,7 @@ export const ARCHIVE_SITES = {
       {
         role: "partner",
         name: "Ennia Bosshard",
-        email: "hello@wildclocks.io",
+        email: "research@thousandyeartrust.org",
         },
     ],
   },
