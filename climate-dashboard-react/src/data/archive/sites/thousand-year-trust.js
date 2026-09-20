@@ -16,7 +16,7 @@ export const thousandYearTrustArchive = {
       storage: "public",
 
       emptyMessage:
-        "No daily environmental data are available yet.",
+        "No daily environmental data are available yet. The page is still being tested.",
 
       downloadAll: null,
 

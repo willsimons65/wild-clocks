@@ -43,6 +43,10 @@ export default function FullResolutionArchive({
           Full-resolution downloads require approval.
           Select a file to continue.
         </p>
+
+        <p className="mt-3 text-base text-white/55">
+          No actual environmental data are available yet. The page is still being tested.
+        </p>
       </div>
 
       <ArchiveFileList
