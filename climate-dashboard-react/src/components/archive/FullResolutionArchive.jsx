@@ -16,6 +16,9 @@ export default function FullResolutionArchive({
 
   const [showRequestForm, setShowRequestForm] =
     useState(false);
+  
+  const [requestSubmitted, setRequestSubmitted] =
+  useState(false);
 
   if (!archiveConfig) {
     return null;
@@ -36,9 +39,9 @@ export default function FullResolutionArchive({
           {fullResolution.intro}
         </p>
 
-        <p className="mt-3 text-sm text-white/55">
+        <p className="mt-3 text-base text-white/80">
           Full-resolution downloads require approval.
-          Select a file to continue or request access.
+          Select a file to continue.
         </p>
       </div>
 
@@ -47,7 +50,7 @@ export default function FullResolutionArchive({
         onDownloadRequest={handleDownloadRequest}
       />
 
-      {selectedDownload && (
+      {selectedDownload && !requestSubmitted && (
         <div className="mt-10 max-w-4xl border-t border-white/15 pt-8">
           <h2 className="text-xl md:text-2xl font-medium">
             Full-resolution access
@@ -114,6 +117,7 @@ export default function FullResolutionArchive({
                 fullResolution.accessRequest
                   .heading ?? "Request access"
               }
+              onSubmitted={() => setRequestSubmitted(true)}
             />
           </div>
         )}

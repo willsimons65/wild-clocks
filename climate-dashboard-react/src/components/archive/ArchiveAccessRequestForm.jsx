@@ -6,6 +6,7 @@ export default function ArchiveAccessRequestForm({
   place,
   heading = "Request access",
   intro,
+  onSubmitted,
 }) {
   const [submitted, setSubmitted] = useState(false);
 
@@ -86,6 +87,7 @@ export default function ArchiveAccessRequestForm({
       }
 
       setSubmitted(true);
+      onSubmitted?.();
     } catch (error) {
       console.error(error);
 
@@ -106,15 +108,11 @@ export default function ArchiveAccessRequestForm({
 
         <div className="mt-6 space-y-5 text-white/80 leading-relaxed">
           <p>
-            Thank you for your interest. Your request
-            has been recorded.
+            Thank you for your interest. Your request has been recorded and will be reviewed by Wild Clocks and the host organisation.
           </p>
 
           <p>
-            The archive is currently being tested and
-            is scheduled for release in a few weeks.
-            We’ll contact you when full-resolution
-            access becomes available.
+            We’ll email you when a decision has been made. If approved, access will be enabled for the email address used in your request.
           </p>
         </div>
       </div>
