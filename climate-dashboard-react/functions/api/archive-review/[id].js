@@ -239,27 +239,29 @@ export async function onRequestPost(context) {
               to: request.email,
               subject: `Your ${siteName} archive access request has been approved`,
               text: `
-Hello ${request.name},
+              Hello ${request.name},
 
-Your request for access to the ${siteName} full-resolution environmental data archive has been approved.
+              Your request for access to the ${siteName} full-resolution environmental data archive has been approved.
 
-Access has been enabled for:
+              Access has been enabled for:
 
-${request.email}
+              ${request.email}
 
-View the ${siteName} archive:
-${archiveUrl}
+              View the ${siteName} archive:
+              ${archiveUrl}
 
-Open Archive, select Full-resolution, and choose the file you would like to download.
+              Open Archive, select Full-resolution, and choose the file you would like to download.
 
-When you select Download, you may be asked to verify your email address. Cloudflare will send a one-time PIN to the approved address above. Enter the PIN to access the protected file.
+              When you select Download, you may be asked to verify your email address. Cloudflare will send a one-time PIN to the approved address above. Enter the PIN to access the protected file.
 
-You do not need to submit another access request.
+              Once verified, your browser may download the file immediately or ask where you would like to save it.
 
-Request ID: ${request.id}
+              You do not need to submit another access request.
 
-Best,
-Wild Clocks
+              Request ID: ${request.id}
+
+              Best,
+              Wild Clocks
               `.trim(),
             }).catch((error) => {
               console.error(
