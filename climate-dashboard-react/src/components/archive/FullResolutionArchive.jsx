@@ -78,12 +78,25 @@ export default function FullResolutionArchive({
                 email address using a one-time PIN.
               </p>
 
-              <a
-                href={selectedDownload.downloadUrl}
-                className="mt-4 inline-block rounded-full border border-white px-7 py-2 text-[#36e0b4] hover:bg-white/5 transition-colors"
-              >
-                Continue to download
-              </a>
+              <div className="mt-4 flex items-center gap-6">
+                <a
+                  href={selectedDownload.downloadUrl}
+                  className="inline-block rounded-full border border-white px-7 py-2 text-[#36e0b4] hover:bg-white/5 transition-colors"
+                >
+                  Continue to download
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedDownload(null);
+                    setShowRequestForm(false);
+                  }}
+                  className="text-white/55 hover:text-white/80 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
 
             {!showRequestForm && (
@@ -122,6 +135,7 @@ export default function FullResolutionArchive({
                   .heading ?? "Request access"
               }
               onSubmitted={() => setRequestSubmitted(true)}
+              onCancel={() => setShowRequestForm(false)}
             />
           </div>
         )}

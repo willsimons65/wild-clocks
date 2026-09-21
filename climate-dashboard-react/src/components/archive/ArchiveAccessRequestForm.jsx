@@ -7,6 +7,7 @@ export default function ArchiveAccessRequestForm({
   heading = "Request access",
   intro,
   onSubmitted,
+  onCancel,
 }) {
   const [submitted, setSubmitted] = useState(false);
 
@@ -251,13 +252,25 @@ export default function ArchiveAccessRequestForm({
           </p>
         )}
 
+        <div className="flex items-center gap-6">
         <button
-          type="submit"
-          className="rounded-full border border-white px-7 py-2 text-[#36e0b4] hover:bg-white/5 transition-colors"
+            type="submit"
+            className="rounded-full border border-white px-7 py-2 text-[#36e0b4] hover:bg-white/5 transition-colors"
         >
-          Send request
+            Send request
         </button>
-      </form>
+
+        {onCancel && (
+            <button
+            type="button"
+            onClick={onCancel}
+            className="text-white/55 hover:text-white/80 transition-colors"
+            >
+            Cancel
+            </button>
+        )}
+        </div>
+        </form>
     </div>
   );
 }
