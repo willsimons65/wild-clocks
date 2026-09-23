@@ -19,6 +19,7 @@ import { cabillaCurrentEnvelope } from "@/data/climate-envelope/cabilla/cabilla-
 import RainfallRegimeCard from "@/components/trends/RainfallRegimeCard";
 import { cabillaBaselineRainfallRegime } from "@/data/annual-rainfall/cabilla/baseline-regime";
 import { cabillaCurrentRainfallRegime } from "@/data/annual-rainfall/cabilla/current-regime";
+import { cabillaFutureRainfall } from "@/data/annual-rainfall/cabilla/future-rainfall";
 
 import HeatStressCard from "@/components/trends/HeatStressCard";
 import { cabillaBaselineHeatStress } from "@/data/heat-stress/cabilla/baseline-heat-stress";
@@ -266,17 +267,31 @@ useEffect(() => {
       currentRegime={cabillaCurrentRainfallRegime}
       baselineLabel="1961–1990"
       currentLabel="2020–2024"
-      introCopy=
-        "The chart shows how an average year's rainfall is distributed across different rainfall intensities. During the baseline period, water was supplied to the woodland gradually throughout the year. Today, the same annual rainfall is increasingly delivered in fewer, heavier events separated by longer dry spells."
+
+      introCopy="The chart shows how an average year's rainfall is distributed across different rainfall intensities. During the baseline period, water was supplied to the woodland gradually throughout the year. Today, the same annual rainfall is increasingly delivered in fewer, heavier events separated by longer dry spells."
+
       baselineCopy={[
         "Light rainfall dominated the year.",
         "Dry days were rare, and rainfall above 10 mm was almost absent. Moisture was delivered little and often, producing a remarkably even rainfall regime.",
       ]}
+
       currentCopy={[
         "The rainfall regime is now noticeably less even.",
         "Dry days are now much more common, while heavy rainfall events occur regularly. Rain increasingly arrives in bursts rather than being spread across the year.",
       ]}
+
       sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
+
+      futureData={cabillaFutureRainfall}
+
+      futureIntroCopy="Climate projections suggest that Cabilla could remain a very wet woodland overall while the way rainfall is distributed through the year changes substantially."
+
+      futureSummaryCopy={[
+        "Annual rainfall could remain high, even as dry days become more frequent.",
+        "Longer dry spells and more very heavy rainfall events could make the rainfall regime increasingly episodic.",
+      ]}
+
+      futureSourceNote="Derived from UKCP18 Local projections on a 5 km grid, using the grid cell covering Cabilla. Values show the ensemble median and 10th–90th percentile range under RCP8.5."
     />
 
     <HeatStressCard
