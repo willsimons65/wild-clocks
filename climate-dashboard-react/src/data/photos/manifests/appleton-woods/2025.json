@@ -212,6 +212,20 @@
   "slot": 4,
   "shot": 1,
   "url": "/photos/appleton-woods/2025/september/4.png"
+},
+{
+  "id": "appleton-woods-2025-10-s1-p1",
+  "month": 10,
+  "slot": 1,
+  "shot": 1,
+  "url": "/photos/appleton-woods/2025/october/1.png"
+},
+{
+  "id": "appleton-woods-2025-10-s2-p1",
+  "month": 10,
+  "slot": 2,
+  "shot": 1,
+  "url": "/photos/appleton-woods/2025/october/2.png"
 }
 ]
 }

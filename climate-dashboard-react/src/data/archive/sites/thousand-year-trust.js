@@ -20,15 +20,47 @@ export const thousandYearTrustArchive = {
 
       downloadAll: null,
 
-      // DAILY DATA SHOULD STILL BE EMPTY
-      years: [],
+      // DAILY DATA
+      years: [
+          {
+            year: 2026,
+            files: [
+            {
+                month: 8,
+
+                startDate: "2026-08-28",
+                endDate: "2026-08-31",
+
+                sizeBytes: 649,
+
+                format: "csv",
+
+                objectKey:
+                "cabilla/daily/2026/cabilla-daily-2026-08.csv",
+            },
+            {
+                month: 9,
+
+                startDate: "2026-09-01",
+                endDate: "2026-09-30",
+
+                sizeBytes: 2875,
+
+                format: "csv",
+
+                objectKey:
+                "cabilla/daily/2026/cabilla-daily-2026-09.csv",
+            },
+            ],
+        },
+        ],
     },
 
     fullResolution: {
       title: "Full-resolution",
 
       intro:
-        "Original sensor observations at the station recording interval are available for research and educational use. Daily data will be sufficient for most uses; request access where greater temporal detail is required.",
+        "Original sensor observations at the station recording interval are available for research and educational use. Daily data will be sufficient for most uses; full-resolution downloads require approval. Select a file to continue.",
 
       access: "restricted",
       storage: "research",
@@ -41,30 +73,45 @@ export const thousandYearTrustArchive = {
         heading: "Request access",
       },
 
-      // DUMMY DATA GOES HERE
-      years: [
+      // DATA GOES HERE
+        years: [
         {
-          year: 2026,
-          files: [
+            year: 2026,
+            files: [
             {
-            id: "cabilla-private-archive-test",
-            month: 9,
+                month: 8,
 
-            startDate: "2026-09-01",
-            endDate: "2026-09-30",
+                startDate: "2026-08-28",
+                endDate: "2026-08-31",
 
-            sizeBytes: 4200000,
+                sizeBytes: 146850,
 
-            format: "csv",
+                format: "csv",
 
-            objectKey:
+                objectKey:
+                "cabilla/full-resolution/2026/august/cabilla-full-resolution-2026-08.csv",
+
+                placeholder: false,
+            },
+
+            {
+                month: 9,
+
+                startDate: "2026-09-01",
+                endDate: "2026-09-30",
+
+                sizeBytes: 1105086,
+
+                format: "csv",
+
+                objectKey:
                 "cabilla/full-resolution/2026/september/cabilla-full-resolution-2026-09.csv",
 
-            placeholder: false,
+                placeholder: false,
             },
-          ],
+            ],
         },
-      ],
+        ],
     },
   },
 };
