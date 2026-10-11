@@ -1,0 +1,39 @@
+{
+  "source": "Cabilla Ecowitt daily CSV",
+  "units": {
+    "temp": "C",
+    "humidity": "%",
+    "solarRadiation": "W/m2",
+    "rainfall": "mm"
+  },
+  "years": {
+    "2026": {
+      "9": {
+        "days": 30,
+        "outside": {
+          "meanTemp": 15.8,
+          "maxTemp": 28.1,
+          "minTemp": 4.7,
+          "humidity": 86.5,
+          "observations": 8619,
+          "solarRadiation": 59.7,
+          "maxSolarRadiation": 779.2
+        },
+        "underCanopy": {
+          "meanTemp": 15,
+          "maxTemp": 24.4,
+          "minTemp": 7.6,
+          "humidity": 91.5,
+          "observations": 7901
+        },
+        "rainfallMm": 107.4,
+        "coverage": {
+          "expectedObservations": 8640,
+          "outsideObservations": 8619,
+          "canopyObservations": 7901,
+          "partialDays": 0
+        }
+      }
+    }
+  }
+}

@@ -1,45 +1,69 @@
 export default function CabillaMicroclimateChart({
   data,
+  ecowittData,
   year,
   monthIndex,
   selectedMetric,
   onMetricChange,
+  location = "outside",
 }) {
-  const monthData = data?.years?.[String(year)]?.[String(monthIndex)];
+  const dataHogMonth =
+    data?.years?.[String(year)]?.[String(monthIndex)];
 
-if (!monthData) {
-  return null;
-}
+  const ecowittMonth =
+    ecowittData?.years?.[String(year)]?.[String(monthIndex)];
+
+  const useEcowitt = Boolean(ecowittMonth);
+
+  const monthData = useEcowitt
+    ? ecowittMonth?.[location]
+    : dataHogMonth;
+
+  if (!monthData) {
+    return null;
+  }
 
   function format(value, decimals = 1) {
     if (value == null) return "—";
     return Number(value).toFixed(decimals);
   }
 
-const cards = [
-  {
-    key: "temperature",
-    label: "Avg temp",
-    value: monthData.avgMeanTemp,
-    suffix: "°C",
-    helper: "Mean air temperature",
-  },
-  {
-    key: "humidity",
-    label: "Humidity",
-    value: monthData.avgHumidity,
-    suffix: "%",
-    helper: "Mean relative humidity",
-  },
-  {
-    key: "radiation",
-    label: "Light",
-    value: monthData.avgSolarRadiation,
-    suffix: " W/m²",
-    helper: "Avg solar radiation",
-    compact: true,
-  },
-];
+  const cards = [
+    {
+      key: "temperature",
+      label: "Avg temp",
+      value: useEcowitt
+        ? monthData.meanTemp
+        : monthData.avgMeanTemp,
+      suffix: "°C",
+      helper: "Mean air temperature",
+    },
+    {
+      key: "humidity",
+      label: "Humidity",
+      value: useEcowitt
+        ? monthData.humidity
+        : monthData.avgHumidity,
+      suffix: "%",
+      helper: "Mean relative humidity",
+    },
+    ...(
+      location === "outside"
+        ? [
+            {
+              key: "radiation",
+              label: "Light",
+              value: useEcowitt
+                ? monthData.solarRadiation
+                : monthData.avgSolarRadiation,
+              suffix: " W/m²",
+              helper: "Avg solar radiation",
+              compact: true,
+            },
+          ]
+        : []
+    ),
+  ];
 
 const METRIC_STYLES = {
   temperature: "#FE2E95",
@@ -49,7 +73,13 @@ const METRIC_STYLES = {
 
   return (
     <div className="pb-5">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        <div
+          className={`grid grid-cols-1 gap-2 ${
+            location === "underCanopy"
+              ? "sm:grid-cols-2"
+              : "sm:grid-cols-3"
+          }`}
+        >
         {cards.map((card) => (
             <button
             key={card.key}

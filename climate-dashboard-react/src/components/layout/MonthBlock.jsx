@@ -38,11 +38,16 @@ export default function MonthBlock({
   fullData,
   temperatureData,
   microclimateDailyData,
+  ecowittMonthlyData,
+  ecowittDailyData,
   rainfallDailyData,
   photos = [],
 }) {
   const navigate = useNavigate();
   const [microclimateMetric, setMicroclimateMetric] = useState("temperature");
+
+  const [microclimateLocation, setMicroclimateLocation] =
+  useState("outside");
 
   const heatwaveThreshold =
   HEATWAVE_THRESHOLDS[place] ?? null;
@@ -134,33 +139,37 @@ case "rainfall":
           />
         );
 
-      case "microclimate":
-        if (place !== "thousand-year-trust") {
+        case "microclimate":
+          if (place !== "thousand-year-trust") {
+            return (
+              <div className="px-4 pb-6 text-center text-sm text-white/45">
+                Microclimate data is not available for this site yet
+              </div>
+            );
+          }
+
           return (
-            <div className="px-4 pb-6 text-center text-sm text-white/45">
-              Microclimate data is not available for this site yet
+            <div className="space-y-0">
+              <CabillaMicroclimateChart
+                data={temperatureData}
+                ecowittData={ecowittMonthlyData}
+                monthIndex={monthIndex}
+                year={year}
+                selectedMetric={microclimateMetric}
+                onMetricChange={setMicroclimateMetric}
+                location={microclimateLocation}
+              />
+
+              <CabillaDailyMicroclimateChart
+                dailyData={microclimateDailyData}
+                ecowittData={ecowittDailyData}
+                year={year}
+                monthIndex={monthIndex}
+                metric={microclimateMetric}
+                location={microclimateLocation}
+              />
             </div>
           );
-        }
-
-        return (
-          <div className="space-y-0">
-            <CabillaMicroclimateChart
-              data={temperatureData}
-              monthIndex={monthIndex}
-              year={year}
-              selectedMetric={microclimateMetric}
-              onMetricChange={setMicroclimateMetric}
-            />
-
-            <CabillaDailyMicroclimateChart
-              dailyData={microclimateDailyData}
-              year={year}
-              monthIndex={monthIndex}
-              metric={microclimateMetric}
-            />
-          </div>
-        );
 
       default:
         return null;
@@ -189,10 +198,63 @@ case "rainfall":
 
       <ChartCard>
         <div className="relative overflow-visible">
-          <div className="px-4 pt-2 pb-5 flex items-center justify-center">
+          <div className="px-4 pt-2 pb-5 flex flex-col items-center justify-center">
             <h2 className="text-lg font-medium tracking-tight opacity-90">
               {month}
             </h2>
+
+            {metric === "microclimate" &&
+              place === "thousand-year-trust" &&
+              ecowittMonthlyData?.years?.[String(year)]?.[String(monthIndex)] && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const nextLocation =
+                      microclimateLocation === "outside"
+                        ? "underCanopy"
+                        : "outside";
+
+                    setMicroclimateLocation(nextLocation);
+
+                    if (
+                      nextLocation === "underCanopy" &&
+                      microclimateMetric === "radiation"
+                    ) {
+                      setMicroclimateMetric("temperature");
+                    }
+                  }}
+                  className="mt-2 inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-white/55 transition-colors hover:bg-white/5 hover:text-white/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
+                  aria-label={`Switch to ${
+                    microclimateLocation === "outside"
+                      ? "under canopy"
+                      : "outside"
+                  } measurements`}
+                >
+                  <span>
+                    {microclimateLocation === "outside"
+                      ? "Outside"
+                      : "Under canopy"}
+                  </span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 7h14l-3-3" />
+                    <path d="m21 7-3 3" />
+                    <path d="M17 17H3l3 3" />
+                    <path d="m3 17 3-3" />
+                  </svg>
+                </button>
+              )}
           </div>
 
           {renderChart()}

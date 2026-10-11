@@ -11,6 +11,8 @@ import TemWoodBanner from "@/images/assets/tem-wood-banner.webp";
 import cabillaMicroclimate from "@/data/cabilla/aggregates/cabilla-microclimate-monthly.json";
 import cabillaDailyData from "@/data/cabilla/aggregates/cabilla-microclimate-daily.json";
 import cabillaRainfallDaily from "@/data/cabilla/aggregates/cabilla-rainfall-daily.json";
+import cabillaEcowittMonthly from "@/data/cabilla/aggregates/cabilla-ecowitt-monthly.json";
+import cabillaEcowittDaily from "@/data/cabilla/aggregates/cabilla-ecowitt-daily.json";
 import { PHOTO_MANIFESTS } from "@/data/photos/manifests";
 import ClimateEnvelopeCard from "@/components/trends/ClimateEnvelopeCard";
 import { cabillaBaselineEnvelope } from "@/data/climate-envelope/cabilla/cabilla-baseline-envelope";
@@ -358,6 +360,8 @@ useEffect(() => {
           fullData={allDailyRows}
           temperatureData={cabillaMicroclimate}
           microclimateDailyData={cabillaDailyData}
+          ecowittMonthlyData={cabillaEcowittMonthly}
+          ecowittDailyData={cabillaEcowittDaily}
           rainfallDailyData={cabillaRainfallDaily}
           photos={monthPhotos}
         />
