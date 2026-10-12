@@ -167,6 +167,11 @@ case "rainfall":
                 monthIndex={monthIndex}
                 metric={microclimateMetric}
                 location={microclimateLocation}
+                heatwaveThreshold={
+                  microclimateLocation === "outside"
+                    ? heatwaveThreshold
+                    : null
+                }
               />
             </div>
           );

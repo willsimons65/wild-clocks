@@ -34,6 +34,7 @@ export default function CabillaDailyMicroclimateChart({
   monthIndex,
   metric,
   location = "outside",
+  heatwaveThreshold = null,
 }) {
   const series = useMemo(
     () =>
@@ -96,6 +97,51 @@ const toNumber = (value) =>
         isMissing: false,
       };
     });
+
+    const threshold =
+  metric === "temperature" &&
+  location === "outside" &&
+  heatwaveThreshold != null
+    ? Number(heatwaveThreshold)
+    : null;
+
+const hasHeatwave = (rows, threshold) => {
+  if (!Number.isFinite(threshold)) return false;
+
+  const sorted = [...rows]
+    .filter(
+      (d) =>
+        Number.isFinite(d.day) &&
+        Number.isFinite(d.maxTemp)
+    )
+    .sort((a, b) => a.day - b.day);
+
+  let streak = 0;
+  let previousDay = null;
+
+  for (const d of sorted) {
+    const isConsecutive =
+      previousDay !== null &&
+      d.day === previousDay + 1;
+
+    if (d.maxTemp >= threshold) {
+      streak = isConsecutive ? streak + 1 : 1;
+
+      if (streak >= 3) {
+        return true;
+      }
+    } else {
+      streak = 0;
+    }
+
+    previousDay = d.day;
+  }
+
+  return false;
+};
+
+const thresholdReached =
+  hasHeatwave(clean, threshold);
 
     const style = METRIC_STYLES[metric] || METRIC_STYLES.temperature;
     const color = style.color;
@@ -200,6 +246,18 @@ const toNumber = (value) =>
         metric === "radiation" ? `${v}` : `${v}${unit}`
     }
     />
+
+    {thresholdReached && (
+      <ChartLine
+        data={[
+          { day: 1, value: threshold },
+          { day: lastDay, value: threshold },
+        ]}
+        seriesColor="#f97316"
+        strokeWidth={1.25}
+        animate={false}
+      />
+    )}
 
     {metric === "temperature" && (
       <ChartLine
