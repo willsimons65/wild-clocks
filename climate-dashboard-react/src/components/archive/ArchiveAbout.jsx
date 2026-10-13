@@ -76,28 +76,6 @@ export default function ArchiveAbout() {
         {/* RIGHT COLUMN — Content */}
         <section className="md:col-span-2">
 
-            <div id="#" className="scroll-mt-24">
-            <h2 className="text-xl md:text-3xl font-light mb-7">
-              About this archive
-            </h2>
-
-            <div className="space-y-5 text-white/80 leading-relaxed">
-              <p>
-                The Cabilla archive is the start of what will eventually become a network of archives, with Cabilla as the first implementation. It has been designed to provide open access to daily environmental records, alongside controlled access to the original full-resolution sensor observations.
-              </p>
-
-              <p>
-                The archive will become fully operational once the new monitoring equipment has been installed at Cabilla. This is planned for the end of August, 2026, after which environmental data will begin to be added on a regular basis.
-              </p>
-
-              <p>
-                In the meantime, this section documents the monitoring approach, equipment, sensor locations, data structure and access arrangements that will underpin the archive.
-              </p>
-            </div>
-            </div>
-
-             <div className="my-12 border-t border-white/10" />
-
             <div id="measured" className="scroll-mt-24">
             <h2 className="text-xl md:text-3xl font-light mb-7">
               What is being measured

@@ -77,6 +77,12 @@ export default function FieldNotes() {
               >
                 Cabilla and the Thousand-Year Clock
               </a>
+              <a
+                href="#wood"
+                className="block hover:text-white transition-colors"
+              >
+                Wood, path, story
+              </a>
             </nav>
           </aside>
 
@@ -552,6 +558,110 @@ export default function FieldNotes() {
                   <p>
                   At first, they had seemed incidental—easy to pass by. Now they felt like markers in time: the earliest stages of something that, if allowed, will outlast us all. In the wood, I had seen what that might become. On the edge of the field, I had seen where it begins. The distance between the two is measured not in space, but in years, perhaps centuries.
                   </p>
+                </div>
+              </article>
+
+  <div className="my-16 border-t border-white/40" />
+
+                <article id="wood">
+                <h1 className="text-2xl md:text-3xl font-light mb-3">
+                  Wood, path, story
+                </h1>
+
+                <div className="space-y-5 text-white/80 leading-relaxed">
+                  <p>
+                    Britain's woodlands are entering a period of rapid climatic and ecological change, yet the evidence documenting these transitions remains fragmented across disconnected datasets, research projects, and institutions. As change unfolds, there is no consistent, place-based archive designed to bring these records together.
+                  </p>
+
+                  <p>
+                    Wild Clocks is building that record.
+                  </p>
+
+                  <p>
+                    Because woodlands do not simply experience the wider climate, each archive is centred on a specific woodland. A wood's canopy, soils, topography and hydrology shape its local microclimate. By recording these local conditions alongside regional climate data, we can observe not only what is changing <em>around</em> a woodland, but what is changing <em>within</em> it.
+                  </p>
+
+                  <p>
+                    The{" "}
+                    <InlineLink to="https://https://wildclocks.io/thousand-year-trust/archive">first archive</InlineLink> is being established at{" "}
+                    <InlineLink to="https://thousandyeartrust.org">Cabilla</InlineLink>, with others to follow as the network gradually expands across Britain's woodlands. Each archive will accumulate a continuous record of its woodland: climate and microclimate data, repeat photography and, over time, observations contributed by the people studying it. But an archive is more than a collection of records. Its value lies in the questions people ask of it, the connections they make and the things they discover. 
+                  </p>
+
+                  <p>
+                  One way to imagine this is as a woodland with paths
+                  running through it. It's an idea{" "}
+                  <a
+                    href="https://philip-pullman.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-white"
+                  >
+                    Philip Pullman
+                  </a>{" "}
+                  explores in his essay “The Path Through the Wood:
+                  How Stories Work”, collected in{" "}
+                  <a
+                    href="https://books.google.com/books?id=CAitDwAAQBAJ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-white"
+                  >
+                    <em>Daemon Voices</em>
+                  </a>. He separates his craft into two fundamental components: the wood and the path. The wood is the story world, or the ground from which the story emerges. It is necessarily larger than the story, for it contains all of the elements needed to create it: the characters, places, plot lines, backstories, and alternative endings. Nothing is fixed; it’s a near-infinite space of possibilities.
+                  </p>
+
+                  <p>
+                    The writer's job is to find a path through it. 
+                  </p>
+
+                  <p>
+                    The path is the storyline, a deliberate route through something much larger. As readers, we follow it and catch glimpses of what lies around — trees, fantastic creatures, distant landscapes — but the path itself never reveals the whole wood. It only gives us a way through it.
+                  </p>
+
+                  <p>
+                    You can think of it like this:
+                  </p>
+
+                  <figure className="my-10">
+                    <img
+                      src="/images/notes/wood-path-story-1.svg"
+                      alt="Diagram showing how a path through a larger imagined wood creates a story."
+                      className="w-full h-auto"
+                    />
+                  </figure>
+
+                  <p>
+                    The archive works in a similar way. 
+                  </p>
+
+                  <p>
+                    But there's an important additional step: Wild Clocks has to create the wood. We have to collect and preserve the observations from which it can grow. At the point of collection, we don't necessarily know which observations will prove significant, what questions will eventually be asked of them, or what stories they might reveal.
+                  </p>
+
+                  <p>
+                    This is where the metaphor begins to change. For Pullman, the wood is already there when his metaphor begins; it precedes the path through it. For Wild Clocks, the emphasis is different. Our first task is to grow and preserve the wood. Paths can begin to form immediately, but as the archive deepens over years and decades, the number of possible paths through it grows too. 
+                  </p>
+
+                  <p>
+                    Revising our diagram, this is what it looks like for the archive.
+                  </p>
+
+                  <figure className="my-10">
+                    <img
+                      src="/images/notes/wood-path-story-2.svg"
+                      alt="Diagram showing how a path through a larger imagined wood creates a story."
+                      className="w-full h-auto"
+                    />
+                  </figure>
+
+                  <p>
+                  The wood is the archive: large, complex and impossible to understand all at once. Each research question cuts a path through it. One student might ask how periods of extreme heat affect the timing of leaf fall; another whether changes in rainfall alter fungal fruiting. Answering those questions requires drawing on climate records, photographs and ecological observations collected by different people, for different purposes, at different times. The archive does not replace these individual observations and datasets. Instead, it provides a place where they can meet—allowing a single question to connect otherwise disparate sources of evidence.
+                  </p>
+
+                  <p>
+                    Over time, these paths will accumulate. Some will be followed once; others will become well-trodden routes. Some will cross, allowing observations made years apart, or by entirely different researchers, to intersect. We do not need to predict which observations will prove important. The responsibility of Wild Clocks is to keep enough of the wood intact so that someone, someday, can discover a path through it.
+                  </p>
+
                 </div>
               </article>
           </section>
