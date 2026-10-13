@@ -583,7 +583,7 @@ export default function FieldNotes() {
 
                   <p>
                     The{" "}
-                    <InlineLink to="https://https://wildclocks.io/thousand-year-trust/archive">first archive</InlineLink> is being established at{" "}
+                    <InlineLink to="https://wildclocks.io/thousand-year-trust/archive">first archive</InlineLink> is being established at{" "}
                     <InlineLink to="https://thousandyeartrust.org">Cabilla</InlineLink>, with others to follow as the network gradually expands across Britain's woodlands. Each archive will accumulate a continuous record of its woodland: climate and microclimate data, repeat photography and, over time, observations contributed by the people studying it. But an archive is more than a collection of records. Its value lies in the questions people ask of it, the connections they make and the things they discover. 
                   </p>
 
