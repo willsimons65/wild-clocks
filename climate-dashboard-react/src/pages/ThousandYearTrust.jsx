@@ -57,6 +57,16 @@ export default function ThousandYearTrust({
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
+  useEffect(() => {
+  if (view === "archive" && !location.hash) {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }
+}, [view, location.pathname, location.hash]);
+
   const cabillaPhotos = useMemo(() => {
   return PHOTO_MANIFESTS["cabilla"]?.[year] || [];
 }, [year]);

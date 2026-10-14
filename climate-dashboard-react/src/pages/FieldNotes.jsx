@@ -583,7 +583,7 @@ export default function FieldNotes() {
 
                   <p>
                     The{" "}
-                    <InlineLink to="https://wildclocks.io/thousand-year-trust/archive">first archive</InlineLink> is being established at{" "}
+                    <InlineLink to="/thousand-year-trust/archive">first archive</InlineLink> is being established at{" "}
                     <InlineLink to="https://thousandyeartrust.org">Cabilla</InlineLink>, with others to follow as the network gradually expands across Britain's woodlands. Each archive will accumulate a continuous record of its woodland: climate and microclimate data, repeat photography and, over time, observations contributed by the people studying it. But an archive is more than a collection of records. Its value lies in the questions people ask of it, the connections they make and the things they discover. 
                   </p>
 
@@ -639,7 +639,7 @@ export default function FieldNotes() {
                   </p>
 
                   <p>
-                    This is where the metaphor begins to change. For Pullman, the wood is already there when his metaphor begins; it precedes the path through it. For Wild Clocks, the emphasis is different. Our first task is to grow and preserve the wood. Paths can begin to form immediately, but as the archive deepens over years and decades, the number of possible paths through it grows too. 
+                    This is where the metaphor begins to change. For Pullman, the wood is already there when his story begins; it precedes the path through it. For Wild Clocks, the emphasis is different. Our first task is to grow and preserve the wood. Paths can begin to form immediately, but as the archive deepens over years and decades, the number of possible paths through it grows too. 
                   </p>
 
                   <p>
@@ -655,7 +655,7 @@ export default function FieldNotes() {
                   </figure>
 
                   <p>
-                  The wood is the archive: large, complex and impossible to understand all at once. Each research question cuts a path through it. One student might ask how periods of extreme heat affect the timing of leaf fall; another whether changes in rainfall alter fungal fruiting. Answering those questions requires drawing on climate records, photographs and ecological observations collected by different people, for different purposes, at different times. The archive does not replace these individual observations and datasets. Instead, it provides a place where they can meet—allowing a single question to connect otherwise disparate sources of evidence.
+                  So, the wood is the archive: large, complex and impossible to understand all at once. Each research question cuts a path through it. One student might ask how periods of extreme heat affect the timing of leaf fall; another whether changes in rainfall alter fungal fruiting. Answering those questions requires drawing on climate records, photographs and ecological observations collected by different people, for different purposes, at different times. The archive does not replace these individual observations and datasets. Instead, it provides a place where they can meet—allowing a single question to connect otherwise disparate sources of evidence.
                   </p>
 
                   <p>
