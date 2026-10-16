@@ -11,9 +11,11 @@ import EmptyChartState from "./base/EmptyChartState";
 import { CHART_HEIGHT } from "@/constants/chartLayout";
 import {
   getCabillaDailySeries,
+  getCabillaComparisonSeries,
   getCabillaMetricLabel,
   getCabillaMetricUnit,
 } from "@/data/cabilla/transformCabillaDailySeries";
+import CabillaComparisonHeader from "./CabillaComparisonHeader";
 
 const METRIC_STYLES = {
     temperature: {
@@ -34,8 +36,16 @@ export default function CabillaDailyMicroclimateChart({
   monthIndex,
   metric,
   location = "outside",
+  view = "outside",
+  comparisonFocus = "outside",
   heatwaveThreshold = null,
 }) {
+  const isCompare =
+    view === "compare" &&
+    Boolean(
+      ecowittData?.years?.[String(year)]?.[String(monthIndex)]
+    );
+
   const series = useMemo(
     () =>
       getCabillaDailySeries(
@@ -49,22 +59,41 @@ export default function CabillaDailyMicroclimateChart({
     [dailyData, ecowittData, year, monthIndex, metric, location]
   );
 
-  if (!series.length) {
-  return (
-    <div className="pt-0 pb-4 -mt-16">
-      <EmptyChartState message="No daily microclimate data yet" />
-    </div>
+  const comparisonSeries = useMemo(
+    () =>
+      isCompare
+        ? getCabillaComparisonSeries(
+            ecowittData,
+            year,
+            monthIndex
+          )
+        : [],
+    [isCompare, ecowittData, year, monthIndex]
   );
-}
+
+  if (
+    isCompare
+      ? !comparisonSeries.length
+      : !series.length
+  ) {
+    return (
+      <div className="pt-0 pb-4 -mt-16">
+        <EmptyChartState message="No daily microclimate data yet" />
+      </div>
+    );
+  }
 
     const label = getCabillaMetricLabel(metric);
     const unit = getCabillaMetricUnit(metric);
 
     const lastDay = new Date(year, monthIndex, 0).getDate();
 
-    const byDay = new Map(
-    series.map((d) => [Number(d.day), d])
-    );
+
+const byDay = new Map(
+  (isCompare ? comparisonSeries : series).map(
+    (d) => [Number(d.day), d]
+  )
+);
 
 const toNumber = (value) =>
   value == null || value === ""
@@ -73,30 +102,88 @@ const toNumber = (value) =>
       ? Number(value)
       : null;
 
-    const clean = Array.from({ length: lastDay }, (_, i) => {
-      const day = i + 1;
-      const d = byDay.get(day);
+const clean = Array.from({ length: lastDay }, (_, i) => {
+  const day = i + 1;
+  const d = byDay.get(day);
 
-      if (!d) {
-        return {
-          day,
-          value: null,
-          y: null,
-          maxTemp: null,
-          minTemp: null,
-          isMissing: true,
-        };
-      }
+  if (!d) {
+    return {
+      day,
+      value: null,
+      y: null,
+      maxTemp: null,
+      minTemp: null,
+      outsideMax: null,
+      outsideMin: null,
+      canopyMax: null,
+      canopyMin: null,
+      outsideHumidity: null,
+      canopyHumidity: null,
+      isMissing: true,
+    };
+  }
 
-      return {
-        day,
-        value: toNumber(d.value),
-        y: toNumber(d.value),
-        maxTemp: toNumber(d.maxTemp),
-        minTemp: toNumber(d.minTemp),
-        isMissing: false,
-      };
-    });
+  if (isCompare) {
+    const outsideMax = toNumber(d.outsideMax);
+    const outsideMin = toNumber(d.outsideMin);
+    const canopyMax = toNumber(d.canopyMax);
+    const canopyMin = toNumber(d.canopyMin);
+    const outsideHumidity = toNumber(d.outsideHumidity);
+    const canopyHumidity = toNumber(d.canopyHumidity);
+
+    const outsideTemperature =
+      outsideMax != null && outsideMin != null
+        ? (outsideMax + outsideMin) / 2
+        : null;
+
+    const canopyTemperature =
+      canopyMax != null && canopyMin != null
+        ? (canopyMax + canopyMin) / 2
+        : null;
+
+    const focusedValue =
+      metric === "temperature"
+        ? comparisonFocus === "outside"
+          ? outsideTemperature
+          : canopyTemperature
+        : comparisonFocus === "outside"
+          ? outsideHumidity
+          : canopyHumidity;
+
+    const otherValue =
+      metric === "temperature"
+        ? comparisonFocus === "outside"
+          ? canopyTemperature
+          : outsideTemperature
+        : comparisonFocus === "outside"
+          ? canopyHumidity
+          : outsideHumidity;
+
+    const hoverValue = focusedValue ?? otherValue;
+
+    return {
+      day,
+      value: hoverValue,
+      y: hoverValue,
+      outsideMax,
+      outsideMin,
+      canopyMax,
+      canopyMin,
+      outsideHumidity,
+      canopyHumidity,
+      isMissing: hoverValue === null,
+    };
+  }
+
+  return {
+    day,
+    value: toNumber(d.value),
+    y: toNumber(d.value),
+    maxTemp: toNumber(d.maxTemp),
+    minTemp: toNumber(d.minTemp),
+    isMissing: false,
+  };
+});
 
     const threshold =
   metric === "temperature" &&
@@ -146,12 +233,27 @@ const thresholdReached =
     const style = METRIC_STYLES[metric] || METRIC_STYLES.temperature;
     const color = style.color;
 
-    const values =
-      metric === "temperature"
-        ? clean.flatMap((d) => [d.maxTemp, d.minTemp])
-            .filter(Number.isFinite)
+
+    const values = isCompare
+      ? metric === "temperature"
+        ? clean.flatMap((d) => [
+            d.outsideMax,
+            d.outsideMin,
+            d.canopyMax,
+            d.canopyMin,
+          ]).filter(Number.isFinite)
+        : clean.flatMap((d) => [
+            d.outsideHumidity,
+            d.canopyHumidity,
+          ]).filter(Number.isFinite)
+      : metric === "temperature"
+        ? clean.flatMap((d) => [
+            d.maxTemp,
+            d.minTemp,
+          ]).filter(Number.isFinite)
         : clean.map((d) => d.value)
             .filter(Number.isFinite);
+
 
     if (!values.length) {
       return (
@@ -196,37 +298,48 @@ const thresholdReached =
         bottomPaddingOverride={56}
         rightPadding={48}
         leftPaddingOverride={36}
-        metricHeader={({ index }) => {
-          const d = clean[index];
 
-          const items =
-            metric === "temperature"
-              ? [
-                  {
-                    label: "Max temp",
-                    value: d.maxTemp,
-                    unit: "°C",
-                    className: "text-pink-400",
-                  },
-                  {
-                    label: "Min temp",
-                    value: d.minTemp,
-                    unit: "°C",
-                    className: "text-blue-300",
-                  },
-                ]
-              : [
-                  {
-                    label,
-                    value: d.value,
-                    unit,
-                    className: "",
-                    style: { color },
-                  },
-                ];
+      metricHeader={({ index }) => {
+        const d = clean[index];
+        if (isCompare) {
+          return (
+            <CabillaComparisonHeader
+              data={d}
+              metric={metric}
+              comparisonFocus={comparisonFocus}
+            />
+          );
+        }
 
-          return <ChartMetricHeader items={items} />;
-        }}
+        const items =
+          metric === "temperature"
+            ? [
+                {
+                  label: "Max temp",
+                  value: d.maxTemp,
+                  unit: "°C",
+                  className: "text-pink-400",
+                },
+                {
+                  label: "Min temp",
+                  value: d.minTemp,
+                  unit: "°C",
+                  className: "text-blue-300",
+                },
+              ]
+            : [
+                {
+                  label,
+                  value: d.value,
+                  unit,
+                  className: "",
+                  style: { color },
+                },
+              ];
+
+        return <ChartMetricHeader items={items} />;
+      }}
+
       TooltipComponent={({ index, x, y, position }) => {
         const d = clean[index];
 
@@ -259,40 +372,137 @@ const thresholdReached =
       />
     )}
 
-    {metric === "temperature" && (
-      <ChartLine
-        data={clean.map((d) => ({
-          day: d.day,
-          value: d.maxTemp,
-        }))}
-        seriesColor="#FF2E94"
-        strokeWidth={2}
-      />
-    )}
+        {/* Individual temperature views */}
+        {!isCompare && metric === "temperature" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.maxTemp,
+            }))}
+            seriesColor="#FF2E94"
+            strokeWidth={2}
+          />
+        )}
 
-    {metric === "temperature" && (
-      <ChartLine
-        data={clean.map((d) => ({
-          day: d.day,
-          value: d.minTemp,
-        }))}
-        seriesColor="#7bbaff"
-        strokeWidth={2}
-      />
-    )}
+        {!isCompare && metric === "temperature" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.minTemp,
+            }))}
+            seriesColor="#7bbaff"
+            strokeWidth={2}
+          />
+        )}
 
-    {metric !== "temperature" && (
-      <ChartLine
-        data={clean.map((d) => ({
-          day: d.day,
-          value: d.value,
-          y: d.y,
-        }))}
-        seriesColor={color}
-        strokeWidth={2}
-      />
-    )}
+        {/* Individual humidity and light views */}
+        {!isCompare && metric !== "temperature" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.value,
+              y: d.y,
+            }))}
+            seriesColor={color}
+            strokeWidth={2}
+          />
+        )}
 
+        {/* Compare — outside maximum */}
+        {isCompare && metric === "temperature" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.outsideMax,
+            }))}
+            seriesColor={
+              comparisonFocus === "outside"
+                ? "#FF2E94"
+                : "rgba(255,46,148,0.3)"
+            }
+            strokeWidth={2}
+          />
+        )}
+
+        {/* Compare — outside minimum */}
+        {isCompare && metric === "temperature" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.outsideMin,
+            }))}
+            seriesColor={
+              comparisonFocus === "outside"
+                ? "#7bbaff"
+                : "rgba(123,186,255,0.3)"
+            }
+            strokeWidth={2}
+          />
+        )}
+
+        {/* Compare — canopy maximum */}
+        {isCompare && metric === "temperature" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.canopyMax,
+            }))}
+            seriesColor={
+              comparisonFocus === "underCanopy"
+                ? "#FF2E94"
+                : "rgba(255,46,148,0.3)"
+            }
+            strokeWidth={2}
+          />
+        )}
+
+        {/* Compare — canopy minimum */}
+        {isCompare && metric === "temperature" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.canopyMin,
+            }))}
+            seriesColor={
+              comparisonFocus === "underCanopy"
+                ? "#7bbaff"
+                : "rgba(123,186,255,0.3)"
+            }
+            strokeWidth={2}
+          />
+        )}
+
+        {/* Compare — outside humidity */}
+        {isCompare && metric === "humidity" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.outsideHumidity,
+            }))}
+            seriesColor={
+              comparisonFocus === "outside"
+                ? "#6066FF"
+                : "rgba(96,102,255,0.3)"
+            }
+            strokeWidth={2}
+          />
+        )}
+
+        {/* Compare — canopy humidity */}
+        {isCompare && metric === "humidity" && (
+          <ChartLine
+            data={clean.map((d) => ({
+              day: d.day,
+              value: d.canopyHumidity,
+            }))}
+            seriesColor={
+              comparisonFocus === "underCanopy"
+                ? "#6066FF"
+                : "rgba(96,102,255,0.3)"
+            }
+            strokeWidth={2}
+          />
+        )}
         </ChartContainer>
   );
 }

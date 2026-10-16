@@ -49,6 +49,9 @@ export default function MonthBlock({
   const [microclimateLocation, setMicroclimateLocation] =
   useState("outside");
 
+  const [comparisonFocus, setComparisonFocus] =
+  useState("outside");
+
   const heatwaveThreshold =
   HEATWAVE_THRESHOLDS[place] ?? null;
 
@@ -157,7 +160,14 @@ case "rainfall":
                 year={year}
                 selectedMetric={microclimateMetric}
                 onMetricChange={setMicroclimateMetric}
-                location={microclimateLocation}
+                location={
+                  microclimateLocation === "compare"
+                    ? comparisonFocus
+                    : microclimateLocation
+                }
+                view={microclimateLocation}
+                comparisonFocus={comparisonFocus}
+                onComparisonFocusChange={setComparisonFocus}
               />
 
               <CabillaDailyMicroclimateChart
@@ -166,7 +176,13 @@ case "rainfall":
                 year={year}
                 monthIndex={monthIndex}
                 metric={microclimateMetric}
-                location={microclimateLocation}
+                location={
+                  microclimateLocation === "compare"
+                    ? comparisonFocus
+                    : microclimateLocation
+                }
+                view={microclimateLocation}
+                comparisonFocus={comparisonFocus}
                 heatwaveThreshold={
                   microclimateLocation === "outside"
                     ? heatwaveThreshold
@@ -208,58 +224,60 @@ case "rainfall":
               {month}
             </h2>
 
-            {metric === "microclimate" &&
-              place === "thousand-year-trust" &&
-              ecowittMonthlyData?.years?.[String(year)]?.[String(monthIndex)] && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    const nextLocation =
-                      microclimateLocation === "outside"
-                        ? "underCanopy"
-                        : "outside";
 
-                    setMicroclimateLocation(nextLocation);
+        {metric === "microclimate" &&
+          place === "thousand-year-trust" &&
+          ecowittMonthlyData?.years?.[String(year)]?.[String(monthIndex)] && (
+            <div
+              className="mt-2 inline-flex items-center rounded-full border border-white/20 bg-black/20 p-0.5"
+              role="group"
+              aria-label="Microclimate view"
+            >
+              {[
+                { value: "outside", label: "Outside" },
+                { value: "underCanopy", label: "Under canopy" },
+                { value: "compare", label: "Compare" },
+              ].map((option) => {
+                const isSelected =
+                  microclimateLocation === option.value;
 
-                    if (
-                      nextLocation === "underCanopy" &&
-                      microclimateMetric === "radiation"
-                    ) {
-                      setMicroclimateMetric("temperature");
-                    }
-                  }}
-                  className="mt-2 inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-white/55 transition-colors hover:bg-white/5 hover:text-white/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
-                  aria-label={`Switch to ${
-                    microclimateLocation === "outside"
-                      ? "under canopy"
-                      : "outside"
-                  } measurements`}
-                >
-                  <span>
-                    {microclimateLocation === "outside"
-                      ? "Outside"
-                      : "Under canopy"}
-                  </span>
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => {
+                      setMicroclimateLocation(option.value);
 
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
+                      if (
+                        option.value !== "outside" &&
+                        microclimateMetric === "radiation"
+                      ) {
+                        setMicroclimateMetric("temperature");
+                      }
+                    }}
+                    aria-pressed={isSelected}
+                    className={`
+                      rounded-full px-2.5 py-1
+                      text-[11px] leading-none
+                      transition-colors
+                      focus-visible:outline
+                      focus-visible:outline-2
+                      focus-visible:outline-offset-2
+                      focus-visible:outline-white/70
+                      ${
+                        isSelected
+                          ? "bg-white/15 text-white"
+                          : "text-white/45 hover:text-white/80"
+                      }
+                    `}
                   >
-                    <path d="M7 7h14l-3-3" />
-                    <path d="m21 7-3 3" />
-                    <path d="M17 17H3l3 3" />
-                    <path d="m3 17 3-3" />
-                  </svg>
-                </button>
-              )}
+                    {option.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
           </div>
 
           {renderChart()}

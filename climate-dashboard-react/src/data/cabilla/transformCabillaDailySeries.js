@@ -151,3 +151,104 @@ export function getCabillaMetricUnit(metric) {
       return "";
   }
 }
+
+
+/**
+ * Prepare paired outside and under-canopy observations
+ * for the Cabilla Compare view.
+ *
+ * Preserves missing observations as null.
+ * Each sensor retains its own measured values.
+ */
+export function getCabillaComparisonSeries(
+  ecowittData,
+  year,
+  month
+) {
+  const monthData =
+    ecowittData?.years?.[String(year)]?.[String(month)];
+
+  if (!monthData) return [];
+
+  const validNumber = (value) => {
+    if (value === null || value === undefined || value === "") {
+      return null;
+    }
+
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+  };
+
+  return Object.values(monthData)
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .map((record) => {
+      const outside = record.outside;
+      const canopy = record.underCanopy;
+
+      const outsideValid =
+        Number(outside?.observations) > 0;
+
+      const canopyValid =
+        Number(canopy?.observations) > 0;
+
+      const read = (sensor, valid, key) =>
+        valid ? validNumber(sensor?.[key]) : null;
+
+      const outsideMax = read(
+        outside, outsideValid, "maxTemp"
+      );
+
+      const outsideMin = read(
+        outside, outsideValid, "minTemp"
+      );
+
+      const canopyMax = read(
+        canopy, canopyValid, "maxTemp"
+      );
+
+      const canopyMin = read(
+        canopy, canopyValid, "minTemp"
+      );
+
+      const outsideHumidity = read(
+        outside, outsideValid, "humidity"
+      );
+
+      const canopyHumidity = read(
+        canopy, canopyValid, "humidity"
+      );
+
+      const pairedTemperature =
+        outsideMax !== null &&
+        outsideMin !== null &&
+        canopyMax !== null &&
+        canopyMin !== null;
+
+      const pairedHumidity =
+        outsideHumidity !== null &&
+        canopyHumidity !== null;
+
+      return {
+        date: record.date,
+        day: Number(record.date.slice(8, 10)),
+
+        outsideMax,
+        outsideMin,
+        canopyMax,
+        canopyMin,
+
+        outsideHumidity,
+        canopyHumidity,
+
+        outsideObservations:
+          validNumber(outside?.observations) ?? 0,
+
+        canopyObservations:
+          validNumber(canopy?.observations) ?? 0,
+
+        pairedTemperature,
+        pairedHumidity,
+      };
+    });
+}
+

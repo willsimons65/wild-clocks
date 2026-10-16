@@ -35,6 +35,18 @@ import { cabillaFutureHeatStress } from "@/data/heat-stress/cabilla/future-heat-
 
 import ArchiveView from "@/components/archive/ArchiveView";
 
+import { getCabillaComparisonSeries } from
+  "@/data/cabilla/transformCabillaDailySeries";
+
+console.log(
+  "September comparison:",
+  getCabillaComparisonSeries(
+    cabillaEcowittDaily,
+    2026,
+    9
+  )
+);
+
 export default function ThousandYearTrust({
   year,
   setYear,
