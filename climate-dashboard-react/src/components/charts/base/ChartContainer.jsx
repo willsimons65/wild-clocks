@@ -30,6 +30,7 @@ export default function ChartContainer({
   interactive = false,
   chartHeightOverride,
   bottomPaddingOverride,
+  fixedDateBubble = false,
 }) {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
@@ -262,10 +263,22 @@ setHoverX(xScale(xv));
   const topY = yPixels.length ? Math.min(...yPixels) : null;
   const bottomY = yPixels.length ? Math.max(...yPixels) : null;
 
-  const bubblePosition = computeBubblePosition(topY, chartHeight, PADDING_TOP);
+  const bubblePosition = fixedDateBubble
+  ? "above"
+  : computeBubblePosition(
+      topY,
+      chartHeight,
+      PADDING_TOP
+    );
 
   let finalBubbleY = null;
-  if (topY !== null && bottomY !== null) {
+
+  if (fixedDateBubble) {
+    if (hoverIndex !== null) {
+      finalBubbleY =
+        PADDING_TOP + chartHeight + 14;
+    }
+  } else if (topY !== null && bottomY !== null) {
     const OFFSET_ABOVE = 5;
     const OFFSET_BELOW = isRainfall ? 40 : 50;
 

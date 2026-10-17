@@ -294,6 +294,7 @@ const thresholdReached =
         yScale={yScale}
         yTicks={yTicks}
         interactive
+        fixedDateBubble
         chartHeightOverride={260}
         bottomPaddingOverride={56}
         rightPadding={48}
@@ -337,7 +338,12 @@ const thresholdReached =
                 },
               ];
 
-        return <ChartMetricHeader items={items} />;
+            return (
+              <ChartMetricHeader
+                items={items}
+                compact
+              />
+            );
       }}
 
       TooltipComponent={({ index, x, y, position }) => {
