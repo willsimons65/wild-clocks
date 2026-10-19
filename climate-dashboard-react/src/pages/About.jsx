@@ -34,6 +34,12 @@ export default function About() {
     >
       How does Wild Clocks work?
     </a>
+            <a
+      href="#archive"
+      className="block hover:text-white transition-colors"
+    >
+      What is the Wild Clocks archive?
+    </a>
         <a
       href="#where"
       className="block hover:text-white transition-colors"
@@ -72,17 +78,17 @@ export default function About() {
 
               <div className="space-y-5 text-white/80 leading-relaxed">
                 <p>
-                  Wild Clocks is a long-term woodland climate observation network that documents how Britain's woodlands respond to a changing climate.
+                  Wild Clocks is a long-term woodland observation network building an archive of how Britain's woodlands respond to climate change and ecological restoration.
                 </p>
 
-                <p>It brings together repeat photography, climate data and ecological observation to record how seasonal rhythms are changing over time.</p>
+                <p>Combining repeat photography, environmental monitoring and ecological observation, the project documents how individual woodlands change through the seasons and over decades.</p>
 
                 <p>
-                  The project began with two places: a garden in Oxfordshire and a nearby woodland. Since then, Wild Clocks has begun to expand into other landscapes, with the long-term ambition of establishing a network of woodland observatories across the UK.
+                  The project began with two places: a garden in Oxfordshire and a nearby woodland. Since then, Wild Clocks has begun expanding into other woodlands, with the ambition of establishing a network of observatories across Britain.
                 </p>
 
                 <p>
-                  Each observatory follows a consistent monitoring methodology, allowing changes in temperature, rainfall and seasonal timing to be documented and compared between locations.
+                  Each observatory follows a consistent methodology, allowing changes to be documented over time and compared between locations. Together, these records form a growing archive of woodland change, preserving evidence of landscapes as they respond to a changing climate and the decisions we make in response.
                 </p>
 
                 <p>
@@ -90,7 +96,7 @@ export default function About() {
                 </p>
 
                 <p>
-                As the climate warms, the familiar timing of flowering, leaf-out, canopy closure and decline becomes less certain. Wild Clocks exists to observe those changes carefully, building a shared record of what is happening—not only for science, but also for memory, attachment and care.
+                The intention is to create a record that remains useful long into the future, not only for science and conservation, but also for memory, attachment and care.
                 </p>
 
             </div>
@@ -105,15 +111,23 @@ export default function About() {
 
               <div className="space-y-5 text-white/80 leading-relaxed">
                 <p>
-                  Britain's woodlands are entering a period of rapid ecological change. Rising temperatures, shifting rainfall patterns and more frequent weather extremes are altering the seasonal rhythm of woodland life, affecting everything from the timing of budburst and flowering to the growth, health and regeneration of trees.
+                  Britain's woodlands are entering a period of significant ecological change. Rising temperatures, shifting rainfall patterns and more frequent weather extremes are affecting the seasonal rhythm of woodland life, from the timing of budburst and flowering to the growth, health and regeneration of trees.
                 </p>
 
                 <p>
-                  While national climate datasets describe these changes at broad scales, they rarely show how individual woodlands respond through time. Every woodland is different. Geology, topography, soils, management history and species composition all influence how a site experiences a changing climate.
+                  At the same time, woodland owners and conservation organisations are responding through restoration, natural regeneration, changes in management and the creation of new habitats.
                 </p>
 
                 <p>
-                  Wild Clocks exists to document those local responses. By observing the same places year after year, the project creates a long-term record of ecological change that becomes increasingly valuable with each passing season.
+                  Understanding these changes requires observation over many years.
+                </p>
+
+                <p>
+                  While national climate datasets describe broad environmental trends, they cannot fully explain how individual woodlands respond. Every woodland is different. Geology, topography, soils, species composition and management history all influence how a woodland experiences change.
+                </p>
+
+                <p>
+                  Wild Clocks documents these local responses, creating a long-term record of how woodlands change, whether through natural processes, climate pressures or deliberate restoration.
                 </p>
 
               </div>
@@ -128,21 +142,63 @@ export default function About() {
 
               <div className="space-y-5 text-white/80 leading-relaxed">
                 <p>
-                  Wild Clocks combines repeat photography with continuous environmental monitoring to build a detailed picture of how woodlands change through the seasons.
+                  Wild Clocks combines repeat photography, continuous environmental monitoring and ecological observations to build a detailed picture of woodland change.
                 </p>
 
                 <p>
-                  Each woodland observatory follows a consistent methodology. Fixed photographic viewpoints capture changes in vegetation and structure, while weather stations and woodland sensors record local environmental conditions such as temperature, rainfall, humidity and solar radiation. Together these observations create a continuous record that links changes in climate with changes in the woodland itself.
+                  Fixed photographic viewpoints capture changes in vegetation, canopy and woodland structure. Weather stations and under-canopy sensors record local environmental conditions, including temperature, rainfall, humidity and solar radiation.
                 </p>
 
                 <p>
-                  Rather than relying on occasional surveys, Wild Clocks documents change as an ongoing process, building a record that can be revisited year after year.
+                  These records are complemented by observations of seasonal events, ecological changes and, where relevant, restoration or management interventions.
+                </p>
+
+                <p>
+                  Each observatory follows a consistent methodology, making it possible to compare observations across different woodlands and over time.
+                </p>
+
+                <p>Rather than relying solely on occasional surveys, Wild Clocks builds a continuing record that connects environmental conditions with visible changes in the woodland itself.
                 </p>
 
               </div>
             </div>
 
-                <div className="my-12 border-t border-white/20" />
+            <div className="my-12 border-t border-white/20" />
+
+              <div id="archive" className="scroll-mt-24">
+              <h2 className="text-xl md:text-3xl font-light mb-7">
+                What is the Wild Clocks archive?
+              </h2>
+
+              <div className="space-y-5 text-white/80 leading-relaxed">
+                <p>
+                  The archive is the enduring record created by the network of woodland observatories.
+                </p>
+
+                <p>
+                  It brings together repeat photography, environmental measurements, ecological observations and records of significant events or interventions, preserving them as a continuous account of how individual woodlands change.
+                </p>
+
+                <p>
+                  Some of these changes may be gradual, unfolding over decades. Others may follow particular events, such as droughts, storms, woodland creation or the restoration of natural water systems.
+                </p>
+
+                <p>
+                  By recording these changes from their earliest stages, the archive creates opportunities to understand not only what happened, but how and when landscapes changed.
+                </p>
+
+                <p>
+                  Its value is intended to grow over time. Future researchers, conservationists and woodland managers may use these records to investigate questions that have not yet been asked.
+                </p>
+
+                <p>
+                  Wild Clocks aims to make this evidence accessible and useful, creating a lasting resource for understanding Britain's changing woodlands.
+                </p>
+
+              </div>
+            </div>
+
+            <div className="my-12 border-t border-white/20" />
 
               <div id="where" className="scroll-mt-24">
               <h2 className="text-xl md:text-3xl font-light mb-7">
@@ -151,15 +207,19 @@ export default function About() {
 
               <div className="space-y-5 text-white/80 leading-relaxed">
                 <p>
-                  Wild Clocks is developing a network of woodland observatories that represent a range of woodland types across Britain.
+                  Wild Clocks is developing a network of observatories representing different woodland types, environmental conditions and approaches to management across Britain.
                 </p>
 
                 <p>
-                  Current work includes broadleaved woodland in Oxfordshire and temperate rainforest in Cornwall, with additional sites under development including wood pasture and historic estate woodland. Together these locations provide contrasting environmental conditions and management histories, allowing the project to document how different woodlands respond to a changing climate.
+                  Current work includes broadleaved woodland in Oxfordshire and temperate rainforest in Cornwall, with further partnerships being explored in landscapes undergoing restoration, natural regeneration and long-term ecological change.
                 </p>
 
                 <p>
-                  The network will grow gradually, with new observatories added only where long-term monitoring can be maintained.
+                  Each location contributes a distinct perspective to the archive. Some document established woodlands responding to climate pressures, while others may follow restoration projects from their earliest stages.
+                </p>
+
+                <p>
+                  The network will grow gradually, with new observatories added where they can contribute meaningful evidence and where long-term observation can be maintained.
                 </p>
 
               </div>
@@ -178,11 +238,19 @@ export default function About() {
                 </p>
 
                 <p>
-                  Each observatory records repeat photography alongside local climate data, including temperature, rainfall, humidity and solar radiation. These measurements are used to develop indicators that describe changing seasonal conditions, such as heat stress, winter chill, rainfall patterns and climate envelopes.
+                  Depending on the site, records may include repeat photography, air temperature, rainfall, relative humidity, solar radiation and under-canopy microclimate measurements.
                 </p>
 
                 <p>
-                  By combining environmental measurements with visual evidence, Wild Clocks provides both the scientific context and the visible expression of climate change within individual woodlands.
+                  These observations support indicators describing seasonal and environmental conditions, including heat stress, winter chill, rainfall patterns and climate envelopes.
+                </p>
+
+                <p>
+                  Where woodlands are undergoing restoration, the archive may also incorporate existing ecological baselines, management records, restoration objectives and observations of progress towards intended outcomes.
+                </p>
+
+                <p>
+                  Together, these records provide environmental context and visual evidence that can be explored individually or compared across the wider network.
                 </p>
 
               </div>
@@ -201,11 +269,15 @@ export default function About() {
                 </p>
 
                 <p>
-                  The project works with woodland owners, conservation organisations, researchers and land managers who share an interest in understanding how Britain's woodlands are responding to climate change. Each partner contributes local knowledge and long-term stewardship, while Wild Clocks provides a consistent framework for observation and interpretation.
+                  The project works with woodland owners, conservation organisations, researchers and land managers who share an interest in understanding and documenting long-term woodland change.
                 </p>
 
                 <p>
-                  This collaborative approach enables each woodland observatory to become part of a wider network while retaining its own identity and management objectives.
+                  Partners contribute local knowledge, ecological expertise and stewardship of their landscapes, while Wild Clocks provides a consistent approach to observation, data collection and archiving.
+                </p>
+
+                <p>
+                  This collaborative model allows each observatory to contribute to a shared national record while retaining its own identity, ecological context and management objectives.
                 </p>
 
               </div>
@@ -220,15 +292,15 @@ export default function About() {
 
               <div className="space-y-5 text-white/80 leading-relaxed">
                 <p>
-                  Wild Clocks welcomes collaboration with organisations that share an interest in long-term woodland observation.
+                  Wild Clocks welcomes collaboration with organisations interested in long-term woodland observation and the development of a shared archive.
                 </p>
 
                 <p>
-                  Partnerships may involve establishing a new woodland observatory, contributing environmental expertise, supporting research, providing equipment or helping to communicate the project's findings. Every partnership is built around a shared commitment to long-term observation and a consistent monitoring methodology.
+                  Partnerships may involve establishing a new observatory, contributing existing ecological records, supporting research, providing monitoring equipment or helping make the archive accessible to wider audiences.
                 </p>
 
                 <p>
-                  The project is designed to grow steadily through collaboration rather than rapid expansion, ensuring that every observatory becomes a lasting part of the network.
+                  The project is designed to grow steadily through collaboration, with an emphasis on the continuity, quality and long-term value of the records it creates.
                 </p>
 
               </div>
