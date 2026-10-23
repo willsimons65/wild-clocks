@@ -50,7 +50,7 @@ export default function MonthSortControl({
           onClick={() => setOpen((v) => !v)}
           withChevron
           ariaLabel={`Sort by: ${selectedLabel}`}
-          className="min-w-[150px]"
+          className="min-w-[150px] !h-[32px]"
         >
           {selectedLabel}
         </NavPill>
