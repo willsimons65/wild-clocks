@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import MonthBlock from "@/components/layout/MonthBlock";
+import MonthSortControl from "@/components/ui/MonthSortControl";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 import SentinelBanner from "@/components/sentinel/SentinelBanner";
@@ -98,6 +99,14 @@ export default function ThousandYearTrust({
     ],
     []
   );
+
+  const [sortOrder, setSortOrder] = useState("newest");
+
+  const sortedMonths = useMemo(() => {
+    return sortOrder === "newest"
+      ? [...months].reverse()
+      : months;
+  }, [months, sortOrder]);
 
   useEffect(() => {
     async function load() {
@@ -219,19 +228,19 @@ useEffect(() => {
         ]}
         />
 
-                <div className="flex justify-center">
-<div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
-  <button
-    type="button"
-        onClick={() =>
-        navigate("/thousand-year-trust/feed", { replace: true })
-        }
-        className={`rounded-full px-8 py-1 transition-colors ${
-      view === "feed"
-        ? "bg-white/15 text-white"
-        : "text-white/55 hover:text-white/80"
-    }`}
-  >
+        <div className="relative flex flex-col md:flex-row md:items-center md:justify-center gap-4">
+        <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
+          <button
+            type="button"
+                onClick={() =>
+                navigate("/thousand-year-trust/feed", { replace: true })
+                }
+                className={`rounded-full px-8 py-1 transition-colors ${
+              view === "feed"
+                ? "bg-white/15 text-white"
+                : "text-white/55 hover:text-white/80"
+            }`}
+          >
     Daily feed
   </button>
 
@@ -263,7 +272,18 @@ useEffect(() => {
   Archive
 </button>
 
-    </div>
+
+</div>
+
+{view === "feed" && (
+  <div className="md:absolute md:right-0">
+    <MonthSortControl
+      sortOrder={sortOrder}
+      onSortChange={setSortOrder}
+    />
+  </div>
+)}
+
 </div>
 
 {view === "trends" ? (
@@ -365,10 +385,13 @@ useEffect(() => {
 ) : view === "archive" ? (
   <ArchiveView place="thousand-year-trust" />
 ) : (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-    {months.map((month, monthIndex) => {
+  <div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {sortedMonths.map((month) => {
+      const monthNumber = months.indexOf(month) + 1;
+
       const monthPhotos = cabillaPhotos.filter(
-        (p) => p.month === monthIndex + 1
+        (p) => p.month === monthNumber
       );
 
       return (
@@ -389,6 +412,7 @@ useEffect(() => {
         />
       );
     })}
+  </div>
   </div>
 )}
 

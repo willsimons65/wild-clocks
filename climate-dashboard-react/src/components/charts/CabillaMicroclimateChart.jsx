@@ -203,12 +203,12 @@ export default function CabillaMicroclimateChart({
                 <button
                   type="button"
                   onClick={flipFocus}
-                  title={`Focus on ${
+                  title={`Switch to ${
                     comparisonFocus === "outside"
                       ? "under-canopy"
                       : "outside"
                   } observations`}
-                  aria-label={`Focus on ${
+                  aria-label={`Switch to ${
                     comparisonFocus === "outside"
                       ? "under-canopy"
                       : "outside"

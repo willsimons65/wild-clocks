@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import SentinelBanner from "@/components/sentinel/SentinelBanner";
 import AppletonWoodsBanner from "@/images/assets/app-wood-banner.webp";
 import MonthBlock from "@/components/layout/MonthBlock";
+import MonthSortControl from "@/components/ui/MonthSortControl";
 import { loadWeatherSpreadsheet } from "@/utils/loadSpreadsheet";
 import { groupByMonth } from "@/utils/charts";
 import appletonWoodsClimate from "@/data/aggregates/appleton-woods.json";
@@ -52,6 +53,14 @@ export default function AppletonWoods({
     ],
     []
   );
+
+  const [sortOrder, setSortOrder] = useState("newest");
+
+  const sortedMonths = useMemo(() => {
+    return sortOrder === "newest"
+      ? [...months].reverse()
+      : months;
+  }, [months, sortOrder]);
 
   // Load ALL years once
   useEffect(() => {
@@ -131,9 +140,13 @@ if (loading) {
           ]}
         />
 
-        <div className="flex justify-center">
+        <div className="relative flex flex-col md:flex-row md:items-center md:justify-center gap-4">
+
+          {/* Centred navigation */}
           <div className="inline-flex rounded-full border border-white/15 bg-black/20 p-0.5 text-sm">
+
             <button
+              type="button"
               onClick={() => setViewMode("feed")}
               className={`rounded-full px-8 py-1 transition-colors ${
                 viewMode === "feed"
@@ -145,6 +158,7 @@ if (loading) {
             </button>
 
             <button
+              type="button"
               onClick={() => setViewMode("trends")}
               className={`rounded-full px-8 py-1 transition-colors ${
                 viewMode === "trends"
@@ -154,7 +168,19 @@ if (loading) {
             >
               Trends
             </button>
+
           </div>
+
+          {/* Sorting control aligned right */}
+          {viewMode === "feed" && (
+            <div className="md:absolute md:right-0">
+              <MonthSortControl
+                sortOrder={sortOrder}
+                onSortChange={setSortOrder}
+              />
+            </div>
+          )}
+
         </div>
 
 {viewMode === "trends" ? (
@@ -241,8 +267,9 @@ if (loading) {
   />
   </div>
 ) : (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-    {months.map((month) => (
+  <div className="space-y-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {sortedMonths.map((month) => (
       <MonthBlock
         key={month}
         month={month}
@@ -254,7 +281,8 @@ if (loading) {
         temperatureData={appletonWoodsClimate}
         rainfallDailyData={appletonRainfallDaily}
       />
-    ))}
+      ))}
+    </div>
   </div>
 )}
       </main>
