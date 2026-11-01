@@ -655,7 +655,7 @@ export default function FieldNotes() {
                   </figure>
 
                   <p>
-                  So, the wood is the archive: large, complex and impossible to understand all at once. Each research question cuts a path through it. One student might ask how periods of extreme heat affect the timing of leaf fall; another whether changes in rainfall alter fungal fruiting. Answering those questions requires drawing on climate records, photographs and ecological observations collected by different people, for different purposes, at different times. The archive does not replace these individual observations and datasets. Instead, it provides a place where they can meet—allowing a single question to connect otherwise disparate sources of evidence.
+                  For Wild Clocks, the wood is the archive: large, complex and impossible to understand all at once. Each research question cuts a path through it. One student might ask how periods of extreme heat affect the timing of leaf fall; another whether changes in rainfall alter fungal fruiting. Answering those questions requires drawing on climate records, photographs and ecological observations collected by different people, for different purposes, at different times. The archive does not replace these individual observations and datasets. Instead, it provides a place where they can meet—allowing a single question to connect otherwise disparate sources of evidence.
                   </p>
 
                   <p>

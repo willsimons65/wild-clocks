@@ -41,7 +41,7 @@ export default function MonthSortControl({
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm font-medium text-white/85">
+      <span className="text-sm font-medium text-white/80">
         Sort by:
       </span>
 

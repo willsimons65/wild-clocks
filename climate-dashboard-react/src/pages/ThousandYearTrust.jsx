@@ -16,10 +16,13 @@ import cabillaEcowittMonthly from "@/data/cabilla/aggregates/cabilla-ecowitt-mon
 import cabillaEcowittDaily from "@/data/cabilla/aggregates/cabilla-ecowitt-daily.json";
 import { PHOTO_MANIFESTS } from "@/data/photos/manifests";
 import ClimateEnvelopeCard from "@/components/trends/ClimateEnvelopeCard";
+import FutureRainfallCard from "@/components/trends/FutureRainfallCard";
+import FutureHeatStressCard from "@/components/trends/FutureHeatStressCard";
+import RainfallRegimeCard from "@/components/trends/RainfallRegimeCard";
 import { cabillaBaselineEnvelope } from "@/data/climate-envelope/cabilla/cabilla-baseline-envelope";
 import { cabillaCurrentEnvelope } from "@/data/climate-envelope/cabilla/cabilla-current-envelope";
+import TrendsTabs from "@/components/trends/TrendsTabs";
 
-import RainfallRegimeCard from "@/components/trends/RainfallRegimeCard";
 import { cabillaBaselineRainfallRegime } from "@/data/annual-rainfall/cabilla/baseline-regime";
 import { cabillaCurrentRainfallRegime } from "@/data/annual-rainfall/cabilla/current-regime";
 import { cabillaFutureRainfall } from "@/data/annual-rainfall/cabilla/future-rainfall";
@@ -69,6 +72,8 @@ export default function ThousandYearTrust({
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
+
+  const [trendsTab, setTrendsTab] = useState("observations");
 
   useEffect(() => {
   if (view === "archive" && !location.hash) {
@@ -286,9 +291,18 @@ useEffect(() => {
 
 </div>
 
+
 {view === "trends" ? (
-  <div className="space-y-8">
-    <ClimateEnvelopeCard
+  <div>
+    <TrendsTabs
+      activeTab={trendsTab}
+      onTabChange={setTrendsTab}
+    />
+
+    {trendsTab === "observations" && (
+      <div className="mt-8 space-y-8">
+        <ClimateEnvelopeCard
+
       placeName="Cabilla"
       baselineEnvelope={cabillaBaselineEnvelope}
       currentEnvelope={cabillaCurrentEnvelope}
@@ -326,16 +340,6 @@ useEffect(() => {
 
       sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
 
-      futureData={cabillaFutureRainfall}
-
-      futureIntroCopy="Climate projections suggest that Cabilla could remain a very wet woodland overall while the way rainfall is distributed through the year changes substantially."
-
-      futureSummaryCopy={[
-        "Annual rainfall could remain high, even as dry days become more frequent.",
-        "Longer dry spells and more very heavy rainfall events could make the rainfall regime increasingly episodic.",
-      ]}
-
-      futureSourceNote="Derived from UKCP18 Local projections on a 5 km grid, using the grid cell covering Cabilla. Values show the ensemble median and 10th–90th percentile range under RCP8.5."
     />
 
     <HeatStressCard
@@ -354,14 +358,6 @@ useEffect(() => {
             "Days above 25°C have become more frequent, while temperatures above 30°C—once almost absent—now occur periodically.",
         ]}
         sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
-
-        futureData={cabillaFutureHeatStress}
-        futureIntroCopy="Climate projections help us explore how environmental conditions at Cabilla could change under different warming scenarios. They describe plausible futures rather than predictions of individual years."
-        futureSummaryCopy={[
-            "Temperatures above 25°C could occur several times more often than they do today.",
-            "Short periods of intense heat may become a regular feature of summer, increasing water stress for trees and altering understorey conditions.",
-        ]}
-        futureSourceNote="Derived from UKCP18 Local projections on a 5 km grid, using the grid cell covering Cabilla. Values show the ensemble median and 10th–90th percentile range under RCP8.5."
     />
 
           <WinterColdCard
@@ -381,7 +377,27 @@ useEffect(() => {
           ]}
           sourceNote="Climate data are derived from the HadUK-Grid 1 km gridded dataset, using the grid cell covering Cabilla."
         />
+  
+      </div>
+    )}
+
+    {trendsTab === "projections" && (
+      <div className="mt-8 space-y-8">
+        <FutureRainfallCard
+          futureData={cabillaFutureRainfall}
+          futureIntroCopy="Climate projections suggest that Cabilla could remain a very wet woodland overall while the way rainfall is distributed through the year changes substantially."
+          futureSourceNote="Derived from UKCP18 Local projections on a 5 km grid, using the grid cell covering Cabilla. Values show the ensemble median and 10th–90th percentile range under RCP8.5."
+        />
+
+        <FutureHeatStressCard
+          futureData={cabillaFutureHeatStress}
+          futureIntroCopy="Climate projections help us explore how environmental conditions at Cabilla could change under different warming scenarios. They describe plausible futures rather than predictions of individual years."
+          futureSourceNote="Derived from UKCP18 Local projections on a 5 km grid, using the grid cell covering Cabilla. Values show the ensemble median and 10th–90th percentile range under RCP8.5."
+        />
+      </div>
+    )}
   </div>
+
 ) : view === "archive" ? (
   <ArchiveView place="thousand-year-trust" />
 ) : (
