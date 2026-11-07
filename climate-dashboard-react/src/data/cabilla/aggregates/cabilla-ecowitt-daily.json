@@ -789,6 +789,814 @@
             "isPartialDay": false
           }
         }
+      },
+      "10": {
+        "1": {
+          "date": "2026-10-01",
+          "outside": {
+            "meanTemp": 13.72,
+            "maxTemp": 23,
+            "minTemp": 8.2,
+            "humidity": 83.9,
+            "solarRadiation": 43.3,
+            "maxSolarRadiation": 654.9,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 13.38,
+            "maxTemp": 17.2,
+            "minTemp": 10.8,
+            "humidity": 87.8,
+            "observations": 286
+          },
+          "rainfallMm": 0.1,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.3,
+            "isPartialDay": false
+          }
+        },
+        "2": {
+          "date": "2026-10-02",
+          "outside": {
+            "meanTemp": 15.63,
+            "maxTemp": 23.3,
+            "minTemp": 10.9,
+            "humidity": 88.1,
+            "solarRadiation": 62.3,
+            "maxSolarRadiation": 667,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 14.89,
+            "maxTemp": 18,
+            "minTemp": 12.9,
+            "humidity": 93,
+            "observations": 287
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "3": {
+          "date": "2026-10-03",
+          "outside": {
+            "meanTemp": 15.29,
+            "maxTemp": 25.1,
+            "minTemp": 9.8,
+            "humidity": 90.9,
+            "solarRadiation": 39.8,
+            "maxSolarRadiation": 484.1,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 14.78,
+            "maxTemp": 17.7,
+            "minTemp": 12.2,
+            "humidity": 96.2,
+            "observations": 288
+          },
+          "rainfallMm": 0.4,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "4": {
+          "date": "2026-10-04",
+          "outside": {
+            "meanTemp": 13.47,
+            "maxTemp": 23.7,
+            "minTemp": 5.8,
+            "humidity": 87,
+            "solarRadiation": 69.1,
+            "maxSolarRadiation": 526.8,
+            "observations": 285
+          },
+          "underCanopy": {
+            "meanTemp": 13.44,
+            "maxTemp": 22.5,
+            "minTemp": 9.3,
+            "humidity": 92.1,
+            "observations": 288
+          },
+          "rainfallMm": 0.1,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "5": {
+          "date": "2026-10-05",
+          "outside": {
+            "meanTemp": 14.52,
+            "maxTemp": 24.1,
+            "minTemp": 8.6,
+            "humidity": 88.9,
+            "solarRadiation": 67.5,
+            "maxSolarRadiation": 597.1,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 13.78,
+            "maxTemp": 19.5,
+            "minTemp": 10.5,
+            "humidity": 94.2,
+            "observations": 288
+          },
+          "rainfallMm": 0.2,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "6": {
+          "date": "2026-10-06",
+          "outside": {
+            "meanTemp": 13.56,
+            "maxTemp": 20.9,
+            "minTemp": 6.9,
+            "humidity": 93.5,
+            "solarRadiation": 37.6,
+            "maxSolarRadiation": 403.1,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 13.03,
+            "maxTemp": 16.2,
+            "minTemp": 9.3,
+            "humidity": 97.8,
+            "observations": 287
+          },
+          "rainfallMm": 0.4,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "7": {
+          "date": "2026-10-07",
+          "outside": {
+            "meanTemp": 12.89,
+            "maxTemp": 19.2,
+            "minTemp": 7.9,
+            "humidity": 82.9,
+            "solarRadiation": 62.2,
+            "maxSolarRadiation": 635.4,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 12.51,
+            "maxTemp": 15.3,
+            "minTemp": 9.9,
+            "humidity": 88.4,
+            "observations": 288
+          },
+          "rainfallMm": 1,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "8": {
+          "date": "2026-10-08",
+          "outside": {
+            "meanTemp": 11.25,
+            "maxTemp": 19.2,
+            "minTemp": 5.4,
+            "humidity": 81.6,
+            "solarRadiation": 57.7,
+            "maxSolarRadiation": 568,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 11.25,
+            "maxTemp": 15,
+            "minTemp": 8.8,
+            "humidity": 84.1,
+            "observations": 288
+          },
+          "rainfallMm": 1.1,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "9": {
+          "date": "2026-10-09",
+          "outside": {
+            "meanTemp": 13.84,
+            "maxTemp": 16.1,
+            "minTemp": 10.4,
+            "humidity": 92.2,
+            "solarRadiation": 31.3,
+            "maxSolarRadiation": 579.6,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 13.49,
+            "maxTemp": 15.2,
+            "minTemp": 10.1,
+            "humidity": 95.6,
+            "observations": 288
+          },
+          "rainfallMm": 6.7,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "10": {
+          "date": "2026-10-10",
+          "outside": {
+            "meanTemp": 11.37,
+            "maxTemp": 17,
+            "minTemp": 7.3,
+            "humidity": 80.1,
+            "solarRadiation": 54.4,
+            "maxSolarRadiation": 622.3,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 11.05,
+            "maxTemp": 14.5,
+            "minTemp": 8.7,
+            "humidity": 85.1,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "11": {
+          "date": "2026-10-11",
+          "outside": {
+            "meanTemp": 11.02,
+            "maxTemp": 13.8,
+            "minTemp": 7,
+            "humidity": 96.2,
+            "solarRadiation": 21.2,
+            "maxSolarRadiation": 151.5,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 11,
+            "maxTemp": 13.6,
+            "minTemp": 7.8,
+            "humidity": 97,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "12": {
+          "date": "2026-10-12",
+          "outside": {
+            "meanTemp": 15.8,
+            "maxTemp": 19,
+            "minTemp": 13.8,
+            "humidity": 97.6,
+            "solarRadiation": 31.2,
+            "maxSolarRadiation": 197.6,
+            "observations": 285
+          },
+          "underCanopy": {
+            "meanTemp": 15.36,
+            "maxTemp": 16.8,
+            "minTemp": 13.6,
+            "humidity": 99,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "13": {
+          "date": "2026-10-13",
+          "outside": {
+            "meanTemp": 14.47,
+            "maxTemp": 19.2,
+            "minTemp": 8,
+            "humidity": 90.1,
+            "solarRadiation": 54.8,
+            "maxSolarRadiation": 588.6,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 14.22,
+            "maxTemp": 17,
+            "minTemp": 9.5,
+            "humidity": 93.5,
+            "observations": 288
+          },
+          "rainfallMm": 0.1,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "14": {
+          "date": "2026-10-14",
+          "outside": {
+            "meanTemp": 13.02,
+            "maxTemp": 17.9,
+            "minTemp": 6.9,
+            "humidity": 95.5,
+            "solarRadiation": 40.9,
+            "maxSolarRadiation": 487.6,
+            "observations": 285
+          },
+          "underCanopy": {
+            "meanTemp": 12.83,
+            "maxTemp": 15.9,
+            "minTemp": 8.6,
+            "humidity": 97.3,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "15": {
+          "date": "2026-10-15",
+          "outside": {
+            "meanTemp": 15.74,
+            "maxTemp": 20.8,
+            "minTemp": 12.6,
+            "humidity": 93,
+            "solarRadiation": 30.8,
+            "maxSolarRadiation": 510.4,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 15.25,
+            "maxTemp": 17.7,
+            "minTemp": 12.7,
+            "humidity": 95.8,
+            "observations": 287
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "16": {
+          "date": "2026-10-16",
+          "outside": {
+            "meanTemp": 10.74,
+            "maxTemp": 16.3,
+            "minTemp": 4.7,
+            "humidity": 83.9,
+            "solarRadiation": 51,
+            "maxSolarRadiation": 527.6,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 10.23,
+            "maxTemp": 13.7,
+            "minTemp": 6,
+            "humidity": 92.1,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "17": {
+          "date": "2026-10-17",
+          "outside": {
+            "meanTemp": 9.83,
+            "maxTemp": 17.8,
+            "minTemp": 5.2,
+            "humidity": 77.1,
+            "solarRadiation": 67.5,
+            "maxSolarRadiation": 450.2,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 9,
+            "maxTemp": 15.6,
+            "minTemp": 6.1,
+            "humidity": 87.3,
+            "observations": 287
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "18": {
+          "date": "2026-10-18",
+          "outside": {
+            "meanTemp": 8.31,
+            "maxTemp": 16.5,
+            "minTemp": 3,
+            "humidity": 76.2,
+            "solarRadiation": 54.8,
+            "maxSolarRadiation": 518.4,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 7.76,
+            "maxTemp": 14.6,
+            "minTemp": 4.2,
+            "humidity": 84.7,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "19": {
+          "date": "2026-10-19",
+          "outside": {
+            "meanTemp": 8.97,
+            "maxTemp": 15.5,
+            "minTemp": 4.6,
+            "humidity": 85.3,
+            "solarRadiation": 46.9,
+            "maxSolarRadiation": 523.9,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 8.48,
+            "maxTemp": 12.9,
+            "minTemp": 4.9,
+            "humidity": 90.9,
+            "observations": 287
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "20": {
+          "date": "2026-10-20",
+          "outside": {
+            "meanTemp": 10.79,
+            "maxTemp": 18.7,
+            "minTemp": 6,
+            "humidity": 81.2,
+            "solarRadiation": 48.8,
+            "maxSolarRadiation": 436.5,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 9.87,
+            "maxTemp": 14.3,
+            "minTemp": 6.4,
+            "humidity": 87.9,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "21": {
+          "date": "2026-10-21",
+          "outside": {
+            "meanTemp": 9.77,
+            "maxTemp": 14.3,
+            "minTemp": 7.6,
+            "humidity": 82.5,
+            "solarRadiation": 45.6,
+            "maxSolarRadiation": 500,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 9.16,
+            "maxTemp": 12.1,
+            "minTemp": 7.1,
+            "humidity": 88.4,
+            "observations": 287
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "22": {
+          "date": "2026-10-22",
+          "outside": {
+            "meanTemp": 11.54,
+            "maxTemp": 17,
+            "minTemp": 7.7,
+            "humidity": 86.6,
+            "solarRadiation": 28,
+            "maxSolarRadiation": 337.7,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 10.67,
+            "maxTemp": 13.2,
+            "minTemp": 7.9,
+            "humidity": 92.6,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "23": {
+          "date": "2026-10-23",
+          "outside": {
+            "meanTemp": 9.74,
+            "maxTemp": 12.5,
+            "minTemp": 7.9,
+            "humidity": 83.8,
+            "solarRadiation": 46.1,
+            "maxSolarRadiation": 489.9,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 9.22,
+            "maxTemp": 11,
+            "minTemp": 7.5,
+            "humidity": 88.9,
+            "observations": 288
+          },
+          "rainfallMm": 0.7,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "24": {
+          "date": "2026-10-24",
+          "outside": {
+            "meanTemp": 11.04,
+            "maxTemp": 15,
+            "minTemp": 8.8,
+            "humidity": 94.5,
+            "solarRadiation": 5.8,
+            "maxSolarRadiation": 39.3,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 10.86,
+            "maxTemp": 14.8,
+            "minTemp": 8.4,
+            "humidity": 96.5,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "25": {
+          "date": "2026-10-25",
+          "outside": {
+            "meanTemp": 10.17,
+            "maxTemp": 14,
+            "minTemp": 7.4,
+            "humidity": 73.3,
+            "solarRadiation": 49.9,
+            "maxSolarRadiation": 461.7,
+            "observations": 300
+          },
+          "underCanopy": {
+            "meanTemp": 9.66,
+            "maxTemp": 12.2,
+            "minTemp": 7.9,
+            "humidity": 78.7,
+            "observations": 300
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 300,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "26": {
+          "date": "2026-10-26",
+          "outside": {
+            "meanTemp": 13.13,
+            "maxTemp": 16.2,
+            "minTemp": 7.7,
+            "humidity": 96.4,
+            "solarRadiation": 13.2,
+            "maxSolarRadiation": 147.5,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 12.95,
+            "maxTemp": 15.4,
+            "minTemp": 8,
+            "humidity": 97.5,
+            "observations": 288
+          },
+          "rainfallMm": 0.8,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "27": {
+          "date": "2026-10-27",
+          "outside": {
+            "meanTemp": 10.74,
+            "maxTemp": 15.5,
+            "minTemp": 6.6,
+            "humidity": 84.7,
+            "solarRadiation": 47.4,
+            "maxSolarRadiation": 491.4,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 10.27,
+            "maxTemp": 14,
+            "minTemp": 7.3,
+            "humidity": 89.2,
+            "observations": 286
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 99.3,
+            "isPartialDay": false
+          }
+        },
+        "28": {
+          "date": "2026-10-28",
+          "outside": {
+            "meanTemp": 10.47,
+            "maxTemp": 18.2,
+            "minTemp": 6.9,
+            "humidity": 90,
+            "solarRadiation": 39.8,
+            "maxSolarRadiation": 424.1,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 10.28,
+            "maxTemp": 15.1,
+            "minTemp": 7.3,
+            "humidity": 93.1,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "29": {
+          "date": "2026-10-29",
+          "outside": {
+            "meanTemp": 10.45,
+            "maxTemp": 15,
+            "minTemp": 6.5,
+            "humidity": 90.6,
+            "solarRadiation": 35.3,
+            "maxSolarRadiation": 344.4,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 10.27,
+            "maxTemp": 13.6,
+            "minTemp": 7,
+            "humidity": 93.7,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "30": {
+          "date": "2026-10-30",
+          "outside": {
+            "meanTemp": 11.77,
+            "maxTemp": 17.3,
+            "minTemp": 9.1,
+            "humidity": 84.6,
+            "solarRadiation": 52.8,
+            "maxSolarRadiation": 357.7,
+            "observations": 281
+          },
+          "underCanopy": {
+            "meanTemp": 11.3,
+            "maxTemp": 15,
+            "minTemp": 9.1,
+            "humidity": 89.6,
+            "observations": 281
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 97.6,
+            "canopyPct": 97.6,
+            "isPartialDay": false
+          }
+        },
+        "31": {
+          "date": "2026-10-31",
+          "outside": {
+            "meanTemp": 10.3,
+            "maxTemp": 17.8,
+            "minTemp": 2.1,
+            "humidity": 89.4,
+            "solarRadiation": 46.9,
+            "maxSolarRadiation": 359.7,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 10.16,
+            "maxTemp": 15.2,
+            "minTemp": 3,
+            "humidity": 92.7,
+            "observations": 287
+          },
+          "rainfallMm": 0,
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        }
       }
     }
   }

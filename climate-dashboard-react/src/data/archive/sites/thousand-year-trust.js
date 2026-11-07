@@ -51,6 +51,19 @@ export const thousandYearTrustArchive = {
                 objectKey:
                 "cabilla/daily/2026/cabilla-daily-2026-09.csv",
             },
+            {
+                month: 10,
+
+                startDate: "2026-10-01",
+                endDate: "2026-10-31",
+
+                sizeBytes: 2931,
+
+                format: "csv",
+
+                objectKey:
+                "cabilla/daily/2026/cabilla-daily-2026-10.csv",
+            },
             ],
         },
         ],
@@ -106,6 +119,22 @@ export const thousandYearTrustArchive = {
 
                 objectKey:
                 "cabilla/full-resolution/2026/september/cabilla-full-resolution-2026-09.csv",
+
+                placeholder: false,
+            },
+
+            {
+                month: 10,
+
+                startDate: "2026-10-01",
+                endDate: "2026-10-31",
+
+                sizeBytes: 1113368,
+
+                format: "csv",
+
+                objectKey:
+                "cabilla/full-resolution/2026/september/cabilla-full-resolution-2026-10.csv",
 
                 placeholder: false,
             },

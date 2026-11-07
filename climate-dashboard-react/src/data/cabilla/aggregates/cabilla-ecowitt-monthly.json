@@ -33,6 +33,32 @@
           "canopyObservations": 7901,
           "partialDays": 0
         }
+      },
+      "10": {
+        "days": 31,
+        "outside": {
+          "meanTemp": 12,
+          "maxTemp": 25.1,
+          "minTemp": 2.1,
+          "humidity": 87.1,
+          "observations": 8900,
+          "solarRadiation": 44.6,
+          "maxSolarRadiation": 667
+        },
+        "underCanopy": {
+          "meanTemp": 11.6,
+          "maxTemp": 22.5,
+          "minTemp": 3,
+          "humidity": 91.6,
+          "observations": 8922
+        },
+        "rainfallMm": 11.6,
+        "coverage": {
+          "expectedObservations": 8940,
+          "outsideObservations": 8900,
+          "canopyObservations": 8922,
+          "partialDays": 0
+        }
       }
     }
   }
