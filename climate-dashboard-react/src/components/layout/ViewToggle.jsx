@@ -1,3 +1,5 @@
+// src/components/layout/ViewToggle.jsx
+
 import { useNavigate, useLocation } from "react-router-dom";
 import SegmentedControl from "@/components/ui/SegmentedControl";
 

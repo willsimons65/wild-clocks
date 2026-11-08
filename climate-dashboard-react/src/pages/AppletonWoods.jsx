@@ -154,7 +154,7 @@ if (loading) {
                   : "text-white/55 hover:text-white/80"
               }`}
             >
-              Feed
+              Observations
             </button>
 
             <button

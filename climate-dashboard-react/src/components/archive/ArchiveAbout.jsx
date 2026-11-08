@@ -231,6 +231,7 @@ export default function ArchiveAbout() {
                   <li>28 August 2026 — Wild Clocks environmental monitoring began.</li>
                   <li>29 August 2026 — Intermittent transmission from the woodland temperature and humidity sensor identified.</li>
                   <li>3 September 2026 — Woodland temperature and humidity sensor moved closer to the main weather station to improve signal reception. Sensor now transmitting normally.</li>
+                  <li>12 October 2026 — Rain-gauge fault identified. Rainfall data after this date may be incomplete; affected values are retained as recorded and have not been interpolated.</li>
                 </ul>
               </div>
               <p>

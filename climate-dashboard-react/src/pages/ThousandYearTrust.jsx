@@ -246,7 +246,7 @@ useEffect(() => {
                 : "text-white/55 hover:text-white/80"
             }`}
           >
-    Daily feed
+    Observations
   </button>
 
 <button
