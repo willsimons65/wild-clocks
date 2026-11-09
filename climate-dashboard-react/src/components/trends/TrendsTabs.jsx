@@ -10,7 +10,7 @@ export default function TrendsTabs({
     >
       <div className="flex gap-10">
         {[
-          { key: "observations", label: "Observations" },
+          { key: "observations", label: "Climate record" },
           { key: "projections", label: "Projections" },
         ].map(({ key, label }) => (
           <button
