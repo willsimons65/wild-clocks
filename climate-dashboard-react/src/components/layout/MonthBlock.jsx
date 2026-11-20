@@ -15,6 +15,8 @@ import CabillaMicroclimateChart from "@/components/charts/CabillaMicroclimateCha
 import CabillaDailyMicroclimateChart from "@/components/charts/CabillaDailyMicroclimateChart";
 import CabillaRainfallSummary from "@/components/charts/CabillaRainfallSummary";
 import CabillaRainfallChart from "@/components/charts/CabillaRainfallChart";
+import CanopyBufferingChart from "@/components/charts/CanopyBufferingChart";
+import CanopyBufferingSummary from "@/components/charts/CanopyBufferingSummary";
 
 import { MONTH_NAMES } from "@/constants/months";
 
@@ -34,6 +36,9 @@ export default function MonthBlock({
   year,
   place,
   metric,
+  section = "all",
+  bufferingMetric = "cooling",
+  onBufferingMetricChange,
   data,
   fullData,
   temperatureData,
@@ -142,6 +147,37 @@ case "rainfall":
           />
         );
 
+      case "canopy-buffering": {
+        if (place !== "thousand-year-trust") {
+          return null;
+        }
+
+        const dailyRecords =
+          ecowittDailyData?.years?.[String(year)]?.[
+            String(monthIndex)
+          ] ?? {};
+
+        const hasSoilMoisture = Object.values(
+          dailyRecords
+        ).some(
+          (record) =>
+            Number.isFinite(record?.soilMoisture?.mean)
+        );
+
+        if (!hasSoilMoisture) {
+          return null;
+        }
+
+        return (
+          <CanopyBufferingChart
+            dailyData={ecowittDailyData}
+            year={year}
+            monthIndex={monthIndex}
+            metric={bufferingMetric}
+          />
+        );
+      }
+
         case "microclimate":
           if (place !== "thousand-year-trust") {
             return (
@@ -199,23 +235,27 @@ case "rainfall":
 
   return (
     <div className="flex flex-col gap-2 relative overflow-visible">
-      <div className="rounded-2xl bg-[#1E1E1E] relative">
-        <PhotoGrid
-          photos={photos}
-          manifestOnly={place === "thousand-year-trust"}
-          month={monthIndex}
-          year={year}
-          place={place}
-          onPhotoClick={(i) => {
-            const photo = i + 1;
+      {section !== "charts" && (
+        <div className="rounded-2xl bg-[#1E1E1E] relative">
+          <PhotoGrid
+            photos={photos}
+            manifestOnly={place === "thousand-year-trust"}
+            month={monthIndex}
+            year={year}
+            place={place}
+            onPhotoClick={(i) => {
+              const photo = i + 1;
 
-            navigate(
-              `/viewer/${place}/${year}/${monthSlug}?mode=photos&photo=${photo}`,
-              { state: { from: "feed" } }
-            );
-          }}
-        />
-      </div>
+              navigate(
+                `/viewer/${place}/${year}/${monthSlug}?mode=photos&photo=${photo}`,
+                { state: { from: "feed" } }
+              );
+            }}
+          />
+        </div>
+      )}
+
+      {section !== "photos" && (
 
       <ChartCard>
         <div className="relative overflow-visible">
@@ -278,11 +318,27 @@ case "rainfall":
             </div>
           )}
 
-          </div>
+
+      </div>
+
+          {metric === "canopy-buffering" &&
+            place === "thousand-year-trust" && (
+              <div className="px-1 pb-5">
+                <CanopyBufferingSummary
+                  monthlyData={ecowittMonthlyData}
+                  year={year}
+                  monthIndex={monthIndex}
+                  selectedMetric={bufferingMetric}
+                  onMetricChange={onBufferingMetricChange}
+                />
+              </div>
+            )}
 
           {renderChart()}
         </div>
       </ChartCard>
+      )}
+
     </div>
   );
 }

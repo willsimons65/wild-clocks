@@ -67,6 +67,7 @@ const FULL_COLUMNS = [
   "wind_direction_10min_deg",
   "canopy_temp_c",
   "canopy_humidity_pct",
+  "soil_moisture_pct",
   "wind_sensor_v",
   "rainfall_sensor_v",
   "console_v",
@@ -87,6 +88,12 @@ const DAILY_COLUMNS = [
   "max_canopy_temp_c",
   "min_canopy_temp_c",
   "mean_canopy_humidity_pct",
+  "mean_daytime_humidity_pct",
+  "mean_daytime_canopy_humidity_pct",
+  "mean_soil_moisture_pct",
+  "daytime_humidity_observations",
+  "daytime_canopy_humidity_observations",
+  "soil_moisture_observations",
   "station_observations",
   "expected_observations",
   "station_coverage_pct",
@@ -400,6 +407,11 @@ function makeIndices(descriptors) {
       "Humidity(%)"
     ),
 
+    soilMoisture: idx(
+      "Soil CH1",
+      "Soil Moisture(%)"
+    ),
+
     windSensorV: idx(
       "Battery",
       "Wind Sensor(V)"
@@ -615,6 +627,11 @@ function readEcowittCsv(filePath) {
               row,
               indices.canopyHumidity
             ),
+
+          soil_moisture_pct: cell(
+            row,
+            indices.soilMoisture
+          ),
 
           wind_sensor_v: cell(
             row,
@@ -1343,6 +1360,33 @@ for (
         1
     );
 
+  // Consistent daytime window: 09:00–17:00
+  // Europe/London local time.
+  const isDaytime = (row) => {
+    const hour = localParts(row._utcMs).hour;
+    return hour >= 9 && hour < 17;
+  };
+
+  // Outside daytime humidity observations.
+  const daytimeStationRows = stationRows.filter(
+    (row) =>
+      isDaytime(row) &&
+      Number.isFinite(row.station_humidity_pct)
+  );
+
+  // Under-canopy daytime humidity observations.
+  const daytimeCanopyRows = canopyRows.filter(
+    (row) =>
+      isDaytime(row) &&
+      Number.isFinite(row.canopy_humidity_pct)
+  );
+
+  // Valid soil moisture observations.
+  const soilMoistureRows = rows.filter(
+    (row) =>
+      Number.isFinite(row.soil_moisture_pct)
+  );
+
   const expected =
     rows.length;
 
@@ -1492,6 +1536,46 @@ for (
         ),
         1
       ),
+
+    // Mean outside daytime humidity.
+    mean_daytime_humidity_pct: round(
+      mean(
+        daytimeStationRows.map(
+          (row) => row.station_humidity_pct
+        )
+      ),
+      1
+    ),
+
+    // Mean under-canopy daytime humidity.
+    mean_daytime_canopy_humidity_pct: round(
+      mean(
+        daytimeCanopyRows.map(
+          (row) => row.canopy_humidity_pct
+        )
+      ),
+      1
+    ),
+
+    // Mean daily soil moisture.
+    mean_soil_moisture_pct: round(
+      mean(
+        soilMoistureRows.map(
+          (row) => row.soil_moisture_pct
+        )
+      ),
+      1
+    ),
+
+    // Observation counts.
+    daytime_humidity_observations:
+      daytimeStationRows.length,
+
+    daytime_canopy_humidity_observations:
+      daytimeCanopyRows.length,
+
+    soil_moisture_observations:
+      soilMoistureRows.length,
 
     station_observations:
       stationRows.length,

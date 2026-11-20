@@ -4,6 +4,8 @@ import path from "node:path";
 
 const INPUT_DIR = "src/data/cabilla/ecowitt/daily";
 const OUTPUT_DIR = "src/data/cabilla/aggregates";
+const MIN_BUFFERING_COVERAGE = 0.8;
+const DAYTIME_EXPECTED_OBSERVATIONS = 96;
 
 const REQUIRED = [
   "date",
@@ -217,6 +219,20 @@ for (const file of files) {
       "canopy_observations"
     );
 
+    const soilMoisture = {
+      mean: numeric(row.mean_soil_moisture_pct),
+      observations: numeric(row.soil_moisture_observations) ?? 0,
+    };
+
+    const daytimeHumidity = {
+      outside: numeric(row.mean_daytime_humidity_pct),
+      underCanopy: numeric(row.mean_daytime_canopy_humidity_pct),
+      outsideObservations:
+        numeric(row.daytime_humidity_observations) ?? 0,
+      canopyObservations:
+        numeric(row.daytime_canopy_humidity_observations) ?? 0,
+    };
+
     const expected = numeric(
       row.expected_observations
     );
@@ -226,6 +242,44 @@ for (const file of files) {
         `${row.date}: invalid expected_observations`
       );
     }
+
+    const canopyCooling =
+      outside.maxTemp != null &&
+      underCanopy.maxTemp != null
+        ? round(outside.maxTemp - underCanopy.maxTemp)
+        : null;
+
+    const humidityDifference =
+      daytimeHumidity.outside != null &&
+      daytimeHumidity.underCanopy != null
+        ? round(
+            daytimeHumidity.underCanopy -
+            daytimeHumidity.outside
+          )
+        : null;
+
+    const soilCoverage =
+      expected > 0
+        ? soilMoisture.observations / expected
+        : 0;
+
+    const daytimeOutsideCoverage =
+      daytimeHumidity.outsideObservations /
+      DAYTIME_EXPECTED_OBSERVATIONS;
+
+    const daytimeCanopyCoverage =
+      daytimeHumidity.canopyObservations /
+      DAYTIME_EXPECTED_OBSERVATIONS;
+
+    const eligible =
+      soilMoisture.mean != null &&
+      canopyCooling != null &&
+      humidityDifference != null &&
+      soilCoverage >= MIN_BUFFERING_COVERAGE &&
+      daytimeOutsideCoverage >= MIN_BUFFERING_COVERAGE &&
+      daytimeCanopyCoverage >= MIN_BUFFERING_COVERAGE &&
+      outside.observations / expected >= MIN_BUFFERING_COVERAGE &&
+      underCanopy.observations / expected >= MIN_BUFFERING_COVERAGE;
 
     if (
       outside.observations == null ||
@@ -269,6 +323,19 @@ for (const file of files) {
       outside,
       underCanopy,
       rainfallMm: numeric(row.rainfall_mm),
+
+      soilMoisture: {
+        ...soilMoisture,
+        coveragePct: round(soilCoverage * 100),
+      },
+
+      buffering: {
+        canopyCooling,
+        humidityDifference,
+        eligible,
+        daytimeHumidity,
+      },
+
       coverage: {
         expectedObservations: expected,
         stationPct: numeric(
@@ -387,12 +454,54 @@ function summariseLocation(days, location) {
   return result;
 }
 
+function averageBuffering(days, property) {
+  const values = days
+    .filter((day) => day.buffering.eligible)
+    .map((day) => day.buffering[property])
+    .filter((value) => value != null);
+
+  if (!values.length) return null;
+
+  return round(
+    values.reduce((sum, value) => sum + value, 0) /
+      values.length
+  );
+}
+
 // Build monthly summaries.
 for (const [key, days] of monthGroups) {
   const [year, month] = key.split("-").map(Number);
 
   (monthly.years[year] ??= {})[month] = {
     days: days.length,
+
+    buffering: {
+      canopyCooling: averageBuffering(
+        days,
+        "canopyCooling"
+      ),
+      humidityDifference: averageBuffering(
+        days,
+        "humidityDifference"
+      ),
+      soilMoisture: (() => {
+        const validDays = days.filter(
+          (day) => day.buffering.eligible
+        );
+
+        return validDays.length
+          ? round(
+              validDays.reduce(
+                (sum, day) => sum + day.soilMoisture.mean,
+                0
+              ) / validDays.length
+            )
+          : null;
+      })(),
+      days: days.filter(
+        (day) => day.buffering.eligible
+      ).length,
+    },
 
     outside: summariseLocation(
       days, "outside"

@@ -76,7 +76,6 @@ export default function MetricSelector({
             key: "canopy-buffering",
             label: "Canopy buffering",
             icon: CanopyIcon,
-            comingSoon: true,
           },
         ],
       },

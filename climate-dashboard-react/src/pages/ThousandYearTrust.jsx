@@ -23,6 +23,7 @@ import { cabillaBaselineEnvelope } from "@/data/climate-envelope/cabilla/cabilla
 import { cabillaCurrentEnvelope } from "@/data/climate-envelope/cabilla/cabilla-current-envelope";
 import TrendsTabs from "@/components/trends/TrendsTabs";
 
+import CanopyBufferingIntro from "@/components/charts/CanopyBufferingIntro";
 import { cabillaBaselineRainfallRegime } from "@/data/annual-rainfall/cabilla/baseline-regime";
 import { cabillaCurrentRainfallRegime } from "@/data/annual-rainfall/cabilla/current-regime";
 import { cabillaFutureRainfall } from "@/data/annual-rainfall/cabilla/future-rainfall";
@@ -59,11 +60,10 @@ export default function ThousandYearTrust({
   metric,
   setMetric,
 }) {
-  useEffect(() => {
-    setPlace("thousand-year-trust");
-    setMetric("microclimate");
-  }, [setPlace, setMetric]);
-  const navigate = useNavigate();
+    useEffect(() => {
+      setPlace("thousand-year-trust");
+    }, [setPlace]);
+    const navigate = useNavigate();
     const { view: routeView } = useParams();
     const view = ["feed", "trends", "archive"].includes(routeView)
     ? routeView
@@ -106,6 +106,9 @@ export default function ThousandYearTrust({
   );
 
   const [sortOrder, setSortOrder] = useState("newest");
+
+  const [bufferingMetric, setBufferingMetric] =
+  useState("cooling");
 
   const sortedMonths = useMemo(() => {
     return sortOrder === "newest"
@@ -202,6 +205,37 @@ useEffect(() => {
     window.clearTimeout(retryTimeout);
   };
 }, [loading, view, location.hash]);
+
+
+const renderMonthBlock = (month, section = "all") => {
+  const monthNumber = months.indexOf(month) + 1;
+
+  const monthPhotos = cabillaPhotos.filter(
+    (p) => p.month === monthNumber
+  );
+
+  return (
+    <MonthBlock
+      key={`${month}-${section}`}
+      month={month}
+      year={year}
+      place="thousand-year-trust"
+      metric={metric}
+      section={section}
+      bufferingMetric={bufferingMetric}
+      onBufferingMetricChange={setBufferingMetric}
+      data={weather?.[month] || []}
+      fullData={allDailyRows}
+      temperatureData={cabillaMicroclimate}
+      microclimateDailyData={cabillaDailyData}
+      ecowittMonthlyData={cabillaEcowittMonthly}
+      ecowittDailyData={cabillaEcowittDaily}
+      rainfallDailyData={cabillaRainfallDaily}
+      photos={monthPhotos}
+    />
+  );
+};
+
 
   return (
     <div className="min-h-screen bg-[#1E1E1E] text-white">
@@ -402,33 +436,49 @@ useEffect(() => {
   <ArchiveView place="thousand-year-trust" />
 ) : (
   <div>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-    {sortedMonths.map((month) => {
-      const monthNumber = months.indexOf(month) + 1;
 
-      const monthPhotos = cabillaPhotos.filter(
-        (p) => p.month === monthNumber
-      );
+{metric === "canopy-buffering" ? (
+  <div className="space-y-10">
+    {Array.from(
+      {
+        length: Math.ceil(sortedMonths.length / 3),
+      },
+      (_, index) =>
+        sortedMonths.slice(index * 3, index * 3 + 3)
+    ).map((monthGroup, groupIndex) => (
+      <div
+        key={groupIndex}
+        className="space-y-6"
+      >
+        {/* Row of photographs */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {monthGroup.map((month) =>
+            renderMonthBlock(month, "photos")
+          )}
+        </div>
 
-      return (
-        <MonthBlock
-          key={month}
-          month={month}
-          year={year}
-          place="thousand-year-trust"
-          metric={metric}
-          data={weather?.[month] || []}
-          fullData={allDailyRows}
-          temperatureData={cabillaMicroclimate}
-          microclimateDailyData={cabillaDailyData}
-          ecowittMonthlyData={cabillaEcowittMonthly}
-          ecowittDailyData={cabillaEcowittDaily}
-          rainfallDailyData={cabillaRainfallDaily}
-          photos={monthPhotos}
-        />
-      );
-    })}
+        {/* Introduction appears only once */}
+        {groupIndex === 0 && (
+          <CanopyBufferingIntro />
+        )}
+
+        {/* Corresponding monthly charts */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 !mt-3">
+          {monthGroup.map((month) =>
+            renderMonthBlock(month, "charts")
+          )}
+        </div>
+      </div>
+    ))}
   </div>
+) : (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {sortedMonths.map((month) =>
+      renderMonthBlock(month)
+    )}
+  </div>
+)}
+
   </div>
 )}
 

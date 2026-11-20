@@ -5,6 +5,7 @@ export const metricAvailabilityByPlace = {
     humidity: false,
     photoperiod: false,
     microclimate: true,
+    "canopy-buffering": true,
   },
 
   "appleton-woods": {

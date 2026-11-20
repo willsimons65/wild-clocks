@@ -28,6 +28,22 @@
             "observations": 0
           },
           "rainfallMm": 0.2,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -54,6 +70,22 @@
             "observations": 0
           },
           "rainfallMm": 4.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -80,6 +112,22 @@
             "observations": 135
           },
           "rainfallMm": 4.8,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 7.3,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -106,6 +154,22 @@
             "observations": 288
           },
           "rainfallMm": 4.9,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.5,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -132,6 +196,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 6.7,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -158,6 +238,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.1,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -184,6 +280,22 @@
             "observations": 285
           },
           "rainfallMm": 6.5,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 6.7,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99,
@@ -210,6 +322,22 @@
             "observations": 288
           },
           "rainfallMm": 23.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.5,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -236,6 +364,22 @@
             "observations": 287
           },
           "rainfallMm": 0.4,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.1,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -262,6 +406,22 @@
             "observations": 288
           },
           "rainfallMm": 2.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.9,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -288,6 +448,22 @@
             "observations": 288
           },
           "rainfallMm": 0.3,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 6.4,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -314,6 +490,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 5.7,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -340,6 +532,22 @@
             "observations": 288
           },
           "rainfallMm": 0.9,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.9,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -366,6 +574,22 @@
             "observations": 288
           },
           "rainfallMm": 2.4,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.6,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -392,6 +616,22 @@
             "observations": 288
           },
           "rainfallMm": 1.5,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.7,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -418,6 +658,22 @@
             "observations": 288
           },
           "rainfallMm": 2.9,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.7,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -444,6 +700,22 @@
             "observations": 288
           },
           "rainfallMm": 4,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 6.3,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -470,6 +742,22 @@
             "observations": 287
           },
           "rainfallMm": 0.6,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.7,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -496,6 +784,22 @@
             "observations": 288
           },
           "rainfallMm": 7.6,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.1,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -522,6 +826,22 @@
             "observations": 288
           },
           "rainfallMm": 0.3,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": -0.3,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -548,6 +868,22 @@
             "observations": 288
           },
           "rainfallMm": 1.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.9,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -574,6 +910,22 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -600,6 +952,22 @@
             "observations": 288
           },
           "rainfallMm": 0.3,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.1,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 98.6,
@@ -626,6 +994,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.4,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -652,6 +1036,22 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 6,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99,
@@ -678,6 +1078,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 5,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -704,6 +1120,22 @@
             "observations": 287
           },
           "rainfallMm": 1.8,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -730,6 +1162,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.3,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 98.6,
@@ -756,6 +1204,22 @@
             "observations": 287
           },
           "rainfallMm": 26.8,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.4,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -782,6 +1246,22 @@
             "observations": 287
           },
           "rainfallMm": 10.8,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.8,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -810,6 +1290,22 @@
             "observations": 286
           },
           "rainfallMm": 0.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 5.8,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -836,6 +1332,22 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 5.3,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -862,6 +1374,22 @@
             "observations": 288
           },
           "rainfallMm": 0.4,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 7.4,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -888,6 +1416,22 @@
             "observations": 288
           },
           "rainfallMm": 0.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99,
@@ -914,6 +1458,22 @@
             "observations": 288
           },
           "rainfallMm": 0.2,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.6,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -940,6 +1500,22 @@
             "observations": 287
           },
           "rainfallMm": 0.4,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.7,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -966,6 +1542,22 @@
             "observations": 288
           },
           "rainfallMm": 1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.9,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -992,6 +1584,22 @@
             "observations": 288
           },
           "rainfallMm": 1.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1018,6 +1626,22 @@
             "observations": 288
           },
           "rainfallMm": 6.7,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 0.9,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -1044,6 +1668,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.5,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -1070,6 +1710,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 0.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -1096,6 +1752,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99,
@@ -1122,6 +1794,22 @@
             "observations": 288
           },
           "rainfallMm": 0.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -1148,6 +1836,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99,
@@ -1174,6 +1878,22 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.1,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -1200,6 +1920,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.6,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1226,6 +1962,22 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -1252,6 +2004,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.9,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1278,6 +2046,22 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.6,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -1304,6 +2088,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.4,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1330,6 +2130,22 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
@@ -1356,6 +2172,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.8,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1382,6 +2214,22 @@
             "observations": 288
           },
           "rainfallMm": 0.7,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.5,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1408,6 +2256,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 0.2,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1434,6 +2298,22 @@
             "observations": 300
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.8,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 300,
             "stationPct": 100,
@@ -1460,6 +2340,22 @@
             "observations": 288
           },
           "rainfallMm": 0.8,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 0.8,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1486,6 +2382,22 @@
             "observations": 286
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.5,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.3,
@@ -1512,6 +2424,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.1,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1538,6 +2466,22 @@
             "observations": 288
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 1.4,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 100,
@@ -1564,6 +2508,22 @@
             "observations": 281
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.3,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 97.6,
@@ -1590,10 +2550,1288 @@
             "observations": 287
           },
           "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 2.6,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
           "coverage": {
             "expectedObservations": 288,
             "stationPct": 99.7,
             "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        }
+      },
+      "11": {
+        "1": {
+          "date": "2026-11-01",
+          "outside": {
+            "meanTemp": 8.48,
+            "maxTemp": 15.8,
+            "minTemp": 1.2,
+            "humidity": 90.7,
+            "solarRadiation": 56.7,
+            "maxSolarRadiation": 349,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 7.84,
+            "maxTemp": 11.6,
+            "minTemp": 2.1,
+            "humidity": 96,
+            "observations": 288
+          },
+          "rainfallMm": 0.1,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 4.2,
+            "humidityDifference": 12.8,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": 79.1,
+              "underCanopy": 91.9,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "2": {
+          "date": "2026-11-02",
+          "outside": {
+            "meanTemp": 9.55,
+            "maxTemp": 14.7,
+            "minTemp": 5.6,
+            "humidity": 81.2,
+            "solarRadiation": 52.2,
+            "maxSolarRadiation": 355.4,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 8.81,
+            "maxTemp": 11.7,
+            "minTemp": 5.8,
+            "humidity": 88.3,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3,
+            "humidityDifference": 12.5,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": 66.6,
+              "underCanopy": 79.1,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "3": {
+          "date": "2026-11-03",
+          "outside": {
+            "meanTemp": 8.42,
+            "maxTemp": 15.1,
+            "minTemp": 5.3,
+            "humidity": 80.9,
+            "solarRadiation": 48.1,
+            "maxSolarRadiation": 339.4,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 7.64,
+            "maxTemp": 12,
+            "minTemp": 5.3,
+            "humidity": 88,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": 3.1,
+            "humidityDifference": 12.4,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": 68.8,
+              "underCanopy": 81.2,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "4": {
+          "date": "2026-11-04",
+          "outside": {
+            "meanTemp": 7.18,
+            "maxTemp": 7.8,
+            "minTemp": 6.4,
+            "humidity": 79.7,
+            "solarRadiation": 10,
+            "maxSolarRadiation": 50.9,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 6.96,
+            "maxTemp": 7.4,
+            "minTemp": 6.3,
+            "humidity": 85.2,
+            "observations": 287
+          },
+          "rainfallMm": 1.5,
+          "soilMoisture": {
+            "mean": 53.6,
+            "observations": 96,
+            "coveragePct": 33.3
+          },
+          "buffering": {
+            "canopyCooling": 0.4,
+            "humidityDifference": 7.1,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": 73,
+              "underCanopy": 80.1,
+              "outsideObservations": 95,
+              "canopyObservations": 95
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "5": {
+          "date": "2026-11-05",
+          "outside": {
+            "meanTemp": 7.15,
+            "maxTemp": 11.2,
+            "minTemp": 5,
+            "humidity": 87.6,
+            "solarRadiation": 18.1,
+            "maxSolarRadiation": 236.9,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 7.01,
+            "maxTemp": 9.8,
+            "minTemp": 5.4,
+            "humidity": 91.2,
+            "observations": 287
+          },
+          "rainfallMm": 0.1,
+          "soilMoisture": {
+            "mean": 55.8,
+            "observations": 287,
+            "coveragePct": 99.7
+          },
+          "buffering": {
+            "canopyCooling": 1.4,
+            "humidityDifference": 5.3,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 83.1,
+              "underCanopy": 88.4,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "6": {
+          "date": "2026-11-06",
+          "outside": {
+            "meanTemp": 7.53,
+            "maxTemp": 16.3,
+            "minTemp": 3.4,
+            "humidity": 87.8,
+            "solarRadiation": 30.2,
+            "maxSolarRadiation": 376.9,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 7.26,
+            "maxTemp": 13.3,
+            "minTemp": 4,
+            "humidity": 91.4,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": 56.2,
+            "observations": 288,
+            "coveragePct": 100
+          },
+          "buffering": {
+            "canopyCooling": 3,
+            "humidityDifference": 9.5,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 75.3,
+              "underCanopy": 84.8,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "7": {
+          "date": "2026-11-07",
+          "outside": {
+            "meanTemp": 7.22,
+            "maxTemp": 16,
+            "minTemp": 1.3,
+            "humidity": 91.5,
+            "solarRadiation": 25.3,
+            "maxSolarRadiation": 391.9,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 7.04,
+            "maxTemp": 13.2,
+            "minTemp": 2.1,
+            "humidity": 94.4,
+            "observations": 288
+          },
+          "rainfallMm": 0.1,
+          "soilMoisture": {
+            "mean": 55.8,
+            "observations": 288,
+            "coveragePct": 100
+          },
+          "buffering": {
+            "canopyCooling": 2.8,
+            "humidityDifference": 8.9,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 80,
+              "underCanopy": 88.9,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "8": {
+          "date": "2026-11-08",
+          "outside": {
+            "meanTemp": 6.43,
+            "maxTemp": 14.7,
+            "minTemp": -0.8,
+            "humidity": 89.5,
+            "solarRadiation": 37.2,
+            "maxSolarRadiation": 326.4,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 6.14,
+            "maxTemp": 13.1,
+            "minTemp": 0,
+            "humidity": 93.1,
+            "observations": 288
+          },
+          "rainfallMm": 0.1,
+          "soilMoisture": {
+            "mean": 54.1,
+            "observations": 288,
+            "coveragePct": 100
+          },
+          "buffering": {
+            "canopyCooling": 1.6,
+            "humidityDifference": 8.8,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 78.9,
+              "underCanopy": 87.7,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "9": {
+          "date": "2026-11-09",
+          "outside": {
+            "meanTemp": 9.36,
+            "maxTemp": 12.6,
+            "minTemp": 7.7,
+            "humidity": 87.8,
+            "solarRadiation": 21.8,
+            "maxSolarRadiation": 266.7,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 9.07,
+            "maxTemp": 11.4,
+            "minTemp": 7.6,
+            "humidity": 90.9,
+            "observations": 288
+          },
+          "rainfallMm": 0.2,
+          "soilMoisture": {
+            "mean": 53,
+            "observations": 288,
+            "coveragePct": 100
+          },
+          "buffering": {
+            "canopyCooling": 1.2,
+            "humidityDifference": 4.2,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 81.9,
+              "underCanopy": 86.1,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "10": {
+          "date": "2026-11-10",
+          "outside": {
+            "meanTemp": 9.55,
+            "maxTemp": 10.8,
+            "minTemp": 8.5,
+            "humidity": 94.6,
+            "solarRadiation": 17.6,
+            "maxSolarRadiation": 105.5,
+            "observations": 286
+          },
+          "underCanopy": {
+            "meanTemp": 9.29,
+            "maxTemp": 10.2,
+            "minTemp": 8.5,
+            "humidity": 98,
+            "observations": 287
+          },
+          "rainfallMm": 7.3,
+          "soilMoisture": {
+            "mean": 53.3,
+            "observations": 287,
+            "coveragePct": 99.7
+          },
+          "buffering": {
+            "canopyCooling": 0.6,
+            "humidityDifference": 4.5,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 93.8,
+              "underCanopy": 98.3,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.3,
+            "canopyPct": 99.7,
+            "isPartialDay": false
+          }
+        },
+        "11": {
+          "date": "2026-11-11",
+          "outside": {
+            "meanTemp": 8.63,
+            "maxTemp": 10.7,
+            "minTemp": 7.3,
+            "humidity": 97.9,
+            "solarRadiation": 14.8,
+            "maxSolarRadiation": 105.7,
+            "observations": 288
+          },
+          "underCanopy": {
+            "meanTemp": 8.49,
+            "maxTemp": 10.1,
+            "minTemp": 7.2,
+            "humidity": 99,
+            "observations": 288
+          },
+          "rainfallMm": 8,
+          "soilMoisture": {
+            "mean": 58.7,
+            "observations": 288,
+            "coveragePct": 100
+          },
+          "buffering": {
+            "canopyCooling": 0.6,
+            "humidityDifference": 2.1,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 96.9,
+              "underCanopy": 99,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 100,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "12": {
+          "date": "2026-11-12",
+          "outside": {
+            "meanTemp": 5.65,
+            "maxTemp": 10.6,
+            "minTemp": 0.4,
+            "humidity": 81.7,
+            "solarRadiation": 40,
+            "maxSolarRadiation": 334.7,
+            "observations": 283
+          },
+          "underCanopy": {
+            "meanTemp": 4.94,
+            "maxTemp": 9.3,
+            "minTemp": 1,
+            "humidity": 91,
+            "observations": 285
+          },
+          "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": 59.1,
+            "observations": 285,
+            "coveragePct": 99
+          },
+          "buffering": {
+            "canopyCooling": 1.3,
+            "humidityDifference": 14.3,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 71.2,
+              "underCanopy": 85.5,
+              "outsideObservations": 94,
+              "canopyObservations": 94
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 98.3,
+            "canopyPct": 99,
+            "isPartialDay": false
+          }
+        },
+        "13": {
+          "date": "2026-11-13",
+          "outside": {
+            "meanTemp": 3.23,
+            "maxTemp": 12.9,
+            "minTemp": -3.2,
+            "humidity": 76,
+            "solarRadiation": 45.8,
+            "maxSolarRadiation": 299.4,
+            "observations": 287
+          },
+          "underCanopy": {
+            "meanTemp": 2.79,
+            "maxTemp": 10.3,
+            "minTemp": -2.6,
+            "humidity": 82.4,
+            "observations": 288
+          },
+          "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": 57.8,
+            "observations": 287,
+            "coveragePct": 99.7
+          },
+          "buffering": {
+            "canopyCooling": 2.6,
+            "humidityDifference": 14.7,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 56,
+              "underCanopy": 70.7,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99.7,
+            "canopyPct": 100,
+            "isPartialDay": false
+          }
+        },
+        "14": {
+          "date": "2026-11-14",
+          "outside": {
+            "meanTemp": 6.91,
+            "maxTemp": 11.7,
+            "minTemp": 3.6,
+            "humidity": 78.2,
+            "solarRadiation": 30.4,
+            "maxSolarRadiation": 370,
+            "observations": 285
+          },
+          "underCanopy": {
+            "meanTemp": 6.71,
+            "maxTemp": 10.1,
+            "minTemp": 3.8,
+            "humidity": 81.7,
+            "observations": 286
+          },
+          "rainfallMm": 0,
+          "soilMoisture": {
+            "mean": 56.7,
+            "observations": 286,
+            "coveragePct": 99.3
+          },
+          "buffering": {
+            "canopyCooling": 1.6,
+            "humidityDifference": 5,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 71.5,
+              "underCanopy": 76.5,
+              "outsideObservations": 94,
+              "canopyObservations": 94
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 99,
+            "canopyPct": 99.3,
+            "isPartialDay": false
+          }
+        },
+        "15": {
+          "date": "2026-11-15",
+          "outside": {
+            "meanTemp": 9.43,
+            "maxTemp": 13.4,
+            "minTemp": 6.3,
+            "humidity": 94.2,
+            "solarRadiation": 25.4,
+            "maxSolarRadiation": 292.7,
+            "observations": 284
+          },
+          "underCanopy": {
+            "meanTemp": 9.02,
+            "maxTemp": 11.7,
+            "minTemp": 6.3,
+            "humidity": 97,
+            "observations": 286
+          },
+          "rainfallMm": 23.3,
+          "soilMoisture": {
+            "mean": 69.4,
+            "observations": 284,
+            "coveragePct": 98.6
+          },
+          "buffering": {
+            "canopyCooling": 1.7,
+            "humidityDifference": 4.6,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 91.8,
+              "underCanopy": 96.4,
+              "outsideObservations": 96,
+              "canopyObservations": 96
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 98.6,
+            "canopyPct": 99.3,
+            "isPartialDay": false
+          }
+        },
+        "16": {
+          "date": "2026-11-16",
+          "outside": {
+            "meanTemp": 8.13,
+            "maxTemp": 13.6,
+            "minTemp": 4.5,
+            "humidity": 96.4,
+            "solarRadiation": 16.4,
+            "maxSolarRadiation": 111.8,
+            "observations": 284
+          },
+          "underCanopy": {
+            "meanTemp": 7.94,
+            "maxTemp": 13.5,
+            "minTemp": 4.7,
+            "humidity": 98.7,
+            "observations": 285
+          },
+          "rainfallMm": 12,
+          "soilMoisture": {
+            "mean": 67.6,
+            "observations": 283,
+            "coveragePct": 98.3
+          },
+          "buffering": {
+            "canopyCooling": 0.1,
+            "humidityDifference": 5.3,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 92.8,
+              "underCanopy": 98.1,
+              "outsideObservations": 95,
+              "canopyObservations": 95
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 98.6,
+            "canopyPct": 99,
+            "isPartialDay": false
+          }
+        },
+        "17": {
+          "date": "2026-11-17",
+          "outside": {
+            "meanTemp": 10.79,
+            "maxTemp": 13.5,
+            "minTemp": 8.6,
+            "humidity": 92.1,
+            "solarRadiation": 15.3,
+            "maxSolarRadiation": 223,
+            "observations": 284
+          },
+          "underCanopy": {
+            "meanTemp": 10.56,
+            "maxTemp": 13.4,
+            "minTemp": 8.6,
+            "humidity": 94.6,
+            "observations": 285
+          },
+          "rainfallMm": 27,
+          "soilMoisture": {
+            "mean": 72.1,
+            "observations": 262,
+            "coveragePct": 91
+          },
+          "buffering": {
+            "canopyCooling": 0.1,
+            "humidityDifference": 3.8,
+            "eligible": true,
+            "daytimeHumidity": {
+              "outside": 89.2,
+              "underCanopy": 93,
+              "outsideObservations": 95,
+              "canopyObservations": 94
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 98.6,
+            "canopyPct": 99,
+            "isPartialDay": false
+          }
+        },
+        "18": {
+          "date": "2026-11-18",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "19": {
+          "date": "2026-11-19",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "20": {
+          "date": "2026-11-20",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "21": {
+          "date": "2026-11-21",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "22": {
+          "date": "2026-11-22",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "23": {
+          "date": "2026-11-23",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "24": {
+          "date": "2026-11-24",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "25": {
+          "date": "2026-11-25",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "26": {
+          "date": "2026-11-26",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "27": {
+          "date": "2026-11-27",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "28": {
+          "date": "2026-11-28",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "29": {
+          "date": "2026-11-29",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
+            "isPartialDay": false
+          }
+        },
+        "30": {
+          "date": "2026-11-30",
+          "outside": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "solarRadiation": null,
+            "maxSolarRadiation": null,
+            "observations": 0
+          },
+          "underCanopy": {
+            "meanTemp": null,
+            "maxTemp": null,
+            "minTemp": null,
+            "humidity": null,
+            "observations": 0
+          },
+          "rainfallMm": null,
+          "soilMoisture": {
+            "mean": null,
+            "observations": 0,
+            "coveragePct": 0
+          },
+          "buffering": {
+            "canopyCooling": null,
+            "humidityDifference": null,
+            "eligible": false,
+            "daytimeHumidity": {
+              "outside": null,
+              "underCanopy": null,
+              "outsideObservations": 0,
+              "canopyObservations": 0
+            }
+          },
+          "coverage": {
+            "expectedObservations": 288,
+            "stationPct": 0,
+            "canopyPct": 0,
             "isPartialDay": false
           }
         }

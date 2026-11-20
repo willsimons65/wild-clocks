@@ -10,6 +10,12 @@
     "2026": {
       "9": {
         "days": 30,
+        "buffering": {
+          "canopyCooling": null,
+          "humidityDifference": null,
+          "soilMoisture": null,
+          "days": 0
+        },
         "outside": {
           "meanTemp": 15.8,
           "maxTemp": 28.1,
@@ -36,6 +42,12 @@
       },
       "10": {
         "days": 31,
+        "buffering": {
+          "canopyCooling": null,
+          "humidityDifference": null,
+          "soilMoisture": null,
+          "days": 0
+        },
         "outside": {
           "meanTemp": 12,
           "maxTemp": 25.1,
@@ -57,6 +69,38 @@
           "expectedObservations": 8940,
           "outsideObservations": 8900,
           "canopyObservations": 8922,
+          "partialDays": 0
+        }
+      },
+      "11": {
+        "days": 30,
+        "buffering": {
+          "canopyCooling": 1.4,
+          "humidityDifference": 7,
+          "soilMoisture": 59.2,
+          "days": 13
+        },
+        "outside": {
+          "meanTemp": 7.9,
+          "maxTemp": 16.3,
+          "minTemp": -3.2,
+          "humidity": 87.5,
+          "observations": 4871,
+          "solarRadiation": 29.7,
+          "maxSolarRadiation": 391.9
+        },
+        "underCanopy": {
+          "meanTemp": 7.5,
+          "maxTemp": 13.5,
+          "minTemp": -2.6,
+          "humidity": 91.8,
+          "observations": 4880
+        },
+        "rainfallMm": null,
+        "coverage": {
+          "expectedObservations": 8640,
+          "outsideObservations": 4871,
+          "canopyObservations": 4880,
           "partialDays": 0
         }
       }
