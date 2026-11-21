@@ -11,7 +11,9 @@ export default function ChartLine({
   animate = true,
   visible = true,
   strokeWidth = 2,
-}) {
+  strokeDasharray,
+  strokeOpacity = 1,
+  }) {
   const pathRef = useRef(null);
 
   const safeData = useMemo(() => {
@@ -38,7 +40,7 @@ export default function ChartLine({
     if (!path || !pathD) return;
 
     path.style.transition = "none";
-    path.style.strokeDasharray = "none";
+    path.style.strokeDasharray = strokeDasharray ?? "none";
     path.style.strokeDashoffset = "0";
 
     if (!animate) return;
@@ -52,7 +54,7 @@ export default function ChartLine({
       path.style.transition = "stroke-dashoffset 1.5s ease-in-out";
       path.style.strokeDashoffset = "0";
     });
-  }, [pathD, animate]);
+  }, [pathD, animate, strokeDasharray]);
 
   if (!pathD) return null;
 
@@ -63,6 +65,8 @@ export default function ChartLine({
       fill="none"
       stroke={visible ? seriesColor : "transparent"}
       strokeWidth={strokeWidth}
+      strokeDasharray={strokeDasharray}
+      strokeOpacity={strokeOpacity}
       strokeLinejoin="round"
       strokeLinecap="round"
       pointerEvents="none"

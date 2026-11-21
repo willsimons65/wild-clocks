@@ -373,7 +373,9 @@ const thresholdReached =
           { day: lastDay, value: threshold },
         ]}
         seriesColor="#f97316"
-        strokeWidth={1.25}
+        strokeDasharray="2 4"
+        strokeLinecap="round"
+        strokeOpacity={0.5}
         animate={false}
       />
     )}
