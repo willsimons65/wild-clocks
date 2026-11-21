@@ -55,8 +55,7 @@ export default function CanopyBufferingIntro() {
         />
 
         <span>
-          Explore how the woodland microclimate varies
-          as soil moisture changes.
+          How does a woodland canopy affect the temperature and humidity beneath it?
         </span>
       </button>
 
@@ -69,23 +68,17 @@ export default function CanopyBufferingIntro() {
             text-white/75
           "
         >
+
+            <p>
+            Woodlands can create their own microclimate. The canopy provides shade, reduces exposure to wind and can help retain moisture, creating conditions that differ from the open environment around them. These charts compare temperatures and humidity measured outside and beneath the canopy at Cabilla, alongside changes in soil moisture.
+          </p>
+
           <p className="font-medium text-white/90">
             What are we measuring?
           </p>
 
           <p>
-            These charts compare daily temperature or
-            humidity differences between outside and
-            beneath the canopy with changes in soil
-            moisture. Follow the lines through the month to explore
-            how the measurements vary together.
-          </p>
-
-          <p className="text-white/50">
-            Monthly averages use days with sufficient
-            observations. The charts may also show
-            individual days that are excluded from
-            those averages.
+            We want to understand how these differences change through the seasons, particularly during periods when the soil becomes wetter or drier. Over time, these observations may help us understand how effectively the woodland moderates its own microclimate as conditions change.
           </p>
         </div>
       )}
