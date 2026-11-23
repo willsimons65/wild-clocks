@@ -48,7 +48,7 @@ export default function CanopyBufferingIntro() {
           size={20}
           aria-hidden="true"
           className={`
-            shrink-0 text-emerald-400
+            shrink-0 text-white-400
             transition-transform duration-200
             ${expanded ? "rotate-180" : ""}
           `}
