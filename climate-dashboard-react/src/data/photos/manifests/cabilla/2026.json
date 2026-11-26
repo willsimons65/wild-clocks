@@ -207,5 +207,13 @@
     "month": 11,
     "slot": 3,
     "url": "/cabilla/2026/11-november/slot-3.webp"
+  },
+  {
+    "id": "cabilla-2026-11-slot-4",
+    "place": "cabilla",
+    "year": 2026,
+    "month": 11,
+    "slot": 4,
+    "url": "/cabilla/2026/11-november/slot-4.webp"
   }
 ]
